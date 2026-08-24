@@ -1,6 +1,6 @@
 # NASS-MASTER-NI-LIB
 Nass Magnet NI library
-<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/5173b606-dcfa-4bf9-bc9a-88cc8bd8a365" />
+
 
 # IO-Link IODD Olvasó és Nass Magnet Master LabVIEW Eszköztár
 
@@ -33,3 +33,4 @@ A tárhely nem tartalmaz kész főprogramot (Main VI). Egy olyan **függvénykö
 
 ## Hozzájárulás
 Ha hibát találsz, vagy új funkcióval bővítenéd a meglévő alprogramokat, kérjük, nyiss egy **Issue**-t vagy küldj egy **Pull Request**-et!
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/5173b606-dcfa-4bf9-bc9a-88cc8bd8a365" />
