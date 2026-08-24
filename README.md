@@ -1,5 +1,7 @@
 # NASS-MASTER-NI-LIB
 Nass Magnet NI library
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/5173b606-dcfa-4bf9-bc9a-88cc8bd8a365" />
+
 # IO-Link IODD Olvasó és Nass Magnet Master LabVIEW Eszköztár
 
 Ez a tárhely egy LabVIEW-alapú fejlesztői szoftvercsomagot tartalmaz, amely lehetővé teszi az IO-Link eszközök IODD (IO Device Description) fájljainak beolvasását, valamint a **Nass Magnet Master** modulok integrációját.
