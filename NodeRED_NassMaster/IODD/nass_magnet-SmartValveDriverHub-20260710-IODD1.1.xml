@@ -1,0 +1,1587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IODevice
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD1.1.xsd">
+
+	<DocumentInfo releaseDate="2026-07-10" copyright="Copyright 2026, nass magnet Hungária Kft" version="V0.51" />
+	<ProfileHeader>
+		<ProfileIdentification>IO Device Profile</ProfileIdentification>
+		<ProfileRevision>1.1</ProfileRevision>
+		<ProfileName>Device Profile for IO Devices</ProfileName>
+		<ProfileSource>IO-Link Consortium</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>1</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>IODD</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity vendorId="1354" vendorName="nass_magnet" deviceId="5">
+			<VendorText textId="TI_VendorText" />
+			<VendorUrl textId="TI_VendorUrl" />
+			<VendorLogo name="nass_magnet-logo.png" />
+			<DeviceName textId="TI_DeviceName" />
+			<DeviceFamily textId="TI_DeviceFamily" />
+			<DeviceVariantCollection>
+				<DeviceVariant productId="202-725-0002">
+					<Name textId="TI_DeviceVariantName1" />
+					<Description textId="TI_DeviceVariantText1" />
+				</DeviceVariant>
+			</DeviceVariantCollection>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Features blockParameter="true" dataStorage="true" profileCharacteristic="49 16384 33025" />
+			<DatatypeCollection>
+			
+				<Datatype id="D_PI_Data" xsi:type="RecordT" bitLength="64" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="48">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" />
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="T_EF10DE6D-C0CE-4ACE-806C-514537E96382" />
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="49">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="100" upperValue="1000" />
+						</SimpleDatatype>
+						<Name textId="T_96E5143F-12DC-4D13-B0DF-0D8F0A6285DB" />
+						<Description textId="T_1F7AFD99-D359-4963-A5FD-65B458A1FFCD" />
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="32">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" />
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="T_8F16ED97-AC7D-462B-AA49-1D831D679288" />
+					</RecordItem>
+					<RecordItem subindex="4" bitOffset="33">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="100" upperValue="1000" />
+						</SimpleDatatype>
+						<Name textId="T_E8DD984C-9897-4844-8A73-C63A220130B4" />
+						<Description textId="T_000B0484-874D-4CE8-ACE9-F698ECA353C7" />
+					</RecordItem>
+					<RecordItem subindex="5" bitOffset="16">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" />
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="T_CC432CA9-A778-4C20-A189-CA17CFE979F3" />
+					</RecordItem>
+
+					<RecordItem subindex="6" bitOffset="17">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="100" upperValue="1000" />
+						</SimpleDatatype>
+						<Name textId="T_37923C6E-CF52-4CAE-9F70-9398CFB50912" />
+						<Description textId="T_0C0B037F-D3DB-463B-B721-A3F2A6503B55" />
+					</RecordItem>
+					<RecordItem subindex="7" bitOffset="0">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" />
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="T_CA19F1B0-E5F2-4960-88EC-0A31BA88686F" />
+					</RecordItem>
+					<RecordItem subindex="8" bitOffset="1">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="100" upperValue="1000" />
+						</SimpleDatatype>
+						<Name textId="T_8C7C876D-34E4-427B-BFA9-1199232F5DEF" />
+						<Description textId="T_809F2C03-763C-4098-9105-C5C5C6B617FC" />
+					</RecordItem>
+				</Datatype>
+				<!-- Process Data Output datatype (id starts with D_ per CP snippet rule) -->
+				<Datatype id="D_PO_Data" xsi:type="RecordT" bitLength="64" subindexAccessSupported="false">
+					<RecordItem subindex="1" bitOffset="48">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" />
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="T_EF10DE6D-C0CE-4ACE-806C-514537E96382" />
+					</RecordItem>
+					<RecordItem subindex="2" bitOffset="49">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="100" upperValue="1000" />
+						</SimpleDatatype>
+						<Name textId="T_96E5143F-12DC-4D13-B0DF-0D8F0A6285DB" />
+						<Description textId="T_1F7AFD99-D359-4963-A5FD-65B458A1FFCD" />
+					</RecordItem>
+					<RecordItem subindex="3" bitOffset="32">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" />
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="T_8F16ED97-AC7D-462B-AA49-1D831D679288" />
+					</RecordItem>
+					<RecordItem subindex="4" bitOffset="33">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="100" upperValue="1000" />
+						</SimpleDatatype>
+						<Name textId="T_E8DD984C-9897-4844-8A73-C63A220130B4" />
+						<Description textId="T_000B0484-874D-4CE8-ACE9-F698ECA353C7" />
+					</RecordItem>
+					<RecordItem subindex="5" bitOffset="16">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" />
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="T_CC432CA9-A778-4C20-A189-CA17CFE979F3" />
+					</RecordItem>
+					<RecordItem subindex="6" bitOffset="17">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="100" upperValue="1000" />
+						</SimpleDatatype>
+						<Name textId="T_37923C6E-CF52-4CAE-9F70-9398CFB50912" />
+						<Description textId="T_0C0B037F-D3DB-463B-B721-A3F2A6503B55" />
+					</RecordItem>
+					<RecordItem subindex="7" bitOffset="0">
+						<SimpleDatatype xsi:type="BooleanT">
+							<SingleValue value="false">
+								<Name textId="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" />
+							</SingleValue>
+							<SingleValue value="true">
+								<Name textId="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" />
+							</SingleValue>
+						</SimpleDatatype>
+						<Name textId="T_CA19F1B0-E5F2-4960-88EC-0A31BA88686F" />
+					</RecordItem>
+					<RecordItem subindex="8" bitOffset="1">
+						<SimpleDatatype xsi:type="UIntegerT" bitLength="10">
+							<ValueRange lowerValue="100" upperValue="1000" />
+						</SimpleDatatype>
+						<Name textId="T_8C7C876D-34E4-427B-BFA9-1199232F5DEF" />
+						<Description textId="T_809F2C03-763C-4098-9105-C5C5C6B617FC" />
+					</RecordItem>
+				</Datatype>
+			</DatatypeCollection>
+
+			<VariableCollection>
+				<StdVariableRef id="V_DirectParameters_1" />
+				<StdVariableRef id="V_SystemCommand">
+					<StdSingleValueRef value="129" />
+					<StdSingleValueRef value="130" />
+					<StdSingleValueRef value="131" />
+					<!-- FW Update bootmode unlock commands - textId per BT-FU snippet -->
+					<SingleValue value="80">
+						<Name textId="TN_FU_SystemCommand_BM_UNLOCK_S" />
+					</SingleValue>
+					<SingleValue value="81">
+						<Name textId="TN_FU_SystemCommand_BM_UNLOCK_F" />
+					</SingleValue>
+					<SingleValue value="82">
+						<Name textId="TN_FU_SystemCommand_BM_UNLOCK_T" />
+					</SingleValue>
+					<!-- Locator commands - textId per CP snippet -->
+					<SingleValue value="126">
+						<Name textId="TN_CP_SystemCommand_LocatorStart" />
+					</SingleValue>
+					<SingleValue value="127">
+						<Name textId="TN_CP_SystemCommand_LocatorStop" />
+					</SingleValue>
+					<!-- Vendor command: release the device-wide overcurrent failsafe latch -->
+					<SingleValue value="160">
+						<Name textId="TN_SystemCommand_ResetOvercurrentFailsafe" />
+					</SingleValue>
+				</StdVariableRef>
+				<StdVariableRef id="V_VendorName" defaultValue="nass magnet Hungaria Kft" />
+				<StdVariableRef id="V_VendorText" defaultValue="www.nassmagnet.com" />
+				<StdVariableRef id="V_ProductName" defaultValue="Smart Valve Driver Hub" />
+				<StdVariableRef id="V_ProductID" defaultValue="202-725-0002" />
+				<StdVariableRef id="V_ProductText" />
+				<StdVariableRef id="V_SerialNumber" />
+				<StdVariableRef id="V_HardwareRevision" />
+				<StdVariableRef id="V_FirmwareRevision" />
+				<StdVariableRef id="V_ApplicationSpecificTag" defaultValue="***" fixedLengthRestriction="32" />
+				<StdVariableRef id="V_DeviceStatus" />
+				<StdVariableRef id="V_DetailedDeviceStatus" fixedLengthRestriction="1" />
+				<!-- CP FunctionTag - Name and Description textId per CP snippet -->
+				<Variable id="V_CP_FunctionTag" index="25" accessRights="rw" excludedFromDataStorage="false" defaultValue="***">
+					<Datatype fixedLength="32" encoding="UTF-8" xsi:type="StringT" />
+					<Name textId="TN_V_CP_FunctionTag" />
+					<Description textId="TD_V_CP_FunctionTag" />
+				</Variable>
+				<!-- CP LocationTag - Name and Description textId per CP snippet -->
+				<Variable id="V_CP_LocationTag" index="26" accessRights="rw" excludedFromDataStorage="false" defaultValue="***">
+					<Datatype fixedLength="32" encoding="UTF-8" xsi:type="StringT" />
+					<Name textId="TN_V_CP_LocationTag" />
+					<Description textId="TD_V_CP_LocationTag" />
+				</Variable>
+				<Variable id="V_Supply_Voltage" index="100" accessRights="ro">
+					<Datatype xsi:type="RecordT" bitLength="32">
+						<RecordItem subindex="1" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_DEBC5E2D-86B6-4DDC-A2A3-1F71E0674AD6" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_4AB354D2-BE91-46D5-A174-654F954999A8" />
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_Supply_Voltage" />
+				</Variable>
+				<Variable id="V_Mode" index="77" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="32">
+						<RecordItem subindex="1" bitOffset="24">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="T_C4618AF8-7343-4FF1-9A44-6EFB8449BD8A" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="T_CB41B0AE-6049-4064-8777-67DF71208B64" />
+								</SingleValue>
+								<SingleValue value="2">
+									<Name textId="T_DAB490A4-12F0-457A-9F03-20C5352D725F" />
+								</SingleValue>
+								<SingleValue value="3">
+									<Name textId="T_BB5AF1CC-0F34-4982-9466-D2E4432D57B4" />
+								</SingleValue>
+								<SingleValue value="4">
+									<Name textId="T_9E6BA152-1C49-47C4-9AFF-385C2DD2028B" />
+								</SingleValue>
+								<SingleValue value="5">
+									<Name textId="T_C0B42E64-31D2-4907-AD85-9F258245EE3F" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X1ModeName" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="T_C4618AF8-7343-4FF1-9A44-6EFB8449BD8A" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="T_CB41B0AE-6049-4064-8777-67DF71208B64" />
+								</SingleValue>
+								<SingleValue value="2">
+									<Name textId="T_DAB490A4-12F0-457A-9F03-20C5352D725F" />
+								</SingleValue>
+								<SingleValue value="3">
+									<Name textId="T_BB5AF1CC-0F34-4982-9466-D2E4432D57B4" />
+								</SingleValue>
+								<SingleValue value="4">
+									<Name textId="T_9E6BA152-1C49-47C4-9AFF-385C2DD2028B" />
+								</SingleValue>
+								<SingleValue value="5">
+									<Name textId="T_C0B42E64-31D2-4907-AD85-9F258245EE3F" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X2ModeName" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="8">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="T_C4618AF8-7343-4FF1-9A44-6EFB8449BD8A" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="T_CB41B0AE-6049-4064-8777-67DF71208B64" />
+								</SingleValue>
+								<SingleValue value="2">
+									<Name textId="T_DAB490A4-12F0-457A-9F03-20C5352D725F" />
+								</SingleValue>
+								<SingleValue value="3">
+									<Name textId="T_BB5AF1CC-0F34-4982-9466-D2E4432D57B4" />
+								</SingleValue>
+								<SingleValue value="4">
+									<Name textId="T_9E6BA152-1C49-47C4-9AFF-385C2DD2028B" />
+								</SingleValue>
+								<SingleValue value="5">
+									<Name textId="T_C0B42E64-31D2-4907-AD85-9F258245EE3F" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X3ModeName" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="T_C4618AF8-7343-4FF1-9A44-6EFB8449BD8A" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="T_CB41B0AE-6049-4064-8777-67DF71208B64" />
+								</SingleValue>
+								<SingleValue value="2">
+									<Name textId="T_DAB490A4-12F0-457A-9F03-20C5352D725F" />
+								</SingleValue>
+								<SingleValue value="3">
+									<Name textId="T_BB5AF1CC-0F34-4982-9466-D2E4432D57B4" />
+								</SingleValue>
+								<SingleValue value="4">
+									<Name textId="T_9E6BA152-1C49-47C4-9AFF-385C2DD2028B" />
+								</SingleValue>
+								<SingleValue value="5">
+									<Name textId="T_C0B42E64-31D2-4907-AD85-9F258245EE3F" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X4ModeName" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="0" />
+					<RecordItemInfo subindex="2" defaultValue="0" />
+					<RecordItemInfo subindex="3" defaultValue="0" />
+					<RecordItemInfo subindex="4" defaultValue="0" />
+					<Name textId="TN_ModeName" />
+				</Variable>
+				<Variable id="V_ForceMode" index="88" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="32">
+						<RecordItem subindex="1" bitOffset="24">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="TD_ForceModeDisabled" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="TD_ForceModeEnabled" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X1ForceModeName" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="TD_ForceModeDisabled" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="TD_ForceModeEnabled" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X2ForceModeName" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="8">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="TD_ForceModeDisabled" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="TD_ForceModeEnabled" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X3ForceModeName" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="TD_ForceModeDisabled" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="TD_ForceModeEnabled" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X4ForceModeName" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="0" />
+					<RecordItemInfo subindex="2" defaultValue="0" />
+					<RecordItemInfo subindex="3" defaultValue="0" />
+					<RecordItemInfo subindex="4" defaultValue="0" />
+					<Name textId="TN_ForceModeName" />
+				</Variable>
+				<Variable id="V_OpenCircuitDiagEnable" index="141" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="32">
+						<RecordItem subindex="1" bitOffset="24">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="TD_OpenCircuitDiagDisabled" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="TD_OpenCircuitDiagEnabled" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X1OpenCircuitDiagEnableName" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="TD_OpenCircuitDiagDisabled" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="TD_OpenCircuitDiagEnabled" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X2OpenCircuitDiagEnableName" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="8">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="TD_OpenCircuitDiagDisabled" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="TD_OpenCircuitDiagEnabled" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X3OpenCircuitDiagEnableName" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="8">
+								<SingleValue value="0">
+									<Name textId="TD_OpenCircuitDiagDisabled" />
+								</SingleValue>
+								<SingleValue value="1">
+									<Name textId="TD_OpenCircuitDiagEnabled" />
+								</SingleValue>
+							</SimpleDatatype>
+							<Name textId="TN_X4OpenCircuitDiagEnableName" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="1" />
+					<RecordItemInfo subindex="2" defaultValue="1" />
+					<RecordItemInfo subindex="3" defaultValue="1" />
+					<RecordItemInfo subindex="4" defaultValue="1" />
+					<Name textId="TN_OpenCircuitDiagEnableName" />
+					<Description textId="TD_OpenCircuitDiagEnableDescr" />
+				</Variable>
+				<Variable id="V_Output_Current" index="105" accessRights="ro">
+					<Datatype xsi:type="RecordT" bitLength="64">
+						<RecordItem subindex="1" bitOffset="48" accessRightRestriction="ro">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_A47C1508-A535-4F4A-9103-8EAAE2B3CC9E" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="32" accessRightRestriction="ro">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_9A2EE9C9-8A49-437A-A1E1-16503D3CBB44" />
+							<Description textId="T_8C8578E6-1101-48C3-BF95-A5D85ACD11E0" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="16" accessRightRestriction="ro">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_3DCB0D4A-0817-4FC8-9CBA-43E86AA8CE33" />
+							<Description textId="T_EAA0EDEF-3F4F-4388-A693-8596656984DC" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0" accessRightRestriction="ro">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_A533B233-6785-4A43-B8A7-D32DCBB09371" />
+							<Description textId="T_AF901952-BFB3-44A2-B25E-263394C14226" />
+						</RecordItem>
+					</Datatype>
+					<Name textId="TI_Output_Current" />
+				</Variable>
+				<Variable id="V_Temperature" index="108" accessRights="ro">
+					<Datatype bitLength="16" xsi:type="IntegerT" />
+					<Name textId="TI_Temperature" />
+				</Variable>
+				<!-- FW Update HW_ID_Key - Name and Description textId per BT-FU snippet -->
+				<!-- FIX 2: Removed invalid defaultValue="SmartConnector_ClassB" –
+				     HW_ID_Key is read-only from device; a defaultValue is not permitted
+				     per BT-FU spec and causes IODD-Checker to reject the file. -->
+				<Variable id="V_FU_HW_ID_Key" index="17342" accessRights="ro">
+					<Datatype fixedLength="64" encoding="UTF-8" xsi:type="StringT" />
+					<Name textId="TN_V_FU_HW_ID_Key" />
+					<Description textId="TD_V_FU_HW_ID_Key" />
+				</Variable>
+				<!-- FW Update BootmodeStatus - dynamic="true" added, textIds per BT-FU snippet -->
+				<Variable id="V_FU_BootmodeStatus" index="17343" accessRights="ro" dynamic="true">
+					<Datatype xsi:type="UIntegerT" bitLength="8">
+						<SingleValue value="0">
+							<Name textId="TN_SV_FU_BootmodeStatus_inactive" />
+						</SingleValue>
+						<SingleValue value="1">
+							<Name textId="TN_SV_FU_BootmodeStatus_active" />
+						</SingleValue>
+					</Datatype>
+					<Name textId="TN_V_FU_BootmodeStatus" />
+				</Variable>
+				<Variable id="V_PWM_Pull_Time" index="103" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="64">
+						<RecordItem subindex="1" bitOffset="48">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="1" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_7CCBC68B-5C08-420A-9339-99821D34F233" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="1" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_B1C4A4F0-E71B-481E-9100-33A5F66015D2" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="1" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_31E24A53-13A9-4F66-AF72-F1BF3B38B5CC" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="1" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_4300C5FD-CC15-447F-90B3-C7B1693E0D3C" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="150" />
+					<RecordItemInfo subindex="2" defaultValue="150" />
+					<RecordItemInfo subindex="3" defaultValue="150" />
+					<RecordItemInfo subindex="4" defaultValue="150" />
+					<Name textId="TN_PWM_Pull_Time" />
+					<Description textId="TD_PWM_Pull_Time" />
+				</Variable>
+				<Variable id="V_CurrentLimitWarning" index="113" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="64">
+						<RecordItem subindex="1" bitOffset="48">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitWarning_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitWarning_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitWarning_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitWarning_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="1800" />
+					<RecordItemInfo subindex="2" defaultValue="1800" />
+					<RecordItemInfo subindex="3" defaultValue="1800" />
+					<RecordItemInfo subindex="4" defaultValue="1800" />
+					<Name textId="TN_CurrentLimitWarning" />
+					<Description textId="TD_CurrentLimitWarning" />
+				</Variable>
+				<Variable id="V_CurrentLimitTrip" index="114" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="64">
+						<RecordItem subindex="1" bitOffset="48">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitTrip_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitTrip_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitTrip_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitTrip_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="2000" />
+					<RecordItemInfo subindex="2" defaultValue="2000" />
+					<RecordItemInfo subindex="3" defaultValue="2000" />
+					<RecordItemInfo subindex="4" defaultValue="2000" />
+					<Name textId="TN_CurrentLimitTrip" />
+					<Description textId="TD_CurrentLimitTrip" />
+				</Variable>
+				<Variable id="V_CurrentLimitHyst" index="145" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="64">
+						<RecordItem subindex="1" bitOffset="48">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitHyst_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitHyst_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitHyst_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="0" upperValue="2000" />
+							</SimpleDatatype>
+							<Name textId="T_CurrentLimitHyst_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="5" />
+					<RecordItemInfo subindex="2" defaultValue="5" />
+					<RecordItemInfo subindex="3" defaultValue="5" />
+					<RecordItemInfo subindex="4" defaultValue="5" />
+					<Name textId="TN_CurrentLimitHyst" />
+					<Description textId="TD_CurrentLimitHyst" />
+				</Variable>
+				<Variable id="V_Default_PWM" index="102" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="64">
+						<RecordItem subindex="1" bitOffset="48">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="100" upperValue="1000" />
+							</SimpleDatatype>
+							<Name textId="T_Default_PWM_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="100" upperValue="1000" />
+							</SimpleDatatype>
+							<Name textId="T_Default_PWM_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="100" upperValue="1000" />
+							</SimpleDatatype>
+							<Name textId="T_Default_PWM_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16">
+								<ValueRange lowerValue="100" upperValue="1000" />
+							</SimpleDatatype>
+							<Name textId="T_Default_PWM_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="500" />
+					<RecordItemInfo subindex="2" defaultValue="500" />
+					<RecordItemInfo subindex="3" defaultValue="500" />
+					<RecordItemInfo subindex="4" defaultValue="500" />
+					<Name textId="TN_Default_PWM" />
+					<Description textId="TD_Default_PWM" />
+				</Variable>
+				<Variable id="V_On_Time" index="78" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="128">
+						<RecordItem subindex="1" bitOffset="96">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="1" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_On_Time_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="64">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="1" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_On_Time_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="1" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_On_Time_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="1" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_On_Time_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="1000" />
+					<RecordItemInfo subindex="2" defaultValue="1000" />
+					<RecordItemInfo subindex="3" defaultValue="1000" />
+					<RecordItemInfo subindex="4" defaultValue="1000" />
+					<Name textId="TN_On_Time" />
+					<Description textId="TD_On_Time" />
+				</Variable>
+				<Variable id="V_Off_Time" index="79" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="128">
+						<RecordItem subindex="1" bitOffset="96">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="1" upperValue="2147483" />
+							</SimpleDatatype>
+							<Name textId="T_Off_Time_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="64">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="1" upperValue="2147483" />
+							</SimpleDatatype>
+							<Name textId="T_Off_Time_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="1" upperValue="2147483" />
+							</SimpleDatatype>
+							<Name textId="T_Off_Time_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="1" upperValue="2147483" />
+							</SimpleDatatype>
+							<Name textId="T_Off_Time_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="1000" />
+					<RecordItemInfo subindex="2" defaultValue="1000" />
+					<RecordItemInfo subindex="3" defaultValue="1000" />
+					<RecordItemInfo subindex="4" defaultValue="1000" />
+					<Name textId="TN_Off_Time" />
+					<Description textId="TD_Off_Time" />
+				</Variable>
+				<Variable id="V_Counter1" index="80" accessRights="ro">
+					<Datatype xsi:type="RecordT" bitLength="128">
+						<RecordItem subindex="1" bitOffset="96">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="2147483" />
+							</SimpleDatatype>
+							<Name textId="T_Counter1_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="64">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="2147483" />
+							</SimpleDatatype>
+							<Name textId="T_Counter1_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="2147483" />
+							</SimpleDatatype>
+							<Name textId="T_Counter1_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="2147483" />
+							</SimpleDatatype>
+							<Name textId="T_Counter1_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="0" />
+					<RecordItemInfo subindex="2" defaultValue="0" />
+					<RecordItemInfo subindex="3" defaultValue="0" />
+					<RecordItemInfo subindex="4" defaultValue="0" />
+					<Name textId="TN_Counter1" />
+					<Description textId="TD_Counter1" />
+				</Variable>
+				<Variable id="V_Counter1_Limit" index="81" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="128">
+						<RecordItem subindex="1" bitOffset="96">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter1_Limit_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="64">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter1_Limit_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter1_Limit_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter1_Limit_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="10000000" />
+					<RecordItemInfo subindex="2" defaultValue="10000000" />
+					<RecordItemInfo subindex="3" defaultValue="10000000" />
+					<RecordItemInfo subindex="4" defaultValue="10000000" />
+					<Name textId="TN_Counter1_Limit" />
+					<Description textId="TD_Counter1_Limit" />
+				</Variable>
+				<Variable id="V_Counter2" index="82" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="128">
+						<RecordItem subindex="1" bitOffset="96">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter2_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="64">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter2_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter2_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter2_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="0" />
+					<RecordItemInfo subindex="2" defaultValue="0" />
+					<RecordItemInfo subindex="3" defaultValue="0" />
+					<RecordItemInfo subindex="4" defaultValue="0" />
+					<Name textId="TN_Counter2" />
+					<Description textId="TD_Counter2" />
+				</Variable>
+				<Variable id="V_Counter2_Limit" index="83" accessRights="rw">
+					<Datatype xsi:type="RecordT" bitLength="128">
+						<RecordItem subindex="1" bitOffset="96">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter2_Limit_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="64">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter2_Limit_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter2_Limit_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="32">
+								<ValueRange lowerValue="0" upperValue="4294967295" />
+							</SimpleDatatype>
+							<Name textId="T_Counter2_Limit_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="2000000" />
+					<RecordItemInfo subindex="2" defaultValue="2000000" />
+					<RecordItemInfo subindex="3" defaultValue="2000000" />
+					<RecordItemInfo subindex="4" defaultValue="2000000" />
+					<Name textId="TN_Counter2_Limit" />
+					<Description textId="TD_Counter2_Limit" />
+				</Variable>
+				<Variable id="V_SwitchingTime" index="104" accessRights="ro">
+					<Datatype xsi:type="RecordT" bitLength="64">
+						<RecordItem subindex="1" bitOffset="48">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_CF484FB7-8CF9-4F01-A50A-1AEE1A230B66" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="32">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_48446341-8B30-4BAE-AB93-4B36BD6CBC32" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="16">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_CC3184C7-DD0C-4B64-AF5E-F41268234DA9" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="UIntegerT" bitLength="16" />
+							<Name textId="T_C3602717-F7B1-4201-B841-06D04A89AAEF" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="0" />
+					<Name textId="TN_Switching_Time" />
+					<Description textId="TD_Switching_Time" />
+				</Variable>
+				<Variable id="V_LoadVoltage" index="140" accessRights="ro">
+					<Datatype xsi:type="RecordT" bitLength="64">
+						<RecordItem subindex="1" bitOffset="48">
+							<SimpleDatatype xsi:type="IntegerT" bitLength="16">
+								<ValueRange lowerValue="-32768" upperValue="32767" />
+							</SimpleDatatype>
+							<Name textId="T_LoadVoltage_X01" />
+						</RecordItem>
+						<RecordItem subindex="2" bitOffset="32">
+							<SimpleDatatype xsi:type="IntegerT" bitLength="16">
+								<ValueRange lowerValue="-32768" upperValue="32767" />
+							</SimpleDatatype>
+							<Name textId="T_LoadVoltage_X02" />
+						</RecordItem>
+						<RecordItem subindex="3" bitOffset="16">
+							<SimpleDatatype xsi:type="IntegerT" bitLength="16">
+								<ValueRange lowerValue="-32768" upperValue="32767" />
+							</SimpleDatatype>
+							<Name textId="T_LoadVoltage_X03" />
+						</RecordItem>
+						<RecordItem subindex="4" bitOffset="0">
+							<SimpleDatatype xsi:type="IntegerT" bitLength="16">
+								<ValueRange lowerValue="-32768" upperValue="32767" />
+							</SimpleDatatype>
+							<Name textId="T_LoadVoltage_X04" />
+						</RecordItem>
+					</Datatype>
+					<RecordItemInfo subindex="1" defaultValue="0" />
+					<RecordItemInfo subindex="2" defaultValue="0" />
+					<RecordItemInfo subindex="3" defaultValue="0" />
+					<RecordItemInfo subindex="4" defaultValue="0" />
+					<Name textId="TN_LoadVoltage" />
+					<Description textId="TD_LoadVoltage" />
+				</Variable>
+			</VariableCollection>
+			<ProcessDataCollection>
+				<ProcessData id="P_Data">
+					<!-- DatatypeRef + Name textId starting with TN_PI_ per CP snippet rule -->
+					<ProcessDataIn id="PI_Data" bitLength="64">
+						<DatatypeRef datatypeId="D_PI_Data" />
+						<Name textId="TN_PI_Data" />
+					</ProcessDataIn>
+					<!-- DatatypeRef + Name textId starting with TN_PO_ per CP snippet rule -->
+					<ProcessDataOut id="PO_Data" bitLength="64">
+						<DatatypeRef datatypeId="D_PO_Data" />
+						<Name textId="TN_PO_Data" />
+					</ProcessDataOut>
+				</ProcessData>
+			</ProcessDataCollection>
+			<ErrorTypeCollection>
+				<StdErrorTypeRef additionalCode="17" />
+				<StdErrorTypeRef additionalCode="18" />
+				<StdErrorTypeRef additionalCode="32" />
+				<StdErrorTypeRef additionalCode="33" />
+				<StdErrorTypeRef additionalCode="34" />
+				<StdErrorTypeRef additionalCode="35" />
+				<StdErrorTypeRef additionalCode="48" />
+				<StdErrorTypeRef additionalCode="49" />
+				<StdErrorTypeRef additionalCode="50" />
+				<StdErrorTypeRef additionalCode="51" />
+				<StdErrorTypeRef additionalCode="52" />
+				<StdErrorTypeRef additionalCode="53" />
+				<StdErrorTypeRef additionalCode="54" />
+				<StdErrorTypeRef additionalCode="64" />
+				<StdErrorTypeRef additionalCode="65" />
+			</ErrorTypeCollection>
+			<EventCollection>
+				<StdEventRef code="16384" />
+				<StdEventRef code="16912" />
+				<StdEventRef code="16928" />
+				<StdEventRef code="20736" />
+				<StdEventRef code="20752" />
+				<StdEventRef code="20753" />
+				<StdEventRef code="20754" />
+				<Event code="36064" type="Error">
+					<Name textId="TI_Event_Name_0x8CE0" />
+					<Description textId="TI_Event_Description_0x8CE0" />
+				</Event>
+				<Event code="36065" type="Error">
+					<Name textId="TI_Event_Name_0x8CE1" />
+					<Description textId="TI_Event_Description_0x8CE1" />
+				</Event>
+				<Event code="36066" type="Error">
+					<Name textId="TI_Event_Name_0x8CE2" />
+					<Description textId="TI_Event_Description_0x8CE2" />
+				</Event>
+				<Event code="36067" type="Error">
+					<Name textId="TI_Event_Name_0x8CE3" />
+					<Description textId="TI_Event_Description_0x8CE3" />
+				</Event>
+				<Event code="36080" type="Warning">
+					<Name textId="TI_Event_Name_0x8CF0" />
+					<Description textId="TI_Event_Description_0x8CF0" />
+				</Event>
+				<Event code="36081" type="Warning">
+					<Name textId="TI_Event_Name_0x8CF1" />
+					<Description textId="TI_Event_Description_0x8CF1" />
+				</Event>
+				<Event code="36082" type="Warning">
+					<Name textId="TI_Event_Name_0x8CF2" />
+					<Description textId="TI_Event_Description_0x8CF2" />
+				</Event>
+				<Event code="36083" type="Warning">
+					<Name textId="TI_Event_Name_0x8CF3" />
+					<Description textId="TI_Event_Description_0x8CF3" />
+				</Event>
+				<Event code="36001" type="Warning">
+					<Name textId="TI_Event_Name_0x8CA1" />
+					<Description textId="TI_Event_Description_0x8CA1" />
+				</Event>
+				<Event code="36002" type="Warning">
+					<Name textId="TI_Event_Name_0x8CA2" />
+					<Description textId="TI_Event_Description_0x8CA2" />
+				</Event>
+				<Event code="36003" type="Warning">
+					<Name textId="TI_Event_Name_0x8CA3" />
+					<Description textId="TI_Event_Description_0x8CA3" />
+				</Event>
+				<Event code="36004" type="Warning">
+					<Name textId="TI_Event_Name_0x8CA4" />
+					<Description textId="TI_Event_Description_0x8CA4" />
+				</Event>
+				<Event code="36005" type="Warning">
+					<Name textId="TI_Event_Name_0x8CA5" />
+					<Description textId="TI_Event_Description_0x8CA5" />
+				</Event>
+				<Event code="36006" type="Warning">
+					<Name textId="TI_Event_Name_0x8CA6" />
+					<Description textId="TI_Event_Description_0x8CA6" />
+				</Event>
+				<Event code="36000" type="Error">
+					<Name textId="TI_Event_Name_0x8CA0" />
+					<Description textId="TI_Event_Description_0x8CA0" />
+				</Event>
+				<Event code="36096" type="Error">
+					<Name textId="TI_Event_Name_0x8D00" />
+					<Description textId="TI_Event_Description_0x8D00" />
+				</Event>
+				<Event code="36350" type="Error">
+					<Name textId="Event_Name_Test_Event_A" />
+				</Event>
+				<Event code="36351" type="Error">
+					<Name textId="Event_Name_Test_Event_B" />
+				</Event>
+				<Event code="36032" type="Error">
+					<Name textId="TI_Event_Description_0x8CC0" />
+				</Event>
+				<Event code="36033" type="Error">
+					<Name textId="TI_Event_Description_0x8CC1" />
+				</Event>
+				<Event code="36034" type="Error">
+					<Name textId="TI_Event_Description_0x8CC2" />
+				</Event>
+				<Event code="36035" type="Error">
+					<Name textId="TI_Event_Description_0x8CC3" />
+				</Event>
+				<Event code="36048" type="Error">
+					<Name textId="TI_Event_Description_0x8CD0" />
+				</Event>
+				<Event code="36049" type="Error">
+					<Name textId="TI_Event_Description_0x8CD1" />
+				</Event>
+				<Event code="36050" type="Error">
+					<Name textId="TI_Event_Description_0x8CD2" />
+				</Event>
+				<Event code="36051" type="Error">
+					<Name textId="TI_Event_Description_0x8CD3" />
+				</Event>
+				
+				<Event code="36007" type="Warning">
+				
+    <Name textId="TI_Event_Name_0x8CA7" />
+    <Description textId="TI_Event_Description_0x8CA7" />
+</Event>
+<Event code="36008" type="Warning">
+    <Name textId="TI_Event_Name_0x8CA8" />
+    <Description textId="TI_Event_Description_0x8CA8" />
+</Event>
+<Event code="36009" type="Warning">
+    <Name textId="TI_Event_Name_0x8CA9" />
+    <Description textId="TI_Event_Description_0x8CA9" />
+</Event>
+<Event code="36010" type="Warning">
+    <Name textId="TI_Event_Name_0x8CAA" />
+    <Description textId="TI_Event_Description_0x8CAA" />
+</Event>
+<Event code="36011" type="Warning">
+    <Name textId="TI_Event_Name_0x8CAB" />
+    <Description textId="TI_Event_Description_0x8CAB" />
+</Event>
+<Event code="36012" type="Warning">
+    <Name textId="TI_Event_Name_0x8CAC" />
+    <Description textId="TI_Event_Description_0x8CAC" />
+</Event>
+<Event code="36013" type="Warning">
+    <Name textId="TI_Event_Name_0x8CAD" />
+    <Description textId="TI_Event_Description_0x8CAD" />
+</Event>
+<Event code="36014" type="Warning">
+    <Name textId="TI_Event_Name_0x8CAE" />
+    <Description textId="TI_Event_Description_0x8CAE" />
+</Event>
+
+
+			</EventCollection>
+			<UserInterface>
+				<ProcessDataRefCollection>
+					<ProcessDataRef processDataId="PO_Data">
+						<ProcessDataRecordItemInfo subindex="2" />
+						<ProcessDataRecordItemInfo subindex="4" />
+						<ProcessDataRecordItemInfo subindex="6" />
+						<ProcessDataRecordItemInfo subindex="8" />
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Bin" />
+						<ProcessDataRecordItemInfo subindex="3" displayFormat="Bin" />
+						<ProcessDataRecordItemInfo subindex="5" displayFormat="Bin" />
+						<ProcessDataRecordItemInfo subindex="7" displayFormat="Bin" />
+					</ProcessDataRef>
+					<ProcessDataRef processDataId="PI_Data">
+						<ProcessDataRecordItemInfo subindex="2" />
+						<ProcessDataRecordItemInfo subindex="4" />
+						<ProcessDataRecordItemInfo subindex="6" />
+						<ProcessDataRecordItemInfo subindex="8" />
+						<ProcessDataRecordItemInfo subindex="1" displayFormat="Bin" />
+						<ProcessDataRecordItemInfo subindex="3" displayFormat="Bin" />
+						<ProcessDataRecordItemInfo subindex="5" displayFormat="Bin" />
+						<ProcessDataRecordItemInfo subindex="7" displayFormat="Bin" />
+					</ProcessDataRef>
+				</ProcessDataRefCollection>
+				<MenuCollection>
+					<!-- ============================================================ -->
+					<!-- Observer Identification menu (CP + FU required IDs)          -->
+					<!-- ============================================================ -->
+					<Menu id="M_OR_Ident">
+						<Name textId="TN_M_Ident" />
+						<!-- Standard ro variables: NO accessRightRestriction – checker requires
+						     the plain VariableRef to match the predefined profile rule pattern -->
+						<VariableRef variableId="V_VendorName" />
+						<VariableRef variableId="V_VendorText" />
+						<VariableRef variableId="V_ProductName" />
+						<VariableRef variableId="V_ProductText" />
+						<VariableRef variableId="V_ProductID" />
+						<VariableRef variableId="V_SerialNumber" />
+						<VariableRef variableId="V_HardwareRevision" />
+						<VariableRef variableId="V_FirmwareRevision" />
+						<!-- rw variables restricted to ro for Observer role -->
+						<VariableRef variableId="V_ApplicationSpecificTag" accessRightRestriction="ro" />
+						<VariableRef variableId="V_CP_FunctionTag" accessRightRestriction="ro" />
+						<VariableRef variableId="V_CP_LocationTag" accessRightRestriction="ro" />
+						<!-- Already declared accessRights="ro" – no override needed -->
+						<VariableRef variableId="V_FU_HW_ID_Key" />
+					</Menu>
+					<!-- ============================================================ -->
+					<!-- Maintenance/Specialist Identification menu                   -->
+					<!-- ============================================================ -->
+					<Menu id="M_MSR_Ident">
+						<Name textId="TN_M_Ident" />
+						<!-- No accessRightRestriction overrides: MSR uses the variables'
+						     natural access rights (ro for standard ID vars, rw for tags) -->
+						<VariableRef variableId="V_VendorName" />
+						<VariableRef variableId="V_VendorText" />
+						<VariableRef variableId="V_ProductName" />
+						<VariableRef variableId="V_ProductText" />
+						<VariableRef variableId="V_ProductID" />
+						<VariableRef variableId="V_SerialNumber" />
+						<VariableRef variableId="V_HardwareRevision" />
+						<VariableRef variableId="V_FirmwareRevision" />
+						<VariableRef variableId="V_ApplicationSpecificTag" />
+						<VariableRef variableId="V_CP_FunctionTag" />
+						<VariableRef variableId="V_CP_LocationTag" />
+						<VariableRef variableId="V_FU_HW_ID_Key" />
+						<!-- Locator commands in Identification menu per CP spec -->
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="126">
+								<Description textId="TD_CP_SystemCommand_LocatorStart" />
+							</Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="127">
+								<Description textId="TD_CP_SystemCommand_LocatorStop" />
+							</Button>
+						</VariableRef>
+					</Menu>
+					<!-- ============================================================ -->
+					<!-- Maintenance/Specialist Parameter menu                        -->
+					<!-- ============================================================ -->
+					<Menu id="M_MSR_Param">
+						<MenuRef menuId="M_MSR_CP_Param_ServiceFunctions" />
+						<VariableRef variableId="V_Mode" accessRightRestriction="rw" />
+						<VariableRef variableId="V_ForceMode" accessRightRestriction="rw" />
+						<VariableRef variableId="V_OpenCircuitDiagEnable" accessRightRestriction="rw" />
+						<VariableRef variableId="V_Output_Current" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Temperature" unitCode="1001" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Supply_Voltage" />
+						<VariableRef variableId="V_SwitchingTime" />
+						<VariableRef variableId="V_PWM_Pull_Time" />
+						<VariableRef variableId="V_On_Time" />
+						<VariableRef variableId="V_Off_Time" />
+						<VariableRef variableId="V_Default_PWM" />
+						<VariableRef variableId="V_CurrentLimitWarning" />
+						<VariableRef variableId="V_CurrentLimitTrip" />
+						<VariableRef variableId="V_CurrentLimitHyst" />
+						<VariableRef variableId="V_Counter1" />
+						<VariableRef variableId="V_Counter1_Limit" />
+						<VariableRef variableId="V_Counter2" />
+						<VariableRef variableId="V_Counter2_Limit" />
+					</Menu>
+					<!-- CP required: Service Functions submenu in Parameter section -->
+					<Menu id="M_MSR_CP_Param_ServiceFunctions">
+						<Name textId="TN_M_CP_Param_ServiceFunctions" />
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="129">
+								<Description textId="TD_STD_SystemCommand_ApplicationReset" />
+							</Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="130">
+								<Description textId="TD_STD_SystemCommand_RestoreFactorySettings" />
+							</Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="131">
+								<Description textId="TD_STD_SystemCommand_BackToBox" />
+							</Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="160">
+								<Description textId="TD_SystemCommand_ResetOvercurrentFailsafe" />
+							</Button>
+						</VariableRef>
+					</Menu>
+					<!-- ============================================================ -->
+					<!-- Observer Diagnosis menu                                      -->
+					<!-- ============================================================ -->
+					<Menu id="M_OR_Diag">
+						<MenuRef menuId="M_OMSR_CP_Diag_DeviceStatusInfo" />
+						<MenuRef menuId="M_OR_CP_Diag_ServiceFunctions" />
+						<VariableRef variableId="V_Output_Current" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Temperature" unitCode="1001" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Supply_Voltage" accessRightRestriction="ro" />
+						<VariableRef variableId="V_SwitchingTime" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Counter1" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Counter2" accessRightRestriction="ro" />
+						<VariableRef variableId="V_LoadVoltage" accessRightRestriction="ro" />
+					</Menu>
+					<!-- ============================================================ -->
+					<!-- Maintenance/Specialist Diagnosis menu                        -->
+					<!-- ============================================================ -->
+					<Menu id="M_MSR_Diag">
+						<MenuRef menuId="M_OMSR_CP_Diag_DeviceStatusInfo" />
+						<MenuRef menuId="M_MSR_CP_Diag_ServiceFunctions" />
+						<VariableRef variableId="V_Output_Current" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Temperature" unitCode="1001" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Supply_Voltage" accessRightRestriction="ro" />
+						<VariableRef variableId="V_SwitchingTime" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Counter1" accessRightRestriction="ro" />
+						<VariableRef variableId="V_Counter2" accessRightRestriction="ro" />
+						<VariableRef variableId="V_LoadVoltage" accessRightRestriction="ro" />
+					</Menu>
+					<!-- CP required: Device Status Info submenu (all roles) -->
+					<Menu id="M_OMSR_CP_Diag_DeviceStatusInfo">
+						<Name textId="TN_M_CP_Diag_DeviceStatusInfo" />
+						<VariableRef variableId="V_DeviceStatus" />
+						<VariableRef variableId="V_DetailedDeviceStatus" />
+					</Menu>
+					<!-- CP required: Locator service functions in Diagnosis (Observer role) -->
+					<Menu id="M_OR_CP_Diag_ServiceFunctions">
+						<Name textId="TN_M_CP_Diag_ServiceFunctions" />
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="126">
+								<Description textId="TD_CP_SystemCommand_LocatorStart" />
+								<ActionStartedMessage textId="TD_CP_SystemCommand_ActLocatorStart" />
+							</Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="127">
+								<Description textId="TD_CP_SystemCommand_LocatorStop" />
+								<ActionStartedMessage textId="TD_CP_SystemCommand_ActLocatorStop" />
+							</Button>
+						</VariableRef>
+					</Menu>
+					<!-- CP required: Locator service functions in Diagnosis (MSR roles) -->
+					<Menu id="M_MSR_CP_Diag_ServiceFunctions">
+						<Name textId="TN_M_CP_Diag_ServiceFunctions" />
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="126">
+								<Description textId="TD_CP_SystemCommand_LocatorStart" />
+								<ActionStartedMessage textId="TD_CP_SystemCommand_ActLocatorStart" />
+							</Button>
+						</VariableRef>
+						<VariableRef variableId="V_SystemCommand">
+							<Button buttonValue="127">
+								<Description textId="TD_CP_SystemCommand_LocatorStop" />
+								<ActionStartedMessage textId="TD_CP_SystemCommand_ActLocatorStop" />
+							</Button>
+						</VariableRef>
+					</Menu>
+				</MenuCollection>
+				<!-- Role menu sets using profile-required menu IDs -->
+				<ObserverRoleMenuSet>
+					<IdentificationMenu menuId="M_OR_Ident" />
+					<DiagnosisMenu menuId="M_OR_Diag" />
+				</ObserverRoleMenuSet>
+				<MaintenanceRoleMenuSet>
+					<IdentificationMenu menuId="M_MSR_Ident" />
+					<ParameterMenu menuId="M_MSR_Param" />
+					<DiagnosisMenu menuId="M_MSR_Diag" />
+				</MaintenanceRoleMenuSet>
+				<SpecialistRoleMenuSet>
+					<IdentificationMenu menuId="M_MSR_Ident" />
+					<ParameterMenu menuId="M_MSR_Param" />
+					<DiagnosisMenu menuId="M_MSR_Diag" />
+				</SpecialistRoleMenuSet>
+			</UserInterface>
+		</DeviceFunction>
+	</ProfileBody>
+	<CommNetworkProfile xsi:type="IOLinkCommNetworkProfileT" iolinkRevision="V1.1">
+		<TransportLayers>
+			<PhysicalLayer minCycleTime="7200" sioSupported="false" mSequenceCapability="43" bitrate="COM2">
+				<Connection xsi:type="M12-5ConnectionT">
+					<ProductRef productId="202-725-0002" />
+					<Wire1 color="BN" function="L+" />
+					<Wire2 color="WH" function="P24" />
+					<Wire3 color="BU" function="L-" />
+					<Wire4 color="BK" function="C/Q" />
+					<Wire5 color="GY" function="N24" />
+				</Connection>
+			</PhysicalLayer>
+		</TransportLayers>
+		<Test>
+			<Config1 index="253" testValue="0x0E" />
+			<Config2 index="16382" testValue="0x01,0x02,0x03,0x04" />
+			<!-- FIX 3: testValue padded to exactly 32 bytes to match
+			     V_ApplicationSpecificTag fixedLengthRestriction="32".
+			     Original had only 14 bytes which caused a checker length mismatch. -->
+			<Config3 index="24" testValue="0xA1,0xA2,0xA3,0xA4,0xA5,0xA6,0xA7,0xA8,0x09,0xAA,0xAB,0xAC,0xAD,0xAE,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00" />
+			<Config7 index="252">
+				<EventTrigger appearValue="0" disappearValue="1" />
+				<EventTrigger appearValue="2" disappearValue="3" />
+			</Config7>
+		</Test>
+	</CommNetworkProfile>
+	<ExternalTextCollection>
+		<PrimaryLanguage xml:lang="en">
+			<Text id="TI_VendorText" value="www.nassmagnet.com" />
+			<Text id="TI_VendorUrl" value="www.nassmagnet.com/io-link/smart-hub" />
+			<Text id="TI_DeviceName" value="Smart Valve Driver Hub" />
+			<Text id="TI_DeviceFamily" value="Smart Connector" />
+			<Text id="TI_DeviceVariantName1" value="202-725-0002" />
+			<Text id="TI_DeviceVariantText1" value="Smart Driver HUB with 4 ports for electro-pneumatic valves. Max. continous current: 2000mA. Special features: parameterizable PWM driving, advanced valve and self diagnostics, offline operation, timer functions." />
+			<!-- CP FunctionTag / LocationTag texts (snippet-required IDs) -->
+			<Text id="TN_M_Ident" value="Identification" />
+			<Text id="TN_V_CP_FunctionTag" value="Function Tag" />
+			<Text id="TD_V_CP_FunctionTag" value="Possibility to mark a device with function-specific information." />
+			<Text id="TN_V_CP_LocationTag" value="Location Tag" />
+			<Text id="TD_V_CP_LocationTag" value="Possibility to mark a device with location-specific information." />
+			<Text id="TI_Supply_Voltage" value="Supply voltage [mV]" />
+			<Text id="T_DEBC5E2D-86B6-4DDC-A2A3-1F71E0674AD6" value="Actor Voltage" />
+			<Text id="T_4AB354D2-BE91-46D5-A174-654F954999A8" value="Sensor Voltage" />
+			<Text id="TN_ModeName" value="Mode" />
+			<Text id="TN_X1ModeName" value="Mode on X1" />
+			<Text id="T_C4618AF8-7343-4FF1-9A44-6EFB8449BD8A" value="IO-Link Mode" />
+			<Text id="T_CB41B0AE-6049-4064-8777-67DF71208B64" value="Always On mode" />
+			<Text id="T_DAB490A4-12F0-457A-9F03-20C5352D725F" value="On-Off timer" />
+			<Text id="T_BB5AF1CC-0F34-4982-9466-D2E4432D57B4" value="Off-On timer" />
+			<Text id="T_9E6BA152-1C49-47C4-9AFF-385C2DD2028B" value="On delay timer" />
+			<Text id="T_C0B42E64-31D2-4907-AD85-9F258245EE3F" value="Off delay timer" />
+			<Text id="TN_X2ModeName" value="Mode on X2" />
+			<Text id="TN_X3ModeName" value="Mode on X3" />
+			<Text id="TN_X4ModeName" value="Mode on X4" />
+			<Text id="TN_ForceModeName" value="Force mode" />
+			<Text id="TN_X1ForceModeName" value="Force mode on X1" />
+			<Text id="TN_X2ForceModeName" value="Force mode on X2" />
+			<Text id="TN_X3ForceModeName" value="Force mode on X3" />
+			<Text id="TN_X4ForceModeName" value="Force mode on X4" />
+			<Text id="TD_ForceModeDisabled" value="Force mode disabled" />
+			<Text id="TD_ForceModeEnabled" value="Force mode enabled" />
+			<Text id="TI_Event_Name_0x8D00" value="Total overcurrent failsafe" />
+			<Text id="TI_Event_Description_0x8D00" value="Total output current limit exceeded, all outputs switched off. Remove the overload, send the 'Reset overcurrent failsafe' command, then re-command the outputs!" />
+			<Text id="TN_SystemCommand_ResetOvercurrentFailsafe" value="Reset overcurrent failsafe" />
+			<Text id="TD_SystemCommand_ResetOvercurrentFailsafe" value="Releases the total overcurrent failsafe latch. All outputs stay off until they are re-commanded via process data." />
+			<Text id="TN_OpenCircuitDiagEnableName" value="Open circuit diagnosis enable" />
+			<Text id="TD_OpenCircuitDiagEnableDescr" value="Enables or disables the open circuit feedback (diagnostic bit, IO-Link event and LED indication) per port. Detection keeps running; only the reporting is suppressed." />
+			<Text id="TN_X1OpenCircuitDiagEnableName" value="Open circuit diagnosis on X1" />
+			<Text id="TN_X2OpenCircuitDiagEnableName" value="Open circuit diagnosis on X2" />
+			<Text id="TN_X3OpenCircuitDiagEnableName" value="Open circuit diagnosis on X3" />
+			<Text id="TN_X4OpenCircuitDiagEnableName" value="Open circuit diagnosis on X4" />
+			<Text id="TD_OpenCircuitDiagDisabled" value="Open circuit diagnosis disabled" />
+			<Text id="TD_OpenCircuitDiagEnabled" value="Open circuit diagnosis enabled" />
+			<Text id="TI_Output_Current" value="Output currents [mA]" />
+			<Text id="T_A47C1508-A535-4F4A-9103-8EAAE2B3CC9E" value="Output Current - X01 (mA)" />
+			<Text id="T_9A2EE9C9-8A49-437A-A1E1-16503D3CBB44" value="Output Current - X02 (mA)" />
+			<Text id="T_8C8578E6-1101-48C3-BF95-A5D85ACD11E0" value="" />
+			<Text id="T_3DCB0D4A-0817-4FC8-9CBA-43E86AA8CE33" value="Output Current - X03 (mA)" />
+			<Text id="T_EAA0EDEF-3F4F-4388-A693-8596656984DC" value="" />
+			<Text id="T_A533B233-6785-4A43-B8A7-D32DCBB09371" value="Output Current - X04 (mA)" />
+			<Text id="T_AF901952-BFB3-44A2-B25E-263394C14226" value="" />
+			<Text id="TI_Temperature" value="Internal temperature of the HUB" />
+			<!-- FW Update texts (snippet-required IDs) -->
+			<Text id="TN_V_FU_HW_ID_Key" value="Hardware Identification Key" />
+			<Text id="TD_V_FU_HW_ID_Key" value="Identifies the hardware for compatibility check with the firmware to be installed." />
+			<Text id="TN_V_FU_BootmodeStatus" value="Bootmode Status" />
+			<Text id="TN_SV_FU_BootmodeStatus_inactive" value="Bootloader is inactive" />
+			<Text id="TN_SV_FU_BootmodeStatus_active" value="Bootloader is active" />
+			<Text id="TN_PWM_Pull_Time" value="Full power pulling time [ms]" />
+			<Text id="TD_PWM_Pull_Time" value="Full power pulling time" />
+			<Text id="T_7CCBC68B-5C08-420A-9339-99821D34F233" value="Full power pulling time on X01" />
+			<Text id="T_B1C4A4F0-E71B-481E-9100-33A5F66015D2" value="Full power pulling time on X02" />
+			<Text id="T_31E24A53-13A9-4F66-AF72-F1BF3B38B5CC" value="Full power pulling time on X03" />
+			<Text id="T_4300C5FD-CC15-447F-90B3-C7B1693E0D3C" value="Full power pulling time on X04" />
+			<Text id="TN_CurrentLimitWarning" value="Current limit warning threshold [mA]" />
+			<Text id="TD_CurrentLimitWarning" value="Output current threshold above which a warning is signalled." />
+			<Text id="T_CurrentLimitWarning_X01" value="Current limit warning threshold on X01" />
+			<Text id="T_CurrentLimitWarning_X02" value="Current limit warning threshold on X02" />
+			<Text id="T_CurrentLimitWarning_X03" value="Current limit warning threshold on X03" />
+			<Text id="T_CurrentLimitWarning_X04" value="Current limit warning threshold on X04" />
+			<Text id="TN_CurrentLimitTrip" value="Current limit trip threshold [mA]" />
+			<Text id="TD_CurrentLimitTrip" value="Output current threshold above which the output is switched off (trip)." />
+			<Text id="T_CurrentLimitTrip_X01" value="Current limit trip threshold on X01" />
+			<Text id="T_CurrentLimitTrip_X02" value="Current limit trip threshold on X02" />
+			<Text id="T_CurrentLimitTrip_X03" value="Current limit trip threshold on X03" />
+			<Text id="T_CurrentLimitTrip_X04" value="Current limit trip threshold on X04" />
+			<Text id="TN_CurrentLimitHyst" value="Current limit hysteresis [mA]" />
+			<Text id="TD_CurrentLimitHyst" value="Hysteresis applied to the current limit thresholds." />
+			<Text id="T_CurrentLimitHyst_X01" value="Current limit hysteresis on X01" />
+			<Text id="T_CurrentLimitHyst_X02" value="Current limit hysteresis on X02" />
+			<Text id="T_CurrentLimitHyst_X03" value="Current limit hysteresis on X03" />
+			<Text id="T_CurrentLimitHyst_X04" value="Current limit hysteresis on X04" />
+			<Text id="TD_Default_PWM" value="Default PWM values. Active when non smart PWM mode is used." />
+			<Text id="TN_Default_PWM" value="Default PWM value. [ppm]" />
+			<Text id="T_Default_PWM_X01" value="Default PWM value on X01" />
+			<Text id="T_Default_PWM_X02" value="Default PWM value on X02" />
+			<Text id="T_Default_PWM_X03" value="Default PWM value on X03" />
+			<Text id="T_Default_PWM_X04" value="Default PWM value on X04" />
+			<Text id="TD_On_Time" value="On time in milliseconds. Used when mode 1-5 selected." />
+			<Text id="TN_On_Time" value="On time [ms]" />
+			<Text id="T_On_Time_X01" value="On time in milliseconds on X01" />
+			<Text id="T_On_Time_X02" value="On time in milliseconds on X02" />
+			<Text id="T_On_Time_X03" value="On time in milliseconds on X03" />
+			<Text id="T_On_Time_X04" value="On time in milliseconds on X04" />
+			<Text id="TD_Off_Time" value="Off time in milliseconds. Used when mode 1-5 selected." />
+			<Text id="TN_Off_Time" value="Off time [ms]" />
+			<Text id="T_Off_Time_X01" value="Off time in milliseconds on X01" />
+			<Text id="T_Off_Time_X02" value="Off time in milliseconds on X02" />
+			<Text id="T_Off_Time_X03" value="Off time in milliseconds on X03" />
+			<Text id="T_Off_Time_X04" value="Off time in milliseconds on X04" />
+			<!-- Counter 1 -->
+			<Text id="TN_Counter1" value="Counter 1" />
+			<Text id="TD_Counter1" value="The number of valve switches detected. (Lifetime, not resettable.)" />
+			<Text id="T_Counter1_X01" value="Counter 1 (X01)" />
+			<Text id="T_Counter1_X02" value="Counter 1 (X02)" />
+			<Text id="T_Counter1_X03" value="Counter 1 (X03)" />
+			<Text id="T_Counter1_X04" value="Counter 1 (X04)" />
+			<!-- Counter 1 limit -->
+			<Text id="TN_Counter1_Limit" value="Counter 1 limit" />
+			<Text id="TD_Counter1_Limit" value="The number of valve switches detected by Counter 1 before the corresponding warning event is triggered." />
+			<Text id="T_Counter1_Limit_X01" value="Counter 1 limit (X01)" />
+			<Text id="T_Counter1_Limit_X02" value="Counter 1 limit (X02)" />
+			<Text id="T_Counter1_Limit_X03" value="Counter 1 limit (X03)" />
+			<Text id="T_Counter1_Limit_X04" value="Counter 1 limit (X04)" />
+			<!-- Counter 2 -->
+			<Text id="TN_Counter2" value="Counter 2" />
+			<Text id="TD_Counter2" value="The number of valve switches detected. (Resettable.)" />
+			<Text id="T_Counter2_X01" value="Counter 2 (X01)" />
+			<Text id="T_Counter2_X02" value="Counter 2 (X02)" />
+			<Text id="T_Counter2_X03" value="Counter 2 (X03)" />
+			<Text id="T_Counter2_X04" value="Counter 2 (X04)" />
+			<!-- Counter 2 limit -->
+			<Text id="TN_Counter2_Limit" value="Counter 2 limit" />
+			<Text id="TD_Counter2_Limit" value="The number of valve switches detected by Counter 2 before the corresponding warning event is triggered." />
+			<Text id="T_Counter2_Limit_X01" value="Counter 2 limit (X01)" />
+			<Text id="T_Counter2_Limit_X02" value="Counter 2 limit (X02)" />
+			<Text id="T_Counter2_Limit_X03" value="Counter 2 limit (X03)" />
+			<Text id="T_Counter2_Limit_X04" value="Counter 2 limit (X04)" />
+			<Text id="TN_Switching_Time" value="Switching time [ms]" />
+			<Text id="TD_Switching_Time" value="The time difference between switch on valve command and plunger pull-in in milliseconds." />
+			<Text id="T_CF484FB7-8CF9-4F01-A50A-1AEE1A230B66" value="Switching time on X01" />
+			<Text id="T_48446341-8B30-4BAE-AB93-4B36BD6CBC32" value="Switching time on X02" />
+			<Text id="T_CC3184C7-DD0C-4B64-AF5E-F41268234DA9" value="Switching time on X03" />
+			<Text id="T_C3602717-F7B1-4201-B841-06D04A89AAEF" value="Switching time on X04" />
+			<Text id="T_LoadVoltage_X01" value="Load Voltage on X01" />
+			<Text id="T_LoadVoltage_X02" value="Load Voltage on X02" />
+			<Text id="T_LoadVoltage_X03" value="Load Voltage on X03" />
+			<Text id="T_LoadVoltage_X04" value="Load Voltage on X04" />
+			<Text id="TN_LoadVoltage" value="Load Voltage [mV]" />
+			<Text id="TD_LoadVoltage" value="The voltage across the valve coil in millivolts." />
+			<!-- FW Update SystemCommand texts (snippet-required IDs) -->
+			<Text id="TN_FU_SystemCommand_BM_UNLOCK_S" value="Start unlocking sequence" />
+			<Text id="TN_FU_SystemCommand_BM_UNLOCK_F" value="Unlocking command 1" />
+			<Text id="TN_FU_SystemCommand_BM_UNLOCK_T" value="Unlocking command 2" />
+			<!-- CP Locator texts (snippet-required IDs) -->
+			<Text id="TN_CP_SystemCommand_LocatorStart" value="Locator Start" />
+			<Text id="TN_CP_SystemCommand_LocatorStop" value="Locator Stop" />
+			<Text id="TD_CP_SystemCommand_LocatorStart" value="The visual indicators of the device are switched to the localization display pattern, which makes it easier to spot a device in an application." />
+			<Text id="TD_CP_SystemCommand_LocatorStop" value="The localization indication pattern is stopped. The optical indicators of the device will show again the device specific states of operation." />
+			<Text id="TD_CP_SystemCommand_ActLocatorStart" value="The localization indication is started and is active for 10 minutes. Press the 'Locator Stop' button to end this display mode or press the 'Locator Start' button again to extend the duration of the display by further 10 minutes." />
+			<Text id="TD_CP_SystemCommand_ActLocatorStop" value="The localization indication has been stopped. Press the 'Locator Start' button to restart the localization indication." />
+			<!-- CP Menu name texts -->
+			<Text id="TN_M_CP_Diag_DeviceStatusInfo" value="Device Status Information" />
+			<Text id="TN_M_CP_Diag_ServiceFunctions" value="Service Functions" />
+			<Text id="TN_M_CP_Param_ServiceFunctions" value="Service Functions" />
+			<!-- Standard SystemCommand button descriptions - exact text per CP snippet -->
+			<Text id="TD_STD_SystemCommand_ApplicationReset" value="The parameters of the technology-specific application are set to default values. Identification parameters remain unchanged. An upload to the data storage of the master will be executed, if activated in the port configuration of the master." />
+			<Text id="TD_STD_SystemCommand_RestoreFactorySettings" value="The parameter of the device are reset to factory settings. Note: A download of the data storage may be executed on the next power cycle and overwrite the factory default settings!" />
+			<Text id="TD_STD_SystemCommand_BackToBox" value="The parameters of the device are set to factory default values and communication will be inhibited until the next power cycle. Note: Directly detach the device from the master port!" />
+			<Text id="TI_Event_Name_0x8CE0" value="Output short circuit on X01" />
+			<Text id="TI_Event_Description_0x8CE0" value="Check the output for a short circuit!" />
+			<Text id="TI_Event_Name_0x8CE1" value="Output short circuit on X02" />
+			<Text id="TI_Event_Description_0x8CE1" value="Check the output for a short circuit!" />
+			<Text id="TI_Event_Name_0x8CE2" value="Output short circuit on X03" />
+			<Text id="TI_Event_Description_0x8CE2" value="Check the output for a short circuit!" />
+			<Text id="TI_Event_Name_0x8CE3" value="Output short circuit on X04" />
+			<Text id="TI_Event_Description_0x8CE3" value="Check the output for a short circuit!" />
+			<Text id="TI_Event_Name_0x8CF0" value="Output current overload on X01" />
+			<Text id="TI_Event_Description_0x8CF0" value="Check the current consumption!" />
+			<Text id="TI_Event_Name_0x8CF1" value="Output current overload on X02" />
+			<Text id="TI_Event_Description_0x8CF1" value="Check the current consumption!" />
+			<Text id="TI_Event_Name_0x8CF2" value="Output current overload on X03" />
+			<Text id="TI_Event_Description_0x8CF2" value="Check the current consumption!" />
+			<Text id="TI_Event_Name_0x8CF3" value="Output current overload on X04" />
+			<Text id="TI_Event_Description_0x8CF3" value="Check the current consumption!" />
+			<Text id="TI_Event_Name_0x8CA1" value="Counter 1 overflow" />
+			<Text id="TI_Event_Description_0x8CA1" value="Load or connector should maybe replaced or maintenance!" />
+			<Text id="TI_Event_Name_0x8CA2" value="Counter 2 overflow" />
+			<Text id="TI_Event_Description_0x8CA2" value="Load or connector should maybe replaced or maintenance!" />
+			<Text id="TI_Event_Name_0x8CA3" value="Output open-circuit" />
+			<Text id="TI_Event_Description_0x8CA3" value="Check the load!" />
+			<Text id="TI_Event_Name_0x8CA0" value="Multiple UA supply voltage detected" />
+			<Text id="TI_Event_Description_0x8CA0" value="Remove one of the UA supply voltages!" />
+			<Text id="TI_Event_Name_0x8CA4" value="No actor supply" />
+			<Text id="TI_Event_Description_0x8CA4" value="Check the secondary supply!" />
+			<Text id="TI_Event_Name_0x8CA5" value="Secondary supply voltage overrun" />
+			<Text id="TI_Event_Description_0x8CA5" value="Check secondary supply tolerance!" />
+			<Text id="TI_Event_Name_0x8CA6" value="Secondary supply voltage underrun" />
+			<Text id="TI_Event_Description_0x8CA6" value="Check secondary supply tolerance!" />
+			<Text id="TI_Event_Description_0x8CC0" value="Force mode activated on Port X01." />
+			<Text id="TI_Event_Description_0x8CC1" value="Force mode activated on Port X02." />
+			<Text id="TI_Event_Description_0x8CC2" value="Force mode activated on Port X03." />
+			<Text id="TI_Event_Description_0x8CC3" value="Force mode activated on Port X04." />
+			<Text id="TI_Event_Description_0x8CD0" value="Force mode deactivated on Port X01." />
+			<Text id="TI_Event_Description_0x8CD1" value="Force mode deactivated on Port X02." />
+			<Text id="TI_Event_Description_0x8CD2" value="Force mode deactivated on Port X03." />
+			<Text id="TI_Event_Description_0x8CD3" value="Force mode deactivated on Port X04." />
+			<Text id="Event_Name_Test_Event_A" value="Test Event A" />
+			<Text id="Event_Name_Test_Event_B" value="Test Event B" />
+			<Text id="TN_PI_Data" value="Process data inputs" />
+			<Text id="TN_PO_Data" value="Process data outputs" />
+			<Text id="T_EF10DE6D-C0CE-4ACE-806C-514537E96382" value="X01 State" />
+			<Text id="T_88E27D41-D226-456B-9D2E-A4E7E7E5406A" value="Off" />
+			<Text id="T_BFA27C77-B0C4-4AD8-9757-6BE60A1996C0" value="On" />
+			<Text id="T_96E5143F-12DC-4D13-B0DF-0D8F0A6285DB" value="X01 PWM Duty Cycle (Resolution: 0.1%)" />
+			<Text id="T_1F7AFD99-D359-4963-A5FD-65B458A1FFCD" value="Duty cycle (Resolution: 0.1%)" />
+			<Text id="T_8F16ED97-AC7D-462B-AA49-1D831D679288" value="X02 State" />
+			<Text id="T_E8DD984C-9897-4844-8A73-C63A220130B4" value="X02 PWM Duty Cycle (Resolution: 0.1%)" />
+			<Text id="T_000B0484-874D-4CE8-ACE9-F698ECA353C7" value="Duty cycle (Resolution: 0.1%)" />
+			<Text id="T_CC432CA9-A778-4C20-A189-CA17CFE979F3" value="X03 State" />
+			<Text id="T_37923C6E-CF52-4CAE-9F70-9398CFB50912" value="X03 PWM Duty Cycle (Resolution: 0.1%)" />
+			<Text id="T_0C0B037F-D3DB-463B-B721-A3F2A6503B55" value="Duty cycle (Resolution: 0.1%)" />
+			<Text id="T_CA19F1B0-E5F2-4960-88EC-0A31BA88686F" value="X04 State" />
+			<Text id="T_8C7C876D-34E4-427B-BFA9-1199232F5DEF" value="X04 PWM Duty Cycle (Resolution: 0.1%)" />
+			<Text id="T_809F2C03-763C-4098-9105-C5C5C6B617FC" value="Duty cycle (Resolution: 0.1%)" />
+			<Text id="TI_Event_Name_0x8CA7" value="Output open-circuit on port X01" />
+<Text id="TI_Event_Description_0x8CA7" value="Check the load on port X01!" />
+<Text id="TI_Event_Name_0x8CA8" value="Output open-circuit on port X02" />
+<Text id="TI_Event_Description_0x8CA8" value="Check the load on port X02!" />
+<Text id="TI_Event_Name_0x8CA9" value="Output open-circuit on port X03" />
+<Text id="TI_Event_Description_0x8CA9" value="Check the load on port X03!" />
+<Text id="TI_Event_Name_0x8CAA" value="Output open-circuit on port X04" />
+<Text id="TI_Event_Description_0x8CAA" value="Check the load on port X04!" />
+<Text id="TI_Event_Name_0x8CAB" value="Output open-circuit on port X05" />
+<Text id="TI_Event_Description_0x8CAB" value="Check the load on port X05!" />
+<Text id="TI_Event_Name_0x8CAC" value="Output open-circuit on port X06" />
+<Text id="TI_Event_Description_0x8CAC" value="Check the load on port X06!" />
+<Text id="TI_Event_Name_0x8CAD" value="Output open-circuit on port X07" />
+<Text id="TI_Event_Description_0x8CAD" value="Check the load on port X07!" />
+<Text id="TI_Event_Name_0x8CAE" value="Output open-circuit on port X08" />
+<Text id="TI_Event_Description_0x8CAE" value="Check the load on port X08!" />
+
+		</PrimaryLanguage>
+	</ExternalTextCollection>
+	<Stamp crc="3910013394"><Checker name="IODD-Checker V1.1.13 R1" version="V1.1.13.1"/></Stamp>
+</IODevice>
