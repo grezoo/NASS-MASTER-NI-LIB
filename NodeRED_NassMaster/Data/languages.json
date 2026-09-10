@@ -560,6 +560,14 @@
     "HI": "प्रक्रिया डेटा (पीडी इन/आउट)"
   },
   {
+    "HU": "+ ÚJ SZABÁLY LÉTREHOZÁSA",
+    "EN": "+ New Rule",
+    "DE": "+ Neue Regel",
+    "FR": "+ Nouvelle règle",
+    "ZH": "+ 新建规则",
+    "HI": "+ नया नियम"
+  },
+  {
     "HU": "ifm Hőmérséklet (Port 3)",
     "EN": "ifm Temperature (Port 3)",
     "DE": "ifm Temperatur (Port 3)",
@@ -736,6 +744,14 @@
     "HI": "प्रक्रिया डेटा चैनल:"
   },
   {
+    "HU": "ÚJ SZABÁLY LÉTREHOZÁSA",
+    "EN": "New Rule",
+    "DE": "Neue Regel",
+    "FR": "Nouvelle règle",
+    "ZH": "新建规则",
+    "HI": "नया नियम"
+  },
+  {
     "HU": "MOTOR LEÁLLÍTVA (STOP)",
     "EN": "ENGINE STOPPED (STOP)",
     "DE": "MOTOR GESTOPPT (STOP)",
@@ -766,6 +782,14 @@
     "FR": "Aucun ISDU sélectionné",
     "ZH": "未选择 ISDU",
     "HI": "कोई ISDU चयनित नहीं"
+  },
+  {
+    "HU": "Csak PD rögzítés aktív",
+    "EN": "PD logging only active",
+    "DE": "Nur PD-Protokollierung aktiv",
+    "FR": "Enregistrement PD seul actif",
+    "ZH": "仅 PD 记录活动",
+    "HI": "केवल पीडी लॉगिंग सक्रिय"
   },
   {
     "HU": "Csatorna Kiválasztása:",
@@ -925,7 +949,7 @@
     "DE": "Port 2 zuweisen",
     "FR": "Affecter Port 2",
     "ZH": "分配端口 2",
-    "HI": "पोर्ट 2 असाinn करें"
+    "HI": "पोर्ट 2 असाइन करें"
   },
   {
     "HU": "Port 3 hozzárendelés",
@@ -1102,6 +1126,14 @@
     "FR": "Écriture en cours...",
     "ZH": "正在写入...",
     "HI": "लिखना जारी है..."
+  },
+  {
+    "HU": "Új Logikai Szabály",
+    "EN": "New Logic Rule",
+    "DE": "Neue Logikregel",
+    "FR": "Nouvelle règle logique",
+    "ZH": "新建逻辑规则",
+    "HI": "नया तर्क नियम"
   },
   {
     "HU": "Adatforrás Típusa:",
@@ -2278,6 +2310,22 @@
     "FR": "Lire",
     "ZH": "读取",
     "HI": "पढ़ें"
+  },
+  {
+    "HU": "paraméter",
+    "EN": "parameters",
+    "DE": "Parameter",
+    "FR": "paramètres",
+    "ZH": "参数",
+    "HI": "पैरामीटर"
+  },
+  {
+    "HU": "PARAMÉTER",
+    "EN": "PARAMETERS",
+    "DE": "PARAMETER",
+    "FR": "PARAMÈTRES",
+    "ZH": "参数",
+    "HI": "पैरामीटर"
   },
   {
     "HU": "Alapérték",
