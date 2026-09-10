@@ -674,5 +674,301 @@
       "ZH": "未分配 IODD",
       "HI": "कोई IODD निर्दिष्ट नहीं"
     }
+  },
+  "NAV_DRAWER": {
+    "NASSMASTER": {
+      "HU": "NASSMASTER",
+      "EN": "NASSMASTER",
+      "DE": "NASSMASTER",
+      "FR": "NASSMASTER",
+      "ZH": "NASSMASTER",
+      "HI": "NASSMASTER"
+    },
+    "IODD_KEZELO": {
+      "HU": "IODD KEZELŐ",
+      "EN": "IODD MANAGER",
+      "DE": "IODD-VERWALTUNG",
+      "FR": "GESTIONNAIRE IODD",
+      "ZH": "IODD 管理器",
+      "HI": "IODD प्रबंधक"
+    },
+    "ESZKOZ_VEZERLES": {
+      "HU": "ESZKÖZ VEZÉRLÉS",
+      "EN": "DEVICE CONTROL",
+      "DE": "GERÄTESTEUERUNG",
+      "FR": "CONTRÔLE D'APPAREIL",
+      "ZH": "设备控制",
+      "HI": "उपकरण नियंत्रण"
+    },
+    "DIAGNOSZTIKA": {
+      "HU": "DIAGNOSZTIKA",
+      "EN": "DIAGNOSTICS",
+      "DE": "DIAGNOSE",
+      "FR": "DIAGNOSTIC",
+      "ZH": "诊断分析",
+      "HI": "निदान"
+    },
+    "FUNKCIOK_PLC": {
+      "HU": "FUNKCIÓK (MINI PLC)",
+      "EN": "FUNCTIONS (MINI PLC)",
+      "DE": "FUNKTIONEN (MINI SPS)",
+      "FR": "FONCTIONS (MINI AUTOMATE)",
+      "ZH": "功能 (微型 PLC)",
+      "HI": "फ़ंक्शंस (मिनी पीएलसी)"
+    },
+    "FOLYAMATABRA": {
+      "HU": "FOLYAMATÁBRA",
+      "EN": "PROCESS MIMIC",
+      "DE": "PROZESSBILD",
+      "FR": "SYNOPTIQUE",
+      "ZH": "工艺流程图",
+      "HI": "प्रक्रिया आरेख"
+    }
+  },
+  "GROUP_HEADERS": {
+    "GRP_OVERVIEW": {
+      "HU": "Központosított Áttekintés",
+      "EN": "Centralized Overview",
+      "DE": "Zentrale Übersicht",
+      "FR": "Vue d'ensemble centralisée",
+      "ZH": "集中概览",
+      "HI": "केंद्रीकृत अवलोकन"
+    },
+    "GRP_PORT_CTRL": {
+      "HU": "Központosított Port Vezérlés",
+      "EN": "Centralized Port Control",
+      "DE": "Zentrale Portsteuerung",
+      "FR": "Contrôle centralisé des ports",
+      "ZH": "集中端口控制",
+      "HI": "केंद्रीकृत पोर्ट नियंत्रण"
+    },
+    "GRP_IODD": {
+      "HU": "IODD Elemzés és Vezérlés",
+      "EN": "IODD Analysis & Control",
+      "DE": "IODD-Analyse & Steuerung",
+      "FR": "Analyse & Contrôle IODD",
+      "ZH": "IODD 分析与控制",
+      "HI": "IODD विश्लेषण और नियंत्रण"
+    },
+    "GRP_PLC": {
+      "HU": "Mini PLC Vezérlő & Logikai Szabályozó",
+      "EN": "Mini PLC Controller & Logic Engine",
+      "DE": "Mini SPS Steuergerät & Logikregler",
+      "FR": "Mini Automate & Régulateur Logique",
+      "ZH": "微型 PLC 控制器与逻辑引擎",
+      "HI": "मिनी पीएलसी नियंत्रक और लॉजिक इंजन"
+    },
+    "GRP_DIAG": {
+      "HU": "Valós idejű trendek és CSV naplózás",
+      "EN": "Real-time Trends & CSV Logging",
+      "DE": "Echtzeittrends & CSV-Protokollierung",
+      "FR": "Tendances en temps réel & Journalisation CSV",
+      "ZH": "实时趋势与 CSV 记录",
+      "HI": "वास्तविक समय के रुझान और सीएसवी लॉगिंग"
+    },
+    "GRP_MIMIC": {
+      "HU": "SCADA Folyamatábra & Gépelrendezés",
+      "EN": "SCADA Process Mimic & Plant Layout",
+      "DE": "SCADA-Prozessbild & Anlagenlayout",
+      "FR": "Synoptique SCADA & Disposition des machines",
+      "ZH": "SCADA 工艺流程图与设备布局",
+      "HI": "SCADA प्रक्रिया आरेख और संयंत्र लेआउट"
+    }
+  },
+  "IODD_UI": {
+    "CARD1_TITLE": {
+      "HU": "1. IODD ZIP / XML CSOMAG ELEMZÉSE",
+      "EN": "1. IODD ZIP / XML PACKAGE ANALYSIS",
+      "DE": "1. IODD ZIP / XML PAKETANALYSE",
+      "FR": "1. ANALYSE DU PAQUET IODD ZIP / XML",
+      "ZH": "1. IODD ZIP / XML 软件包分析",
+      "HI": "1. IODD ज़िप / XML पैकेज विश्लेषण"
+    },
+    "DROP_TITLE": {
+      "HU": "Kattints ide vagy húzd ide az IODD .ZIP / .XML fájlt",
+      "EN": "Click or drag & drop IODD .ZIP / .XML file here",
+      "DE": "Hier klicken oder IODD .ZIP / .XML-Datei hierher ziehen",
+      "FR": "Cliquez ici ou glissez-déposez le fichier IODD .ZIP / .XML",
+      "ZH": "点击此处或将 IODD .ZIP / .XML 文件拖放到此处",
+      "HI": "यहाँ क्लिक करें या IODD .ZIP / .XML फ़ाइल यहाँ खींचें"
+    },
+    "DROP_SUB": {
+      "HU": "Automatikus ZIP kicsomagolás, IODD XML feldolgozás és képkinyerés",
+      "EN": "Automatic ZIP unpacking, IODD XML parsing and image extraction",
+      "DE": "Automatisches Entpacken von ZIPs, IODD XML-Parsing und Bildextraktion",
+      "FR": "Décompression ZIP auto, analyse IODD XML et extraction d'images",
+      "ZH": "自动 ZIP 解压、IODD XML 解析和图像提取",
+      "HI": "स्वचालित ज़िप अनपैकिंग, IODD XML पार्सिंग और छवि निष्कर्षण"
+    },
+    "PRESETS_LABEL": {
+      "HU": "Gyors Mintaprofilok:",
+      "EN": "Quick Preset Profiles:",
+      "DE": "Schnelle Voreinstellungsprofile:",
+      "FR": "Profils prédéfinis rapides:",
+      "ZH": "快速预设配置文件:",
+      "HI": "त्वरित पूर्व निर्धारित प्रोफ़ाइल:"
+    },
+    "CARD2_TITLE": {
+      "HU": "2. CÉL PORT HOZZÁRENDELÉS",
+      "EN": "2. TARGET PORT ASSIGNMENT",
+      "DE": "2. ZIELPORT-ZUWEISUNG",
+      "FR": "2. AFFECTATION DU PORT CIBLE",
+      "ZH": "2. 目标端口分配",
+      "HI": "2. लक्ष्य पोर्ट असाइनमेंट"
+    },
+    "ASSIGN_P1": {
+      "HU": "PORT 1 (X01) HOZZÁRENDELÉS",
+      "EN": "ASSIGN TO PORT 1 (X01)",
+      "DE": "PORT 1 (X01) ZUWEISEN",
+      "FR": "AFFECTER AU PORT 1 (X01)",
+      "ZH": "分配到端口 1 (X01)",
+      "HI": "पोर्ट 1 (X01) को असाइन करें"
+    },
+    "ASSIGN_P2": {
+      "HU": "PORT 2 (X02) HOZZÁRENDELÉS",
+      "EN": "ASSIGN TO PORT 2 (X02)",
+      "DE": "PORT 2 (X02) ZUWEISEN",
+      "FR": "AFFECTER AU PORT 2 (X02)",
+      "ZH": "分配到端口 2 (X02)",
+      "HI": "पोर्ट 2 (X02) को असाइन करें"
+    },
+    "ASSIGN_P3": {
+      "HU": "PORT 3 (X03) HOZZÁRENDELÉS",
+      "EN": "ASSIGN TO PORT 3 (X03)",
+      "DE": "PORT 3 (X03) ZUWEISEN",
+      "FR": "AFFECTER AU PORT 3 (X03)",
+      "ZH": "分配到端口 3 (X03)",
+      "HI": "पोर्ट 3 (X03) को असाइन करें"
+    },
+    "ASSIGN_P4": {
+      "HU": "PORT 4 (X04) HOZZÁRENDELÉS",
+      "EN": "ASSIGN TO PORT 4 (X04)",
+      "DE": "PORT 4 (X04) ZUWEISEN",
+      "FR": "AFFECTER AU PORT 4 (X04)",
+      "ZH": "分配到端口 4 (X04)",
+      "HI": "पोर्ट 4 (X04) को असाइन करें"
+    },
+    "WAITING_MSG": {
+      "HU": "Várakozás IODD csomag betöltésére...",
+      "EN": "Waiting for IODD package to load...",
+      "DE": "Warten auf das Laden des IODD-Pakets...",
+      "FR": "En attente du chargement du paquet IODD...",
+      "ZH": "等待加载 IODD 软件包...",
+      "HI": "IODD पैकेज लोड होने की प्रतीक्षा की जा रही है..."
+    },
+    "PORT1_PROFILE": {
+      "HU": "PORT 1 (X01) PROFIL",
+      "EN": "PORT 1 (X01) PROFILE",
+      "DE": "PORT 1 (X01) PROFIL",
+      "FR": "PROFIL DU PORT 1 (X01)",
+      "ZH": "端口 1 (X01) 配置文件",
+      "HI": "पोर्ट 1 (X01) प्रोफ़ाइल"
+    },
+    "PORT2_PROFILE": {
+      "HU": "PORT 2 (X02) PROFIL",
+      "EN": "PORT 2 (X02) PROFILE",
+      "DE": "PORT 2 (X02) PROFIL",
+      "FR": "PROFIL DU PORT 2 (X02)",
+      "ZH": "端口 2 (X02) 配置文件",
+      "HI": "पोर्ट 2 (X02) प्रोफ़ाइल"
+    },
+    "PORT3_PROFILE": {
+      "HU": "PORT 3 (X03) PROFIL",
+      "EN": "PORT 3 (X03) PROFILE",
+      "DE": "PORT 3 (X03) PROFIL",
+      "FR": "PROFIL DU PORT 3 (X03)",
+      "ZH": "端口 3 (X03) 配置文件",
+      "HI": "पोर्ट 3 (X03) प्रोफ़ाइल"
+    },
+    "PORT4_PROFILE": {
+      "HU": "PORT 4 (X04) PROFIL",
+      "EN": "PORT 4 (X04) PROFILE",
+      "DE": "PORT 4 (X04) PROFIL",
+      "FR": "PROFIL DU PORT 4 (X04)",
+      "ZH": "端口 4 (X04) 配置文件",
+      "HI": "पोर्ट 4 (X04) प्रोफ़ाइल"
+    },
+    "BTN_CLEAR_ASSIGN": {
+      "HU": "HOZZÁRENDELÉS TÖRLÉSE",
+      "EN": "CLEAR ASSIGNMENT",
+      "DE": "ZUWEISUNG LÖSCHEN",
+      "FR": "EFFACER L'AFFECTATION",
+      "ZH": "清除分配",
+      "HI": "असाइनमेंट साफ़ करें"
+    },
+    "BTN_CLEAR_ASSIGN_MIXED": {
+      "HU": "Hozzrendels Trlse",
+      "EN": "CLEAR ASSIGNMENT",
+      "DE": "ZUWEISUNG LÖSCHEN",
+      "FR": "EFFACER L'AFFECTATION",
+      "ZH": "清除分配",
+      "HI": "असाइनमेंट साफ़ करें"
+    },
+    "BTN_CLEAR_ASSIGN_ACCENT": {
+      "HU": "Hozzárendelés Törlése",
+      "EN": "CLEAR ASSIGNMENT",
+      "DE": "ZUWEISUNG LÖSCHEN",
+      "FR": "EFFACER L'AFFECTATION",
+      "ZH": "清除分配",
+      "HI": "असाइनमेंट साफ़ करें"
+    },
+    "NO_ASSIGNMENT_DESC": {
+      "HU": "Nincs IODD rendelve ehhez a porthoz.",
+      "EN": "No IODD assigned to this port.",
+      "DE": "Kein IODD diesem Port zugewiesen.",
+      "FR": "Aucun IODD assigné à ce port.",
+      "ZH": "未为此端口分配 IODD。",
+      "HI": "इस पोर्ट के लिए कोई IODD निर्दिष्ट नहीं है।"
+    },
+    "NO_ASSIGN_PORT": {
+      "HU": "Nincs IODD rendelve ehhez a porthoz",
+      "EN": "No IODD assigned to this port",
+      "DE": "Kein IODD diesem Port zugewiesen",
+      "FR": "Aucun IODD assigné à ce port",
+      "ZH": "未分配 IODD",
+      "HI": "कोई IODD निर्दिष्ट नहीं"
+    },
+    "INACTIVE_PORT_HINT": {
+      "HU": "Menj az IODD KEZELŐ fülre, vagy állítsd át a fenti lenyílóban DI / DO módra.",
+      "EN": "Go to IODD MANAGER tab, or switch to DI / DO mode in the dropdown above.",
+      "DE": "Gehe zum IODD-VERWALTUNG-Tab oder schalte oben auf DI / DO um.",
+      "FR": "Allez dans le GESTIONNAIRE IODD ou passez en mode DI / DO ci-dessus.",
+      "ZH": "请前往 IODD 管理器选项卡，或在上方下拉框中切换为 DI / DO 模式。",
+      "HI": "IODD प्रबंधक टैब पर जाएं, या ऊपर ड्रॉपडाउन में DI / DO मोड पर स्विच करें।"
+    }
+  },
+  "DIAG_UI": {
+    "LBL_CHANNEL": {
+      "HU": "Grafikon Csatorna:",
+      "EN": "Chart Channel:",
+      "DE": "Diagrammkanal:",
+      "FR": "Canal du graphique:",
+      "ZH": "图表通道:",
+      "HI": "चार्ट चैनल:"
+    },
+    "LBL_INTERVAL": {
+      "HU": "Minta Intervallum:",
+      "EN": "Sample Interval:",
+      "DE": "Abtastintervall:",
+      "FR": "Intervalle d'échantillonnage:",
+      "ZH": "采样间隔:",
+      "HI": "नमूना अंतराल:"
+    },
+    "LBL_AUTOSCALE": {
+      "HU": "Auto-Skálázás (Min/Max):",
+      "EN": "Auto-Scale (Min/Max):",
+      "DE": "Autoskalierung (Min/Max):",
+      "FR": "Échelle auto (Min/Max):",
+      "ZH": "自动缩放 (最小/最大):",
+      "HI": "ऑटो-स्केल (न्यूनतम/अधिकतम):"
+    },
+    "LBL_CSV": {
+      "HU": "CSV Naplózás (Pendrive):",
+      "EN": "CSV Logging (Flash Drive):",
+      "DE": "CSV-Protokollierung (USB):",
+      "FR": "Journalisation CSV (Clé USB):",
+      "ZH": "CSV 记录 (U盘):",
+      "HI": "सीएसवी लॉगिंग (पेनड्राइव):"
+    }
   }
 }
