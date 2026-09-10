@@ -112,6 +112,14 @@
     "HI": "केवल .ZIP या .XML फ़ाइलें समर्थित हैं!"
   },
   {
+    "HU": "🔄 Arányos Bemenet → Kimenet Skálázás:",
+    "EN": "🔄 Proportional Input → Output Scaling:",
+    "DE": "🔄 Proportionale Eingang → Ausgang Skalierung:",
+    "FR": "🔄 Mise à l'échelle Entrée → Sortie Proportionnelle:",
+    "ZH": "🔄 比例输入 → 输出缩放:",
+    "HI": "🔄 आनुपातिक इनपुट → आउटपुट स्केलिंग:"
+  },
+  {
     "HU": "Hűtőszelep vezérlés túlhőmérsékletre",
     "EN": "Cooling valve overtemp control",
     "DE": "Kühlventil Übertemperatursteuerung",
@@ -608,6 +616,30 @@
     "HI": "पढ़ना जारी है..."
   },
   {
+    "HU": "🔌 Digitális bemenet (DI)",
+    "EN": "🔌 Digital Input (DI)",
+    "DE": "🔌 Digitaler Eingang (DI)",
+    "FR": "🔌 Entrée numérique (DI)",
+    "ZH": "🔌 数字输入 (DI)",
+    "HI": "🔌 डिजिटल इनपुट (DI)"
+  },
+  {
+    "HU": "🔌 Digitális kimenet (DO)",
+    "EN": "🔌 Digital Output (DO)",
+    "DE": "🔌 Digitaler Ausgang (DO)",
+    "FR": "🔌 Sortie numérique (DO)",
+    "ZH": "🔌 数字输出 (DO)",
+    "HI": "🔌 डिजिटल आउटपुट (DO)"
+  },
+  {
+    "HU": "💡 Digitális Kimenet (DO)",
+    "EN": "💡 Digital Output (DO)",
+    "DE": "💡 Digitaler Ausgang (DO)",
+    "FR": "💡 Sortie numérique (DO)",
+    "ZH": "💡 数字输出 (DO)",
+    "HI": "💡 डिजिटल आउटपुट (DO)"
+  },
+  {
     "HU": "Port 1 ISDU Paraméterek",
     "EN": "Port 1 ISDU Parameters",
     "DE": "Port 1 ISDU-Parameter",
@@ -880,20 +912,20 @@
     "HI": "पैरामीटर चुनें..."
   },
   {
-    "HU": "Szabályok importálása",
-    "EN": "Import Rules",
-    "DE": "Regeln importieren",
-    "FR": "Importer règles",
-    "ZH": "导入规则",
-    "HI": "नियम आयात करें"
-  },
-  {
     "HU": "60 másodperc (1 perc)",
     "EN": "60 seconds (1 min)",
     "DE": "60 Sekunden (1 Min)",
     "FR": "60 secondes (1 min)",
     "ZH": "60 秒 (1 分钟)",
     "HI": "60 सेकंड (1 मिनट)"
+  },
+  {
+    "HU": "Szabályok importálása",
+    "EN": "Import Rules",
+    "DE": "Regeln importieren",
+    "FR": "Importer règles",
+    "ZH": "导入规则",
+    "HI": "नियम आयात करें"
   },
   {
     "HU": "2. Port hozzárendelés",
@@ -1128,6 +1160,22 @@
     "HI": "लिखना जारी है..."
   },
   {
+    "HU": "⚡ Folyamatadat (PD)",
+    "EN": "⚡ Process Data (PD)",
+    "DE": "⚡ Prozessdaten (PD)",
+    "FR": "⚡ Données de processus (PD)",
+    "ZH": "⚡ 过程数据 (PD)",
+    "HI": "⚡ प्रक्रिया डेटा (पीडी)"
+  },
+  {
+    "HU": "🔵 Közelítéskapcsoló",
+    "EN": "🔵 Proximity Sensor",
+    "DE": "🔵 Näherungsschalter",
+    "FR": "🔵 Capteur de proximité",
+    "ZH": "🔵 接近开关",
+    "HI": "🔵 निकटता सेंसर"
+  },
+  {
     "HU": "Új Logikai Szabály",
     "EN": "New Logic Rule",
     "DE": "Neue Logikregel",
@@ -1174,6 +1222,14 @@
     "FR": "Sous-index",
     "ZH": "子索引",
     "HI": "सबइंडेक्स"
+  },
+  {
+    "HU": "⚡ Szelep kapcsolás",
+    "EN": "⚡ Valve Control",
+    "DE": "⚡ Ventilsteuerung",
+    "FR": "⚡ Contrôle vanne",
+    "ZH": "⚡ 阀门控制",
+    "HI": "⚡ वाल्व नियंत्रण"
   },
   {
     "HU": "Eszköz Információ",
@@ -1286,6 +1342,30 @@
     "FR": "JSON invalide :",
     "ZH": "无效的 JSON:",
     "HI": "अमान्य JSON:"
+  },
+  {
+    "HU": "MOTOR AKTÍV (RUN)",
+    "EN": "MOTOR ACTIVE (RUN)",
+    "DE": "MOTOR AKTIV (RUN)",
+    "FR": "MOTEUR ACTIF (RUN)",
+    "ZH": "电机运行 (RUN)",
+    "HI": "मोटर सक्रिय (RUN)"
+  },
+  {
+    "HU": "📊 PWM állítás (%)",
+    "EN": "📊 Set PWM (%)",
+    "DE": "📊 PWM Einstellen (%)",
+    "FR": "📊 Régler PWM (%)",
+    "ZH": "📊 设置 PWM (%)",
+    "HI": "📊 PWM सेट करें (%)"
+  },
+  {
+    "HU": "⚙️ Szállítószalag",
+    "EN": "⚙️ Conveyor Belt",
+    "DE": "⚙️ Förderband",
+    "FR": "⚙️ Convoyeur",
+    "ZH": "⚙️ 输送带",
+    "HI": "⚙️ कन्वेयर बेल्ट"
   },
   {
     "HU": "Mini PLC Vezérlő",
@@ -1440,6 +1520,38 @@
     "HI": "नियम हटा दिया गया!"
   },
   {
+    "HU": "📖 ISDU paraméter",
+    "EN": "📖 ISDU Parameter",
+    "DE": "📖 ISDU-Parameter",
+    "FR": "📖 Paramètre ISDU",
+    "ZH": "📖 ISDU 参数",
+    "HI": "📖 ISDU पैरामीटर"
+  },
+  {
+    "HU": "🌡️ Hőmérő Távadó",
+    "EN": "🌡️ Temperature Sensor",
+    "DE": "🌡️ Temperatursensor",
+    "FR": "🌡️ Capteur de température",
+    "ZH": "🌡️ 温度传感器",
+    "HI": "🌡️ तापमान सेंसर"
+  },
+  {
+    "HU": "📥 Import (.json)",
+    "EN": "📥 Import (.json)",
+    "DE": "📥 Importieren (.json)",
+    "FR": "📥 Importer (.json)",
+    "ZH": "📥 导入 (.json)",
+    "HI": "📥 आयात (.json)"
+  },
+  {
+    "HU": "📤 Export (.json)",
+    "EN": "📤 Export (.json)",
+    "DE": "📤 Exportieren (.json)",
+    "FR": "📤 Exporter (.json)",
+    "ZH": "📤 导出 (.json)",
+    "HI": "📤 निर्यात (.json)"
+  },
+  {
     "HU": "ESZKÖZ VEZÉRLÉS",
     "EN": "DEVICE CONTROL",
     "DE": "GERÄTESTEUERUNG",
@@ -1510,6 +1622,14 @@
     "FR": "Fichier ZIP invalide :",
     "ZH": "无效的 ZIP 文件:",
     "HI": "अमान्य ज़िप फ़ाइल:"
+  },
+  {
+    "HU": "🎛️ PWM Potméter",
+    "EN": "🎛️ PWM Potentiometer",
+    "DE": "🎛️ PWM-Potentiometer",
+    "FR": "🎛️ Potentiomètre PWM",
+    "ZH": "🎛️ PWM 电位器",
+    "HI": "🎛️ PWM पोटेंशियोमीटर"
   },
   {
     "HU": "FW / HW Verzió",
@@ -1672,6 +1792,22 @@
     "HI": "शर्त गलत"
   },
   {
+    "HU": "↔️ Munkahenger",
+    "EN": "↔️ Pneumatic Cylinder",
+    "DE": "↔️ Pneumatikzylinder",
+    "FR": "↔️ Vérin pneumatique",
+    "ZH": "↔️ 气缸",
+    "HI": "↔️ न्यूमेटिक सिलेंडर"
+  },
+  {
+    "HU": "⚡ Adatcsatolás",
+    "EN": "⚡ Data Binding",
+    "DE": "⚡ Datenbindung",
+    "FR": "⚡ Liaison de données",
+    "ZH": "⚡ 数据绑定",
+    "HI": "⚡ डेटा बाइंडिंग"
+  },
+  {
     "HU": "Rendelési Kód",
     "EN": "Order Code",
     "DE": "Bestellnummer",
@@ -1710,6 +1846,14 @@
     "FR": "Profil Port 4",
     "ZH": "端口 4 配置文件",
     "HI": "पोर्ट 4 प्रोफ़ाइल"
+  },
+  {
+    "HU": "Eszköz nélkül",
+    "EN": "No Device",
+    "DE": "Kein Gerät",
+    "FR": "Sans appareil",
+    "ZH": "无设备",
+    "HI": "कोई उपकरण नहीं"
   },
   {
     "HU": "Szabály neve:",
@@ -1824,6 +1968,14 @@
     "HI": "IODD हटा दिया गया।"
   },
   {
+    "HU": "Eszköz nélkül",
+    "EN": "No Device",
+    "DE": "Ohne Gerät",
+    "FR": "Sans appareil",
+    "ZH": "无设备",
+    "HI": "कोई उपकरण नहीं"
+  },
+  {
     "HU": "DIAGNOSZTIKA",
     "EN": "DIAGNOSTICS",
     "DE": "DIAGNOSE",
@@ -1920,6 +2072,14 @@
     "HI": "प्रसंस्करण:"
   },
   {
+    "HU": "10 másodperc",
+    "EN": "10 seconds",
+    "DE": "10 Sekunden",
+    "FR": "10 secondes",
+    "ZH": "10 秒",
+    "HI": "10 सेकंड"
+  },
+  {
     "HU": "Szabály neve",
     "EN": "Rule Name",
     "DE": "Regelname",
@@ -1974,14 +2134,6 @@
     "FR": "== (Égal)",
     "ZH": "== (等于)",
     "HI": "== (बराबर)"
-  },
-  {
-    "HU": "10 másodperc",
-    "EN": "10 seconds",
-    "DE": "10 Sekunden",
-    "FR": "10 secondes",
-    "ZH": "10 秒",
-    "HI": "10 सेकंड"
   },
   {
     "HU": "Gépkönyvtár:",
@@ -2072,6 +2224,22 @@
     "HI": "गेटवे (GW)"
   },
   {
+    "HU": "1 másodperc",
+    "EN": "1 second",
+    "DE": "1 Sekunde",
+    "FR": "1 seconde",
+    "ZH": "1 秒",
+    "HI": "1 सेकंड"
+  },
+  {
+    "HU": "5 másodperc",
+    "EN": "5 seconds",
+    "DE": "5 Sekunden",
+    "FR": "5 secondes",
+    "ZH": "5 秒",
+    "HI": "5 सेकंड"
+  },
+  {
     "HU": "24V (AKTÍV)",
     "EN": "24V (ACTIVE)",
     "DE": "24V (AKTIV)",
@@ -2094,22 +2262,6 @@
     "FR": "Tendances en direct",
     "ZH": "实时趋势",
     "HI": "लाइव रुझान"
-  },
-  {
-    "HU": "1 másodperc",
-    "EN": "1 second",
-    "DE": "1 Sekunde",
-    "FR": "1 seconde",
-    "ZH": "1 秒",
-    "HI": "1 सेकंड"
-  },
-  {
-    "HU": "5 másodperc",
-    "EN": "5 seconds",
-    "DE": "5 Sekunden",
-    "FR": "5 secondes",
-    "ZH": "5 秒",
-    "HI": "5 सेकंड"
   },
   {
     "HU": "Mintavétel:",
@@ -2150,6 +2302,22 @@
     "FR": "Modifier",
     "ZH": "编辑",
     "HI": "संपादित करें"
+  },
+  {
+    "HU": "KIKAPCSOLVA",
+    "EN": "OFF",
+    "DE": "AUS",
+    "FR": "ÉTEINT",
+    "ZH": "已关闭",
+    "HI": "बंद"
+  },
+  {
+    "HU": "📖 ISDU írás",
+    "EN": "📖 ISDU Write",
+    "DE": "📖 ISDU Schreiben",
+    "FR": "📖 Écriture ISDU",
+    "ZH": "📖 ISDU 写入",
+    "HI": "📖 ISDU लेखन"
   },
   {
     "HU": "NASSMASTER",
@@ -2230,6 +2398,14 @@
     "FR": "Tension",
     "ZH": "电压",
     "HI": "वोल्टेज"
+  },
+  {
+    "HU": "🟢 BE (24V)",
+    "EN": "🟢 ON (24V)",
+    "DE": "🟢 EIN (24V)",
+    "FR": "🟢 MARCHE (24V)",
+    "ZH": "🟢 开启 (24V)",
+    "HI": "🟢 चालू (24V)"
   },
   {
     "HU": "Terméknév",
@@ -2384,6 +2560,22 @@
     "HI": "लोड किया गया:"
   },
   {
+    "HU": "🗑️ Törlés",
+    "EN": "🗑️ Delete",
+    "DE": "🗑️ Löschen",
+    "FR": "🗑️ Supprimer",
+    "ZH": "🗑️ 删除",
+    "HI": "🗑️ हटाएं"
+  },
+  {
+    "HU": "🔴 KI (0V)",
+    "EN": "🔴 OFF (0V)",
+    "DE": "🔴 AUS (0V)",
+    "FR": "🔴 ARRÊT (0V)",
+    "ZH": "🔴 关闭 (0V)",
+    "HI": "🔴 बंद (0V)"
+  },
+  {
     "HU": "Reláció:",
     "EN": "Relation:",
     "DE": "Relation:",
@@ -2430,6 +2622,22 @@
     "FR": "Mode de fonctionnement:",
     "ZH": "运行模式:",
     "HI": "ऑपरेटिंग मोड:"
+  },
+  {
+    "HU": "0 elemek",
+    "EN": "0 items",
+    "DE": "0 Elemente",
+    "FR": "0 éléments",
+    "ZH": "0 个元素",
+    "HI": "0 तत्व"
+  },
+  {
+    "HU": "💾 Mentés",
+    "EN": "💾 Save",
+    "DE": "💾 Speichern",
+    "FR": "💾 Enregistrer",
+    "ZH": "💾 保存",
+    "HI": "💾 सहेजें"
   },
   {
     "HU": "Gyártó:",
@@ -2510,6 +2718,14 @@
     "FR": "Fermer",
     "ZH": "关闭",
     "HI": "बंद करें"
+  },
+  {
+    "HU": "⚡ Minta",
+    "EN": "⚡ Sample",
+    "DE": "⚡ Beispiel",
+    "FR": "⚡ Exemple",
+    "ZH": "⚡ 示例",
+    "HI": "⚡ नमूना"
   },
   {
     "HU": "Gyártó",
@@ -2606,6 +2822,30 @@
     "FR": "Données",
     "ZH": "数据",
     "HI": "डेटा"
+  },
+  {
+    "HU": "0 db",
+    "EN": "0 items",
+    "DE": "0 Stk",
+    "FR": "0 éléments",
+    "ZH": "0 个",
+    "HI": "0 आइटम"
+  },
+  {
+    "HU": "0 DB",
+    "EN": "0 items",
+    "DE": "0 Stk",
+    "FR": "0 éléments",
+    "ZH": "0 个",
+    "HI": "0 आइटम"
+  },
+  {
+    "HU": "0 Db",
+    "EN": "0 items",
+    "DE": "0 Stk",
+    "FR": "0 éléments",
+    "ZH": "0 个",
+    "HI": "0 आइटम"
   },
   {
     "HU": "ÉLŐ",
