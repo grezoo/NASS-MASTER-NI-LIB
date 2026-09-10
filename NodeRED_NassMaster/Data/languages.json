@@ -120,6 +120,14 @@
     "HI": "मिनी पीएलसी लॉजिक कंट्रोलर और एक्चुएटर नियंत्रण"
   },
   {
+    "HU": "Ez a port inaktívra (Deactivated) van állítva.",
+    "EN": "This port is set to Inactive (Deactivated).",
+    "DE": "Dieser Port ist auf Inaktiv (Deaktiviert) gesetzt.",
+    "FR": "Ce port est défini sur Inactif (Désactivé).",
+    "ZH": "此端口设置为未激活 (已停用)。",
+    "HI": "यह पोर्ट निष्क्रिय (निष्क्रिय) पर सेट है।"
+  },
+  {
     "HU": "Valós Idejű Folyamatadat & ISDU Trend Grafikon",
     "EN": "Real-time Process Data & ISDU Trend Graph",
     "DE": "Echtzeit-Prozessdaten & ISDU-Trenddiagramm",
@@ -145,11 +153,11 @@
   },
   {
     "HU": "Szelep / Csatorna Kapcsolás (ON / OFF)",
-    "EN": "Valve / Channel Toggle (ON / OFF)",
-    "DE": "Ventil / Kanal Schalten (EIN / AUS)",
-    "FR": "Commutation Vanne / Canal (ON / OFF)",
-    "ZH": "阀门 / 通道切换 (开 / 关)",
-    "HI": "वाल्व / चैनल टॉगल (चालू / बंद)"
+    "EN": "Valve / Channel Toggle",
+    "DE": "Ventil / Kanal Schalten",
+    "FR": "Commutation Vanne / Canal",
+    "ZH": "阀门 / 通道切换",
+    "HI": "वाल्व / चैनल टॉगल"
   },
   {
     "HU": "Mini PLC Vezérlő & Logikai Szabályozó",
@@ -200,6 +208,14 @@
     "HI": "SCADA प्रक्रिया आरेख और संयंत्र लेआउट"
   },
   {
+    "HU": "X02 Pin 4 (Csak olvasható bemenet)",
+    "EN": "X02 Pin 4 (Read-only input)",
+    "DE": "X02 Pin 4 (Schreibgeschützter Eingang)",
+    "FR": "X02 Broche 4 (Entrée lecture seule)",
+    "ZH": "X02 引脚 4 (只读输入)",
+    "HI": "X02 पिन 4 (केवल पढ़ने योग्य इनपुट)"
+  },
+  {
     "HU": "X04 Pin 4 (Csak olvasható bemenet)",
     "EN": "X04 Pin 4 (Read-only input)",
     "DE": "X04 Pin 4 (Schreibgeschützter Eingang)",
@@ -224,12 +240,84 @@
     "HI": "1. IODD ज़िप / XML पैकेज विश्लेषण"
   },
   {
+    "HU": "-- Nincs ISDU (Csak PD mentés) --",
+    "EN": "-- No ISDU (PD logging only) --",
+    "DE": "-- Kein ISDU (nur PD-Protokoll) --",
+    "FR": "-- Aucun ISDU (Seul PD actif) --",
+    "ZH": "-- 无 ISDU (仅记录过程数据) --",
+    "HI": "-- कोई ISDU नहीं (केवल पीडी लॉगिंग) --"
+  },
+  {
     "HU": "PWM Kitöltési Tényező Állítás (%)",
     "EN": "PWM Duty Cycle Setpoint (%)",
     "DE": "PWM-Tastgrad-Einstellung (%)",
     "FR": "Réglage du rapport cyclique PWM (%)",
     "ZH": "PWM 占空比设定 (%)",
     "HI": "PWM ड्यूटी चक्र सेटिंग (%)"
+  },
+  {
+    "HU": "Port 1 (Digitális Bemenet (DI))",
+    "EN": "Port 1 (Digital Input (DI))",
+    "DE": "Port 1 (Digitaler Eingang (DI))",
+    "FR": "Port 1 (Entrée numérique (DI))",
+    "ZH": "端口 1 (数字输入 (DI))",
+    "HI": "पोर्ट 1 (डिजिटल इनपुट (DI))"
+  },
+  {
+    "HU": "Port 2 (Digitális Bemenet (DI))",
+    "EN": "Port 2 (Digital Input (DI))",
+    "DE": "Port 2 (Digitaler Eingang (DI))",
+    "FR": "Port 2 (Entrée numérique (DI))",
+    "ZH": "端口 2 (数字输入 (DI))",
+    "HI": "पोर्ट 2 (डिजिटल इनपुट (DI))"
+  },
+  {
+    "HU": "Port 3 (Digitális Bemenet (DI))",
+    "EN": "Port 3 (Digital Input (DI))",
+    "DE": "Port 3 (Digitaler Eingang (DI))",
+    "FR": "Port 3 (Entrée numérique (DI))",
+    "ZH": "端口 3 (数字输入 (DI))",
+    "HI": "पोर्ट 3 (डिजिटल इनपुट (DI))"
+  },
+  {
+    "HU": "Port 4 (Digitális Bemenet (DI))",
+    "EN": "Port 4 (Digital Input (DI))",
+    "DE": "Port 4 (Digitaler Eingang (DI))",
+    "FR": "Port 4 (Entrée numérique (DI))",
+    "ZH": "端口 4 (数字输入 (DI))",
+    "HI": "पोर्ट 4 (डिजिटल इनपुट (DI))"
+  },
+  {
+    "HU": "Port 1 (Digitális Kimenet (DO))",
+    "EN": "Port 1 (Digital Output (DO))",
+    "DE": "Port 1 (Digitaler Ausgang (DO))",
+    "FR": "Port 1 (Sortie numérique (DO))",
+    "ZH": "端口 1 (数字输出 (DO))",
+    "HI": "पोर्ट 1 (डिजिटल आउटपुट (DO))"
+  },
+  {
+    "HU": "Port 2 (Digitális Kimenet (DO))",
+    "EN": "Port 2 (Digital Output (DO))",
+    "DE": "Port 2 (Digitaler Ausgang (DO))",
+    "FR": "Port 2 (Sortie numérique (DO))",
+    "ZH": "端口 2 (数字输出 (DO))",
+    "HI": "पोर्ट 2 (डिजिटल आउटपुट (DO))"
+  },
+  {
+    "HU": "Port 3 (Digitális Kimenet (DO))",
+    "EN": "Port 3 (Digital Output (DO))",
+    "DE": "Port 3 (Digitaler Ausgang (DO))",
+    "FR": "Port 3 (Sortie numérique (DO))",
+    "ZH": "端口 3 (数字输出 (DO))",
+    "HI": "पोर्ट 3 (डिजिटल आउटपुट (DO))"
+  },
+  {
+    "HU": "Port 4 (Digitális Kimenet (DO))",
+    "EN": "Port 4 (Digital Output (DO))",
+    "DE": "Port 4 (Digitaler Ausgang (DO))",
+    "FR": "Port 4 (Sortie numérique (DO))",
+    "ZH": "端口 4 (数字输出 (DO))",
+    "HI": "पोर्ट 4 (डिजिटल आउटपुट (DO))"
   },
   {
     "HU": "DIGITÁLIS KIMENET (DO) VEZÉRLÉS",
@@ -344,12 +432,28 @@
     "HI": "सक्रिय पोर्ट प्रक्रिया डेटा (पीडी)"
   },
   {
+    "HU": "Seul enregistrement PD actif",
+    "EN": "Only PD recording active",
+    "DE": "Nur PD-Aufzeichnung aktiv",
+    "FR": "Seul enregistrement PD actif",
+    "ZH": "仅过程数据记录处于活动状态",
+    "HI": "केवल पीडी रिकॉर्डिंग सक्रिय"
+  },
+  {
     "HU": "Digitális Kimenet (DO Pin 4)",
     "EN": "Digital Output (DO Pin 4)",
     "DE": "Digitaler Ausgang (DO-Pin 4)",
     "FR": "Sortie numérique (Broche 4 DO)",
     "ZH": "数字输出 (DO 引脚 4)",
     "HI": "डिजिटल आउटपुट (DO पिन 4)"
+  },
+  {
+    "HU": "Nincs ISDU (Csak PD mentés)",
+    "EN": "No ISDU (PD logging only)",
+    "DE": "Kein ISDU (nur PD-Protokoll)",
+    "FR": "Aucun ISDU (Seul PD actif)",
+    "ZH": "无 ISDU (仅记录过程数据)",
+    "HI": "कोई ISDU नहीं (केवल पीडी लॉगिंग)"
   },
   {
     "HU": "Kiválasztott ISDU Paraméter",
@@ -382,6 +486,46 @@
     "FR": "CONDITION VRAIE (ACTION)",
     "ZH": "条件为真 (执行中)",
     "HI": "शर्त सत्य (सक्रिय)"
+  },
+  {
+    "HU": "Port 1 (IO-Link Autostart)",
+    "EN": "Port 1 (IO-Link Autostart)",
+    "DE": "Port 1 (IO-Link Autostart)",
+    "FR": "Port 1 (IO-Link Autostart)",
+    "ZH": "端口 1 (IO-Link 自动启动)",
+    "HI": "पोर्ट 1 (IO-Link ऑटोस्टार्ट)"
+  },
+  {
+    "HU": "Port 2 (IO-Link Autostart)",
+    "EN": "Port 2 (IO-Link Autostart)",
+    "DE": "Port 2 (IO-Link Autostart)",
+    "FR": "Port 2 (IO-Link Autostart)",
+    "ZH": "端口 2 (IO-Link 自动启动)",
+    "HI": "पोर्ट 2 (IO-Link ऑटोस्टार्ट)"
+  },
+  {
+    "HU": "Port 3 (IO-Link Autostart)",
+    "EN": "Port 3 (IO-Link Autostart)",
+    "DE": "Port 3 (IO-Link Autostart)",
+    "FR": "Port 3 (IO-Link Autostart)",
+    "ZH": "端口 3 (IO-Link 自动启动)",
+    "HI": "पोर्ट 3 (IO-Link ऑटोस्टार्ट)"
+  },
+  {
+    "HU": "Port 4 (IO-Link Autostart)",
+    "EN": "Port 4 (IO-Link Autostart)",
+    "DE": "Port 4 (IO-Link Autostart)",
+    "FR": "Port 4 (IO-Link Autostart)",
+    "ZH": "端口 4 (IO-Link 自动启动)",
+    "HI": "पोर्ट 4 (IO-Link ऑटोस्टार्ट)"
+  },
+  {
+    "HU": "ÉTAT ENTRÉE NUMÉRIQUE (DI)",
+    "EN": "DIGITAL INPUT (DI) STATUS",
+    "DE": "DIGITALER EINGANG (DI) STATUS",
+    "FR": "ÉTAT ENTRÉE NUMÉRIQUE (DI)",
+    "ZH": "数字输入 (DI) 状态",
+    "HI": "डिजिटल इनपुट (DI) स्थिति"
   },
   {
     "HU": "PORT 1 (X01) HOZZÁRENDELÉS",
@@ -843,7 +987,7 @@
     "HU": "BE (ON / Nyit / 24V)",
     "EN": "ON (Open / 24V)",
     "DE": "EIN (Öffnen / 24V)",
-    "FR": "ON (Ouvrir / 24V)",
+    "FR": "MARCHE (Ouvrir / 24V)",
     "ZH": "开启 (打开 / 24V)",
     "HI": "चालू (खोलें / 24V)"
   },
@@ -862,6 +1006,14 @@
     "FR": "Configuration IP Master",
     "ZH": "主站 IP 设置",
     "HI": "मास्टर आईपी सेटअप"
+  },
+  {
+    "HU": "LE PORT EST INACTIF",
+    "EN": "PORT IS INACTIVE",
+    "DE": "PORT IST INAKTIV",
+    "FR": "LE PORT EST INACTIF",
+    "ZH": "端口处于非活动状态",
+    "HI": "पोर्ट निष्क्रिय है"
   },
   {
     "HU": "P+F Szelep (Port 1)",
@@ -891,7 +1043,7 @@
     "HU": "KI (OFF / Zár / 0V)",
     "EN": "OFF (Close / 0V)",
     "DE": "AUS (Schließen / 0V)",
-    "FR": "OFF (Fermer / 0V)",
+    "FR": "ARRÊT (Fermer / 0V)",
     "ZH": "关闭 (关闭 / 0V)",
     "HI": "बंद (बंद करें / 0V)"
   },
@@ -1062,6 +1214,38 @@
     "FR": "IO-Link Manuel",
     "ZH": "IO-Link 手动",
     "HI": "IO-Link मैनुअल"
+  },
+  {
+    "HU": "Port 1 (Inaktív)",
+    "EN": "Port 1 (Inactive)",
+    "DE": "Port 1 (Inaktiv)",
+    "FR": "Port 1 (Inactif)",
+    "ZH": "端口 1 (未激活)",
+    "HI": "पोर्ट 1 (निष्क्रिय)"
+  },
+  {
+    "HU": "Port 2 (Inaktív)",
+    "EN": "Port 2 (Inactive)",
+    "DE": "Port 2 (Inaktiv)",
+    "FR": "Port 2 (Inactif)",
+    "ZH": "端口 2 (未激活)",
+    "HI": "पोर्ट 2 (निष्क्रिय)"
+  },
+  {
+    "HU": "Port 3 (Inaktív)",
+    "EN": "Port 3 (Inactive)",
+    "DE": "Port 3 (Inaktiv)",
+    "FR": "Port 3 (Inactif)",
+    "ZH": "端口 3 (未激活)",
+    "HI": "पोर्ट 3 (निष्क्रिय)"
+  },
+  {
+    "HU": "Port 4 (Inaktív)",
+    "EN": "Port 4 (Inactive)",
+    "DE": "Port 4 (Inaktiv)",
+    "FR": "Port 4 (Inactif)",
+    "ZH": "端口 4 (未激活)",
+    "HI": "पोर्ट 4 (निष्क्रिय)"
   },
   {
     "HU": "Paraméter (ISDU)",
@@ -1320,6 +1504,14 @@
     "HI": "ऑर्डर कोड"
   },
   {
+    "HU": "Aktív Szabály",
+    "EN": "Active Rules",
+    "DE": "Aktive Regeln",
+    "FR": "Règles Actives",
+    "ZH": "活动规则",
+    "HI": "सक्रिय नियम"
+  },
+  {
     "HU": "Napló Törlése",
     "EN": "Clear Log",
     "DE": "Protokoll löschen",
@@ -1416,6 +1608,14 @@
     "HI": "पोर्ट 4 (X04)"
   },
   {
+    "HU": "0V (NYITOTT)",
+    "EN": "0V (OPEN)",
+    "DE": "0V (OFFEN)",
+    "FR": "0V (OUVERT)",
+    "ZH": "0V (断开)",
+    "HI": "0V (खुला)"
+  },
+  {
     "HU": "10 másodperc",
     "EN": "10 seconds",
     "DE": "10 Sekunden",
@@ -1486,14 +1686,6 @@
     "FR": "Potentiomètre PWM",
     "ZH": "PWM 电位器",
     "HI": "PWM पोटेंशियोमीटर"
-  },
-  {
-    "HU": "0V (NYITOTT)",
-    "EN": "0V (OPEN)",
-    "DE": "0V (OFFEN)",
-    "FR": "0V (OUVERT)",
-    "ZH": "0V (断开)",
-    "HI": "0V (खुला)"
   },
   {
     "HU": "IODD KEZELŐ",
@@ -1664,12 +1856,36 @@
     "HI": "पढ़ें"
   },
   {
+    "HU": "bejegyzés",
+    "EN": "entries",
+    "DE": "Einträge",
+    "FR": "entrées",
+    "ZH": "条记录",
+    "HI": "प्रविष्टियाँ"
+  },
+  {
     "HU": "Cél Port:",
     "EN": "Target Port:",
     "DE": "Zielport:",
     "FR": "Port cible:",
     "ZH": "目标端口:",
     "HI": "लक्ष्य पोर्ट:"
+  },
+  {
+    "HU": "ON (Nyit)",
+    "EN": "ON (Open)",
+    "DE": "EIN (Öffnen)",
+    "FR": "MARCHE (Ouvrir)",
+    "ZH": "开启 (打开)",
+    "HI": "चालू (खोलें)"
+  },
+  {
+    "HU": "OFF (Zár)",
+    "EN": "OFF (Close)",
+    "DE": "AUS (Schließen)",
+    "FR": "ARRÊT (Fermer)",
+    "ZH": "关闭 (关闭)",
+    "HI": "बंद (बंद करें)"
   },
   {
     "HU": "Bezárás ✕",
@@ -1706,10 +1922,34 @@
   {
     "HU": "KI (OFF)",
     "EN": "OFF",
-    "DE": "AUS (OFF)",
-    "FR": "ÉTEINT (OFF)",
-    "ZH": "关闭 (OFF)",
-    "HI": "बंद (OFF)"
+    "DE": "AUS",
+    "FR": "ÉTEINT",
+    "ZH": "关闭",
+    "HI": "बंद"
+  },
+  {
+    "HU": "OFF (0V)",
+    "EN": "OFF (0V)",
+    "DE": "AUS (0V)",
+    "FR": "ÉTEINT (0V)",
+    "ZH": "关闭 (0V)",
+    "HI": "बंद (0V)"
+  },
+  {
+    "HU": "ON (24V)",
+    "EN": "ON (24V)",
+    "DE": "EIN (24V)",
+    "FR": "ALLUMÉ (24V)",
+    "ZH": "开启 (24V)",
+    "HI": "चालू (24V)"
+  },
+  {
+    "HU": "0V (LOW)",
+    "EN": "0V (LOW)",
+    "DE": "0V (LOW)",
+    "FR": "0V (BAS)",
+    "ZH": "0V (低电平)",
+    "HI": "0V (निम्न)"
   },
   {
     "HU": "Szünetel",
@@ -1728,20 +1968,20 @@
     "HI": "रुका हुआ"
   },
   {
+    "HU": "En pause",
+    "EN": "Paused",
+    "DE": "Pausiert",
+    "FR": "En pause",
+    "ZH": "已暂停",
+    "HI": "रुका हुआ"
+  },
+  {
     "HU": "Reláció:",
     "EN": "Relation:",
     "DE": "Relation:",
     "FR": "Relation:",
     "ZH": "比较关系:",
     "HI": "संबंध:"
-  },
-  {
-    "HU": "0V (LOW)",
-    "EN": "0V (LOW)",
-    "DE": "0V (LOW)",
-    "FR": "0V (BAS)",
-    "ZH": "0V (低电平)",
-    "HI": "0V (निम्न)"
   },
   {
     "HU": "Gyártó:",
@@ -1776,6 +2016,22 @@
     "HI": "उपकरण:"
   },
   {
+    "HU": "INAKTÍV",
+    "EN": "INACTIVE",
+    "DE": "INAKTIV",
+    "FR": "INACTIF",
+    "ZH": "未激活",
+    "HI": "निष्क्रिय"
+  },
+  {
+    "HU": "Inaktív",
+    "EN": "Inactive",
+    "DE": "Inaktiv",
+    "FR": "Inactif",
+    "ZH": "未激活",
+    "HI": "निष्क्रिय"
+  },
+  {
     "HU": "Olvasás",
     "EN": "Read",
     "DE": "Lesen",
@@ -1786,18 +2042,10 @@
   {
     "HU": "BE (ON)",
     "EN": "ON",
-    "DE": "EIN (ON)",
-    "FR": "ALLUMÉ (ON)",
-    "ZH": "开启 (ON)",
-    "HI": "चालू (ON)"
-  },
-  {
-    "HU": "Inaktív",
-    "EN": "Inactive",
-    "DE": "Inaktiv",
-    "FR": "Inactif",
-    "ZH": "未激活",
-    "HI": "निष्क्रिय"
+    "DE": "EIN",
+    "FR": "ALLUMÉ",
+    "ZH": "开启",
+    "HI": "चालू"
   },
   {
     "HU": "Bezárás",
@@ -1856,6 +2104,14 @@
     "HI": "1 मिनट"
   },
   {
+    "HU": "(Nyit)",
+    "EN": "(Open)",
+    "DE": "(Öffnen)",
+    "FR": "(Ouvrir)",
+    "ZH": "(打开)",
+    "HI": "(खोलें)"
+  },
+  {
     "HU": "Tiltás",
     "EN": "Disable",
     "DE": "Deaktivieren",
@@ -1902,6 +2158,14 @@
     "FR": "INDEX",
     "ZH": "索引",
     "HI": "अनुक्रमणिका"
+  },
+  {
+    "HU": "(Zár)",
+    "EN": "(Close)",
+    "DE": "(Schließen)",
+    "FR": "(Fermer)",
+    "ZH": "(关闭)",
+    "HI": "(बंद करें)"
   },
   {
     "HU": "Mégse",
