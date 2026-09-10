@@ -1,0 +1,381 @@
+{
+  "_meta": {
+    "title": "NassMaster SCADA & Mini PLC Language Dictionary",
+    "version": "1.0.0",
+    "description": "Enterprise technical terminology dictionary for UI localization. Editable by sales and technical personnel.",
+    "supportedLanguages": ["HU", "EN", "DE", "FR"],
+    "defaultLanguage": "HU"
+  },
+  "NAV": {
+    "TAB_DASHBOARD": {
+      "HU": "FŐLAP",
+      "EN": "DASHBOARD",
+      "DE": "HAUPTSEITE",
+      "FR": "TABLEAU DE BORD"
+    },
+    "TAB_CONTROL": {
+      "HU": "ESZKÖZVEZÉRLÉS",
+      "EN": "DEVICE CONTROL",
+      "DE": "GERÄTESTEUERUNG",
+      "FR": "CONTRÔLE D'APPAREIL"
+    },
+    "TAB_IODD": {
+      "HU": "IODD KEZELŐ",
+      "EN": "IODD MANAGER",
+      "DE": "IODD-VERWALTUNG",
+      "FR": "GESTIONNAIRE IODD"
+    },
+    "TAB_DIAG": {
+      "HU": "DIAGNOSZTIKA",
+      "EN": "DIAGNOSTICS",
+      "DE": "DIAGNOSE",
+      "FR": "DIAGNOSTIC"
+    },
+    "TAB_PLC": {
+      "HU": "MINI PLC",
+      "EN": "MINI PLC",
+      "DE": "MINI SPS",
+      "FR": "MINI AUTOMATE"
+    },
+    "TAB_MIMIC": {
+      "HU": "FOLYAMATÁBRA",
+      "EN": "PROCESS MIMIC",
+      "DE": "PROZESSBILD",
+      "FR": "SYNOPTIQUE"
+    }
+  },
+  "COMMON": {
+    "BTN_SAVE": {
+      "HU": "Mentés",
+      "EN": "Save",
+      "DE": "Speichern",
+      "FR": "Enregistrer"
+    },
+    "BTN_LOAD": {
+      "HU": "Betöltés",
+      "EN": "Load",
+      "DE": "Laden",
+      "FR": "Charger"
+    },
+    "BTN_EXPORT": {
+      "HU": "Exportálás",
+      "EN": "Export",
+      "DE": "Exportieren",
+      "FR": "Exporter"
+    },
+    "BTN_IMPORT": {
+      "HU": "Importálás",
+      "EN": "Import",
+      "DE": "Importieren",
+      "FR": "Importer"
+    },
+    "BTN_DELETE": {
+      "HU": "Törlés",
+      "EN": "Delete",
+      "DE": "Löschen",
+      "FR": "Supprimer"
+    },
+    "BTN_CLEAR": {
+      "HU": "Összes Törlése",
+      "EN": "Clear All",
+      "DE": "Alles Löschen",
+      "FR": "Tout Effacer"
+    },
+    "BTN_CANCEL": {
+      "HU": "Mégse",
+      "EN": "Cancel",
+      "DE": "Abbrechen",
+      "FR": "Annuler"
+    },
+    "BTN_CLOSE": {
+      "HU": "Bezárás",
+      "EN": "Close",
+      "DE": "Schließen",
+      "FR": "Fermer"
+    },
+    "BTN_READ": {
+      "HU": "Olvasás",
+      "EN": "Read",
+      "DE": "Lesen",
+      "FR": "Lire"
+    },
+    "BTN_WRITE": {
+      "HU": "Írás",
+      "EN": "Write",
+      "DE": "Schreiben",
+      "FR": "Écrire"
+    },
+    "BTN_TOGGLE": {
+      "HU": "Kapcsolás",
+      "EN": "Toggle",
+      "DE": "Umschalten",
+      "FR": "Basculer"
+    },
+    "STATE_ON": {
+      "HU": "BE (Nyit / 24V)",
+      "EN": "ON (Open / 24V)",
+      "DE": "EIN (Offen / 24V)",
+      "FR": "MARCHE (Ouvert / 24V)"
+    },
+    "STATE_OFF": {
+      "HU": "KI (Zár / 0V)",
+      "EN": "OFF (Close / 0V)",
+      "DE": "AUS (Geschl. / 0V)",
+      "FR": "ARRÊT (Fermé / 0V)"
+    },
+    "STATUS_ONLINE": {
+      "HU": "ONLINE (Aktív)",
+      "EN": "ONLINE (Active)",
+      "DE": "ONLINE (Aktiv)",
+      "FR": "EN LIGNE (Actif)"
+    },
+    "STATUS_OFFLINE": {
+      "HU": "OFFLINE (Nincs kapcsolat)",
+      "EN": "OFFLINE (No connection)",
+      "DE": "OFFLINE (Keine Verbindung)",
+      "FR": "HORS LIGNE (Pas de connexion)"
+    }
+  },
+  "PORT_MODES": {
+    "MODE_IOLINK_AUTOSTART": {
+      "HU": "IO-Link Autostart",
+      "EN": "IO-Link Autostart",
+      "DE": "IO-Link Autostart",
+      "FR": "IO-Link Démarrage auto"
+    },
+    "MODE_IOLINK_MANUAL": {
+      "HU": "IO-Link Manuális",
+      "EN": "IO-Link Manual",
+      "DE": "IO-Link Manuell",
+      "FR": "IO-Link Manuel"
+    },
+    "MODE_DO": {
+      "HU": "Digitális Kimenet (DO)",
+      "EN": "Digital Output (DO)",
+      "DE": "Digitaler Ausgang (DO)",
+      "FR": "Sortie Numérique (DO)"
+    },
+    "MODE_DI": {
+      "HU": "Digitális Bemenet (DI)",
+      "EN": "Digital Input (DI)",
+      "DE": "Digitaler Eingang (DI)",
+      "FR": "Entrée Numérique (DI)"
+    },
+    "MODE_DEACTIVATED": {
+      "HU": "Inaktív (Kikapcsolva)",
+      "EN": "Deactivated",
+      "DE": "Deaktiviert",
+      "FR": "Désactivé"
+    }
+  },
+  "PLC": {
+    "HEADER_TITLE": {
+      "HU": "MINI PLC LOGIKAI SZABÁLYOZÓ & AKTUÁTOR VEZÉRLÉS",
+      "EN": "MINI PLC LOGIC CONTROLLER & ACTUATOR CONTROL",
+      "DE": "MINI SPS LOGIKREGLER & AKTORSTEUERUNG",
+      "FR": "MINI AUTOMATE CONTRÔLEUR LOGIQUE & ACTIONNEURS"
+    },
+    "CYCLE_TIME": {
+      "HU": "Ciklusidő: 500ms | Dinamikus IODD Csatornák & Többcsatornás Bit-Packing",
+      "EN": "Cycle Time: 500ms | Dynamic IODD Channels & Multi-Channel Bit-Packing",
+      "DE": "Zykluszeit: 500ms | Dynamische IODD-Kanäle & Mehrkanal-Bit-Packing",
+      "FR": "Temps de cycle: 500ms | Canaux IODD dynamiques & Bit-Packing multicanal"
+    },
+    "BTN_NEW_RULE": {
+      "HU": "ÚJ SZABÁLY LÉTREHOZÁSA",
+      "EN": "CREATE NEW RULE",
+      "DE": "NEUE REGEL ERSTELLEN",
+      "FR": "CRÉER UNE NOUVELLE RÈGLE"
+    },
+    "BTN_LOAD_JSON": {
+      "HU": "BETÖLTÉS & BEILLESZTÉS (.JSON)",
+      "EN": "LOAD & PASTE (.JSON)",
+      "DE": "LADEN & EINFÜGEN (.JSON)",
+      "FR": "CHARGER & COLLER (.JSON)"
+    },
+    "BTN_SAVE_JSON": {
+      "HU": "Mentés Fájlba (.json)",
+      "EN": "Save to File (.json)",
+      "DE": "In Datei speichern (.json)",
+      "FR": "Enregistrer dans fichier (.json)"
+    },
+    "BTN_FACTORY_RULES": {
+      "HU": "Gyári Szabályok",
+      "EN": "Factory Rules",
+      "DE": "Werkseinstellungen",
+      "FR": "Règles d'usine"
+    },
+    "SEC_INPUT_CONDITION": {
+      "HU": "1. BEMENETI FELTÉTEL (HA / IF):",
+      "EN": "1. INPUT CONDITION (IF):",
+      "DE": "1. EINGANGSBEDINGUNG (WENN / IF):",
+      "FR": "1. CONDITION D'ENTRÉE (SI / IF):"
+    },
+    "SEC_THEN_ACTION": {
+      "HU": "2. BEAVATKOZÁS (AKKOR / THEN):",
+      "EN": "2. ACTION (THEN):",
+      "DE": "2. AKTION (DANN / THEN):",
+      "FR": "2. ACTION (ALORS / THEN):"
+    },
+    "SEC_ELSE_ACTION": {
+      "HU": "3. ALAPHELYZETBE ÁLLÍTÁS (EGYÉBKÉNT / ELSE):",
+      "EN": "3. RESET TO DEFAULT (ELSE):",
+      "DE": "3. RÜCKSETZEN AUF STANDARD (SONST / ELSE):",
+      "FR": "3. RÉINITIALISATION (SINON / ELSE):"
+    },
+    "MODE_DISCRETE": {
+      "HU": "Diszkrét Kapcsolás (BE / KI)",
+      "EN": "Discrete Switching (ON / OFF)",
+      "DE": "Diskrete Schaltung (EIN / AUS)",
+      "FR": "Commutation Discrète (MARCHE / ARRÊT)"
+    },
+    "MODE_FIXED_PWM": {
+      "HU": "Fix PWM / Analóg Értékadás",
+      "EN": "Fixed PWM / Analog Output",
+      "DE": "Fester PWM / Analogwert",
+      "FR": "Valeur PWM / Analogique Fixe"
+    },
+    "MODE_PROPORTIONAL": {
+      "HU": "Arányos Szabályzás (P-Skálázás)",
+      "EN": "Proportional Control (P-Scaling)",
+      "DE": "Proportionalregelung (P-Skalierung)",
+      "FR": "Régulation Proportionnelle (Échelle P)"
+    },
+    "LOG_TITLE": {
+      "HU": "ÉLŐ PLC ESEMÉNYNAPLÓ",
+      "EN": "LIVE PLC EVENT LOG",
+      "DE": "LIVE-SPS-EREIGNISPROTOKOLL",
+      "FR": "JOURNAL DES ÉVÉNEMENTS PLC EN DIRECT"
+    }
+  },
+  "MIMIC": {
+    "HEADER_TITLE": {
+      "HU": "NassMaster 2.1 – Grafikus SCADA Folyamatábra (Visual Mimic)",
+      "EN": "NassMaster 2.1 – Graphical SCADA Process Mimic",
+      "DE": "NassMaster 2.1 – Grafisches SCADA-Prozessbild (Visual Mimic)",
+      "FR": "NassMaster 2.1 – Synoptique de Processus SCADA Graphique"
+    },
+    "PALETTE_LABEL": {
+      "HU": "Gépkönyvtár:",
+      "EN": "Equipment Library:",
+      "DE": "Gerätebibliothek:",
+      "FR": "Bibliothèque d'équipements:"
+    },
+    "ITEM_VALVE": {
+      "HU": "Nass Szelep",
+      "EN": "Nass Valve",
+      "DE": "Nass Ventil",
+      "FR": "Vanne Nass"
+    },
+    "ITEM_KNOB": {
+      "HU": "PWM Potméter",
+      "EN": "PWM Potentiometer",
+      "DE": "PWM-Potentiometer",
+      "FR": "Potentiomètre PWM"
+    },
+    "ITEM_CONVEYOR": {
+      "HU": "Szállítószalag",
+      "EN": "Conveyor Belt",
+      "DE": "Förderband",
+      "FR": "Convoyeur"
+    },
+    "ITEM_THERMO": {
+      "HU": "Hőmérő Távadó",
+      "EN": "Temperature Sensor",
+      "DE": "Temperatursensor",
+      "FR": "Capteur de température"
+    },
+    "ITEM_PRESSURE": {
+      "HU": "Nyomásszenzor",
+      "EN": "Pressure Sensor",
+      "DE": "Drucksensor",
+      "FR": "Capteur de pression"
+    },
+    "ITEM_LIMIT_SWITCH": {
+      "HU": "Végálláskapcsoló",
+      "EN": "Limit Switch",
+      "DE": "Endschalter",
+      "FR": "Fin de course"
+    },
+    "ITEM_PROXIMITY": {
+      "HU": "Közelítéskapcsoló",
+      "EN": "Proximity Sensor",
+      "DE": "Näherungsschalter",
+      "FR": "Capteur de proximité"
+    },
+    "ITEM_GRINDER": {
+      "HU": "Daráló / Mixer",
+      "EN": "Grinder / Mixer",
+      "DE": "Mühle / Mischer",
+      "FR": "Broyeur / Mélangeur"
+    },
+    "ITEM_TANK": {
+      "HU": "Tartály / Siló",
+      "EN": "Tank / Silo",
+      "DE": "Behälter / Silo",
+      "FR": "Réservoir / Silo"
+    },
+    "ITEM_CYLINDER": {
+      "HU": "Munkahenger",
+      "EN": "Pneumatic Cylinder",
+      "DE": "Pneumatikzylinder",
+      "FR": "Vérin pneumatique"
+    },
+    "ITEM_CUSTOM_IMG": {
+      "HU": "Egyedi Kép",
+      "EN": "Custom Image",
+      "DE": "Benutzerdefiniertes Bild",
+      "FR": "Image personnalisée"
+    }
+  },
+  "HARDWARE": {
+    "SUPPLY_VOLTAGE": {
+      "HU": "Tápfeszültség",
+      "EN": "Supply Voltage",
+      "DE": "Versorgungsspannung",
+      "FR": "Tension d'alimentation"
+    },
+    "ACTOR_VOLTAGE": {
+      "HU": "Aktuátor Feszültség",
+      "EN": "Actuator Voltage",
+      "DE": "Aktorspannung",
+      "FR": "Tension d'actionneur"
+    },
+    "SENSOR_VOLTAGE": {
+      "HU": "Szenzor Feszültség",
+      "EN": "Sensor Voltage",
+      "DE": "Sensorspannung",
+      "FR": "Tension de capteur"
+    },
+    "OUTPUT_CURRENT": {
+      "HU": "Kimeneti Áram",
+      "EN": "Output Current",
+      "DE": "Ausgangsstrom",
+      "FR": "Courant de sortie"
+    },
+    "TEMPERATURE": {
+      "HU": "Belső Hőmérséklet",
+      "EN": "Internal Temperature",
+      "DE": "Innentemperatur",
+      "FR": "Température interne"
+    },
+    "PWM_DUTY_CYCLE": {
+      "HU": "Kitöltési Tényező (PWM)",
+      "EN": "PWM Duty Cycle",
+      "DE": "PWM-Tastgrad",
+      "FR": "Rapport cyclique PWM"
+    },
+    "HOLDING_CURRENT": {
+      "HU": "Tartóáram",
+      "EN": "Holding Current",
+      "DE": "Haltestrom",
+      "FR": "Courant de maintien"
+    },
+    "PULL_IN_TIME": {
+      "HU": "Behúzási Idő",
+      "EN": "Pull-in Time",
+      "DE": "Anzugszeit",
+      "FR": "Temps d'attraction"
+    }
+  }
+}
