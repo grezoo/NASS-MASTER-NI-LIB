@@ -3,7 +3,14 @@
     "title": "NassMaster SCADA & Mini PLC Language Dictionary",
     "version": "1.1.0",
     "description": "Enterprise technical terminology dictionary for UI localization. Editable by sales and technical personnel.",
-    "supportedLanguages": ["HU", "EN", "DE", "FR", "ZH", "HI"],
+    "supportedLanguages": [
+      "HU",
+      "EN",
+      "DE",
+      "FR",
+      "ZH",
+      "HI"
+    ],
     "defaultLanguage": "HU"
   },
   "NAV": {
@@ -16,7 +23,7 @@
       "HI": "डैशबोर्ड"
     },
     "TAB_CONTROL": {
-      "HU": "ESZKÖZVEZÉRLÉS",
+      "HU": "ESZKÖZ VEZÉRLÉS",
       "EN": "DEVICE CONTROL",
       "DE": "GERÄTESTEUERUNG",
       "FR": "CONTRÔLE D'APPAREIL",
@@ -40,12 +47,12 @@
       "HI": "निदान"
     },
     "TAB_PLC": {
-      "HU": "MINI PLC",
-      "EN": "MINI PLC",
-      "DE": "MINI SPS",
-      "FR": "MINI AUTOMATE",
-      "ZH": "微型 PLC",
-      "HI": "मिनी पीएलसी"
+      "HU": "FUNKCIÓK (MINI PLC)",
+      "EN": "FUNCTIONS (MINI PLC)",
+      "DE": "FUNKTIONEN (MINI SPS)",
+      "FR": "FONCTIONS (MINI AUTOMATE)",
+      "ZH": "功能 (微型 PLC)",
+      "HI": "फ़ंक्शंस (मिनी पीएलसी)"
     },
     "TAB_MIMIC": {
       "HU": "FOLYAMATÁBRA",
@@ -496,6 +503,176 @@
       "FR": "Temps d'attraction",
       "ZH": "吸合时间",
       "HI": "पुल-इन समय"
+    }
+  },
+  "DASHBOARD": {
+    "TITLE_OVERVIEW": {
+      "HU": "Központosított Áttekintés",
+      "EN": "Centralized Overview",
+      "DE": "Zentrale Übersicht",
+      "FR": "Vue d'ensemble centralisée",
+      "ZH": "集中概览",
+      "HI": "केंद्रीकृत अवलोकन"
+    },
+    "PANEL_DEVICE_INFO": {
+      "HU": "Eszköz Információ",
+      "EN": "Device Information",
+      "DE": "Geräteinformation",
+      "FR": "Informations sur l'appareil",
+      "ZH": "设备信息",
+      "HI": "उपकरण जानकारी"
+    },
+    "PANEL_NETWORK": {
+      "HU": "Hálózat & Rendszerállapot",
+      "EN": "Network & System Status",
+      "DE": "Netzwerk- & Systemstatus",
+      "FR": "État réseau & système",
+      "ZH": "网络与系统状态",
+      "HI": "नेटवर्क और सिस्टम स्थिति"
+    },
+    "PRODUCT_NAME": {
+      "HU": "Terméknév",
+      "EN": "Product Name",
+      "DE": "Produktname",
+      "FR": "Nom du produit",
+      "ZH": "产品名称",
+      "HI": "उत्पाद का नाम"
+    },
+    "VENDOR": {
+      "HU": "Gyártó",
+      "EN": "Vendor",
+      "DE": "Hersteller",
+      "FR": "Fabricant",
+      "ZH": "生产厂家",
+      "HI": "निर्माता"
+    },
+    "SERIAL_NUMBER": {
+      "HU": "Sorozatszám",
+      "EN": "Serial Number",
+      "DE": "Seriennummer",
+      "FR": "Numéro de série",
+      "ZH": "序列号",
+      "HI": "क्रमांक"
+    },
+    "FWHW_VERSION": {
+      "HU": "FW / HW Verzió",
+      "EN": "FW / HW Version",
+      "DE": "FW / HW Version",
+      "FR": "Version FW / HW",
+      "ZH": "固件/硬件版本",
+      "HI": "फर्मवेयर/हार्डवेयर संस्करण"
+    },
+    "MAC_ADDRESS": {
+      "HU": "MAC Cím",
+      "EN": "MAC Address",
+      "DE": "MAC-Adresse",
+      "FR": "Adresse MAC",
+      "ZH": "MAC 地址",
+      "HI": "मैक पता"
+    },
+    "ORDER_CODE": {
+      "HU": "Rendelési Kód",
+      "EN": "Order Code",
+      "DE": "Bestellcode",
+      "FR": "Code de commande",
+      "ZH": "订货号",
+      "HI": "ऑर्डर कोड"
+    },
+    "IP_MODE": {
+      "HU": "IP Cím & Mód",
+      "EN": "IP Address & Mode",
+      "DE": "IP-Adresse & Modus",
+      "FR": "Adresse IP & Mode",
+      "ZH": "IP 地址与模式",
+      "HI": "आईपी पता और मोड"
+    },
+    "MASTER_IP_SETTING": {
+      "HU": "Master IP Beállítás",
+      "EN": "Master IP Setting",
+      "DE": "Master-IP-Einstellung",
+      "FR": "Paramètre IP maître",
+      "ZH": "主站 IP 设置",
+      "HI": "मास्टर आईपी सेटिंग"
+    },
+    "SUBNET_MASK": {
+      "HU": "Alhálózati Maszk",
+      "EN": "Subnet Mask",
+      "DE": "Subnetzmaske",
+      "FR": "Masque de sous-réseau",
+      "ZH": "子网掩码",
+      "HI": "सबनेट मास्क"
+    },
+    "GATEWAY": {
+      "HU": "Átjáró (GW)",
+      "EN": "Gateway (GW)",
+      "DE": "Gateway (GW)",
+      "FR": "Passerelle (GW)",
+      "ZH": "网关 (GW)",
+      "HI": "गेटवे (GW)"
+    },
+    "ETH0_PORT": {
+      "HU": "ETH0 Port",
+      "EN": "ETH0 Port",
+      "DE": "ETH0 Port",
+      "FR": "Port ETH0",
+      "ZH": "ETH0 端口",
+      "HI": "ETH0 पोर्ट"
+    },
+    "ETH1_PORT": {
+      "HU": "ETH1 Port",
+      "EN": "ETH1 Port",
+      "DE": "ETH1 Port",
+      "FR": "Port ETH1",
+      "ZH": "ETH1 端口",
+      "HI": "ETH1 पोर्ट"
+    },
+    "STATUS": {
+      "HU": "Állapot",
+      "EN": "Status",
+      "DE": "Status",
+      "FR": "Statut",
+      "ZH": "状态",
+      "HI": "स्थिति"
+    },
+    "DEVICE": {
+      "HU": "Eszköz",
+      "EN": "Device",
+      "DE": "Gerät",
+      "FR": "Appareil",
+      "ZH": "设备",
+      "HI": "उपकरण"
+    },
+    "DO_OUTPUT": {
+      "HU": "DO Kimenet (C/Q)",
+      "EN": "DO Output (C/Q)",
+      "DE": "DO-Ausgang (C/Q)",
+      "FR": "Sortie DO (C/Q)",
+      "ZH": "DO 数字输出 (C/Q)",
+      "HI": "DO आउटपुट (C/Q)"
+    },
+    "DI_INPUT": {
+      "HU": "DI Bemenet",
+      "EN": "DI Input",
+      "DE": "DI-Eingang",
+      "FR": "Entrée DI",
+      "ZH": "DI 数字输入",
+      "HI": "DI इनपुट"
+    },
+    "PORT_INACTIVE": {
+      "HU": "A PORT INAKTÍV",
+      "EN": "PORT IS INACTIVE",
+      "DE": "PORT IST INAKTIV",
+      "FR": "PORT INACTIF",
+      "ZH": "端口未激活",
+      "HI": "पोर्ट निष्क्रिय है"
+    },
+    "NO_IODD": {
+      "HU": "Nincs IODD rendelve ehhez a porthoz",
+      "EN": "No IODD assigned to this port",
+      "DE": "Kein IODD zugewiesen",
+      "FR": "Aucun IODD assigné",
+      "ZH": "未分配 IODD",
+      "HI": "कोई IODD निर्दिष्ट नहीं"
     }
   }
 }
