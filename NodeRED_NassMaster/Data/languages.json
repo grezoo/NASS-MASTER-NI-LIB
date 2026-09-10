@@ -1,8 +1,7 @@
 {
   "_meta": {
-    "title": "NassMaster SCADA & Mini PLC Language Dictionary",
-    "version": "1.1.0",
-    "description": "Enterprise technical terminology dictionary for UI localization. Editable by sales and technical personnel.",
+    "title": "NassMaster SCADA & Mini PLC 100% Global Language Dictionary",
+    "version": "2.2.0",
     "supportedLanguages": [
       "HU",
       "EN",
@@ -13,24 +12,16 @@
     ],
     "defaultLanguage": "HU"
   },
-  "NAV": {
-    "TAB_DASHBOARD": {
-      "HU": "FŐLAP",
-      "EN": "DASHBOARD",
-      "DE": "HAUPTSEITE",
-      "FR": "TABLEAU DE BORD",
-      "ZH": "仪表板",
-      "HI": "डैशबोर्ड"
+  "DRAWER_AND_TABS": {
+    "NASSMASTER": {
+      "HU": "NASSMASTER",
+      "EN": "NASSMASTER",
+      "DE": "NASSMASTER",
+      "FR": "NASSMASTER",
+      "ZH": "NASSMASTER",
+      "HI": "NASSMASTER"
     },
-    "TAB_CONTROL": {
-      "HU": "ESZKÖZ VEZÉRLÉS",
-      "EN": "DEVICE CONTROL",
-      "DE": "GERÄTESTEUERUNG",
-      "FR": "CONTRÔLE D'APPAREIL",
-      "ZH": "设备控制",
-      "HI": "उपकरण नियंत्रण"
-    },
-    "TAB_IODD": {
+    "IODD_KEZELO": {
       "HU": "IODD KEZELŐ",
       "EN": "IODD MANAGER",
       "DE": "IODD-VERWALTUNG",
@@ -38,7 +29,15 @@
       "ZH": "IODD 管理器",
       "HI": "IODD प्रबंधक"
     },
-    "TAB_DIAG": {
+    "ESZKOZ_VEZERLES": {
+      "HU": "ESZKÖZ VEZÉRLÉS",
+      "EN": "DEVICE CONTROL",
+      "DE": "GERÄTESTEUERUNG",
+      "FR": "CONTRÔLE D'APPAREIL",
+      "ZH": "设备控制",
+      "HI": "उपकरण नियंत्रण"
+    },
+    "DIAGNOSZTIKA": {
       "HU": "DIAGNOSZTIKA",
       "EN": "DIAGNOSTICS",
       "DE": "DIAGNOSE",
@@ -46,7 +45,7 @@
       "ZH": "诊断分析",
       "HI": "निदान"
     },
-    "TAB_PLC": {
+    "FUNKCIOK_PLC": {
       "HU": "FUNKCIÓK (MINI PLC)",
       "EN": "FUNCTIONS (MINI PLC)",
       "DE": "FUNKTIONEN (MINI SPS)",
@@ -54,7 +53,7 @@
       "ZH": "功能 (微型 PLC)",
       "HI": "फ़ंक्शंस (मिनी पीएलसी)"
     },
-    "TAB_MIMIC": {
+    "FOLYAMATABRA": {
       "HU": "FOLYAMATÁBRA",
       "EN": "PROCESS MIMIC",
       "DE": "PROZESSBILD",
@@ -63,450 +62,8 @@
       "HI": "प्रक्रिया आरेख"
     }
   },
-  "COMMON": {
-    "BTN_SAVE": {
-      "HU": "Mentés",
-      "EN": "Save",
-      "DE": "Speichern",
-      "FR": "Enregistrer",
-      "ZH": "保存",
-      "HI": "सहेजें"
-    },
-    "BTN_LOAD": {
-      "HU": "Betöltés",
-      "EN": "Load",
-      "DE": "Laden",
-      "FR": "Charger",
-      "ZH": "加载",
-      "HI": "लोड करें"
-    },
-    "BTN_EXPORT": {
-      "HU": "Exportálás",
-      "EN": "Export",
-      "DE": "Exportieren",
-      "FR": "Exporter",
-      "ZH": "导出",
-      "HI": "निर्यात"
-    },
-    "BTN_IMPORT": {
-      "HU": "Importálás",
-      "EN": "Import",
-      "DE": "Importieren",
-      "FR": "Importer",
-      "ZH": "导入",
-      "HI": "आयात"
-    },
-    "BTN_DELETE": {
-      "HU": "Törlés",
-      "EN": "Delete",
-      "DE": "Löschen",
-      "FR": "Supprimer",
-      "ZH": "删除",
-      "HI": "हटाएं"
-    },
-    "BTN_CLEAR": {
-      "HU": "Összes Törlése",
-      "EN": "Clear All",
-      "DE": "Alles Löschen",
-      "FR": "Tout Effacer",
-      "ZH": "全部清除",
-      "HI": "सभी साफ़ करें"
-    },
-    "BTN_CANCEL": {
-      "HU": "Mégse",
-      "EN": "Cancel",
-      "DE": "Abbrechen",
-      "FR": "Annuler",
-      "ZH": "取消",
-      "HI": "रद्द करें"
-    },
-    "BTN_CLOSE": {
-      "HU": "Bezárás",
-      "EN": "Close",
-      "DE": "Schließen",
-      "FR": "Fermer",
-      "ZH": "关闭",
-      "HI": "बंद करें"
-    },
-    "BTN_READ": {
-      "HU": "Olvasás",
-      "EN": "Read",
-      "DE": "Lesen",
-      "FR": "Lire",
-      "ZH": "读取",
-      "HI": "पढ़ें"
-    },
-    "BTN_WRITE": {
-      "HU": "Írás",
-      "EN": "Write",
-      "DE": "Schreiben",
-      "FR": "Écrire",
-      "ZH": "写入",
-      "HI": "लिखें"
-    },
-    "BTN_TOGGLE": {
-      "HU": "Kapcsolás",
-      "EN": "Toggle",
-      "DE": "Umschalten",
-      "FR": "Basculer",
-      "ZH": "切换",
-      "HI": "टॉगल करें"
-    },
-    "STATE_ON": {
-      "HU": "BE (Nyit / 24V)",
-      "EN": "ON (Open / 24V)",
-      "DE": "EIN (Offen / 24V)",
-      "FR": "MARCHE (Ouvert / 24V)",
-      "ZH": "开启 (打开 / 24V)",
-      "HI": "चालू (खुला / 24V)"
-    },
-    "STATE_OFF": {
-      "HU": "KI (Zár / 0V)",
-      "EN": "OFF (Close / 0V)",
-      "DE": "AUS (Geschl. / 0V)",
-      "FR": "ARRÊT (Fermé / 0V)",
-      "ZH": "关闭 (断开 / 0V)",
-      "HI": "बंद (बंद / 0V)"
-    },
-    "STATUS_ONLINE": {
-      "HU": "ONLINE (Aktív)",
-      "EN": "ONLINE (Active)",
-      "DE": "ONLINE (Aktiv)",
-      "FR": "EN LIGNE (Actif)",
-      "ZH": "在线 (活跃)",
-      "HI": "ऑनलाइन (सक्रिय)"
-    },
-    "STATUS_OFFLINE": {
-      "HU": "OFFLINE (Nincs kapcsolat)",
-      "EN": "OFFLINE (No connection)",
-      "DE": "OFFLINE (Keine Verbindung)",
-      "FR": "HORS LIGNE (Pas de connexion)",
-      "ZH": "离线 (无连接)",
-      "HI": "ऑफ़लाइन (कोई कनेक्शन नहीं)"
-    }
-  },
-  "PORT_MODES": {
-    "MODE_IOLINK_AUTOSTART": {
-      "HU": "IO-Link Autostart",
-      "EN": "IO-Link Autostart",
-      "DE": "IO-Link Autostart",
-      "FR": "IO-Link Démarrage auto",
-      "ZH": "IO-Link 自动启动",
-      "HI": "IO-Link ऑटोस्टार्ट"
-    },
-    "MODE_IOLINK_MANUAL": {
-      "HU": "IO-Link Manuális",
-      "EN": "IO-Link Manual",
-      "DE": "IO-Link Manuell",
-      "FR": "IO-Link Manuel",
-      "ZH": "IO-Link 手动",
-      "HI": "IO-Link मैनुअल"
-    },
-    "MODE_DO": {
-      "HU": "Digitális Kimenet (DO)",
-      "EN": "Digital Output (DO)",
-      "DE": "Digitaler Ausgang (DO)",
-      "FR": "Sortie Numérique (DO)",
-      "ZH": "数字输出 (DO)",
-      "HI": "डिजिटल आउटपुट (DO)"
-    },
-    "MODE_DI": {
-      "HU": "Digitális Bemenet (DI)",
-      "EN": "Digital Input (DI)",
-      "DE": "Digitaler Eingang (DI)",
-      "FR": "Entrée Numérique (DI)",
-      "ZH": "数字输入 (DI)",
-      "HI": "डिजिटल इनपुट (DI)"
-    },
-    "MODE_DEACTIVATED": {
-      "HU": "Inaktív (Kikapcsolva)",
-      "EN": "Deactivated",
-      "DE": "Deaktiviert",
-      "FR": "Désactivé",
-      "ZH": "已停用",
-      "HI": "निष्क्रिय"
-    }
-  },
-  "PLC": {
-    "HEADER_TITLE": {
-      "HU": "MINI PLC LOGIKAI SZABÁLYOZÓ & AKTUÁTOR VEZÉRLÉS",
-      "EN": "MINI PLC LOGIC CONTROLLER & ACTUATOR CONTROL",
-      "DE": "MINI SPS LOGIKREGLER & AKTORSTEUERUNG",
-      "FR": "MINI AUTOMATE CONTRÔLEUR LOGIQUE & ACTIONNEURS",
-      "ZH": "微型 PLC 逻辑控制器和执行器控制",
-      "HI": "मिनी पीएलसी लॉजिक कंट्रोलर और एक्चुएटर नियंत्रण"
-    },
-    "CYCLE_TIME": {
-      "HU": "Ciklusidő: 500ms | Dinamikus IODD Csatornák & Többcsatornás Bit-Packing",
-      "EN": "Cycle Time: 500ms | Dynamic IODD Channels & Multi-Channel Bit-Packing",
-      "DE": "Zykluszeit: 500ms | Dynamische IODD-Kanäle & Mehrkanal-Bit-Packing",
-      "FR": "Temps de cycle: 500ms | Canaux IODD dynamiques & Bit-Packing multicanal",
-      "ZH": "周期时间: 500ms | 动态 IODD 通道和多通道位打包",
-      "HI": "साइकिल समय: 500ms | गतिशील IODD चैनल और मल्टी-चैनल बिट-पैकिंग"
-    },
-    "BTN_NEW_RULE": {
-      "HU": "ÚJ SZABÁLY LÉTREHOZÁSA",
-      "EN": "CREATE NEW RULE",
-      "DE": "NEUE REGEL ERSTELLEN",
-      "FR": "CRÉER UNE NOUVELLE RÈGLE",
-      "ZH": "创建新规则",
-      "HI": "नया नियम बनाएं"
-    },
-    "BTN_LOAD_JSON": {
-      "HU": "BETÖLTÉS & BEILLESZTÉS (.JSON)",
-      "EN": "LOAD & PASTE (.JSON)",
-      "DE": "LADEN & EINFÜGEN (.JSON)",
-      "FR": "CHARGER & COLLER (.JSON)",
-      "ZH": "加载和粘贴 (.JSON)",
-      "HI": "लोड और पेस्ट करें (.JSON)"
-    },
-    "BTN_SAVE_JSON": {
-      "HU": "Mentés Fájlba (.json)",
-      "EN": "Save to File (.json)",
-      "DE": "In Datei speichern (.json)",
-      "FR": "Enregistrer dans fichier (.json)",
-      "ZH": "保存到文件 (.json)",
-      "HI": "फ़ाइल में सहेजें (.json)"
-    },
-    "BTN_FACTORY_RULES": {
-      "HU": "Gyári Szabályok",
-      "EN": "Factory Rules",
-      "DE": "Werkseinstellungen",
-      "FR": "Règles d'usine",
-      "ZH": "出厂规则",
-      "HI": "फ़ैक्टरी नियम"
-    },
-    "SEC_INPUT_CONDITION": {
-      "HU": "1. BEMENETI FELTÉTEL (HA / IF):",
-      "EN": "1. INPUT CONDITION (IF):",
-      "DE": "1. EINGANGSBEDINGUNG (WENN / IF):",
-      "FR": "1. CONDITION D'ENTRÉE (SI / IF):",
-      "ZH": "1. 输入条件 (如果 / IF):",
-      "HI": "1. इनपुट शर्त (यदि / IF):"
-    },
-    "SEC_THEN_ACTION": {
-      "HU": "2. BEAVATKOZÁS (AKKOR / THEN):",
-      "EN": "2. ACTION (THEN):",
-      "DE": "2. AKTION (DANN / THEN):",
-      "FR": "2. ACTION (ALORS / THEN):",
-      "ZH": "2. 执行动作 (则 / THEN):",
-      "HI": "2. कार्रवाई (तब / THEN):"
-    },
-    "SEC_ELSE_ACTION": {
-      "HU": "3. ALAPHELYZETBE ÁLLÍTÁS (EGYÉBKÉNT / ELSE):",
-      "EN": "3. RESET TO DEFAULT (ELSE):",
-      "DE": "3. RÜCKSETZEN AUF STANDARD (SONST / ELSE):",
-      "FR": "3. RÉINITIALISATION (SINON / ELSE):",
-      "ZH": "3. 恢复默认 (否则 / ELSE):",
-      "HI": "3. डिफ़ॉल्ट पर रीसेट करें (अन्यथा / ELSE):"
-    },
-    "MODE_DISCRETE": {
-      "HU": "Diszkrét Kapcsolás (BE / KI)",
-      "EN": "Discrete Switching (ON / OFF)",
-      "DE": "Diskrete Schaltung (EIN / AUS)",
-      "FR": "Commutation Discrète (MARCHE / ARRÊT)",
-      "ZH": "离散开关 (开 / 关)",
-      "HI": "असतत स्विचिंग (चालू / बंद)"
-    },
-    "MODE_FIXED_PWM": {
-      "HU": "Fix PWM / Analóg Értékadás",
-      "EN": "Fixed PWM / Analog Output",
-      "DE": "Fester PWM / Analogwert",
-      "FR": "Valeur PWM / Analogique Fixe",
-      "ZH": "固定 PWM / 模拟输出",
-      "HI": "निश्चित PWM / एनालॉग आउटपुट"
-    },
-    "MODE_PROPORTIONAL": {
-      "HU": "Arányos Szabályzás (P-Skálázás)",
-      "EN": "Proportional Control (P-Scaling)",
-      "DE": "Proportionalregelung (P-Skalierung)",
-      "FR": "Régulation Proportionnelle (Échelle P)",
-      "ZH": "比例调节 (P 缩放)",
-      "HI": "आनुपातिक नियंत्रण (P-स्केलिंग)"
-    },
-    "LOG_TITLE": {
-      "HU": "ÉLŐ PLC ESEMÉNYNAPLÓ",
-      "EN": "LIVE PLC EVENT LOG",
-      "DE": "LIVE-SPS-EREIGNISPROTOKOLL",
-      "FR": "JOURNAL DES ÉVÉNEMENTS PLC EN DIRECT",
-      "ZH": "实时 PLC 事件日志",
-      "HI": "लाइव पीएलसी इवेंट लॉग"
-    }
-  },
-  "MIMIC": {
-    "HEADER_TITLE": {
-      "HU": "NassMaster 2.1 – Grafikus SCADA Folyamatábra (Visual Mimic)",
-      "EN": "NassMaster 2.1 – Graphical SCADA Process Mimic",
-      "DE": "NassMaster 2.1 – Grafisches SCADA-Prozessbild (Visual Mimic)",
-      "FR": "NassMaster 2.1 – Synoptique de Processus SCADA Graphique",
-      "ZH": "NassMaster 2.1 – 图形 SCADA 工艺流程图",
-      "HI": "NassMaster 2.1 – ग्राफिकल SCADA प्रक्रिया आरेख"
-    },
-    "PALETTE_LABEL": {
-      "HU": "Gépkönyvtár:",
-      "EN": "Equipment Library:",
-      "DE": "Gerätebibliothek:",
-      "FR": "Bibliothèque d'équipements:",
-      "ZH": "设备库:",
-      "HI": "उपकरण लाइब्रेरी:"
-    },
-    "ITEM_VALVE": {
-      "HU": "Nass Szelep",
-      "EN": "Nass Valve",
-      "DE": "Nass Ventil",
-      "FR": "Vanne Nass",
-      "ZH": "Nass 电磁阀",
-      "HI": "Nass वाल्व"
-    },
-    "ITEM_KNOB": {
-      "HU": "PWM Potméter",
-      "EN": "PWM Potentiometer",
-      "DE": "PWM-Potentiometer",
-      "FR": "Potentiomètre PWM",
-      "ZH": "PWM 电位器",
-      "HI": "PWM पोटेंशियोमीटर"
-    },
-    "ITEM_CONVEYOR": {
-      "HU": "Szállítószalag",
-      "EN": "Conveyor Belt",
-      "DE": "Förderband",
-      "FR": "Convoyeur",
-      "ZH": "输送带",
-      "HI": "कन्वेयर बेल्ट"
-    },
-    "ITEM_THERMO": {
-      "HU": "Hőmérő Távadó",
-      "EN": "Temperature Sensor",
-      "DE": "Temperatursensor",
-      "FR": "Capteur de température",
-      "ZH": "温度传感器",
-      "HI": "तापमान सेंसर"
-    },
-    "ITEM_PRESSURE": {
-      "HU": "Nyomásszenzor",
-      "EN": "Pressure Sensor",
-      "DE": "Drucksensor",
-      "FR": "Capteur de pression",
-      "ZH": "压力传感器",
-      "HI": "दबाव सेंसर"
-    },
-    "ITEM_LIMIT_SWITCH": {
-      "HU": "Végálláskapcsoló",
-      "EN": "Limit Switch",
-      "DE": "Endschalter",
-      "FR": "Fin de course",
-      "ZH": "限位开关",
-      "HI": "सीमा स्विच"
-    },
-    "ITEM_PROXIMITY": {
-      "HU": "Közelítéskapcsoló",
-      "EN": "Proximity Sensor",
-      "DE": "Näherungsschalter",
-      "FR": "Capteur de proximité",
-      "ZH": "接近开关",
-      "HI": "निकटता सेंसर"
-    },
-    "ITEM_GRINDER": {
-      "HU": "Daráló / Mixer",
-      "EN": "Grinder / Mixer",
-      "DE": "Mühle / Mischer",
-      "FR": "Broyeur / Mélangeur",
-      "ZH": "研磨机 / 搅拌机",
-      "HI": "ग्राइंडर / मिक्सर"
-    },
-    "ITEM_TANK": {
-      "HU": "Tartály / Siló",
-      "EN": "Tank / Silo",
-      "DE": "Behälter / Silo",
-      "FR": "Réservoir / Silo",
-      "ZH": "储罐 / 料仓",
-      "HI": "टैंक / साइलो"
-    },
-    "ITEM_CYLINDER": {
-      "HU": "Munkahenger",
-      "EN": "Pneumatic Cylinder",
-      "DE": "Pneumatikzylinder",
-      "FR": "Vérin pneumatique",
-      "ZH": "气缸",
-      "HI": "न्यूमेटिक सिलेंडर"
-    },
-    "ITEM_CUSTOM_IMG": {
-      "HU": "Egyedi Kép",
-      "EN": "Custom Image",
-      "DE": "Benutzerdefiniertes Bild",
-      "FR": "Image personnalisée",
-      "ZH": "自定义图像",
-      "HI": "कस्टम छवि"
-    }
-  },
-  "HARDWARE": {
-    "SUPPLY_VOLTAGE": {
-      "HU": "Tápfeszültség",
-      "EN": "Supply Voltage",
-      "DE": "Versorgungsspannung",
-      "FR": "Tension d'alimentation",
-      "ZH": "供电电压",
-      "HI": "आपूर्ति वोल्टेज"
-    },
-    "ACTOR_VOLTAGE": {
-      "HU": "Aktuátor Feszültség",
-      "EN": "Actuator Voltage",
-      "DE": "Aktorspannung",
-      "FR": "Tension d'actionneur",
-      "ZH": "执行器电压",
-      "HI": "एक्चुएटर वोल्टेज"
-    },
-    "SENSOR_VOLTAGE": {
-      "HU": "Szenzor Feszültség",
-      "EN": "Sensor Voltage",
-      "DE": "Sensorspannung",
-      "FR": "Tension de capteur",
-      "ZH": "传感器电压",
-      "HI": "सेंसर वोल्टेज"
-    },
-    "OUTPUT_CURRENT": {
-      "HU": "Kimeneti Áram",
-      "EN": "Output Current",
-      "DE": "Ausgangsstrom",
-      "FR": "Courant de sortie",
-      "ZH": "输出电流",
-      "HI": "आउटपुट करंट"
-    },
-    "TEMPERATURE": {
-      "HU": "Belső Hőmérséklet",
-      "EN": "Internal Temperature",
-      "DE": "Innentemperatur",
-      "FR": "Température interne",
-      "ZH": "内部温度",
-      "HI": "आंतरिक तापमान"
-    },
-    "PWM_DUTY_CYCLE": {
-      "HU": "Kitöltési Tényező (PWM)",
-      "EN": "PWM Duty Cycle",
-      "DE": "PWM-Tastgrad",
-      "FR": "Rapport cyclique PWM",
-      "ZH": "PWM 占空比",
-      "HI": "PWM ड्यूटी चक्र"
-    },
-    "HOLDING_CURRENT": {
-      "HU": "Tartóáram",
-      "EN": "Holding Current",
-      "DE": "Haltestrom",
-      "FR": "Courant de maintien",
-      "ZH": "保持电流",
-      "HI": "होल्डिंग करंट"
-    },
-    "PULL_IN_TIME": {
-      "HU": "Behúzási Idő",
-      "EN": "Pull-in Time",
-      "DE": "Anzugszeit",
-      "FR": "Temps d'attraction",
-      "ZH": "吸合时间",
-      "HI": "पुल-इन समय"
-    }
-  },
-  "DASHBOARD": {
-    "TITLE_OVERVIEW": {
+  "GROUP_HEADERS": {
+    "GRP_OVERVIEW": {
       "HU": "Központosított Áttekintés",
       "EN": "Centralized Overview",
       "DE": "Zentrale Übersicht",
@@ -514,7 +71,49 @@
       "ZH": "集中概览",
       "HI": "केंद्रीकृत अवलोकन"
     },
-    "PANEL_DEVICE_INFO": {
+    "GRP_PORT_CTRL": {
+      "HU": "Központosított Port Vezérlés",
+      "EN": "Centralized Port Control",
+      "DE": "Zentrale Portsteuerung",
+      "FR": "Contrôle centralisé des ports",
+      "ZH": "集中端口控制",
+      "HI": "केंद्रीकृत पोर्ट नियंत्रण"
+    },
+    "GRP_IODD": {
+      "HU": "IODD Elemzés és Vezérlés",
+      "EN": "IODD Analysis & Control",
+      "DE": "IODD-Analyse & Steuerung",
+      "FR": "Analyse & Contrôle IODD",
+      "ZH": "IODD 分析与控制",
+      "HI": "IODD विश्लेषण और नियंत्रण"
+    },
+    "GRP_PLC": {
+      "HU": "Mini PLC Vezérlő & Logikai Szabályozó",
+      "EN": "Mini PLC Controller & Logic Engine",
+      "DE": "Mini SPS Steuergerät & Logikregler",
+      "FR": "Mini Automate & Régulateur Logique",
+      "ZH": "微型 PLC 控制器与逻辑引擎",
+      "HI": "मिनी पीएलसी नियंत्रक और लॉजिक इंजन"
+    },
+    "GRP_DIAG": {
+      "HU": "Valós idejű trendek és CSV naplózás",
+      "EN": "Real-time Trends & CSV Logging",
+      "DE": "Echtzeittrends & CSV-Protokollierung",
+      "FR": "Tendances en temps réel & Journalisation CSV",
+      "ZH": "实时趋势与 CSV 记录",
+      "HI": "वास्तविक समय के रुझान और सीएसवी लॉगिंग"
+    },
+    "GRP_MIMIC": {
+      "HU": "SCADA Folyamatábra & Gépelrendezés",
+      "EN": "SCADA Process Mimic & Plant Layout",
+      "DE": "SCADA-Prozessbild & Anlagenlayout",
+      "FR": "Synoptique SCADA & Disposition des machines",
+      "ZH": "SCADA 工艺流程图与设备布局",
+      "HI": "SCADA प्रक्रिया आरेख और संयंत्र लेआउट"
+    }
+  },
+  "DASHBOARD_CARDS": {
+    "DEVICE_INFO": {
       "HU": "Eszköz Információ",
       "EN": "Device Information",
       "DE": "Geräteinformation",
@@ -522,7 +121,7 @@
       "ZH": "设备信息",
       "HI": "उपकरण जानकारी"
     },
-    "PANEL_NETWORK": {
+    "NETWORK_STATUS": {
       "HU": "Hálózat & Rendszerállapot",
       "EN": "Network & System Status",
       "DE": "Netzwerk- & Systemstatus",
@@ -642,6 +241,22 @@
       "ZH": "设备",
       "HI": "उपकरण"
     },
+    "SN": {
+      "HU": "S/N",
+      "EN": "S/N",
+      "DE": "S/N",
+      "FR": "S/N",
+      "ZH": "序列号",
+      "HI": "क्रमांक"
+    },
+    "PD_IN_OUT": {
+      "HU": "PD In/Out",
+      "EN": "PD In/Out",
+      "DE": "PD In/Out",
+      "FR": "PD In/Out",
+      "ZH": "过程数据输入/输出",
+      "HI": "पीडी इन/आउट"
+    },
     "DO_OUTPUT": {
       "HU": "DO Kimenet (C/Q)",
       "EN": "DO Output (C/Q)",
@@ -658,124 +273,58 @@
       "ZH": "DI 数字输入",
       "HI": "DI इनपुट"
     },
-    "PORT_INACTIVE": {
-      "HU": "A PORT INAKTÍV",
-      "EN": "PORT IS INACTIVE",
-      "DE": "PORT IST INAKTIV",
-      "FR": "PORT INACTIF",
-      "ZH": "端口未激活",
-      "HI": "पोर्ट निष्क्रिय है"
-    },
-    "NO_IODD": {
-      "HU": "Nincs IODD rendelve ehhez a porthoz",
-      "EN": "No IODD assigned to this port",
-      "DE": "Kein IODD zugewiesen",
-      "FR": "Aucun IODD assigné",
-      "ZH": "未分配 IODD",
-      "HI": "कोई IODD निर्दिष्ट नहीं"
+    "BTN_SAVE": {
+      "HU": "Mentés",
+      "EN": "Save",
+      "DE": "Speichern",
+      "FR": "Enregistrer",
+      "ZH": "保存",
+      "HI": "सहेजें"
     }
   },
-  "NAV_DRAWER": {
-    "NASSMASTER": {
-      "HU": "NASSMASTER",
-      "EN": "NASSMASTER",
-      "DE": "NASSMASTER",
-      "FR": "NASSMASTER",
-      "ZH": "NASSMASTER",
-      "HI": "NASSMASTER"
+  "PORT_MODES": {
+    "MODE_IOLINK_AUTOSTART": {
+      "HU": "IO-Link Autostart",
+      "EN": "IO-Link Autostart",
+      "DE": "IO-Link Autostart",
+      "FR": "IO-Link Démarrage auto",
+      "ZH": "IO-Link 自动启动",
+      "HI": "IO-Link ऑटोस्टार्ट"
     },
-    "IODD_KEZELO": {
-      "HU": "IODD KEZELŐ",
-      "EN": "IODD MANAGER",
-      "DE": "IODD-VERWALTUNG",
-      "FR": "GESTIONNAIRE IODD",
-      "ZH": "IODD 管理器",
-      "HI": "IODD प्रबंधक"
+    "MODE_IOLINK_MANUAL": {
+      "HU": "IO-Link Manuális",
+      "EN": "IO-Link Manual",
+      "DE": "IO-Link Manuell",
+      "FR": "IO-Link Manuel",
+      "ZH": "IO-Link 手动",
+      "HI": "IO-Link मैनुअल"
     },
-    "ESZKOZ_VEZERLES": {
-      "HU": "ESZKÖZ VEZÉRLÉS",
-      "EN": "DEVICE CONTROL",
-      "DE": "GERÄTESTEUERUNG",
-      "FR": "CONTRÔLE D'APPAREIL",
-      "ZH": "设备控制",
-      "HI": "उपकरण नियंत्रण"
+    "MODE_DO": {
+      "HU": "Digitális Kimenet (DO)",
+      "EN": "Digital Output (DO)",
+      "DE": "Digitaler Ausgang (DO)",
+      "FR": "Sortie Numérique (DO)",
+      "ZH": "数字输出 (DO)",
+      "HI": "डिजिटल आउटपुट (DO)"
     },
-    "DIAGNOSZTIKA": {
-      "HU": "DIAGNOSZTIKA",
-      "EN": "DIAGNOSTICS",
-      "DE": "DIAGNOSE",
-      "FR": "DIAGNOSTIC",
-      "ZH": "诊断分析",
-      "HI": "निदान"
+    "MODE_DI": {
+      "HU": "Digitális Bemenet (DI)",
+      "EN": "Digital Input (DI)",
+      "DE": "Digitaler Eingang (DI)",
+      "FR": "Entrée Numérique (DI)",
+      "ZH": "数字输入 (DI)",
+      "HI": "डिजिटल इनपुट (DI)"
     },
-    "FUNKCIOK_PLC": {
-      "HU": "FUNKCIÓK (MINI PLC)",
-      "EN": "FUNCTIONS (MINI PLC)",
-      "DE": "FUNKTIONEN (MINI SPS)",
-      "FR": "FONCTIONS (MINI AUTOMATE)",
-      "ZH": "功能 (微型 PLC)",
-      "HI": "फ़ंक्शंस (मिनी पीएलसी)"
-    },
-    "FOLYAMATABRA": {
-      "HU": "FOLYAMATÁBRA",
-      "EN": "PROCESS MIMIC",
-      "DE": "PROZESSBILD",
-      "FR": "SYNOPTIQUE",
-      "ZH": "工艺流程图",
-      "HI": "प्रक्रिया आरेख"
+    "MODE_DEACTIVATED": {
+      "HU": "Inaktív (Deactivated)",
+      "EN": "Deactivated",
+      "DE": "Deaktiviert",
+      "FR": "Désactivé",
+      "ZH": "已停用",
+      "HI": "निष्क्रिय"
     }
   },
-  "GROUP_HEADERS": {
-    "GRP_OVERVIEW": {
-      "HU": "Központosított Áttekintés",
-      "EN": "Centralized Overview",
-      "DE": "Zentrale Übersicht",
-      "FR": "Vue d'ensemble centralisée",
-      "ZH": "集中概览",
-      "HI": "केंद्रीकृत अवलोकन"
-    },
-    "GRP_PORT_CTRL": {
-      "HU": "Központosított Port Vezérlés",
-      "EN": "Centralized Port Control",
-      "DE": "Zentrale Portsteuerung",
-      "FR": "Contrôle centralisé des ports",
-      "ZH": "集中端口控制",
-      "HI": "केंद्रीकृत पोर्ट नियंत्रण"
-    },
-    "GRP_IODD": {
-      "HU": "IODD Elemzés és Vezérlés",
-      "EN": "IODD Analysis & Control",
-      "DE": "IODD-Analyse & Steuerung",
-      "FR": "Analyse & Contrôle IODD",
-      "ZH": "IODD 分析与控制",
-      "HI": "IODD विश्लेषण और नियंत्रण"
-    },
-    "GRP_PLC": {
-      "HU": "Mini PLC Vezérlő & Logikai Szabályozó",
-      "EN": "Mini PLC Controller & Logic Engine",
-      "DE": "Mini SPS Steuergerät & Logikregler",
-      "FR": "Mini Automate & Régulateur Logique",
-      "ZH": "微型 PLC 控制器与逻辑引擎",
-      "HI": "मिनी पीएलसी नियंत्रक और लॉजिक इंजन"
-    },
-    "GRP_DIAG": {
-      "HU": "Valós idejű trendek és CSV naplózás",
-      "EN": "Real-time Trends & CSV Logging",
-      "DE": "Echtzeittrends & CSV-Protokollierung",
-      "FR": "Tendances en temps réel & Journalisation CSV",
-      "ZH": "实时趋势与 CSV 记录",
-      "HI": "वास्तविक समय के रुझान और सीएसवी लॉगिंग"
-    },
-    "GRP_MIMIC": {
-      "HU": "SCADA Folyamatábra & Gépelrendezés",
-      "EN": "SCADA Process Mimic & Plant Layout",
-      "DE": "SCADA-Prozessbild & Anlagenlayout",
-      "FR": "Synoptique SCADA & Disposition des machines",
-      "ZH": "SCADA 工艺流程图与设备布局",
-      "HI": "SCADA प्रक्रिया आरेख और संयंत्र लेआउट"
-    }
-  },
-  "IODD_UI": {
+  "IODD_MANAGER": {
     "CARD1_TITLE": {
       "HU": "1. IODD ZIP / XML CSOMAG ELEMZÉSE",
       "EN": "1. IODD ZIP / XML PACKAGE ANALYSIS",
@@ -888,7 +437,7 @@
       "ZH": "端口 4 (X04) 配置文件",
       "HI": "पोर्ट 4 (X04) प्रोफ़ाइल"
     },
-    "BTN_CLEAR_ASSIGN": {
+    "CLEAR_BTN_CAPS": {
       "HU": "HOZZÁRENDELÉS TÖRLÉSE",
       "EN": "CLEAR ASSIGNMENT",
       "DE": "ZUWEISUNG LÖSCHEN",
@@ -896,23 +445,15 @@
       "ZH": "清除分配",
       "HI": "असाइनमेंट साफ़ करें"
     },
-    "BTN_CLEAR_ASSIGN_MIXED": {
-      "HU": "Hozzrendels Trlse",
-      "EN": "CLEAR ASSIGNMENT",
-      "DE": "ZUWEISUNG LÖSCHEN",
-      "FR": "EFFACER L'AFFECTATION",
-      "ZH": "清除分配",
-      "HI": "असाइनमेंट साफ़ करें"
-    },
-    "BTN_CLEAR_ASSIGN_ACCENT": {
+    "CLEAR_BTN_TITLE": {
       "HU": "Hozzárendelés Törlése",
-      "EN": "CLEAR ASSIGNMENT",
-      "DE": "ZUWEISUNG LÖSCHEN",
-      "FR": "EFFACER L'AFFECTATION",
+      "EN": "Clear Assignment",
+      "DE": "Zuweisung Löschen",
+      "FR": "Effacer l'affectation",
       "ZH": "清除分配",
       "HI": "असाइनमेंट साफ़ करें"
     },
-    "NO_ASSIGNMENT_DESC": {
+    "NO_ASSIGN_DOT": {
       "HU": "Nincs IODD rendelve ehhez a porthoz.",
       "EN": "No IODD assigned to this port.",
       "DE": "Kein IODD diesem Port zugewiesen.",
@@ -920,25 +461,197 @@
       "ZH": "未为此端口分配 IODD。",
       "HI": "इस पोर्ट के लिए कोई IODD निर्दिष्ट नहीं है।"
     },
-    "NO_ASSIGN_PORT": {
+    "NO_ASSIGN_NODOT": {
       "HU": "Nincs IODD rendelve ehhez a porthoz",
       "EN": "No IODD assigned to this port",
-      "DE": "Kein IODD diesem Port zugewiesen",
+      "DE": "Kein IODD zugewiesen",
       "FR": "Aucun IODD assigné à ce port",
       "ZH": "未分配 IODD",
       "HI": "कोई IODD निर्दिष्ट नहीं"
-    },
-    "INACTIVE_PORT_HINT": {
-      "HU": "Menj az IODD KEZELŐ fülre, vagy állítsd át a fenti lenyílóban DI / DO módra.",
-      "EN": "Go to IODD MANAGER tab, or switch to DI / DO mode in the dropdown above.",
-      "DE": "Gehe zum IODD-VERWALTUNG-Tab oder schalte oben auf DI / DO um.",
-      "FR": "Allez dans le GESTIONNAIRE IODD ou passez en mode DI / DO ci-dessus.",
-      "ZH": "请前往 IODD 管理器选项卡，或在上方下拉框中切换为 DI / DO 模式。",
-      "HI": "IODD प्रबंधक टैब पर जाएं, या ऊपर ड्रॉपडाउन में DI / DO मोड पर स्विच करें।"
     }
   },
-  "DIAG_UI": {
-    "LBL_CHANNEL": {
+  "DEVICE_CONTROL": {
+    "PORT_INACTIVE": {
+      "HU": "A PORT INAKTÍV",
+      "EN": "PORT IS INACTIVE",
+      "DE": "PORT IST INAKTIV",
+      "FR": "PORT INACTIF",
+      "ZH": "端口未激活",
+      "HI": "पोर्ट निष्क्रिय है"
+    },
+    "GOTO_IODD_HINT": {
+      "HU": "Menj az IODD KEZELŐ fülre, vagy állítsd át a fenti lenyílóban DI / DO módra.",
+      "EN": "Go to IODD MANAGER tab or switch mode to DI / DO above.",
+      "DE": "Gehe zum IODD-Tab oder schalte oben auf DI / DO um.",
+      "FR": "Allez dans le GESTIONNAIRE IODD ou passez en mode DI / DO.",
+      "ZH": "请前往 IODD 管理器或在上方切换为 DI / DO 模式。",
+      "HI": "IODD प्रबंधक टैब पर जाएं या ऊपर DI / DO मोड पर स्विच करें।"
+    },
+    "SEC_PD": {
+      "HU": "FOLYAMATADATOK (PROCESS DATA)",
+      "EN": "PROCESS DATA (PD)",
+      "DE": "PROZESSDATEN (PD)",
+      "FR": "DONNÉES DE PROCESSUS (PD)",
+      "ZH": "过程数据 (PD)",
+      "HI": "प्रक्रिया डेटा (पीडी)"
+    },
+    "SEC_ISDU": {
+      "HU": "ISDU PARAMÉTEREK (ON-REQUEST DATA)",
+      "EN": "ISDU PARAMETERS (ON-REQUEST DATA)",
+      "DE": "ISDU-PARAMETER (ON-REQUEST DATA)",
+      "FR": "PARAMÈTRES ISDU (ON-REQUEST DATA)",
+      "ZH": "ISDU 参数 (请求数据)",
+      "HI": "ISDU पैरामीटर (अनुरोध पर डेटा)"
+    },
+    "SEC_DIDO": {
+      "HU": "DI / DO VEZÉRLÉS",
+      "EN": "DI / DO CONTROL",
+      "DE": "DI / DO STEUERUNG",
+      "FR": "CONTRÔLE DI / DO",
+      "ZH": "DI / DO 控制",
+      "HI": "DI / DO नियंत्रण"
+    },
+    "BTN_READ": {
+      "HU": "OLVASÁS",
+      "EN": "READ",
+      "DE": "LESEN",
+      "FR": "LIRE",
+      "ZH": "读取",
+      "HI": "पढ़ें"
+    },
+    "BTN_WRITE": {
+      "HU": "ÍRÁS",
+      "EN": "WRITE",
+      "DE": "SCHREIBEN",
+      "FR": "ÉCRIRE",
+      "ZH": "写入",
+      "HI": "लिखें"
+    }
+  },
+  "MINI_PLC": {
+    "CYCLE_TIME": {
+      "HU": "Ciklusidő: 500ms | Dinamikus IODD Csatornák & Többcsatornás Bit-Packing",
+      "EN": "Cycle Time: 500ms | Dynamic IODD Channels & Multi-Channel Bit-Packing",
+      "DE": "Zykluszeit: 500ms | Dynamische IODD-Kanäle & Mehrkanal-Bit-Packing",
+      "FR": "Temps de cycle: 500ms | Canaux IODD dynamiques & Bit-Packing multicanal",
+      "ZH": "周期时间: 500ms | 动态 IODD 通道和多通道位打包",
+      "HI": "साइकिल समय: 500ms | गतिशील IODD चैनल और मल्टी-चैनल बिट-पैकिंग"
+    },
+    "BTN_NEW_RULE": {
+      "HU": "ÚJ SZABÁLY LÉTREHOZÁSA",
+      "EN": "CREATE NEW RULE",
+      "DE": "NEUE REGEL ERSTELLEN",
+      "FR": "CRÉER UNE NOUVELLE RÈGLE",
+      "ZH": "创建新规则",
+      "HI": "नया नियम बनाएं"
+    },
+    "BTN_LOAD_JSON": {
+      "HU": "BETÖLTÉS & BEILLESZTÉS (.JSON)",
+      "EN": "LOAD & PASTE (.JSON)",
+      "DE": "LADEN & EINFÜGEN (.JSON)",
+      "FR": "CHARGER & COLLER (.JSON)",
+      "ZH": "加载和粘贴 (.JSON)",
+      "HI": "लोड और पेस्ट करें (.JSON)"
+    },
+    "BTN_SAVE_JSON": {
+      "HU": "Mentés Fájlba (.json)",
+      "EN": "Save to File (.json)",
+      "DE": "In Datei speichern (.json)",
+      "FR": "Enregistrer dans fichier (.json)",
+      "ZH": "保存到文件 (.json)",
+      "HI": "फ़ाइल में सहेजें (.json)"
+    },
+    "BTN_FACTORY_RULES": {
+      "HU": "Gyári Szabályok",
+      "EN": "Factory Rules",
+      "DE": "Werkseinstellungen",
+      "FR": "Règles d'usine",
+      "ZH": "出厂规则",
+      "HI": "फ़ैक्टरी नियम"
+    },
+    "BTN_CLEAR_ALL": {
+      "HU": "Összes Törlése",
+      "EN": "Clear All",
+      "DE": "Alles Löschen",
+      "FR": "Tout Effacer",
+      "ZH": "全部清除",
+      "HI": "सभी साफ़ करें"
+    },
+    "IF_COND": {
+      "HU": "1. BEMENETI FELTÉTEL (HA / IF):",
+      "EN": "1. INPUT CONDITION (IF):",
+      "DE": "1. EINGANGSBEDINGUNG (WENN / IF):",
+      "FR": "1. CONDITION D'ENTRÉE (SI / IF):",
+      "ZH": "1. 输入条件 (如果 / IF):",
+      "HI": "1. इनपुट शर्त (यदि / IF):"
+    },
+    "THEN_ACT": {
+      "HU": "2. BEAVATKOZÁS (AKKOR / THEN):",
+      "EN": "2. ACTION (THEN):",
+      "DE": "2. AKTION (DANN / THEN):",
+      "FR": "2. ACTION (ALORS / THEN):",
+      "ZH": "2. 执行动作 (则 / THEN):",
+      "HI": "2. कार्रवाई (तब / THEN):"
+    },
+    "ELSE_ACT": {
+      "HU": "3. ALAPHELYZETBE ÁLLÍTÁS (EGYÉBKÉNT / ELSE):",
+      "EN": "3. RESET TO DEFAULT (ELSE):",
+      "DE": "3. RÜCKSETZEN AUF STANDARD (SONST / ELSE):",
+      "FR": "3. RÉINITIALISATION (SINON / ELSE):",
+      "ZH": "3. 恢复默认 (否则 / ELSE):",
+      "HI": "3. डिफ़ॉल्ट पर रीसेट करें (अन्यथा / ELSE):"
+    },
+    "MODE_DISCRETE": {
+      "HU": "Diszkrét Kapcsolás (BE / KI)",
+      "EN": "Discrete Switching (ON / OFF)",
+      "DE": "Diskrete Schaltung (EIN / AUS)",
+      "FR": "Commutation Discrète (MARCHE / ARRÊT)",
+      "ZH": "离散开关 (开 / 关)",
+      "HI": "असतत स्विचिंग (चालू / बंद)"
+    },
+    "MODE_PWM": {
+      "HU": "Fix PWM / Analóg Értékadás",
+      "EN": "Fixed PWM / Analog Output",
+      "DE": "Fester PWM / Analogwert",
+      "FR": "Valeur PWM / Analogique Fixe",
+      "ZH": "固定 PWM / 模拟输出",
+      "HI": "निश्चित PWM / एनालॉग आउटपुट"
+    },
+    "MODE_P": {
+      "HU": "Arányos Szabályzás (P-Skálázás)",
+      "EN": "Proportional Control (P-Scaling)",
+      "DE": "Proportionalregelung (P-Skalierung)",
+      "FR": "Régulation Proportionnelle (Échelle P)",
+      "ZH": "比例调节 (P 缩放)",
+      "HI": "आनुपातिक नियंत्रण (P-स्केलिंग)"
+    },
+    "LOG_TITLE": {
+      "HU": "ÉLŐ PLC ESEMÉNYNAPLÓ:",
+      "EN": "LIVE PLC EVENT LOG:",
+      "DE": "LIVE-SPS-EREIGNISPROTOKOLL:",
+      "FR": "JOURNAL PLC EN DIRECT:",
+      "ZH": "实时 PLC 事件日志:",
+      "HI": "लाइव पीएलसी इवेंट लॉग:"
+    },
+    "NO_EVENTS": {
+      "HU": "Nincs rögzített esemény.",
+      "EN": "No recorded events.",
+      "DE": "Keine Ereignisse aufgezeichnet.",
+      "FR": "Aucun événement enregistré.",
+      "ZH": "无记录事件。",
+      "HI": "कोई रिकॉर्ड की गई घटना नहीं।"
+    },
+    "MODAL_IMPORT_TITLE": {
+      "HU": "PLC Szabályok Betöltése, Kijelölése & Importálása",
+      "EN": "Load, Select & Import PLC Rules",
+      "DE": "SPS-Regeln Laden, Auswählen & Importieren",
+      "FR": "Charger, Sélectionner & Importer les Règles PLC",
+      "ZH": "加载、选择和导入 PLC 规则",
+      "HI": "पीएलसी नियम लोड करें, चुनें और आयात करें"
+    }
+  },
+  "DIAGNOSTICS": {
+    "CHART_CHANNEL": {
       "HU": "Grafikon Csatorna:",
       "EN": "Chart Channel:",
       "DE": "Diagrammkanal:",
@@ -946,7 +659,7 @@
       "ZH": "图表通道:",
       "HI": "चार्ट चैनल:"
     },
-    "LBL_INTERVAL": {
+    "SAMPLE_INTERVAL": {
       "HU": "Minta Intervallum:",
       "EN": "Sample Interval:",
       "DE": "Abtastintervall:",
@@ -954,7 +667,7 @@
       "ZH": "采样间隔:",
       "HI": "नमूना अंतराल:"
     },
-    "LBL_AUTOSCALE": {
+    "AUTO_SCALE": {
       "HU": "Auto-Skálázás (Min/Max):",
       "EN": "Auto-Scale (Min/Max):",
       "DE": "Autoskalierung (Min/Max):",
@@ -962,13 +675,135 @@
       "ZH": "自动缩放 (最小/最大):",
       "HI": "ऑटो-स्केल (न्यूनतम/अधिकतम):"
     },
-    "LBL_CSV": {
+    "CSV_LOGGING": {
       "HU": "CSV Naplózás (Pendrive):",
       "EN": "CSV Logging (Flash Drive):",
       "DE": "CSV-Protokollierung (USB):",
       "FR": "Journalisation CSV (Clé USB):",
       "ZH": "CSV 记录 (U盘):",
       "HI": "सीएसवी लॉगिंग (पेनड्राइव):"
+    }
+  },
+  "MIMIC_EQUIPMENT": {
+    "MIMIC_TITLE": {
+      "HU": "NassMaster v2.2.0 - Grafikus SCADA Folyamatábra (Global Edition)",
+      "EN": "NassMaster v2.2.0 - Graphical SCADA Process Mimic (Global Edition)",
+      "DE": "NassMaster v2.2.0 - Grafisches SCADA-Prozessbild (Global Edition)",
+      "FR": "NassMaster v2.2.0 - Synoptique de Processus SCADA (Global Edition)",
+      "ZH": "NassMaster v2.2.0 - 图形 SCADA 工艺流程图 (全球版)",
+      "HI": "NassMaster v2.2.0 - ग्राफिकल SCADA प्रक्रिया आरेख (वैश्विक संस्करण)"
+    },
+    "PALETTE_LABEL": {
+      "HU": "Gépkönyvtár:",
+      "EN": "Equipment Library:",
+      "DE": "Gerätebibliothek:",
+      "FR": "Bibliothèque d'équipements:",
+      "ZH": "设备库:",
+      "HI": "उपकरण लाइब्रेरी:"
+    },
+    "ITEM_VALVE": {
+      "HU": "Nass Szelep",
+      "EN": "Nass Valve",
+      "DE": "Nass Ventil",
+      "FR": "Vanne Nass",
+      "ZH": "Nass 电磁阀",
+      "HI": "Nass वाल्व"
+    },
+    "ITEM_KNOB": {
+      "HU": "PWM Potméter",
+      "EN": "PWM Potentiometer",
+      "DE": "PWM-Potentiometer",
+      "FR": "Potentiomètre PWM",
+      "ZH": "PWM 电位器",
+      "HI": "PWM पोटेंशियोमीटर"
+    },
+    "ITEM_CONVEYOR": {
+      "HU": "Szállítószalag",
+      "EN": "Conveyor Belt",
+      "DE": "Förderband",
+      "FR": "Convoyeur",
+      "ZH": "输送带",
+      "HI": "कन्वेयर बेल्ट"
+    },
+    "ITEM_THERMO": {
+      "HU": "Hőmérő Távadó",
+      "EN": "Temperature Sensor",
+      "DE": "Temperatursensor",
+      "FR": "Capteur de température",
+      "ZH": "温度传感器",
+      "HI": "तापमान सेंसर"
+    },
+    "ITEM_PRESSURE": {
+      "HU": "Nyomásszenzor",
+      "EN": "Pressure Sensor",
+      "DE": "Drucksensor",
+      "FR": "Capteur de pression",
+      "ZH": "压力传感器",
+      "HI": "दबाव सेंसर"
+    },
+    "ITEM_LIMIT_SWITCH": {
+      "HU": "Végálláskapcsoló",
+      "EN": "Limit Switch",
+      "DE": "Endschalter",
+      "FR": "Fin de course",
+      "ZH": "限位开关",
+      "HI": "सीमा स्विच"
+    },
+    "ITEM_PROXIMITY": {
+      "HU": "Közelítéskapcsoló",
+      "EN": "Proximity Sensor",
+      "DE": "Näherungsschalter",
+      "FR": "Capteur de proximité",
+      "ZH": "接近开关",
+      "HI": "निकटता सेंसर"
+    },
+    "ITEM_GRINDER": {
+      "HU": "Daráló / Mixer",
+      "EN": "Grinder / Mixer",
+      "DE": "Mühle / Mischer",
+      "FR": "Broyeur / Mélangeur",
+      "ZH": "研磨机 / 搅拌机",
+      "HI": "ग्राइंडर / मिक्सर"
+    },
+    "ITEM_TANK": {
+      "HU": "Tartály / Siló",
+      "EN": "Tank / Silo",
+      "DE": "Behälter / Silo",
+      "FR": "Réservoir / Silo",
+      "ZH": "储罐 / 料仓",
+      "HI": "टैंक / साइलो"
+    },
+    "ITEM_CYLINDER": {
+      "HU": "Munkahenger",
+      "EN": "Pneumatic Cylinder",
+      "DE": "Pneumatikzylinder",
+      "FR": "Vérin pneumatique",
+      "ZH": "气缸",
+      "HI": "न्यूमेटिक सिलेंडर"
+    },
+    "ITEM_CUSTOM_IMG": {
+      "HU": "Egyedi Kép",
+      "EN": "Custom Image",
+      "DE": "Benutzerdefiniertes Bild",
+      "FR": "Image personnalisée",
+      "ZH": "自定义图像",
+      "HI": "कस्टम छवि"
+    },
+    "BTN_SAVE_BINDING": {
+      "HU": "Csatolás Mentése",
+      "EN": "Save Binding",
+      "DE": "Verknüpfung Speichern",
+      "FR": "Enregistrer la liaison",
+      "ZH": "保存绑定",
+      "HI": "बाइंडिंग सहेजें"
+    },
+    "BTN_CANCEL": {
+      "HU": "Mégse",
+      "EN": "Cancel",
+      "DE": "Abbrechen",
+      "FR": "Annuler",
+      "ZH": "取消",
+      "HI": "रद्द करें"
     }
   }
 }
