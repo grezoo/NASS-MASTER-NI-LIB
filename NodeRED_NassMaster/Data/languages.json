@@ -8,28 +8,12 @@
     "HI": "शर्त पूरी न होने पर आउटपुट का भौतिक निष्क्रियकरण या रीसेट सुनिश्चित करता है।"
   },
   {
-    "HU": "Ciklusidő: 500ms | Dinamikus IODD Csatornák & Többcsatornás Aktuátor Bit-Packing",
-    "EN": "Cycle Time: 500ms | Dynamic IODD Channels & Multi-Channel Actuator Bit-Packing",
-    "DE": "Zykluszeit: 500ms | Dynamische IODD-Kanäle & Mehrkanal-Aktor-Bit-Packing",
-    "FR": "Temps de cycle: 500ms | Canaux IODD dynamiques & Bit-Packing actionneurs",
-    "ZH": "周期时间: 500ms | 动态 IODD 通道和多通道执行器位打包",
-    "HI": "साइकिल समय: 500ms | गतिशील IODD चैनल और मल्टी-चैनल बिट-पैकिंग"
-  },
-  {
     "HU": "Menj az IODD KEZELŐ fülre, vagy állítsd át a fenti lenyílóban DI / DO módra.",
     "EN": "Go to IODD MANAGER tab, or switch to DI / DO mode in dropdown above.",
     "DE": "Zum IODD-MANAGER-Tab gehen oder oben auf DI / DO umschalten.",
     "FR": "Allez sur l'onglet GESTIONNAIRE IODD ou passez en mode DI / DO ci-dessus.",
     "ZH": "转到 IODD 管理器选项卡，或在上方下拉菜单中切换到 DI / DO 模式。",
     "HI": "IODD प्रबंधक टैब पर जाएं, या ऊपर ड्रॉपडाउन में DI / DO मोड पर स्विच करें।"
-  },
-  {
-    "HU": "Automatikus Állapotmentés | Zéró Hardcode IODD Adatcsatolás | Élő Telemetria",
-    "EN": "Auto State Save | Zero Hardcode IODD Data Binding | Live Telemetry",
-    "DE": "Automatische Zustandsspeicherung | Null Hardcode IODD Datenbindung | Live-Telemetrie",
-    "FR": "Sauvegarde auto d'état | Zéro Hardcode Liaison IODD | Télémetrie en direct",
-    "ZH": "自动状态保存 | 零硬编码 IODD 数据绑定 | 实时遥测",
-    "HI": "स्वचालित स्थिति सहेजें | शून्य हार्डकोड IODD बाइंडिंग | लाइव टेलीमेट्री"
   },
   {
     "HU": "3. ALAPHELYZETBE ÁLLÍTÁS (EGYÉBKÉNT / ELSE - Amikor a feltétel hamis):",
@@ -40,30 +24,6 @@
     "HI": "3. रीसेट कार्रवाई (अन्यथा / ELSE - जब शर्त गलत हो):"
   },
   {
-    "HU": "Automatikus ZIP kicsomagolás, IODD XML feldolgozás és képkinyerés",
-    "EN": "Automatic ZIP unpacking, IODD XML parsing and image extraction",
-    "DE": "Automatisches Entpacken von ZIPs, IODD XML-Parsing und Bildextraktion",
-    "FR": "Décompression ZIP auto, analyse IODD XML et extraction d'images",
-    "ZH": "自动 ZIP 解压、IODD XML 解析和图像提取",
-    "HI": "स्वचालित ज़िप अनपैकिंग, IODD XML पार्सिंग और छवि निष्कर्षण"
-  },
-  {
-    "HU": "NassMaster 2.1 – Grafikus SCADA Folyamatábra (Visual Mimic)",
-    "EN": "NassMaster 2.1 – Graphical SCADA Process Mimic (Visual Mimic)",
-    "DE": "NassMaster 2.1 – Grafisches SCADA-Prozessbild (Visual Mimic)",
-    "FR": "NassMaster 2.1 – Synoptique de Processus SCADA (Visual Mimic)",
-    "ZH": "NassMaster 2.1 – 图形 SCADA 工艺流程图 (Visual Mimic)",
-    "HI": "NassMaster 2.1 – ग्राफिकल SCADA प्रक्रिया आरेख (Visual Mimic)"
-  },
-  {
-    "HU": "NASSMASTER 2.1 – GRAFIKUS SCADA FOLYAMATÁBRA (VISUAL MIMIC)",
-    "EN": "NASSMASTER 2.1 – GRAPHICAL SCADA PROCESS MIMIC (VISUAL MIMIC)",
-    "DE": "NASSMASTER 2.1 – GRAFISCHES SCADA-PROZESSBILD (VISUAL MIMIC)",
-    "FR": "NASSMASTER 2.1 – SYNOPTIQUE SCADA DE PROCESSUS (VISUAL MIMIC)",
-    "ZH": "NASSMASTER 2.1 – 图形 SCADA 工艺流程图 (VISUAL MIMIC)",
-    "HI": "NASSMASTER 2.1 – ग्राफिकल SCADA प्रक्रिया आरेख (VISUAL MIMIC)"
-  },
-  {
     "HU": "Érték ELSE esetén (ugyanazon a Valve set value csatornán):",
     "EN": "Value on ELSE (on same Valve set value channel):",
     "DE": "Wert bei ELSE (auf demselben Ventil-Kanal):",
@@ -72,52 +32,20 @@
     "HI": "ELSE पर मूल्य (उसी वाल्व चैनल पर):"
   },
   {
-    "HU": "Nincs találat vagy nincs IODD rendelve ehhez a porthoz.",
-    "EN": "No matches found or no IODD assigned to this port.",
-    "DE": "Keine Treffer oder kein IODD zugewiesen.",
-    "FR": "Aucun résultat ou aucun IODD assigné à ce port.",
-    "ZH": "未找到匹配项或未分配 IODD。",
-    "HI": "कोई परिणाम नहीं मिला या कोई IODD निर्दिष्ट नहीं है।"
+    "HU": "PLC Szabályok Betöltése, Kijelölése & Importálása",
+    "EN": "Load, Select & Import PLC Rules",
+    "DE": "SPS-Regeln Laden, Auswählen & Importieren",
+    "FR": "Charger, Sélectionner & Importer Règles PLC",
+    "ZH": "加载、选择和导入 PLC 规则",
+    "HI": "पीएलसी नियम लोड, चयन और आयात करें"
   },
   {
-    "HU": "Kattints ide vagy húzd ide az IODD .ZIP / .XML fájlt",
-    "EN": "Click or drag & drop IODD .ZIP / .XML file here",
-    "DE": "Hier klicken oder IODD .ZIP / .XML-Datei hierher ziehen",
-    "FR": "Cliquez ici ou glissez-déposez le fichier IODD .ZIP / .XML",
-    "ZH": "点击此处或将 IODD .ZIP / .XML 文件拖放到此处",
-    "HI": "यहाँ क्लिक करें या IODD .ZIP / .XML फ़ाइल यहाँ खींचें"
-  },
-  {
-    "HU": "PORT 1 IODD ISDU PARAMÉTER DIAGNOSZTIKA & KIOLVASÁS",
-    "EN": "PORT 1 IODD ISDU PARAMETER DIAGNOSTICS & READOUT",
-    "DE": "PORT 1 IODD ISDU-PARAMETERDIAGNOSE & AUSLESEN",
-    "FR": "DIAGNOSTIC & LECTURE DES PARAMÈTRES ISDU PORT 1",
-    "ZH": "端口 1 IODD ISDU 参数诊断与读取",
-    "HI": "पोर्ट 1 IODD ISDU पैरामीटर निदान और पढ़ना"
-  },
-  {
-    "HU": "+ ÚJ MINI PLC SZABÁLY LÉTREHOZÁSA (DINAMIKUS IODD)",
-    "EN": "+ CREATE NEW MINI PLC RULE (DYNAMIC IODD)",
-    "DE": "+ NEUE MINI SPS REGEL ERSTELLEN (DYNAMISCHES IODD)",
-    "FR": "+ CRÉER NOUVELLE RÈGLE MINI AUTOMATE (IODD DYNAMIQUE)",
-    "ZH": "+ 创建新微型 PLC 规则 (动态 IODD)",
-    "HI": "+ नया मिनी पीएलसी नियम बनाएं (गतिशील IODD)"
-  },
-  {
-    "HU": "Mini PLC Logikai Szabályozó & Aktuátor Vezérlés",
-    "EN": "Mini PLC Logic Controller & Actuator Control",
-    "DE": "Mini SPS Logikregler & Aktorsteuerung",
-    "FR": "Mini Automate Contrôleur Logique & Actionneurs",
-    "ZH": "微型 PLC 逻辑控制器和执行器控制",
-    "HI": "मिनी पीएलसी लॉजिक कंट्रोलर और एक्चुएटर नियंत्रण"
-  },
-  {
-    "HU": "MINI PLC LOGIKAI SZABÁLYOZÓ & AKTUÁTOR VEZÉRLÉS",
-    "EN": "MINI PLC LOGIC CONTROLLER & ACTUATOR CONTROL",
-    "DE": "MINI SPS LOGIKREGLER & AKTORSTEUERUNG",
-    "FR": "MINI AUTOMATE CONTRÔLEUR LOGIQUE & ACTIONNEURS",
-    "ZH": "微型 PLC 逻辑控制器和执行器控制",
-    "HI": "मिनी पीएलसी लॉजिक कंट्रोलर और एक्चुएटर नियंत्रण"
+    "HU": "vagy tallózd be a nassmaster_plc_rules.json fájlt",
+    "EN": "or browse nassmaster_plc_rules.json file",
+    "DE": "oder nassmaster_plc_rules.json auswählen",
+    "FR": "ou parcourez le fichier nassmaster_plc_rules.json",
+    "ZH": "或浏览 nassmaster_plc_rules.json 文件",
+    "HI": "या nassmaster_plc_rules.json फ़ाइल ब्राउज़ करें"
   },
   {
     "HU": "Ez a port inaktívra (Deactivated) van állítva.",
@@ -126,22 +54,6 @@
     "FR": "Ce port est défini sur Inactif (Désactivé).",
     "ZH": "此端口设置为未激活 (已停用)。",
     "HI": "यह पोर्ट निष्क्रिय (निष्क्रिय) पर सेट है।"
-  },
-  {
-    "HU": "Valós Idejű Folyamatadat & ISDU Trend Grafikon",
-    "EN": "Real-time Process Data & ISDU Trend Graph",
-    "DE": "Echtzeit-Prozessdaten & ISDU-Trenddiagramm",
-    "FR": "Graphique de tendance PD & ISDU en temps réel",
-    "ZH": "实时过程数据与 ISDU 趋势图表",
-    "HI": "वास्तविक समय प्रक्रिया डेटा और ISDU रुझान ग्राफ़"
-  },
-  {
-    "HU": "VALÓS IDEJŰ FOLYAMATADAT & ISDU TREND GRAFIKON",
-    "EN": "REAL-TIME PROCESS DATA & ISDU TREND GRAPH",
-    "DE": "ECHTZEIT-PROZESSDATEN & ISDU-TRENDDIAGRAMM",
-    "FR": "GRAPHIQUE DE TENDANCE PD & ISDU EN TEMPS RÉEL",
-    "ZH": "实时过程数据与 ISDU 趋势图表",
-    "HI": "वास्तविक समय प्रक्रिया डेटा और ISDU रुझान ग्राफ़"
   },
   {
     "HU": "Kattints a kimenet kapcsolásához (C/Q Pin 4)",
@@ -168,12 +80,20 @@
     "HI": "मिनी पीएलसी नियंत्रक और लॉजिक इंजन"
   },
   {
-    "HU": "Nincs IODD rendelve ehhez a porthoz.",
-    "EN": "No IODD assigned to this port.",
-    "DE": "Kein IODD diesem Port zugewiesen.",
-    "FR": "Aucun IODD assigné à ce port.",
-    "ZH": "未为此端口分配 IODD。",
-    "HI": "इस पोर्ट के लिए कोई IODD निर्दिष्ट नहीं है।"
+    "HU": "Kattints a .json fájl kiválasztásához",
+    "EN": "Click to select .json file",
+    "DE": "Klicken zum Auswählen der .json-Datei",
+    "FR": "Cliquez pour sélectionner le fichier .json",
+    "ZH": "点击选择 .json 文件",
+    "HI": ".json फ़ाइल चुनने के लिए क्लिक करें"
+  },
+  {
+    "HU": "Várakozás IODD csomag betöltésére...",
+    "EN": "Waiting for IODD package to load...",
+    "DE": "Warten auf das Laden des IODD-Pakets...",
+    "FR": "En attente du chargement du paquet IODD...",
+    "ZH": "等待加载 IODD 软件包...",
+    "HI": "IODD पैकेज लोड होने की प्रतीक्षा की जा रही है..."
   },
   {
     "HU": "Valós idejű trendek és CSV naplózás",
@@ -184,20 +104,20 @@
     "HI": "वास्तविक समय के रुझान और सीएसवी लॉगिंग"
   },
   {
-    "HU": "Nincs IODD rendelve ehhez a porthoz",
-    "EN": "No IODD assigned to this port",
-    "DE": "Kein IODD diesem Port zugewiesen",
-    "FR": "Aucun IODD assigné à ce port",
-    "ZH": "未为此端口分配 IODD",
-    "HI": "इस पोर्ट के लिए कोई IODD निर्दिष्ट नहीं है"
-  },
-  {
     "HU": "ISDU Paraméter (Mérés/Diagnosztika)",
     "EN": "ISDU Parameter (Measurement/Diag)",
     "DE": "ISDU-Parameter (Messung/Diagnose)",
     "FR": "Paramètre ISDU (Mesure/Diag)",
     "ZH": "ISDU 参数 (测量/诊断)",
     "HI": "ISDU पैरामीटर (माप/निदान)"
+  },
+  {
+    "HU": "Arányos Bemenet → Kimenet Skálázás:",
+    "EN": "Proportional Input → Output Scaling:",
+    "DE": "Proportionale Eingang → Ausgang Skalierung:",
+    "FR": "Mise à l'échelle Entrée → Sortie proportionnelle:",
+    "ZH": "比例输入 → 输出缩放:",
+    "HI": "समानुपातिक इनपुट → आउटपुट स्केलिंग:"
   },
   {
     "HU": "SCADA Folyamatábra & Gépelrendezés",
@@ -224,36 +144,20 @@
     "HI": "X04 पिन 4 (केवल पढ़ने योग्य इनपुट)"
   },
   {
-    "HU": "1. IODD ZIP / XML CSOMAG ELEMZÉSE",
-    "EN": "1. IODD ZIP / XML PACKAGE ANALYSIS",
-    "DE": "1. IODD ZIP / XML PAKETANALYSE",
-    "FR": "1. ANALYSE DU PAQUET IODD ZIP / XML",
-    "ZH": "1. IODD ZIP / XML 软件包分析",
-    "HI": "1. IODD ज़िप / XML पैकेज विश्लेषण"
-  },
-  {
-    "HU": "1. IODD ZIP / XML Csomag Elemzése",
-    "EN": "1. IODD ZIP / XML Package Analysis",
-    "DE": "1. IODD ZIP / XML Paketanalyse",
-    "FR": "1. Analyse du paquet IODD ZIP / XML",
-    "ZH": "1. IODD ZIP / XML 软件包分析",
-    "HI": "1. IODD ज़िप / XML पैकेज विश्लेषण"
-  },
-  {
-    "HU": "-- Nincs ISDU (Csak PD mentés) --",
-    "EN": "-- No ISDU (PD logging only) --",
-    "DE": "-- Kein ISDU (nur PD-Protokoll) --",
-    "FR": "-- Aucun ISDU (Seul PD actif) --",
-    "ZH": "-- 无 ISDU (仅记录过程数据) --",
-    "HI": "-- कोई ISDU नहीं (केवल पीडी लॉगिंग) --"
-  },
-  {
     "HU": "PWM Kitöltési Tényező Állítás (%)",
     "EN": "PWM Duty Cycle Setpoint (%)",
     "DE": "PWM-Tastgrad-Einstellung (%)",
     "FR": "Réglage du rapport cyclique PWM (%)",
     "ZH": "PWM 占空比设定 (%)",
     "HI": "PWM ड्यूटी चक्र सेटिंग (%)"
+  },
+  {
+    "HU": "JSON Szabályok Kézi Szerkesztése",
+    "EN": "Manual Edit of JSON Rules",
+    "DE": "Manuelle Bearbeitung von JSON-Regeln",
+    "FR": "Modification manuelle des règles JSON",
+    "ZH": "手动编辑 JSON 规则",
+    "HI": "JSON नियमों का मैन्युअल संपादन"
   },
   {
     "HU": "Port 1 (Digitális Bemenet (DI))",
@@ -352,12 +256,20 @@
     "HI": "पढ़ने या लिखने का मूल्य"
   },
   {
-    "HU": "BETÖLTÉS & BEILLESZTÉS (.JSON)",
-    "EN": "LOAD & PASTE (.JSON)",
-    "DE": "LADEN & EINFÜGEN (.JSON)",
-    "FR": "CHARGER & COLLER (.JSON)",
-    "ZH": "加载和粘贴 (.JSON)",
-    "HI": "लोड और पेस्ट करें (.JSON)"
+    "HU": "Gyári Mintaszabályok Előnézete",
+    "EN": "Preview Factory Rules",
+    "DE": "Vorschau Werkseinstellungen",
+    "FR": "Aperçu des règles d'usine",
+    "ZH": "预览出厂规则",
+    "HI": "फ़ैक्टरी नियमों का पूर्वावलोकन"
+  },
+  {
+    "HU": "VAGY ILLESSZ BE JSON SZÖVEGET:",
+    "EN": "OR PASTE JSON TEXT:",
+    "DE": "ODER JSON-TEXT EINFÜGEN:",
+    "FR": "OU COLLER DU TEXTE JSON:",
+    "ZH": "或粘贴 JSON 文本:",
+    "HI": "या JSON टेक्स्ट पेस्ट करें:"
   },
   {
     "HU": "2. BEAVATKOZÁS (AKKOR / THEN):",
@@ -384,12 +296,12 @@
     "HI": "नियम सहेजें और लागू करें"
   },
   {
-    "HU": "ISDU keresése (név, index)...",
-    "EN": "Search ISDU (name, index)...",
-    "DE": "ISDU suchen (Name, Index)...",
-    "FR": "Rechercher ISDU (nom, index)...",
-    "ZH": "搜索 ISDU (名称、索引)...",
-    "HI": "ISDU खोजें (नाम, अनुक्रमणिका)..."
+    "HU": "Gép Adatcsatolás & Telemetria",
+    "EN": "Equipment Binding & Telemetry",
+    "DE": "Geräteanbindung & Telemetrie",
+    "FR": "Liaison d'équipement & Télémesure",
+    "ZH": "设备绑定与遥测",
+    "HI": "उपकरण बाइंडिंग और टेलीमेट्री"
   },
   {
     "HU": "Központosított Port Vezérlés",
@@ -416,30 +328,6 @@
     "HI": "स्मार्ट हब आउटपुट (पार्सर)"
   },
   {
-    "HU": "Aktív Port Folyamatadat (PD)",
-    "EN": "Active Port Process Data (PD)",
-    "DE": "Aktiver Port Prozessdaten (PD)",
-    "FR": "Données de processus port actif (PD)",
-    "ZH": "活动端口过程数据 (PD)",
-    "HI": "सक्रिय पोर्ट प्रक्रिया डेटा (पीडी)"
-  },
-  {
-    "HU": "AKTÍV PORT FOLYAMATADAT (PD)",
-    "EN": "ACTIVE PORT PROCESS DATA (PD)",
-    "DE": "AKTIVER PORT PROZESSDATEN (PD)",
-    "FR": "DONNÉES DE PROCESSUS PORT ACTIF (PD)",
-    "ZH": "活动端口过程数据 (PD)",
-    "HI": "सक्रिय पोर्ट प्रक्रिया डेटा (पीडी)"
-  },
-  {
-    "HU": "Seul enregistrement PD actif",
-    "EN": "Only PD recording active",
-    "DE": "Nur PD-Aufzeichnung aktiv",
-    "FR": "Seul enregistrement PD actif",
-    "ZH": "仅过程数据记录处于活动状态",
-    "HI": "केवल पीडी रिकॉर्डिंग सक्रिय"
-  },
-  {
     "HU": "Digitális Kimenet (DO Pin 4)",
     "EN": "Digital Output (DO Pin 4)",
     "DE": "Digitaler Ausgang (DO-Pin 4)",
@@ -448,44 +336,20 @@
     "HI": "डिजिटल आउटपुट (DO पिन 4)"
   },
   {
-    "HU": "Nincs ISDU (Csak PD mentés)",
-    "EN": "No ISDU (PD logging only)",
-    "DE": "Kein ISDU (nur PD-Protokoll)",
-    "FR": "Aucun ISDU (Seul PD actif)",
-    "ZH": "无 ISDU (仅记录过程数据)",
-    "HI": "कोई ISDU नहीं (केवल पीडी लॉगिंग)"
+    "HU": "Talált szabályok a fájlban:",
+    "EN": "Rules found in file:",
+    "DE": "Gefundene Regeln in der Datei:",
+    "FR": "Règles trouvées dans le fichier:",
+    "ZH": "文件中找到的规则:",
+    "HI": "फ़ाइल में मिले नियम:"
   },
   {
-    "HU": "Kiválasztott ISDU Paraméter",
-    "EN": "Selected ISDU Parameter",
-    "DE": "Ausgewählter ISDU-Parameter",
-    "FR": "Paramètre ISDU sélectionné",
-    "ZH": "选定 ISDU 参数",
-    "HI": "चयनित ISDU पैरामीटर"
-  },
-  {
-    "HU": "KIVÁLASZTOTT ISDU PARAMÉTER",
-    "EN": "SELECTED ISDU PARAMETER",
-    "DE": "AUSGEWÄHLTER ISDU-PARAMETER",
-    "FR": "PARAMÈTRE ISDU SÉLECTIONNÉ",
-    "ZH": "选定 ISDU 参数",
-    "HI": "चयनित ISDU पैरामीटर"
-  },
-  {
-    "HU": "Összes Port Összehasonlítás",
-    "EN": "Compare All Ports",
-    "DE": "Alle Ports vergleichen",
-    "FR": "Comparer tous les ports",
-    "ZH": "比较所有端口",
-    "HI": "सभी पोर्ट की तुलना करें"
-  },
-  {
-    "HU": "FELTÉTEL IGAZ (BEAVATKOZIK)",
-    "EN": "CONDITION TRUE (ACTING)",
-    "DE": "BEDINGUNG WAHR (EINGRIFF)",
-    "FR": "CONDITION VRAIE (ACTION)",
-    "ZH": "条件为真 (执行中)",
-    "HI": "शर्त सत्य (सक्रिय)"
+    "HU": "Folyamatadat (Process Data)",
+    "EN": "Process Data",
+    "DE": "Prozessdaten",
+    "FR": "Données de processus",
+    "ZH": "过程数据",
+    "HI": "प्रक्रिया डेटा"
   },
   {
     "HU": "Port 1 (IO-Link Autostart)",
@@ -520,54 +384,6 @@
     "HI": "पोर्ट 4 (IO-Link ऑटोस्टार्ट)"
   },
   {
-    "HU": "ÉTAT ENTRÉE NUMÉRIQUE (DI)",
-    "EN": "DIGITAL INPUT (DI) STATUS",
-    "DE": "DIGITALER EINGANG (DI) STATUS",
-    "FR": "ÉTAT ENTRÉE NUMÉRIQUE (DI)",
-    "ZH": "数字输入 (DI) 状态",
-    "HI": "डिजिटल इनपुट (DI) स्थिति"
-  },
-  {
-    "HU": "PORT 1 (X01) HOZZÁRENDELÉS",
-    "EN": "ASSIGN TO PORT 1 (X01)",
-    "DE": "PORT 1 (X01) ZUWEISEN",
-    "FR": "AFFECTER AU PORT 1 (X01)",
-    "ZH": "分配到端口 1 (X01)",
-    "HI": "पोर्ट 1 (X01) को असाइन करें"
-  },
-  {
-    "HU": "PORT 2 (X02) HOZZÁRENDELÉS",
-    "EN": "ASSIGN TO PORT 2 (X02)",
-    "DE": "PORT 2 (X02) ZUWEISEN",
-    "FR": "AFFECTER AU PORT 2 (X02)",
-    "ZH": "分配到端口 2 (X02)",
-    "HI": "पोर्ट 2 (X02) को असाइन करें"
-  },
-  {
-    "HU": "PORT 3 (X03) HOZZÁRENDELÉS",
-    "EN": "ASSIGN TO PORT 3 (X03)",
-    "DE": "PORT 3 (X03) ZUWEISEN",
-    "FR": "AFFECTER AU PORT 3 (X03)",
-    "ZH": "分配到端口 3 (X03)",
-    "HI": "पोर्ट 3 (X03) को असाइन करें"
-  },
-  {
-    "HU": "PORT 4 (X04) HOZZÁRENDELÉS",
-    "EN": "ASSIGN TO PORT 4 (X04)",
-    "DE": "PORT 4 (X04) ZUWEISEN",
-    "FR": "AFFECTER AU PORT 4 (X04)",
-    "ZH": "分配到端口 4 (X04)",
-    "HI": "पोर्ट 4 (X04) को असाइन करें"
-  },
-  {
-    "HU": "RÉINITIALISER LE GRAPHIQUE",
-    "EN": "RESET GRAPH",
-    "DE": "DIAGRAMM ZURÜCKSETZEN",
-    "FR": "RÉINITIALISER LE GRAPHIQUE",
-    "ZH": "重置图表",
-    "HI": "ग्राफ़ रीसेट करें"
-  },
-  {
     "HU": "Digitális Bemenet (DI Pin)",
     "EN": "Digital Input (DI Pin)",
     "DE": "Digitaler Eingang (DI-Pin)",
@@ -598,22 +414,6 @@
     "FR": "RÉSEAU & ÉTAT DU SYSTÈME",
     "ZH": "网络与系统状态",
     "HI": "नेटवर्क और सिस्टम स्थिति"
-  },
-  {
-    "HU": "2. Cél Port Hozzárendelés",
-    "EN": "2. Target Port Assignment",
-    "DE": "2. Zielport-Zuweisung",
-    "FR": "2. Affectation du port cible",
-    "ZH": "2. 目标端口分配",
-    "HI": "2. लक्ष्य पोर्ट असाइनमेंट"
-  },
-  {
-    "HU": "2. CÉL PORT HOZZÁRENDELÉS",
-    "EN": "2. TARGET PORT ASSIGNMENT",
-    "DE": "2. ZIELPORT-ZUWEISUNG",
-    "FR": "2. AFFECTATION DU PORT CIBLE",
-    "ZH": "2. 目标端口分配",
-    "HI": "2. लक्ष्य पोर्ट असाइनमेंट"
   },
   {
     "HU": "Folyamatadat (PD Bemenet)",
@@ -648,52 +448,12 @@
     "HI": "प्रक्रिया डेटा (पीडी इन/आउट)"
   },
   {
-    "HU": "ifm Hőmérséklet (Port 3)",
-    "EN": "ifm Temperature (Port 3)",
-    "DE": "ifm Temperatur (Port 3)",
-    "FR": "Température ifm (Port 3)",
-    "ZH": "ifm 温度传感器 (端口 3)",
-    "HI": "ifm तापमान (पोर्ट 3)"
-  },
-  {
-    "HU": "2. ISDU Paraméter (IODD)",
-    "EN": "2. ISDU Parameter (IODD)",
-    "DE": "2. ISDU-Parameter (IODD)",
-    "FR": "2. Paramètre ISDU (IODD)",
-    "ZH": "2. ISDU 参数 (IODD)",
-    "HI": "2. ISDU पैरामीटर (IODD)"
-  },
-  {
-    "HU": "2. ISDU PARAMÉTER (IODD)",
-    "EN": "2. ISDU PARAMETER (IODD)",
-    "DE": "2. ISDU-PARAMETER (IODD)",
-    "FR": "2. PARAMÈTRE ISDU (IODD)",
-    "ZH": "2. ISDU 参数 (IODD)",
-    "HI": "2. ISDU पैरामीटर (IODD)"
-  },
-  {
-    "HU": "Csatorna / Paraméter Név",
-    "EN": "Channel / Parameter Name",
-    "DE": "Kanal / Parametername",
-    "FR": "Nom du canal / paramètre",
-    "ZH": "通道 / 参数名称",
-    "HI": "चैनल / पैरामीटर का नाम"
-  },
-  {
-    "HU": "+ ÚJ SZABÁLY LÉTREHOZÁSA",
-    "EN": "+ CREATE NEW RULE",
-    "DE": "+ NEUE REGEL ERSTELLEN",
-    "FR": "+ CRÉER NOUVELLE RÈGLE",
-    "ZH": "+ 创建新规则",
-    "HI": "+ नया नियम बनाएं"
-  },
-  {
-    "HU": "1 másodperc (Valós idő)",
-    "EN": "1 second (Real-time)",
-    "DE": "1 Sekunde (Echtzeit)",
-    "FR": "1 seconde (Temps réel)",
-    "ZH": "1 秒 (实时)",
-    "HI": "1 सेकंड (वास्तविक समय)"
+    "HU": "Nincs rögzített esemény.",
+    "EN": "No recorded events.",
+    "DE": "Keine Ereignisse aufgezeichnet.",
+    "FR": "Aucun événement enregistré.",
+    "ZH": "无记录事件。",
+    "HI": "कोई रिकॉर्ड की गई घटना नहीं।"
   },
   {
     "HU": "ISDU Változó / Alindex:",
@@ -760,52 +520,20 @@
     "HI": "चयनित पैरामीटर"
   },
   {
-    "HU": "4. Fájlba Mentés (CSV)",
-    "EN": "4. File Logging (CSV)",
-    "DE": "4. Dateiprotokollierung (CSV)",
-    "FR": "4. Enregistrement fichier (CSV)",
-    "ZH": "4. 文件记录 (CSV)",
-    "HI": "4. फ़ाइल लॉगिंग (CSV)"
+    "HU": "Gyors Minta Szabályok:",
+    "EN": "Quick Preset Rules:",
+    "DE": "Schnelle Mustervorlagen:",
+    "FR": "Règles prédéfinies rapides:",
+    "ZH": "快速预设规则:",
+    "HI": "त्वरित पूर्व निर्धारित नियम:"
   },
   {
-    "HU": "4. FÁJLBA MENTÉS (CSV)",
-    "EN": "4. FILE LOGGING (CSV)",
-    "DE": "4. DATEIPROTOKOLLIERUNG (CSV)",
-    "FR": "4. ENREGISTREMENT FICHIER (CSV)",
-    "ZH": "4. 文件记录 (CSV)",
-    "HI": "4. फ़ाइल लॉगिंग (CSV)"
-  },
-  {
-    "HU": "Nincs ISDU kiválasztva",
-    "EN": "No ISDU selected",
-    "DE": "Kein ISDU ausgewählt",
-    "FR": "Aucun ISDU sélectionné",
-    "ZH": "未选择 ISDU",
-    "HI": "कोई ISDU चयनित नहीं"
-  },
-  {
-    "HU": "Csak PD rögzítés aktív",
-    "EN": "Only PD recording active",
-    "DE": "Nur PD-Aufzeichnung aktiv",
-    "FR": "Seul enregistrement PD actif",
-    "ZH": "仅过程数据记录处于活动状态",
-    "HI": "केवल पीडी रिकॉर्डिंग सक्रिय"
-  },
-  {
-    "HU": "MOTOR LEÁLLÍTVA (STOP)",
-    "EN": "ENGINE STOPPED (STOP)",
-    "DE": "MOTOR GESTOPPT (STOP)",
-    "FR": "MOTEUR ARRÊTÉ (STOP)",
-    "ZH": "引擎已停止 (STOP)",
-    "HI": "इंजन रुका हुआ (STOP)"
-  },
-  {
-    "HU": "ÚJ SZABÁLY LÉTREHOZÁSA",
-    "EN": "CREATE NEW RULE",
-    "DE": "NEUE REGEL ERSTELLEN",
-    "FR": "CRÉER NOUVELLE RÈGLE",
-    "ZH": "创建新规则",
-    "HI": "नया नियम बनाएं"
+    "HU": "Szabályok Megtekintése",
+    "EN": "View Rules",
+    "DE": "Regeln Anzeigen",
+    "FR": "Voir les règles",
+    "ZH": "查看规则",
+    "HI": "नियम देखें"
   },
   {
     "HU": "Folyamatadat Csatorna:",
@@ -832,6 +560,30 @@
     "HI": "नियंत्रित मूल्य (THEN):"
   },
   {
+    "HU": "Digitális Bemenet (DI)",
+    "EN": "Digital Input (DI)",
+    "DE": "Digitaler Eingang (DI)",
+    "FR": "Entrée numérique (DI)",
+    "ZH": "数字输入 (DI)",
+    "HI": "डिजिटल इनपुट (DI)"
+  },
+  {
+    "HU": "Digitális Kimenet (DO)",
+    "EN": "Digital Output (DO)",
+    "DE": "Digitaler Ausgang (DO)",
+    "FR": "Sortie numérique (DO)",
+    "ZH": "数字输出 (DO)",
+    "HI": "डिजिटल आउटपुट (DO)"
+  },
+  {
+    "HU": "Csatorna Kiválasztása:",
+    "EN": "Select Channel:",
+    "DE": "Kanal Auswählen:",
+    "FR": "Sélectionner le canal:",
+    "ZH": "选择通道:",
+    "HI": "चैनल चुनें:"
+  },
+  {
     "HU": "Inaktív (Deactivated)",
     "EN": "Inactive (Deactivated)",
     "DE": "Inaktiv (Deaktiviert)",
@@ -846,62 +598,6 @@
     "FR": "Sélectionnez un paramètre...",
     "ZH": "选择参数...",
     "HI": "पैरामीटर चुनें..."
-  },
-  {
-    "HU": "Nass Magnet Smart Hub",
-    "EN": "Nass Magnet Smart Hub",
-    "DE": "Nass Magnet Smart Hub",
-    "FR": "Nass Magnet Smart Hub",
-    "ZH": "Nass Magnet 智能集线器",
-    "HI": "Nass Magnet स्मार्ट हब"
-  },
-  {
-    "HU": "Hozzárendelés Törlése",
-    "EN": "Clear Assignment",
-    "DE": "Zuweisung Löschen",
-    "FR": "Effacer l'affectation",
-    "ZH": "清除分配",
-    "HI": "असाइनमेंट साफ़ करें"
-  },
-  {
-    "HU": "HOZZÁRENDELÉS TÖRLÉSE",
-    "EN": "CLEAR ASSIGNMENT",
-    "DE": "ZUWEISUNG LÖSCHEN",
-    "FR": "EFFACER L'AFFECTATION",
-    "ZH": "清除分配",
-    "HI": "असाइनमेंट साफ़ करें"
-  },
-  {
-    "HU": "Minden Aktív Csatorna",
-    "EN": "All Active Channels",
-    "DE": "Alle aktiven Kanäle",
-    "FR": "Tous les canaux actifs",
-    "ZH": "所有活动通道",
-    "HI": "सभी सक्रिय चैनल"
-  },
-  {
-    "HU": "Diagnosztikai Művelet",
-    "EN": "Diagnostic Action",
-    "DE": "Diagnoseaktion",
-    "FR": "Action de diagnostic",
-    "ZH": "诊断操作",
-    "HI": "नैदानिक ​​कार्रवाई"
-  },
-  {
-    "HU": "DIAGNOSZTIKAI MŰVELET",
-    "EN": "DIAGNOSTIC ACTION",
-    "DE": "DIAGNOSEAKTION",
-    "FR": "ACTION DE DIAGNOSTIC",
-    "ZH": "诊断操作",
-    "HI": "नैदानिक ​​कार्रवाई"
-  },
-  {
-    "HU": "Mentés Fájlba (.json)",
-    "EN": "Save to File (.json)",
-    "DE": "In Datei speichern (.json)",
-    "FR": "Enregistrer fichier (.json)",
-    "ZH": "保存到文件 (.json)",
-    "HI": "फ़ाइल में सहेजें (.json)"
   },
   {
     "HU": "Élő PLC Eseménynapló:",
@@ -928,54 +624,6 @@
     "HI": "सबइंडेक्स चुनें..."
   },
   {
-    "HU": "Gyors Mintaprofilok:",
-    "EN": "Quick Preset Profiles:",
-    "DE": "Schnelle Voreinstellungsprofile:",
-    "FR": "Profils prédéfinis rapides:",
-    "ZH": "快速预设配置文件:",
-    "HI": "त्वरित पूर्व निर्धारित प्रोफ़ाइल:"
-  },
-  {
-    "HU": "1. Diagnosztika Port",
-    "EN": "1. Diagnostics Port",
-    "DE": "1. Diagnoseport",
-    "FR": "1. Port de diagnostic",
-    "ZH": "1. 诊断端口",
-    "HI": "1. निदान पोर्ट"
-  },
-  {
-    "HU": "1. DIAGNOSZTIKA PORT",
-    "EN": "1. DIAGNOSTICS PORT",
-    "DE": "1. DIAGNOSEPORT",
-    "FR": "1. PORT DE DIAGNOSTIC",
-    "ZH": "1. 诊断端口",
-    "HI": "1. निदान पोर्ट"
-  },
-  {
-    "HU": "Aktív Port Csatornák",
-    "EN": "Active Port Channels",
-    "DE": "Aktive Portkanäle",
-    "FR": "Canaux du port actif",
-    "ZH": "活动端口通道",
-    "HI": "सक्रिय पोर्ट चैनल"
-  },
-  {
-    "HU": "Paraméter Megnevezés",
-    "EN": "Parameter Name",
-    "DE": "Parametername",
-    "FR": "Nom du paramètre",
-    "ZH": "参数名称",
-    "HI": "पैरामीटर का नाम"
-  },
-  {
-    "HU": "PARAMÉTER MEGNEVEZÉS",
-    "EN": "PARAMETER NAME",
-    "DE": "PARAMETERNAME",
-    "FR": "NOM DU PARAMÈTRE",
-    "ZH": "参数名称",
-    "HI": "पैरामीटर का नाम"
-  },
-  {
     "HU": "SZABÁLY MEGNEVEZÉSE:",
     "EN": "RULE NAME:",
     "DE": "REGELNAME:",
@@ -990,6 +638,14 @@
     "FR": "MARCHE (Ouvrir / 24V)",
     "ZH": "开启 (打开 / 24V)",
     "HI": "चालू (खोलें / 24V)"
+  },
+  {
+    "HU": "Vezérlés / Kapcsolás",
+    "EN": "Control / Toggle",
+    "DE": "Steuerung / Umschalten",
+    "FR": "Contrôle / Commutation",
+    "ZH": "控制 / 切换",
+    "HI": "नियंत्रण / टॉगल"
   },
   {
     "HU": "FUNKCIÓK (MINI PLC)",
@@ -1016,12 +672,52 @@
     "HI": "पोर्ट निष्क्रिय है"
   },
   {
-    "HU": "P+F Szelep (Port 1)",
-    "EN": "P+F Valve (Port 1)",
-    "DE": "P+F Ventil (Port 1)",
-    "FR": "Vanne P+F (Port 1)",
-    "ZH": "P+F 阀门 (端口 1)",
-    "HI": "P+F वाल्व (पोर्ट 1)"
+    "HU": "PORT 1 (X01) PROFIL",
+    "EN": "PORT 1 (X01) PROFILE",
+    "DE": "PORT 1 (X01) PROFIL",
+    "FR": "PROFIL DU PORT 1 (X01)",
+    "ZH": "端口 1 (X01) 配置文件",
+    "HI": "पोर्ट 1 (X01) प्रोफ़ाइल"
+  },
+  {
+    "HU": "PORT 2 (X02) PROFIL",
+    "EN": "PORT 2 (X02) PROFILE",
+    "DE": "PORT 2 (X02) PROFIL",
+    "FR": "PROFIL DU PORT 2 (X02)",
+    "ZH": "端口 2 (X02) 配置文件",
+    "HI": "पोर्ट 2 (X02) प्रोफ़ाइल"
+  },
+  {
+    "HU": "PORT 3 (X03) PROFIL",
+    "EN": "PORT 3 (X03) PROFILE",
+    "DE": "PORT 3 (X03) PROFIL",
+    "FR": "PROFIL DU PORT 3 (X03)",
+    "ZH": "端口 3 (X03) 配置文件",
+    "HI": "पोर्ट 3 (X03) प्रोफ़ाइल"
+  },
+  {
+    "HU": "PORT 4 (X04) PROFIL",
+    "EN": "PORT 4 (X04) PROFILE",
+    "DE": "PORT 4 (X04) PROFIL",
+    "FR": "PROFIL DU PORT 4 (X04)",
+    "ZH": "端口 4 (X04) 配置文件",
+    "HI": "पोर्ट 4 (X04) प्रोफ़ाइल"
+  },
+  {
+    "HU": "paraméter betöltve.",
+    "EN": "parameters loaded.",
+    "DE": "Parameter geladen.",
+    "FR": "paramètres chargés.",
+    "ZH": "参数已加载。",
+    "HI": "पैरामीटर लोड किए गए।"
+  },
+  {
+    "HU": "Mentés & Alkalmazás",
+    "EN": "Save & Apply",
+    "DE": "Speichern & Anwenden",
+    "FR": "Enregistrer & Appliquer",
+    "ZH": "保存并应用",
+    "HI": "सहेजें और लागू करें"
   },
   {
     "HU": "Beavatkozás Típusa:",
@@ -1048,6 +744,14 @@
     "HI": "बंद (बंद करें / 0V)"
   },
   {
+    "HU": "Megnevezés / Címke:",
+    "EN": "Name / Label:",
+    "DE": "Name / Beschriftung:",
+    "FR": "Nom / Étiquette:",
+    "ZH": "名称 / 标签:",
+    "HI": "नाम / लेबल:"
+  },
+  {
     "HU": "Alindex (Subindex)",
     "EN": "Subindex",
     "DE": "Subindex",
@@ -1070,14 +774,6 @@
     "FR": "Plage: 0 - 100",
     "ZH": "范围: 0 - 100",
     "HI": "रेंज: 0 - 100"
-  },
-  {
-    "HU": "Folyamatadat (PD):",
-    "EN": "Process Data (PD):",
-    "DE": "Prozessdaten (PD):",
-    "FR": "Données de processus (PD):",
-    "ZH": "过程数据 (PD):",
-    "HI": "प्रक्रिया डेटा (पीडी):"
   },
   {
     "HU": "Új Logikai Szabály",
@@ -1136,44 +832,12 @@
     "HI": "विकल्प चुनें..."
   },
   {
-    "HU": "[Nincs Eszközkép]",
-    "EN": "[No Device Image]",
-    "DE": "[Kein Gerätebild]",
-    "FR": "[Aucune image d'appareil]",
-    "ZH": "[无设备图像]",
-    "HI": "[कोई उपकरण छवि नहीं]"
-  },
-  {
-    "HU": "3. Mentési Időköz",
-    "EN": "3. Logging Interval",
-    "DE": "3. Speicherintervall",
-    "FR": "3. Intervalle de sauvegarde",
-    "ZH": "3. 记录间隔",
-    "HI": "3. लॉगिंग अंतराल"
-  },
-  {
-    "HU": "3. MENTÉSI IDŐKÖZ",
-    "EN": "3. LOGGING INTERVAL",
-    "DE": "3. SPEICHERINTERVALL",
-    "FR": "3. INTERVALLE DE SAUVEGARDE",
-    "ZH": "3. 记录间隔",
-    "HI": "3. लॉगिंग अंतराल"
-  },
-  {
-    "HU": "ADATPONT RÖGZÍTVE",
-    "EN": "DATA POINTS LOGGED",
-    "DE": "DATENPUNKTE ERFASST",
-    "FR": "POINTS DE DONNÉES ENREGISTRÉS",
-    "ZH": "已记录数据点",
-    "HI": "डेटा बिंदु रिकॉर्ड किए गए"
-  },
-  {
-    "HU": "MOTOR AKTÍV (RUN)",
-    "EN": "ENGINE ACTIVE (RUN)",
-    "DE": "MOTOR AKTIV (RUN)",
-    "FR": "MOTEUR ACTIF (RUN)",
-    "ZH": "引擎运行中 (RUN)",
-    "HI": "इंजन सक्रिय (RUN)"
+    "HU": "Kijelölés törlése",
+    "EN": "Clear Selection",
+    "DE": "Auswahl aufheben",
+    "FR": "Désélectionner tout",
+    "ZH": "取消选择",
+    "HI": "चयन साफ़ करें"
   },
   {
     "HU": "Írandó Paraméter:",
@@ -1182,14 +846,6 @@
     "FR": "Paramètre à écrire:",
     "ZH": "要写入的参数:",
     "HI": "लिखने के लिए पैरामीटर:"
-  },
-  {
-    "HU": "Közelítéskapcsoló",
-    "EN": "Proximity Sensor",
-    "DE": "Näherungsschalter",
-    "FR": "Capteur de proximité",
-    "ZH": "接近开关",
-    "HI": "निकटता सेंसर"
   },
   {
     "HU": "Alhálózati Maszk",
@@ -1264,36 +920,12 @@
     "HI": "पैरामीटर (ISDU)"
   },
   {
-    "HU": "Kiolvasott Érték",
-    "EN": "Read Value",
-    "DE": "Gelesener Wert",
-    "FR": "Valeur lue",
-    "ZH": "读取数值",
-    "HI": "पढ़ा हुआ मूल्य"
-  },
-  {
-    "HU": "KIOLVASOTT ÉRTÉK",
-    "EN": "READ VALUE",
-    "DE": "GELESENER WERT",
-    "FR": "VALEUR LUE",
-    "ZH": "读取数值",
-    "HI": "पढ़ा हुआ मूल्य"
-  },
-  {
     "HU": "!= (Nem egyenlő)",
     "EN": "!= (Not equal)",
     "DE": "!= (Ungleich)",
     "FR": "!= (Différent)",
     "ZH": "!= (不等于)",
     "HI": "!= (बराबर नहीं)"
-  },
-  {
-    "HU": "Végálláskapcsoló",
-    "EN": "Limit Switch",
-    "DE": "Endschalter",
-    "FR": "Fin de course",
-    "ZH": "限位开关",
-    "HI": "सीमा स्विच"
   },
   {
     "HU": "Csatolás Mentése",
@@ -1304,44 +936,12 @@
     "HI": "बाइंडिंग सहेजें"
   },
   {
-    "HU": "Paletta Érzékelő",
-    "EN": "Pallet Sensor",
-    "DE": "Palettensensor",
-    "FR": "Capteur de palette",
-    "ZH": "托盘传感器",
-    "HI": "पैलेट सेंसर"
-  },
-  {
     "HU": "ESZKÖZ VEZÉRLÉS",
     "EN": "DEVICE CONTROL",
     "DE": "GERÄTESTEUERUNG",
     "FR": "CONTRÔLE D'APPAREIL",
     "ZH": "设备控制",
     "HI": "उपकरण नियंत्रण"
-  },
-  {
-    "HU": "Gyári Szabályok",
-    "EN": "Factory Rules",
-    "DE": "Werkseinstellungen",
-    "FR": "Règles d'usine",
-    "ZH": "出厂规则",
-    "HI": "फ़ैक्टरी नियम"
-  },
-  {
-    "HU": "JSON Szerkesztő",
-    "EN": "JSON Editor",
-    "DE": "JSON-Editor",
-    "FR": "Éditeur JSON",
-    "ZH": "JSON 编辑器",
-    "HI": "JSON संपादक"
-  },
-  {
-    "HU": "ifm hőmérséklet",
-    "EN": "ifm Temperature",
-    "DE": "ifm Temperatur",
-    "FR": "Température ifm",
-    "ZH": "ifm 温度",
-    "HI": "ifm तापमान"
   },
   {
     "HU": "FW / HW Verzió",
@@ -1360,140 +960,20 @@
     "HI": "पोर्ट निष्क्रिय है"
   },
   {
-    "HU": "Festo Átfolyás",
-    "EN": "Festo Flow Sensor",
-    "DE": "Festo Durchflusssensor",
-    "FR": "Capteur de débit Festo",
-    "ZH": "Festo 流量传感器",
-    "HI": "Festo प्रवाह सेंसर"
+    "HU": "Mindet kijelöl",
+    "EN": "Select All",
+    "DE": "Alle auswählen",
+    "FR": "Tout sélectionner",
+    "ZH": "全选",
+    "HI": "सभी का चयन करें"
   },
   {
-    "HU": "Grafikon Reset",
-    "EN": "Reset Graph",
-    "DE": "Diagramm zurücksetzen",
-    "FR": "Réinitialiser le graphique",
-    "ZH": "重置图表",
-    "HI": "ग्राफ़ रीसेट करें"
-  },
-  {
-    "HU": "GRAFIKON RESET",
-    "EN": "RESET GRAPH",
-    "DE": "DIAGRAMM ZURÜCKSETZEN",
-    "FR": "RÉINITIALISER LE GRAPHIQUE",
-    "ZH": "重置图表",
-    "HI": "ग्राफ़ रीसेट करें"
-  },
-  {
-    "HU": "Mintavétel: 1s",
-    "EN": "Sampling: 1s",
-    "DE": "Abtastung: 1s",
-    "FR": "Échantillonnage: 1s",
-    "ZH": "采样: 1秒",
-    "HI": "नमूना: 1s"
-  },
-  {
-    "HU": "Egység / Skála",
-    "EN": "Unit / Scale",
-    "DE": "Einheit / Skala",
-    "FR": "Unité / Échelle",
-    "ZH": "单位 / 比例",
-    "HI": "इकाई / पैमाना"
-  },
-  {
-    "HU": "EGYSÉG / SKÁLA",
-    "EN": "UNIT / SCALE",
-    "DE": "EINHEIT / SKALA",
-    "FR": "UNITÉ / ÉCHELLE",
-    "ZH": "单位 / 比例",
-    "HI": "इकाई / पैमाना"
-  },
-  {
-    "HU": "Összes Törlése",
-    "EN": "Clear All",
-    "DE": "Alles Löschen",
-    "FR": "Tout Effacer",
-    "ZH": "全部清除",
-    "HI": "सभी साफ़ करें"
-  },
-  {
-    "HU": "FELTÉTEL HAMIS",
-    "EN": "CONDITION FALSE",
-    "DE": "BEDINGUNG FALSCH",
-    "FR": "CONDITION FAUSSE",
-    "ZH": "条件为假",
-    "HI": "शर्त असत्य"
-  },
-  {
-    "HU": "Layout Mentése",
-    "EN": "Save Layout",
-    "DE": "Layout Speichern",
-    "FR": "Enregistrer la disposition",
-    "ZH": "保存布局",
-    "HI": "लेआउट सहेजें"
-  },
-  {
-    "HU": "Export (.json)",
-    "EN": "Export (.json)",
-    "DE": "Exportieren (.json)",
-    "FR": "Exporter (.json)",
-    "ZH": "导出 (.json)",
-    "HI": "निर्यात (.json)"
-  },
-  {
-    "HU": "Import (.json)",
-    "EN": "Import (.json)",
-    "DE": "Importieren (.json)",
-    "FR": "Importer (.json)",
-    "ZH": "导入 (.json)",
-    "HI": "आयात (.json)"
-  },
-  {
-    "HU": "Minta Folyamat",
-    "EN": "Demo Process",
-    "DE": "Musterprozess",
-    "FR": "Processus exemple",
-    "ZH": "示例流程",
-    "HI": "डेमो प्रक्रिया"
-  },
-  {
-    "HU": "Szállítószalag",
-    "EN": "Conveyor Belt",
-    "DE": "Förderband",
-    "FR": "Convoyeur",
-    "ZH": "输送带",
-    "HI": "कन्वेयर बेल्ट"
-  },
-  {
-    "HU": "Daráló / Mixer",
-    "EN": "Grinder / Mixer",
-    "DE": "Mühle / Mischer",
-    "FR": "Broyeur / Mélangeur",
-    "ZH": "研磨机 / 搅拌机",
-    "HI": "ग्राइंडर / मिक्सर"
-  },
-  {
-    "HU": "Tartály / Siló",
-    "EN": "Tank / Silo",
-    "DE": "Behälter / Silo",
-    "FR": "Réservoir / Silo",
-    "ZH": "储罐 / 料仓",
-    "HI": "टैंक / साइलो"
-  },
-  {
-    "HU": "Adagoló szalag",
-    "EN": "Feeder Conveyor",
-    "DE": "Zuführband",
-    "FR": "Bande d'alimentation",
-    "ZH": "给料输送带",
-    "HI": "फीडर कन्वेयर"
-  },
-  {
-    "HU": "Puffer Tartály",
-    "EN": "Buffer Tank",
-    "DE": "Pufferspeicher",
-    "FR": "Réservoir tampon",
-    "ZH": "缓冲罐",
-    "HI": "बफर टैंक"
+    "HU": "ISDU Paraméter",
+    "EN": "ISDU Parameter",
+    "DE": "ISDU-Parameter",
+    "FR": "Paramètre ISDU",
+    "ZH": "ISDU 参数",
+    "HI": "ISDU पैरामीटर"
   },
   {
     "HU": "Rendelési Kód",
@@ -1504,22 +984,6 @@
     "HI": "ऑर्डर कोड"
   },
   {
-    "HU": "Aktív Szabály",
-    "EN": "Active Rules",
-    "DE": "Aktive Regeln",
-    "FR": "Règles Actives",
-    "ZH": "活动规则",
-    "HI": "सक्रिय नियम"
-  },
-  {
-    "HU": "Napló Törlése",
-    "EN": "Clear Log",
-    "DE": "Protokoll löschen",
-    "FR": "Effacer le journal",
-    "ZH": "清除日志",
-    "HI": "लॉग साफ़ करें"
-  },
-  {
     "HU": "Mértékegység:",
     "EN": "Unit:",
     "DE": "Einheit:",
@@ -1528,28 +992,20 @@
     "HI": "इकाई:"
   },
   {
-    "HU": "Hőmérő Távadó",
-    "EN": "Temperature Sensor",
-    "DE": "Temperatursensor",
-    "FR": "Capteur de température",
-    "ZH": "温度传感器",
-    "HI": "तापमान सेंसर"
+    "HU": "Csatorna neve",
+    "EN": "Channel Name",
+    "DE": "Kanalname",
+    "FR": "Nom du canal",
+    "ZH": "通道名称",
+    "HI": "चैनल का नाम"
   },
   {
-    "HU": "Nyomásszenzor",
-    "EN": "Pressure Sensor",
-    "DE": "Drucksensor",
-    "FR": "Capteur de pression",
-    "ZH": "压力传感器",
-    "HI": "दबाव सेंसर"
-  },
-  {
-    "HU": "PWM Szabályzó",
-    "EN": "PWM Controller",
-    "DE": "PWM-Regler",
-    "FR": "Régulateur PWM",
-    "ZH": "PWM 控制器",
-    "HI": "PWM नियंत्रक"
+    "HU": "ISDU Változó:",
+    "EN": "ISDU Variable:",
+    "DE": "ISDU-Variable:",
+    "FR": "Variable ISDU:",
+    "ZH": "ISDU 变量:",
+    "HI": "ISDU चर:"
   },
   {
     "HU": "DIAGNOSZTIKA",
@@ -1608,36 +1064,12 @@
     "HI": "पोर्ट 4 (X04)"
   },
   {
-    "HU": "0V (NYITOTT)",
-    "EN": "0V (OPEN)",
-    "DE": "0V (OFFEN)",
-    "FR": "0V (OUVERT)",
-    "ZH": "0V (断开)",
-    "HI": "0V (खुला)"
-  },
-  {
-    "HU": "10 másodperc",
-    "EN": "10 seconds",
-    "DE": "10 Sekunden",
-    "FR": "10 secondes",
-    "ZH": "10 秒",
-    "HI": "10 सेकंड"
-  },
-  {
-    "HU": "30 másodperc",
-    "EN": "30 seconds",
-    "DE": "30 Sekunden",
-    "FR": "30 secondes",
-    "ZH": "30 秒",
-    "HI": "30 सेकंड"
-  },
-  {
-    "HU": "Mértékegység",
-    "EN": "Unit",
-    "DE": "Einheit",
-    "FR": "Unité",
-    "ZH": "单位",
-    "HI": "इकाई"
+    "HU": "— Kijelölve:",
+    "EN": "— Selected:",
+    "DE": "— Ausgewählt:",
+    "FR": "— Sélectionné:",
+    "ZH": "— 已选择:",
+    "HI": "— चयनित:"
   },
   {
     "HU": "Forrás Port:",
@@ -1664,28 +1096,28 @@
     "HI": "सीमा:"
   },
   {
-    "HU": "Engedélyezés",
-    "EN": "Enable",
-    "DE": "Aktivieren",
-    "FR": "Activer",
-    "ZH": "启用",
-    "HI": "सक्षम करें"
+    "HU": "Kimenet PWM:",
+    "EN": "Output PWM:",
+    "DE": "Ausgang PWM:",
+    "FR": "Sortie PWM:",
+    "ZH": "输出 PWM:",
+    "HI": "आउटपुट PWM:"
   },
   {
-    "HU": "Gépkönyvtár:",
-    "EN": "Equipment Library:",
-    "DE": "Gerätebibliothek:",
-    "FR": "Bibliothèque d'équipements:",
-    "ZH": "设备库:",
-    "HI": "उपकरण लाइब्रेरी:"
+    "HU": "Master Port:",
+    "EN": "Master Port:",
+    "DE": "Master-Port:",
+    "FR": "Port maître:",
+    "ZH": "主站端口:",
+    "HI": "मास्टर पोर्ट:"
   },
   {
-    "HU": "PWM Potméter",
-    "EN": "PWM Potentiometer",
-    "DE": "PWM-Potentiometer",
-    "FR": "Potentiomètre PWM",
-    "ZH": "PWM 电位器",
-    "HI": "PWM पोटेंशियोमीटर"
+    "HU": "Adatcsatolás",
+    "EN": "Data Binding",
+    "DE": "Datenbindung",
+    "FR": "Liaison de données",
+    "ZH": "数据绑定",
+    "HI": "डेटा बाइंडिंग"
   },
   {
     "HU": "IODD KEZELŐ",
@@ -1712,36 +1144,12 @@
     "HI": "गेटवे (GW)"
   },
   {
-    "HU": "5 másodperc",
-    "EN": "5 seconds",
-    "DE": "5 Sekunden",
-    "FR": "5 secondes",
-    "ZH": "5 秒",
-    "HI": "5 सेकंड"
-  },
-  {
-    "HU": "Mintavétel:",
-    "EN": "Sampling:",
-    "DE": "Abtastung:",
-    "FR": "Échantillonnage:",
-    "ZH": "采样:",
-    "HI": "नमूनाकरण:"
-  },
-  {
     "HU": "> (Nagyobb)",
     "EN": "> (Greater than)",
     "DE": "> (Größer als)",
     "FR": "> (Supérieur)",
     "ZH": "> (大于)",
     "HI": "> (से बड़ा)"
-  },
-  {
-    "HU": "KIKAPCSOLVA",
-    "EN": "DISABLED",
-    "DE": "DEAKTIVIERT",
-    "FR": "DÉSACTIVÉ",
-    "ZH": "已禁用",
-    "HI": "अक्षम"
   },
   {
     "HU": "Szerkesztés",
@@ -1752,20 +1160,12 @@
     "HI": "संपादित करें"
   },
   {
-    "HU": "Nass Szelep",
-    "EN": "Nass Valve",
-    "DE": "Nass Ventil",
-    "FR": "Vanne Nass",
-    "ZH": "Nass 电磁阀",
-    "HI": "Nass वाल्व"
-  },
-  {
-    "HU": "Munkahenger",
-    "EN": "Pneumatic Cylinder",
-    "DE": "Pneumatikzylinder",
-    "FR": "Vérin pneumatique",
-    "ZH": "气缸",
-    "HI": "न्यूमेटिक सिलेंडर"
+    "HU": "PWM Állítás",
+    "EN": "PWM Set",
+    "DE": "PWM Einstellen",
+    "FR": "Réglage PWM",
+    "ZH": "PWM 设置",
+    "HI": "PWM सेट"
   },
   {
     "HU": "NASSMASTER",
@@ -1784,6 +1184,14 @@
     "HI": "DI इनपुट"
   },
   {
+    "HU": "Másik fájl",
+    "EN": "Other File",
+    "DE": "Andere Datei",
+    "FR": "Autre fichier",
+    "ZH": "其他文件",
+    "HI": "अन्य फ़ाइल"
+  },
+  {
     "HU": "< (Kisebb)",
     "EN": "< (Less than)",
     "DE": "< (Kleiner als)",
@@ -1792,20 +1200,12 @@
     "HI": "< (से छोटा)"
   },
   {
-    "HU": "Egyedi Kép",
-    "EN": "Custom Image",
-    "DE": "Benutzerdefiniertes Bild",
-    "FR": "Image personnalisée",
-    "ZH": "自定义图像",
-    "HI": "कस्टम छवि"
-  },
-  {
-    "HU": "Hűtőszelep",
-    "EN": "Cooling Valve",
-    "DE": "Kühlventil",
-    "FR": "Vanne de refroidissement",
-    "ZH": "冷却阀",
-    "HI": "कूलिंग वाल्व"
+    "HU": "Adattípus:",
+    "EN": "Data Type:",
+    "DE": "Datentyp:",
+    "FR": "Type de données:",
+    "ZH": "数据类型:",
+    "HI": "डेटा प्रकार:"
   },
   {
     "HU": "Terméknév",
@@ -1821,7 +1221,7 @@
     "DE": "ETH0-Port",
     "FR": "Port ETH0",
     "ZH": "ETH0 端口",
-    "HI": "ETH0 पोर्ट"
+    "HI": "ETH0端口"
   },
   {
     "HU": "ETH1 Port",
@@ -1832,36 +1232,20 @@
     "HI": "ETH1 पोर्ट"
   },
   {
-    "HU": "Élő Érték",
-    "EN": "Live Value",
-    "DE": "Live-Wert",
-    "FR": "Valeur en direct",
-    "ZH": "实时数值",
-    "HI": "लाइव मूल्य"
+    "HU": "ISDU API:",
+    "EN": "ISDU API:",
+    "DE": "ISDU-API:",
+    "FR": "API ISDU:",
+    "ZH": "ISDU API:",
+    "HI": "ISDU API:"
   },
   {
-    "HU": "Kiolvasás",
-    "EN": "Read",
-    "DE": "Auslesen",
-    "FR": "Lire",
-    "ZH": "读取",
-    "HI": "पढ़ें"
-  },
-  {
-    "HU": "KIOLVASÁS",
-    "EN": "READ",
-    "DE": "AUSLESEN",
-    "FR": "LIRE",
-    "ZH": "读取",
-    "HI": "पढ़ें"
-  },
-  {
-    "HU": "bejegyzés",
-    "EN": "entries",
-    "DE": "Einträge",
-    "FR": "entrées",
-    "ZH": "条记录",
-    "HI": "प्रविष्टियाँ"
+    "HU": "Frissítés",
+    "EN": "Refresh",
+    "DE": "Aktualisieren",
+    "FR": "Actualiser",
+    "ZH": "刷新",
+    "HI": "ताज़ा करें"
   },
   {
     "HU": "Cél Port:",
@@ -1872,36 +1256,12 @@
     "HI": "लक्ष्य पोर्ट:"
   },
   {
-    "HU": "ON (Nyit)",
-    "EN": "ON (Open)",
-    "DE": "EIN (Öffnen)",
-    "FR": "MARCHE (Ouvrir)",
-    "ZH": "开启 (打开)",
-    "HI": "चालू (खोलें)"
-  },
-  {
-    "HU": "OFF (Zár)",
-    "EN": "OFF (Close)",
-    "DE": "AUS (Schließen)",
-    "FR": "ARRÊT (Fermer)",
-    "ZH": "关闭 (关闭)",
-    "HI": "बंद (बंद करें)"
-  },
-  {
-    "HU": "Bezárás ✕",
-    "EN": "Close ✕",
-    "DE": "Schließen ✕",
-    "FR": "Fermer ✕",
-    "ZH": "关闭 ✕",
-    "HI": "बंद करें ✕"
-  },
-  {
-    "HU": "Bezárás X",
-    "EN": "Close X",
-    "DE": "Schließen X",
-    "FR": "Fermer X",
-    "ZH": "关闭 X",
-    "HI": "बंद करें X"
+    "HU": "Alapérték",
+    "EN": "Default Value",
+    "DE": "Standardwert",
+    "FR": "Valeur par défaut",
+    "ZH": "默认值",
+    "HI": "डिफ़ॉल्ट मान"
   },
   {
     "HU": "Üzemmód:",
@@ -1944,44 +1304,20 @@
     "HI": "चालू (24V)"
   },
   {
-    "HU": "0V (LOW)",
-    "EN": "0V (LOW)",
-    "DE": "0V (LOW)",
-    "FR": "0V (BAS)",
-    "ZH": "0V (低电平)",
-    "HI": "0V (निम्न)"
-  },
-  {
-    "HU": "Szünetel",
-    "EN": "Paused",
-    "DE": "Pausiert",
-    "FR": "En pause",
-    "ZH": "已暂停",
-    "HI": "रुका हुआ"
-  },
-  {
-    "HU": "szünetel",
-    "EN": "paused",
-    "DE": "pausiert",
-    "FR": "en pause",
-    "ZH": "已暂停",
-    "HI": "रुका हुआ"
-  },
-  {
-    "HU": "En pause",
-    "EN": "Paused",
-    "DE": "Pausiert",
-    "FR": "En pause",
-    "ZH": "已暂停",
-    "HI": "रुका हुआ"
-  },
-  {
     "HU": "Reláció:",
     "EN": "Relation:",
     "DE": "Relation:",
     "FR": "Relation:",
     "ZH": "比较关系:",
     "HI": "संबंध:"
+  },
+  {
+    "HU": "Bemenet:",
+    "EN": "Input:",
+    "DE": "Eingang:",
+    "FR": "Entrée:",
+    "ZH": "输入:",
+    "HI": "इनपुट:"
   },
   {
     "HU": "Gyártó:",
@@ -2032,6 +1368,38 @@
     "HI": "निष्क्रिय"
   },
   {
+    "HU": "Port 1:",
+    "EN": "Port 1:",
+    "DE": "Port 1:",
+    "FR": "Port 1:",
+    "ZH": "端口 1:",
+    "HI": "पोर्ट 1:"
+  },
+  {
+    "HU": "Port 2:",
+    "EN": "Port 2:",
+    "DE": "Port 2:",
+    "FR": "Port 2:",
+    "ZH": "端口 2:",
+    "HI": "पोर्ट 2:"
+  },
+  {
+    "HU": "Port 3:",
+    "EN": "Port 3:",
+    "DE": "Port 3:",
+    "FR": "Port 3:",
+    "ZH": "端口 3:",
+    "HI": "पोर्ट 3:"
+  },
+  {
+    "HU": "Port 4:",
+    "EN": "Port 4:",
+    "DE": "Port 4:",
+    "FR": "Port 4:",
+    "ZH": "端口 4:",
+    "HI": "पोर्ट 4:"
+  },
+  {
     "HU": "Olvasás",
     "EN": "Read",
     "DE": "Lesen",
@@ -2046,22 +1414,6 @@
     "FR": "ALLUMÉ",
     "ZH": "开启",
     "HI": "चालू"
-  },
-  {
-    "HU": "Bezárás",
-    "EN": "Close",
-    "DE": "Schließen",
-    "FR": "Fermer",
-    "ZH": "关闭",
-    "HI": "बंद करें"
-  },
-  {
-    "HU": "Elemek:",
-    "EN": "Elements:",
-    "DE": "Elemente:",
-    "FR": "Éléments:",
-    "ZH": "元素数量:",
-    "HI": "तत्व:"
   },
   {
     "HU": "Gyártó",
@@ -2096,30 +1448,6 @@
     "HI": "उपकरण"
   },
   {
-    "HU": "1 perc",
-    "EN": "1 minute",
-    "DE": "1 Minute",
-    "FR": "1 minute",
-    "ZH": "1 分钟",
-    "HI": "1 मिनट"
-  },
-  {
-    "HU": "(Nyit)",
-    "EN": "(Open)",
-    "DE": "(Öffnen)",
-    "FR": "(Ouvrir)",
-    "ZH": "(打开)",
-    "HI": "(खोलें)"
-  },
-  {
-    "HU": "Tiltás",
-    "EN": "Disable",
-    "DE": "Deaktivieren",
-    "FR": "Désactiver",
-    "ZH": "禁用",
-    "HI": "अक्षम करें"
-  },
-  {
     "HU": "Törlés",
     "EN": "Delete",
     "DE": "Löschen",
@@ -2136,67 +1464,11 @@
     "HI": "मूल्य"
   },
   {
-    "HU": "Típus",
-    "EN": "Type",
-    "DE": "Typ",
-    "FR": "Type",
-    "ZH": "类型",
-    "HI": "प्रकार"
-  },
-  {
-    "HU": "Index",
-    "EN": "Index",
-    "DE": "Index",
-    "FR": "Index",
-    "ZH": "索引",
-    "HI": "अनुक्रमणिका"
-  },
-  {
-    "HU": "INDEX",
-    "EN": "INDEX",
-    "DE": "INDEX",
-    "FR": "INDEX",
-    "ZH": "索引",
-    "HI": "अनुक्रमणिका"
-  },
-  {
-    "HU": "(Zár)",
-    "EN": "(Close)",
-    "DE": "(Schließen)",
-    "FR": "(Fermer)",
-    "ZH": "(关闭)",
-    "HI": "(बंद करें)"
-  },
-  {
-    "HU": "Mégse",
-    "EN": "Cancel",
-    "DE": "Abbrechen",
-    "FR": "Annuler",
-    "ZH": "取消",
-    "HI": "रद्द करें"
-  },
-  {
     "HU": "Írás",
     "EN": "Write",
     "DE": "Schreiben",
     "FR": "Écrire",
     "ZH": "写入",
     "HI": "लिखें"
-  },
-  {
-    "HU": "Jog",
-    "EN": "Access",
-    "DE": "Zugriff",
-    "FR": "Accès",
-    "ZH": "权限",
-    "HI": "अधिकार"
-  },
-  {
-    "HU": "JOG",
-    "EN": "ACCESS",
-    "DE": "ZUGRIFF",
-    "FR": "ACCÈS",
-    "ZH": "权限",
-    "HI": "अधिकार"
   }
 ]
