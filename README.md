@@ -1,11 +1,13 @@
 # 🏭 NASS-MASTER-NI-LIB (Nass Magnet Industrial SCADA & IO-Link Suite)
 
-**Official Repository for Nass Magnet IO-Link Control, SCADA Mimic, Mini PLC, and National Instruments LabVIEW Integration.**
+**Official Repository for Nass Magnet IO-Link Control, SCADA Mimic, Mini PLC, Multilingual Global Suite, and National Instruments LabVIEW Integration.**
 
-[![Release](https://img.shields.io/badge/Release-v2.1.0--stable-magenta.svg)](https://github.com/grezoo/NASS-MASTER-NI-LIB/releases)
+[![Release](https://img.shields.io/badge/Release-v2.2.0--global-gold.svg)](https://github.com/grezoo/NASS-MASTER-NI-LIB/releases/tag/v2.2.0-global)
+[![Stable Release](https://img.shields.io/badge/Release-v2.1.0--stable-magenta.svg)](https://github.com/grezoo/NASS-MASTER-NI-LIB/releases/tag/v2.1.0-stable)
 [![Architecture](https://img.shields.io/badge/Architecture-3--Tier%20Modular-blue.svg)](#modulok)
+[![Languages](https://img.shields.io/badge/Languages-HU%20%7C%20EN%20%7C%20DE%20%7C%20FR%20%7C%20ZH%20%7C%20HI-brightgreen.svg)](#nyelvi-szótár-global-edition)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Air--Gapped%20Offline-green.svg)](#telepítésmentes-futtatás)
-[![Standard](https://img.shields.io/badge/IO--Link-IEC%2061131--9%20V1.1.3-orange.svg)](#funkciók)
+[![Standard](https://img.shields.io/badge/IO--Link-IEC%2061131--9%20V1.1.3-orange.svg)](#főbb-képességek--funkciók)
 
 ---
 
@@ -15,12 +17,14 @@ A tároló 3 szigorúan elhatárolt, önálló ipari modulból épül fel:
 
 ```
 NASS-MASTER-NI-LIB/
-├── 📁 NodeRED_NassMaster/        # NassMaster 2.1 SCADA, Folyamatábra & Mini PLC Rendszer
+├── 📁 NodeRED_NassMaster/        # NassMaster 2.2 Global SCADA, Folyamatábra & Mini PLC Rendszer
 │   ├── NassMaster.exe          # 100% Hordozható Zero-Install Asztali Indító (Nass Magnet Ikonnal)
 │   ├── start_nassmaster.bat    # Parancssori hordozható batch indító
-│   ├── flows.json              # Teljes SCADA, Mini PLC & IODD motor (Offline JSZip, 64-bit Bitpacking)
+│   ├── flows.json              # Teljes SCADA, Mini PLC & IODD motor (Offline JSZip, 64-bit Bitpacking, Global Footers)
 │   ├── nass_logo.ico / .png    # Hivatalos Nass Magnet arculati elemek
 │   ├── FAT_SAT_TEST_PROTOCOL.md # FAT/SAT Átadás-Átvételi Tesztjegyzőkönyv
+│   ├── 📁 Data/                # Perzisztens konfigurációk és nyelvi szótárak
+│   │   └── languages.json      # 6-Nyelvű Vállalati Szótár (HU, EN, DE, FR, ZH, HI)
 │   └── 📁 IODD/                # Gyári IODD csomagok (Nass Magnet Smart Hub, Connector, ifm, Balluff)
 │
 ├── 📁 NodeRED_Standalone_Parser/ # Dedikált IODD Elemző & Adatkinyerő Modul
@@ -36,7 +40,21 @@ NASS-MASTER-NI-LIB/
 
 ---
 
-## 🚀 Főbb Képességek & Funkciók (v2.1.0 Stable)
+## 🌍 Nyelvi Szótár (Global Edition)
+
+A rendszer tartalmazza a nyílt, ember által szerkeszthető **`NodeRED_NassMaster/Data/languages.json`** szótárfájlt, amely támogatja az alábbi 6 nyelvet:
+* 🇭🇺 **HU (Magyar)** - Hivatalos ipari terminológia
+* 🇬🇧 **EN (English)** - International industrial standard
+* 🇩🇪 **DE (Deutsch)** - Deutsche Industrieausgabe
+* 🇫🇷 **FR (Français)** - Version industrielle française
+* 🇨🇳 **ZH (中文 - Simplified Chinese)** - Ázsiai piac & Easter Egg
+* 🇮🇳 **HI (हिन्दी - Hindi)** - Indiai kirendeltség & Easter Egg
+
+A szótár bármikor szerkeszthető egy sima szövegszerkesztővel (Jegyzettömb, VS Code, Excel/CSV), így az értékesítők és termékmenedzserek a programkód érintése nélkül szabhatják testre a terminológiát.
+
+---
+
+## 🚀 Főbb Képességek & Funkciók
 
 1. **🏭 Grafikus SCADA Folyamatábra (Visual Process Mimic Canvas):**
    * Drag-and-drop szerkesztőfelület beépített vektoros ipari géptárral (Nass szelep, szállítószalag, daráló, tartály, távadók, végálláskapcsolók, munkahengerek).
@@ -72,8 +90,12 @@ A szoftver nem igényel semmilyen telepítést vagy rendszergazdai jóváhagyás
 
 ---
 
-## 📜 Verziótörténet
+## 📜 Hivatalos Kiadások & Verziótörténet
 
+* **v2.2.0-global (2026-09-10):**
+  * Hivatalos **Multilingual Global Edition Release**.
+  * 6-nyelvű nyitott szótárstruktúra (`Data/languages.json`) bevezetése (HU, EN, DE, FR, ZH, HI).
+  * Minden SCADA felületi panelen egységes, ipari **NASSMASTER Global Version v2.2.0** lábléc sáv (100% Offline Air-Gapped jelzéssel).
 * **v2.1.0-stable (2026-09-10):**
   * Hivatalos jóváhagyott vállalati koncepció-kiadás (Enterprise Release).
   * Teljesen dinamikus IODD PWM skálázás és Arányos P-szabályzás a Mini PLC-ben.
