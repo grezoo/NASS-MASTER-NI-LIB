@@ -1,0 +1,76 @@
+{
+  "ERR_NONE": {
+    "HU": "Nincs hiba",
+    "EN": "No Error",
+    "DE": "Kein Fehler",
+    "FR": "Aucune erreur",
+    "ZH": "无错误",
+    "HI": "कोई त्रुटि नहीं"
+  },
+  "ERR_NET_UNREACHABLE_001": {
+    "code": "ERR_NET_UNREACHABLE_001",
+    "name": "Master Host Unreachable",
+    "cause": "A Master nem válaszol a megadott IP címen.",
+    "action": "Ellenőrizd a fizikai Ethernet kábelt és a tápellátást."
+  },
+  "ERR_NET_CRC_002": {
+    "code": "ERR_NET_CRC_002",
+    "name": "Ethernet Frame CRC Error",
+    "cause": "Sérült Ethernet keretek érkeztek a fizikai vonalon.",
+    "action": "Használj árnyékolt CAT6 kábelt, ellenőrizd az EMC zavarforrásokat."
+  },
+  "ERR_NET_HIGH_LATENCY_003": {
+    "code": "ERR_NET_HIGH_LATENCY_003",
+    "name": "Network RTT High Latency",
+    "cause": "A hálózati oda-vissza idő meghaladta az elfogadható küszöböt.",
+    "action": "Közvetlen PC-Master kábeles kapcsolat használata switch helyett."
+  },
+  "ERR_IOL_COMM_LOST_010": {
+    "code": "ERR_IOL_COMM_LOST_010",
+    "name": "IO-Link Port Communication Lost",
+    "cause": "Az eszköz fizikai kapcsolata megszakadt a porton.",
+    "action": "Ellenőrizd az M12 csatlakozást és a szenzor tápellátását."
+  },
+  "ERR_IOL_CYCLE_TIME_011": {
+    "code": "ERR_IOL_CYCLE_TIME_011",
+    "name": "Cycle Time Violation",
+    "cause": "A mért ciklusidő meghaladta az IODD minCycleTime határértéket.",
+    "action": "Port beállítások és adatsebesség (COM2/COM3) ellenőrzése."
+  },
+  "ERR_ISDU_TIMEOUT_020": {
+    "code": "ERR_ISDU_TIMEOUT_020",
+    "name": "ISDU Turnaround Timeout",
+    "cause": "Az eszköz nem válaszolt időben az ISDU kérésre.",
+    "action": "Ellenőrizd a baudrate beállítást és a buszterhelést."
+  },
+  "ERR_ISDU_READ_FAIL_021": {
+    "code": "ERR_ISDU_READ_FAIL_021",
+    "name": "ISDU Index Access Denied",
+    "cause": "Nem létező vagy olvasásvédett regiszter.",
+    "action": "Ellenőrizd az IODD változó indexét és hozzáférési jogát."
+  },
+  "ERR_ACT_ACK_TIMEOUT_030": {
+    "code": "ERR_ACT_ACK_TIMEOUT_030",
+    "name": "Actuator Write No-ACK",
+    "cause": "A Master nem nyugtázta a beavatkozási parancsot.",
+    "action": "Ellenőrizd a port üzemmódot (DO vs IO-Link)."
+  },
+  "ERR_ACT_PWM_LIMIT_031": {
+    "code": "ERR_ACT_PWM_LIMIT_031",
+    "name": "PWM Value Out of Range",
+    "cause": "A megadott PWM érték kívül esik a megengedett határokon.",
+    "action": "Korrigáld az értéket 100 és 1000 közé."
+  },
+  "ERR_LOG_WRITE_FAIL_040": {
+    "code": "ERR_LOG_WRITE_FAIL_040",
+    "name": "CSV Disk Write Failure",
+    "cause": "A CSV naplófájl írása lemezre sikertelen.",
+    "action": "Ellenőrizd a pendrive írási jogosultságát és a szabad helyet."
+  },
+  "ERR_PLC_EVAL_TIMEOUT_050": {
+    "code": "ERR_PLC_EVAL_TIMEOUT_050",
+    "name": "PLC Rule Engine Latency Lag",
+    "cause": "A szabály kiértékelési ideje meghaladta a megengedett időt.",
+    "action": "Csökkentsd a redundáns szabályokat vagy növeld a ciklusidőt."
+  }
+}
