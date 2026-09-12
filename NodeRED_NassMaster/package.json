@@ -1,0 +1,16 @@
+{
+  "name": "nassmaster-portable-nodered",
+  "version": "2.2.1-release",
+  "description": "Nassmaster IO-Link SCADA & Bench Tester Suite (Frozen Production & Demo Release)",
+  "main": "settings.js",
+  "scripts": {
+    "start": "npx --yes node-red -u . -p 1880",
+    "dashboard": "node-red -u . -p 1880"
+  },
+  "dependencies": {
+    "node-red": "^3.1.0",
+    "node-red-dashboard": "^3.6.0"
+  },
+  "author": "Nassmaster Industrial SCADA",
+  "license": "MIT"
+}

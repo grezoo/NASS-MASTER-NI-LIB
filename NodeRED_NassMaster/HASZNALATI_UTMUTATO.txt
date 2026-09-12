@@ -1,0 +1,50 @@
+================================================================================
+   NASSMASTER INDUSTRIAL IO-LINK SCADA - HORDOZHATÓ (PENDRIVE) KÖRNYEZET
+================================================================================
+
+Ez a könyvtár tartalmazza a teljes, azonnal futtatható Node-RED környezetet
+az IO-Link Master (pl. IFM AL1350 / Nass Magnet szelepek) felügyeletéhez és a
+beépített 500ms ciklusidejű Mini PLC automatizáláshoz.
+
+KÖNYVTÁR TARTALMA:
+------------------
+1. flows.json               - A javított 6 modulos Node-RED folyamatleíró fájl (Dual-Mode Szimulátor & OpenAPI 3.0.1, Szelephub, IODD Kezelő, Teszt Szekvencia, Diagnosztika, Mini PLC)
+2. settings.js              - Hordozható konfiguráció (port 1880, helyi context)
+3. package.json             - Szükséges csomagdefiníciók (node-red, dashboard)
+4. start_portable_windows.bat - 1-kattintásos indító Windows rendszerekhez
+5. start_portable_linux.sh    - 1-kattintásos indító Linux / Raspberry Pi / Mac rendszerekhez
+6. nassmaster_plc_rules.json- Konfigurált Mini PLC relációs szabályok
+7. iodd_catalog/            - Beépített IODD XML eszközprofilok (szelepek, szenzorok)
+
+HASZNÁLATI ÚTMUTATÓ (PENDRIVE-RÓL TÖRTÉNŐ FUTTATÁS):
+-----------------------------------------------------
+1. Másolja ezt a teljes mappát egy tetszőleges USB pendrive-ra vagy helyi meghajtóra.
+2. Indítás:
+   - Windows esetén: Dupla kattintás a 'start_portable_windows.bat' fájlra.
+   - Linux / Raspberry Pi esetén: Futtassa a './start_portable_linux.sh' parancsot.
+3. Böngészőben nyissa meg:
+   - SCADA Felügyeleti Dashboard: http://localhost:1880/ui
+   - Node-RED Flow Szerkesztő:     http://localhost:1880
+4. Az IO-Link Master IP címe (192.168.23.100) a dashboardon bármikor átírható.
+
+================================================================================
+BIZTONSÁGI FUNKCIÓ (FAIL-SAFE MANUAL RESET / RETESZELÉS):
+---------------------------------------------------------
+A Mini PLC (500ms ciklusidő) az MSZ EN 60204-1 és ISO 13849-1 szabványok szerinti
+kézi nyugtázási (Manual Reset) biztonsági reteszelést valósít meg:
+
+1. Szenzorkiesés (COMM_LOST, kábelszakadás, tápvesztés):
+   - Ha egy aktív szabály forrás-szenzora megszakad, a rendszer NEM értékel ki
+     hamis 0 értéket, és NEM futtatja le vakon az ELSE ágat.
+   - A szabályhoz rendelt beavatkozó (motor, szelep, DO) AZONNAL leáll (OFF / 0).
+   - A szabály saját engedélyező kapcsolója leold (enabled: false), mint egy
+     kismegszakító (TRIP).
+
+2. Kézi újraindítás (Manual Reset):
+   - A kábel visszadugásakor / a hiba elhárításakor a gép SOHA nem indul újra magától!
+   - Az operátornak a Mini PLC felületen kézzel kell visszakattintania a szabályt
+     aktív (zöld) állapotba a biztonságos ellenőrzést követően.
+
+================================================================================
+Készült: 2026. 08. 26. (Frissítve: 2026. 09. 12. - v2.2.1 Fail-Safe Edition)
+Nassmaster SCADA Platform &copy; 2026
