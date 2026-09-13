@@ -1,5 +1,5 @@
 # NASSMASTER Industrial IO-Link SCADA & Bench Tester Suite
-**Official Global Release:** v2.2.1-release (Production & Demo Baseline)  
+**Official Global Release:** v2.3.0 (Cross-Platform & Industrial Standards Release)  
 **Status:** Feature Freeze & Acceptance Verified (100% FAT/SAT Passed)  
 **License:** Open Source Engineering Framework  
 **Supported Hardware:** IO-Link Masters (IFM AL1350, Nass Magnet Smart Connectors & Valve Hubs, Turck, Balluff)
@@ -20,6 +20,30 @@ It provides an out-of-the-box, 100% verified baseline designed for:
 
 ---
 
+
+---
+
+## 🌟 What's New in v2.3.0 (Minor Milestone Rationale)
+
+Release **v2.3.0** elevates NassMaster from a Windows-only demonstrator into a cross-platform, standards-compliant industrial automation and SCADA framework:
+
+1. **🐧 Multiplatform & Zero-Footprint Linux Runtime (`start_nassmaster_linux.sh`):**
+   - Official out-of-the-box support for Linux (Ubuntu, Debian, Raspberry Pi, industrial IPCs).
+   - Hermetic USB execution: `NODE_PATH` is strictly bound to the pendrive; zero host installation, zero residual files (`~/.node-red` untouched).
+2. **⚡ Industrial Standards Compliance (ANSI/ISA-101.01 & IEC 61131-3):**
+   - **IEC 61131-3 Volatile Telemetry**: Process data moved to in-memory storage (`module: 'memory'`), completely eliminating continuous 223KB disk serialization and Out-Of-Memory (Exit Code 134) crashes.
+   - **ANSI/ISA-101.01 Display Rate Limiting**: UI update stream throttled to 1.0s; canvas rendering automatically suspended when tabs are hidden (`offsetParent === null`), guaranteeing fluid operation on low-power Intel Core i3 / Celeron machines.
+3. **🔄 Mini PLC Proportional Scaling (`PROPORTIONAL`):**
+   - Extended rule engine with continuous linear input-to-output tracking (e.g. distance/pressure sensor driving proportional valve PWM).
+   - Smart IODD range resolution dynamically scaling to both 0..100% compact valves and 0..1000‰ precision smart hubs without hardcoding.
+4. **📥 Native Browser CSV Export ("Save As..."):**
+   - Web UI triggers the native browser file download dialog, empowering operators to choose their destination directory (Desktop, Downloads, Network Drive).
+   - UTF-8 BOM (`\uFEFF`) encoding ensures direct, uncorrupted opening in Microsoft Excel.
+   - Background server logging redirected to relative USB path (`Logs/nassmaster_diagnostics_log.csv`).
+5. **📋 10-Issue Batch Maintenance Governance (`BUG_TRACKER.md`):**
+   - Transparent field-defect tracking preventing Git commit churn; cosmetic and minor bug fixes are collected and released in 10-item Maintenance Packs.
+
+---
 ## 2. Intended Use (Scope of Application)
 
 NassMaster is engineered and certified for the following operational scopes:
