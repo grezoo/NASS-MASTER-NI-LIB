@@ -34,16 +34,20 @@ module.exports = {
         }
     },
 
-    // In-memory / Local Context Storage on USB
+    // In-memory (RAM) default for high-speed IO-Link telemetry (IEC 61131-3)
+    // Retentive storage ('store') for persistent configurations & PLC rules
     contextStorage: {
         default: {
+            module: 'memory'
+        },
+        memory: {
+            module: 'memory'
+        },
+        store: {
             module: 'localfilesystem',
             config: {
                 dir: path.join(__dirname, 'context')
             }
-        },
-        memory: {
-            module: 'memory'
         }
     },
 

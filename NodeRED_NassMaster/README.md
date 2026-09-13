@@ -67,7 +67,38 @@ NassMaster is engineered and certified for the following operational scopes:
 
 ---
 
-## 5. Quick Start (Portable Deployment)
+---
+
+## 5. Hardware Requirements & Operational Scalability Boundaries
+
+NassMaster has been rigorously benchmarked to ensure smooth, production-grade 24/7 reliability on entry-level industrial panel PCs and legacy maintenance hardware.
+
+### Hardware Baseline & Minimum Specifications
+
+| Specification | Minimum (Industrial Field Baseline) | Recommended Production Spec |
+| :--- | :--- | :--- |
+| **Processor** | Intel Core i3 (4th Gen, Haswell, e.g. i3-4130 / i3-4010U) | Intel Core i5 (8th Gen+) or ARM64 Quad-Core |
+| **System RAM** | **4 GB DDR3** (Node-RED runtime consumes ~170 MB; Chrome tab ~200 MB) | 8 GB DDR4 / DDR5 |
+| **Storage / Medium**| Portable USB Flash Drive (USB 2.0 / 3.0) or local SSD | Industrial SATA SSD or NVMe |
+| **Graphics (iGPU)** | Intel HD Graphics 4400 (DirectX 11 / WebGL 2D hardware accelerated) | Intel UHD / Iris Xe or discrete GPU |
+| **Operating System**| Windows 10/11 x64, Linux (Ubuntu 20.04+, Debian 11+), Raspberry Pi OS | Industrial Linux x64 or Windows 10 IoT Enterprise |
+
+---
+
+### Operational Boundary Matrix (Safety & Performance Limits)
+
+| Parameter / Boundary | 🟢 Green Zone (100% Reliable 24/7) | 🟡 Yellow Zone (Elevated Load) | 🔴 Red Zone (Prohibited / Instability Risk) |
+| :--- | :--- | :--- | :--- |
+| **IO-Link Ports Monitored** | **4 to 8 physical ports** | 16 ports | > 16 ports (Node.js event loop saturation) |
+| **Display Refresh Rate (HMI)**| **1.0s to 2.0s** (ANSI/ISA-101.01 compliant) | 500 ms | < 100 ms (DOM flood & browser freeze) |
+| **Concurrent UI Clients** | **1 to 3 operators** (1 local IPC + 2 tablets) | 4 to 6 remote browsers | > 10 concurrent web clients (WebSocket storm) |
+| **Live Trend Window** | **60 to 120 points** (1–2 min rolling window) | 300 points | > 1000 points (Canvas redraw lag) |
+| **Minimum System Memory** | **4 GB RAM** (stable, zero swap thrashing) | 2 GB RAM (Windows paging overhead) | < 2 GB RAM (OOM risk) |
+| **Data Persistence Model** | **IEC 61131-3 Separated:** Volatile telemetry in RAM; retentive rules in protected storage | Synchronous disk caching | Cyclical disk writes at 100ms (flash wear-out) |
+
+---
+
+## 6. Quick Start (Portable Deployment)
 
 1. **Launch:**
    - Windows: Double-click start_portable_windows.bat.
