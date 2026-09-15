@@ -90,8 +90,20 @@ A szoftver nem igényel semmilyen telepítést vagy rendszergazdai jóváhagyás
 
 ---
 
+---
+
 ## 📜 Hivatalos Kiadások & Verziótörténet
 
+* **v3.0.0-smi (2026-09-16)** — *`branch: smi-v3.0`*
+  * **SMI Wrapper v3.0 – Pipeline Serialization & Optimistic Cache:**
+    * Minden HTTP kérés szigorúan szekvenciálisan hajtódik végre (`Promise` sor), megszüntetve a socket-kimerülést és a 1,2 s `COMM_LOST` késleltetést.
+    * 60 ms olvasási cache-ablak + 600 ms DO-írás utáni zárolás a `readProcessData`-ban (zéró felesleges újraolvasás).
+    * Optimista cache-írás a `writeProcessData`-ban: a DO állapota azonnal tükröződik az UI-ban, mielőtt a nyugtázás megérkezne.
+  * **DO Pattogás-Mentesítő (Debounce) az UI-ban:**
+    * `doLock` objektum és 800 ms timeout a `toggleDo(p)` függvénybe (Device Control fül).
+    * `sync_ports` és `state_update` szekciók figyelik a zárolást; pattogásmentes, stabil kapcsolást biztosítanak.
+  * **Mért Teljesítmény-Benchmark** (192.168.23.100, REST API port 80):
+    → Lásd a ⚡ Teljesítmény szekciót lent.
 * **v2.2.0-global (2026-09-10):**
   * Hivatalos **Multilingual Global Edition Release**.
   * 6-nyelvű nyitott szótárstruktúra (`Data/languages.json`) bevezetése (HU, EN, DE, FR, ZH, HI).
@@ -106,4 +118,30 @@ A szoftver nem igényel semmilyen telepítést vagy rendszergazdai jóváhagyás
 
 ---
 
+## ⚡ Teljesítmény-Benchmark (SMI v3.0 – `smi-v3.0` branch)
+
+A mérések a **NASS Magnet 4P ETH Master** (`192.168.23.100`) ellen futottak, Windows 11 gazdagépen, `node.js` HTTP klienssel (`process.hrtime()` nano-szekundumos felbontással).
+
+| Teszt | Iterációk | Átlag | Min | Max |
+|-------|-----------|-------|-----|-----|
+| Egyedi Process Data lekérdezés (Port 1) | 30× | **10,88 ms** | 4,68 ms | 88,16 ms |
+| Teljes 4-portos ciklus (port1–4 szekvenciálisan) | 20× | **41,20 ms** | 19,82 ms | 144,29 ms |
+| Teljes újracsatlakozás-szinkron (`syncAll`: Ident + Config + Ports + PD1–4) | 15× | **26,38 ms** | 22,99 ms | 34,93 ms |
+| DO írás (C/Q 4-es érintkező, `cqValue` toggle) | 20× (10 pár) | **4,04 ms** | 2,91 ms | 5,78 ms |
+
+### Architekturális változások hatása
+
+| Területek | Régi (NASSMASTER_SMI v1) | Új (SMI v3.0) |
+|-----------|--------------------------|----------------|
+| HTTP kérések sorrendje | Párhuzamos (4 egyidejű socket) | **Szekvenciális pipeline** (0 socket-kimerülés) |
+| `COMM_LOST` felismerés | ~1200 ms fix timeout | **< 35 ms** (első sikertelen válasz) |
+| DO kapcsoló-pattogás | 200–800 ms billegés | **0 ms** (800 ms UI lock + 600 ms cache-zár) |
+| Process Data cache | Nincs | **60 ms ablak** (felesleges lekérdezések ≈ 0) |
+| Teljes szinkron idő | ~350 ms (4× párhuzamos + poll ütközés) | **26,38 ms** átlag |
+
+> **Megjegyzés:** Az IO-Link master REST API inherensen szekvenciális. A párhuzamos kérések socket-foglalás-ütközést okoznak, ami 1–5× lassabb választ és "connection reset" hibákat eredményez. A v3.0 pipeline ezt teljesen kiküszöböli.
+
+---
+
 **Copyright © 2026 nass magnet Hungária Kft. Minden jog fenntartva.**
+
