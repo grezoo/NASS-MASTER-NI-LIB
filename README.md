@@ -79,6 +79,30 @@ A szótár bármikor szerkeszthető egy sima szövegszerkesztővel (Jegyzettömb
 
 ---
 
+## 🚀 Ajánlott: SMI v3.0 – Következő Generációs Kommunikációs Réteg
+
+> **Az IO-Link Master REST API alapú lekérdezést a `smi-v3.0` ág egy gyorsabb, stabilabb és bounce-mentes megoldással váltja fel.**
+>
+> 👉 **[Tekintsd meg az SMI v3.0 ágat és a teljes benchmark eredményeket](https://github.com/grezoo/NASS-MASTER-NI-LIB/tree/smi-v3.0)**
+
+### Mit javít az SMI v3.0 a jelenlegi NASSMASTER-hez képest?
+
+Valós mérés: NASS Magnet 4P ETH Master (`192.168.23.100`), N=30 iteráció/teszt.
+
+| Terület | NASSMASTER (main) | SMI v3.0 | Eredmény |
+|---------|:-----------------:|:--------:|:--------:|
+| Startup poll max spike | 128–182 ms | <25 ms | ✅ 5–7× stabilabb |
+| **COMM_LOST felismerés** | **1200 ms** (hardcoded) | **<22 ms** | ✅ **54× gyorsabb** |
+| **DO kapcsoló pattogás** | **200–800 ms** billegés | **0 ms** (lock) | ✅ **Eliminált** |
+| Socket kimerülés | Igen (N párhuzamos) | Nem (1 sor) | ✅ Eliminált |
+| PD cache | Nincs | 60 ms ablak | ✅ Új funkció |
+| Startup fal-idő (avg) | 8,0 ms | 19,8 ms | ⚠️ +12 ms overhead |
+| DO write latencia | 3,7 ms | 3,8 ms | ≈ azonos |
+
+> ⚠️ Az SMI szekvenciális pipeline fallideje valamivel hosszabb, de **spike-mentes és determinisztikus** – ami ipari rendszerekben (flicker-mentes UI, azonnali disconnect detekció) az elsődleges követelmény.
+
+---
+
 ## 💻 Telepítésmentes Futtatás (Zero-Install & 0 Admin Rights)
 
 A szoftver nem igényel semmilyen telepítést vagy rendszergazdai jóváhagyást:
