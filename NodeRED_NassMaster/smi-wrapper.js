@@ -1,9 +1,9 @@
 // smi-wrapper.js  v3.2
-// Dynamic Multi-Master SMI Client â€“ Nass Magnet 4p Eth Master
+// Dynamic Multi-Master SMI Client Ă˘â‚¬â€ś Nass Magnet 4p Eth Master
 // v3.2 changes:
 //   [1] Dynamic port type from statusInfo (no hardcoded PORT_TYPE map)
-//   [2] Hot-plug detection â€“ PD cache invalidated on device change
-//   [3] Multi-master â€“ full cache reset on setTarget(ip)
+//   [2] Hot-plug detection Ă˘â‚¬â€ś PD cache invalidated on device change
+//   [3] Multi-master Ă˘â‚¬â€ś full cache reset on setTarget(ip)
 //   [4] Disconnect / reconnect event handling
 
 const http = require('http');
@@ -99,7 +99,7 @@ class SmiEngine extends EventEmitter {
     return false;
   }
 
-  // â”€â”€ Core serialized HTTP request â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬ Core serialized HTTP request Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬
   request(method, urlPath, payloadData, timeoutMs) {
     if (timeoutMs === undefined) timeoutMs = 300;
     this.queue = this.queue.then(() => new Promise((resolve) => {
@@ -145,7 +145,7 @@ class SmiEngine extends EventEmitter {
     return this.queue;
   }
 
-  // Parallel-safe GET (bypasses queue â€“ for syncAll group1)
+  // Parallel-safe GET (bypasses queue Ă˘â‚¬â€ś for syncAll group1)
   _httpGet(urlPath, timeoutMs) {
     if (!timeoutMs) timeoutMs = 500;
     var self = this;
@@ -168,7 +168,7 @@ class SmiEngine extends EventEmitter {
     });
   }
 
-  // â”€â”€ GW Ident: permanent cache (hardware data never changes) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬ GW Ident: permanent cache (hardware data never changes) Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬
   _fetchGwIdent() {
     if (this.cache.gwIdentLoaded) return Promise.resolve(this.cache.gwIdent);
     var self = this;
@@ -222,7 +222,7 @@ class SmiEngine extends EventEmitter {
     });
   }
 
-  // â”€â”€ syncAll: Group1 parallel, Group2 sequential â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬ syncAll: Group1 parallel, Group2 sequential Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬Ă˘â€ťâ‚¬
   syncAll() {
     var self = this;
     var t0 = Date.now();
@@ -271,14 +271,34 @@ class SmiEngine extends EventEmitter {
 
   setPortMode(portNum, mode) {
     var alias = 'master1port' + portNum;
+    var self = this;
+
+    // Ha DEACTIVATED (Power Off) kérés jön:
+    if (mode === 'DEACTIVATED') {
+      console.log('[SMI] Port ' + portNum + ' -> DEACTIVATED (Stopping outputs & Power Off)...');
+      // 1. lépés: Fail-Safe stop kimenet (motor/szelep azonnali leállítása)
+      return self.request('POST', '/iolink/v1/devices/' + alias + '/processdata/value', { ioLink: { valid: true, value: [0, 0, 0, 0] }, cqValue: false }, 300).catch(function(){})
+        .then(function() {
+          // 2. lépés: Port mód DEACTIVATED (Master áramtalanítja a portot)
+          var payload = { deviceAlias: alias, mode: 'DEACTIVATED', iqConfiguration: 'NOT_SUPPORTED' };
+          return self.request('POST', '/iolink/v1/masters/1/ports/' + portNum + '/configuration', payload, 500);
+        }).then(function(res) {
+          self.cache.portsStatus = null;
+          delete self.cache.pd[portNum];
+          delete self.cache.lastPdTime[portNum];
+          return res.data || {};
+        });
+    }
+
+    // Ha más módra váltunk (Power ON + boot + új mód aktiválása):
+    console.log('[SMI] Port ' + portNum + ' -> ' + mode + ' (Power ON sequence)...');
     var payload = { deviceAlias: alias, mode: mode };
     if (mode === 'DIGITAL_INPUT')  payload.iqConfiguration = 'DIGITAL_INPUT';
     if (mode === 'DIGITAL_OUTPUT') payload.iqConfiguration = 'NOT_SUPPORTED';
     if (mode === 'IOLINK_AUTOSTART') payload.iqConfiguration = 'NOT_SUPPORTED';
-    var self = this;
-    return this.request('POST', '/iolink/v1/masters/1/ports/' + portNum + '/configuration', payload, 500).then(function(res) {
-      self.cache.portsStatus = null; // force refresh next poll
-      // clear PD cache for this port
+
+    return self.request('POST', '/iolink/v1/masters/1/ports/' + portNum + '/configuration', payload, 1000).then(function(res) {
+      self.cache.portsStatus = null;
       delete self.cache.pd[portNum];
       delete self.cache.lastPdTime[portNum];
       return res.data || {};
@@ -286,9 +306,9 @@ class SmiEngine extends EventEmitter {
   }
 
   // Port power control via DEACTIVATED mode
-  // The master has no dedicated power endpoint â€“ DEACTIVATED cuts L+ supply on the port pin
-  // on=false  â†’ mode DEACTIVATED   (power off, saves previous mode)
-  // on=true   â†’ restore saved mode (power on)
+  // The master has no dedicated power endpoint Ă˘â‚¬â€ś DEACTIVATED cuts L+ supply on the port pin
+  // on=false  Ă˘â€ â€™ mode DEACTIVATED   (power off, saves previous mode)
+  // on=true   Ă˘â€ â€™ restore saved mode (power on)
   setPortPower(portNum, on) {
     var self = this;
 
