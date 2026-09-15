@@ -1,12 +1,10 @@
-// smi-wrapper.js  v3.1
-// Ultra-Responsive Industrial SMI Client & Protocol Bridge for Nass Magnet 4p Eth Master
-// Optimizations v3.1:
-//   [1] GW Ident permanent cache  - fetch once, serve forever (data never changes)
-//   [2] syncAll parallel grouping - (Ident||Config||Ports) then (PD1->2->3->4 sequential)
-//   [3] Adaptive poll interval    - exposed via smi.suggestPollMs()
-//   [4] Delta-based change detect - smi.hasChanged(portNum, newData) -> bool
-//   [5] DI port awareness         - port4 is DI, skip byteArray format, longer timeout
-//   [6] Correct DO payload        - {setData:{cqValue:bool}} (HTTP 204 = success)
+// smi-wrapper.js  v3.2
+// Dynamic Multi-Master SMI Client – Nass Magnet 4p Eth Master
+// v3.2 changes:
+//   [1] Dynamic port type from statusInfo (no hardcoded PORT_TYPE map)
+//   [2] Hot-plug detection – PD cache invalidated on device change
+//   [3] Multi-master – full cache reset on setTarget(ip)
+//   [4] Disconnect / reconnect event handling
 
 const http = require('http');
 const EventEmitter = require('events');
@@ -17,41 +15,71 @@ process.on('uncaughtException', (err) => {
   console.error('[UNCAUGHT EXCEPTION]', err);
 });
 
-// Port type map
-const PORT_TYPE = { 1: 'IOLINK', 2: 'DO', 3: 'IOLINK', 4: 'DI' };
+// Determine PD URL format from master's statusInfo field
+// IO-Link device online -> byteArray format; DI/DO/offline -> plain JSON
+function pdUrlForPort(portInfo, host) {
+  const si = (portInfo && portInfo.statusInfo) ? portInfo.statusInfo : '';
+  const alias = portInfo ? portInfo.deviceAlias || ('master1port' + portInfo.portNumber) : '';
+  const base = '/iolink/v1/devices/' + alias + '/processdata/value';
+  // IO-Link device present: use byteArray format
+  if (si === 'DEVICE_ONLINE' || si === 'DEVICE_PREOPERATE') {
+    return base + '?format=byteArray';
+  }
+  // DI / DO / no device: plain JSON
+  return base;
+}
+
+// Is this port an IO-Link device (vs DI/DO)?
+function isIoLinkPort(portInfo) {
+  const si = (portInfo && portInfo.statusInfo) ? portInfo.statusInfo : '';
+  return si === 'DEVICE_ONLINE' || si === 'DEVICE_PREOPERATE';
+}
 
 class SmiEngine extends EventEmitter {
   constructor() {
     super();
     this.host = process.env.SMI_HOST || '192.168.23.100';
-    this.port = 80;
     this.queue = Promise.resolve();
     this.isOnline = true;
     this.lastSuccessTime = Date.now();
     this.failedAttempts = 0;
     this._lastCycleMs   = 20;
     this._consecutiveOk = 0;
-    this._pollMin       = 300;
-    this._pollMax       = 3000;
-    this._pollNormal    = 1000;
+    this._pollMin    = 300;
+    this._pollMax    = 3000;
+    this._pollNormal = 1000;
     this.client = { isConnected: true, options: { host: this.host, port: 80 } };
+    this._initCache();
+  }
+
+  _initCache() {
     this.cache = {
-      gwIdent: { productName: '4p Eth Master', vendorName: 'nass magnet Hungaria Kft.', hardwareRevision: 'HW-V020', firmwareRevision: 'FW-V1_0_1', serialNumber: 'nmEM001000000322', macAddress: '94:D8:6B:3C:12:3D' },
+      gwIdent:      { productName: '4p Eth Master', vendorName: 'nass magnet Hungaria Kft.', hardwareRevision: 'HW-V020', firmwareRevision: 'FW-V1_0_1', serialNumber: 'nmEM001000000322', macAddress: '94:D8:6B:3C:12:3D' },
       gwIdentLoaded: false,
-      gwConfig: { ethIpv4: [{ ipAddress: '192.168.23.100', subnetMask: '255.255.255.0', standardGateway: '192.168.23.1', ipConfiguration: 'MANUAL' }] },
+      gwConfig:     { ethIpv4: [{ ipAddress: this.host, subnetMask: '255.255.255.0', standardGateway: '192.168.23.1', ipConfiguration: 'MANUAL' }] },
       gwConfigLoaded: false,
-      portsStatus: null,
-      masterIdent: null,
-      lastStatusTime: 0,
-      pd: {},
-      pdPrev: {},
-      lastPdTime: {}
+      _gwConfigTime: 0,
+      portsStatus:  null,   // array of port objects from /masters/1/ports
+      _portsTime:   0,
+      masterIdent:  null,
+      pd:           {},     // { [portNum]: lastData }
+      pdPrev:       {},     // { [portNum]: lastData } for delta detection
+      lastPdTime:   {},     // { [portNum]: timestamp or lockUntil }
     };
   }
 
-  setTarget(host, port) {
-    if (host) this.host = host;
-    this.client.options.host = this.host;
+  // [3] Multi-master: change target IP and flush all caches
+  setTarget(host) {
+    if (!host || host === this.host) return;
+    console.log('[SMI] Target changed: ' + this.host + ' -> ' + host);
+    this.host = host;
+    this.client.options.host = host;
+    this._initCache();            // full cache reset for new master
+    this.queue = Promise.resolve(); // reset serialized queue
+    this.failedAttempts = 0;
+    this.isOnline = true;
+    this.client.isConnected = true;
+    this.emit('target_changed', host);
   }
 
   // [3] Adaptive poll interval
@@ -63,7 +91,7 @@ class SmiEngine extends EventEmitter {
     return Math.min(this._pollNormal * 1.5, this._pollMax);
   }
 
-  // [4] Delta change detection
+  // [4] Delta change detection per port
   hasChanged(portNum, newData) {
     const newStr = JSON.stringify(newData);
     const oldStr = JSON.stringify(this.cache.pdPrev[portNum]);
@@ -71,11 +99,13 @@ class SmiEngine extends EventEmitter {
     return false;
   }
 
-  request(method, urlPath, payloadData = null, timeoutMs = 300) {
+  // ── Core serialized HTTP request ─────────────────────────────────────────
+  request(method, urlPath, payloadData, timeoutMs) {
+    if (timeoutMs === undefined) timeoutMs = 300;
     this.queue = this.queue.then(() => new Promise((resolve) => {
       const postData = payloadData ? JSON.stringify(payloadData) : null;
       const options = {
-        hostname: this.host, port: 80, path: urlPath, method,
+        hostname: this.host, port: 80, path: urlPath, method: method,
         timeout: timeoutMs,
         headers: { 'Accept': 'application/json', 'Connection': 'close' }
       };
@@ -83,185 +113,238 @@ class SmiEngine extends EventEmitter {
         options.headers['Content-Type'] = 'application/json';
         options.headers['Content-Length'] = Buffer.byteLength(postData);
       }
-      const req = http.request(options, (res) => {
-        let raw = '';
-        res.on('data', chunk => raw += chunk);
-        res.on('end', () => {
+      const req = http.request(options, function(res) {
+        var raw = '';
+        res.on('data', function(c) { raw += c; });
+        res.on('end', function() {
           this.isOnline = true; this.client.isConnected = true;
           this.lastSuccessTime = Date.now(); this.failedAttempts = 0; this._consecutiveOk++;
           try { resolve({ statusCode: res.statusCode, data: JSON.parse(raw || '{}') }); }
-          catch(e) { resolve({ statusCode: res.statusCode, raw }); }
-        });
-      });
-      req.on('error', (err) => {
+          catch(e) { resolve({ statusCode: res.statusCode, raw: raw }); }
+        }.bind(this));
+      }.bind(this));
+      req.on('error', function(err) {
         this.failedAttempts++; this._consecutiveOk = 0;
-        if (this.failedAttempts >= 2) { this.isOnline = false; this.client.isConnected = false; this.emit('disconnected', err); }
+        if (this.failedAttempts >= 2) {
+          this.isOnline = false; this.client.isConnected = false;
+          this.emit('disconnected', err);
+        }
         resolve({ statusCode: 500, error: err.message });
-      });
-      req.on('timeout', () => {
+      }.bind(this));
+      req.on('timeout', function() {
         req.destroy(); this.failedAttempts++; this._consecutiveOk = 0;
-        if (this.failedAttempts >= 2) { this.isOnline = false; this.client.isConnected = false; this.emit('disconnected', new Error('TIMEOUT')); }
+        if (this.failedAttempts >= 2) {
+          this.isOnline = false; this.client.isConnected = false;
+          this.emit('disconnected', new Error('TIMEOUT'));
+        }
         resolve({ statusCode: 504, error: 'TIMEOUT' });
-      });
+      }.bind(this));
       if (postData) req.write(postData);
       req.end();
-    })).catch(() => ({ statusCode: 500, error: 'Queue error' }));
+    })).catch(function() { return { statusCode: 500, error: 'Queue error' }; });
     return this.queue;
   }
 
-  // [2] syncAll: Group1 parallel, Group2 sequential
-  async syncAll() {
-    const t0 = Date.now();
-    try {
-      const [ident, config, ports] = await Promise.all([
-        this._fetchGwIdent(), this._fetchGwConfig(), this._fetchPorts()
-      ]);
-      const p1 = await this.readPD(1);
-      const p2 = await this.readPD(2);
-      const p3 = await this.readPD(3);
-      const p4 = await this.readPD(4);
-      const durationMs = Date.now() - t0;
-      this._lastCycleMs = durationMs;
-      return { durationMs, ident, config, ports, pd: { 1: p1, 2: p2, 3: p3, 4: p4 } };
-    } catch(e) {
-      this._lastCycleMs = Date.now() - t0;
-      return null;
-    }
-  }
-
-  _httpGet(urlPath, timeoutMs = 500) {
-    return new Promise((resolve) => {
-      const req = http.request(
-        { hostname: this.host, port: 80, path: urlPath, method: 'GET', timeout: timeoutMs,
-          headers: { 'Accept': 'application/json', 'Connection': 'close' } },
-        (res) => {
-          let raw = '';
-          res.on('data', c => raw += c);
-          res.on('end', () => { try { resolve({ ok: true, data: JSON.parse(raw || '{}') }); } catch(e) { resolve({ ok: false, data: {} }); } });
+  // Parallel-safe GET (bypasses queue – for syncAll group1)
+  _httpGet(urlPath, timeoutMs) {
+    if (!timeoutMs) timeoutMs = 500;
+    var self = this;
+    return new Promise(function(resolve) {
+      var req = http.request(
+        { hostname: self.host, port: 80, path: urlPath, method: 'GET',
+          timeout: timeoutMs, headers: { 'Accept': 'application/json', 'Connection': 'close' } },
+        function(res) {
+          var raw = '';
+          res.on('data', function(c) { raw += c; });
+          res.on('end', function() {
+            try { resolve({ ok: true, data: JSON.parse(raw || '{}') }); }
+            catch(e) { resolve({ ok: false, data: {} }); }
+          });
         }
       );
-      req.on('error', () => resolve({ ok: false, data: {} }));
-      req.on('timeout', () => { req.destroy(); resolve({ ok: false, data: {} }); });
+      req.on('error', function() { resolve({ ok: false, data: {} }); });
+      req.on('timeout', function() { req.destroy(); resolve({ ok: false, data: {} }); });
       req.end();
     });
   }
 
-  // [1] GW Ident: permanent cache
-  async _fetchGwIdent() {
-    if (this.cache.gwIdentLoaded) return this.cache.gwIdent;
-    const r = await this._httpGet('/iolink/v1/gateway/identification');
-    if (r.ok && r.data.productName) { this.cache.gwIdent = r.data; this.cache.gwIdentLoaded = true; }
-    return this.cache.gwIdent;
+  // ── GW Ident: permanent cache (hardware data never changes) ───────────────
+  _fetchGwIdent() {
+    if (this.cache.gwIdentLoaded) return Promise.resolve(this.cache.gwIdent);
+    var self = this;
+    return this._httpGet('/iolink/v1/gateway/identification').then(function(r) {
+      if (r.ok && r.data.productName) { self.cache.gwIdent = r.data; self.cache.gwIdentLoaded = true; }
+      return self.cache.gwIdent;
+    });
   }
 
   // GW Config: 60s cache
-  async _fetchGwConfig() {
-    const age = Date.now() - (this.cache._gwConfigTime || 0);
-    if (this.cache.gwConfigLoaded && age < 60000) return this.cache.gwConfig;
-    const r = await this._httpGet('/iolink/v1/gateway/configuration');
-    if (r.ok && r.data.ethIpv4) { this.cache.gwConfig = r.data; this.cache.gwConfigLoaded = true; this.cache._gwConfigTime = Date.now(); }
-    return this.cache.gwConfig;
+  _fetchGwConfig() {
+    var age = Date.now() - (this.cache._gwConfigTime || 0);
+    if (this.cache.gwConfigLoaded && age < 60000) return Promise.resolve(this.cache.gwConfig);
+    var self = this;
+    return this._httpGet('/iolink/v1/gateway/configuration').then(function(r) {
+      if (r.ok && r.data.ethIpv4) {
+        self.cache.gwConfig = r.data;
+        self.cache.gwConfigLoaded = true;
+        self.cache._gwConfigTime = Date.now();
+      }
+      return self.cache.gwConfig;
+    });
   }
 
-  // Ports: 150ms cache
-  async _fetchPorts() {
-    const age = Date.now() - this.cache.lastStatusTime;
-    if (this.cache.portsStatus && age < 150) return this.cache.portsStatus;
-    const r = await this._httpGet('/iolink/v1/masters/1/ports');
-    if (r.ok && Array.isArray(r.data)) { this.cache.portsStatus = r.data; this.cache.lastStatusTime = Date.now(); }
-    return this.cache.portsStatus || [];
+  // [1][2] Ports: 150ms cache + hot-plug detection
+  _fetchPorts() {
+    var age = Date.now() - (this.cache._portsTime || 0);
+    if (this.cache.portsStatus && age < 150) return Promise.resolve(this.cache.portsStatus);
+    var self = this;
+    return this._httpGet('/iolink/v1/masters/1/ports').then(function(r) {
+      if (r.ok && Array.isArray(r.data)) {
+        var prev = self.cache.portsStatus;
+        self.cache.portsStatus = r.data;
+        self.cache._portsTime = Date.now();
+        // [2] Hot-plug: detect status changes per port, invalidate PD cache
+        if (prev) {
+          r.data.forEach(function(port) {
+            var pn = port.portNumber;
+            var oldPort = prev.find(function(p) { return p.portNumber === pn; });
+            if (oldPort && oldPort.statusInfo !== port.statusInfo) {
+              console.log('[SMI] Port ' + pn + ' changed: ' + oldPort.statusInfo + ' -> ' + port.statusInfo);
+              delete self.cache.pd[pn];
+              delete self.cache.pdPrev[pn];
+              delete self.cache.lastPdTime[pn];
+              self.emit('port_changed', { portNumber: pn, from: oldPort.statusInfo, to: port.statusInfo });
+            }
+          });
+        }
+      }
+      return self.cache.portsStatus || [];
+    });
   }
 
-  async readGatewayIdentification() { return this._fetchGwIdent(); }
-  async readGatewayConfiguration()  { return this._fetchGwConfig(); }
-
-  async readMasterIdentification() {
-    if (this.cache.masterIdent) return this.cache.masterIdent;
-    let res = await this.request('GET', '/iolink/v1/masters/1/identification');
-    if (res && res.data) { this.cache.masterIdent = res.data; return res.data; }
-    return this.cache.masterIdent || {};
+  // ── syncAll: Group1 parallel, Group2 sequential ───────────────────────────
+  syncAll() {
+    var self = this;
+    var t0 = Date.now();
+    return Promise.all([
+      self._fetchGwIdent(),
+      self._fetchGwConfig(),
+      self._fetchPorts()
+    ]).then(function(group1) {
+      var ident = group1[0], config = group1[1], ports = group1[2];
+      // Sequential PD reads (master can't handle parallel PD)
+      return self.readPD(1).then(function(p1) {
+        return self.readPD(2).then(function(p2) {
+          return self.readPD(3).then(function(p3) {
+            return self.readPD(4).then(function(p4) {
+              var durationMs = Date.now() - t0;
+              self._lastCycleMs = durationMs;
+              return { durationMs: durationMs, ident: ident, config: config, ports: ports, pd: { 1: p1, 2: p2, 3: p3, 4: p4 } };
+            });
+          });
+        });
+      });
+    }).catch(function(e) {
+      self._lastCycleMs = Date.now() - t0;
+      return null;
+    });
   }
 
-  async readAllPorts()            { return this._fetchPorts(); }
-  async readPortStatus(portNum)   { return (await this.readAllPorts())[portNum - 1] || null; }
+  readGatewayIdentification() { return this._fetchGwIdent(); }
+  readGatewayConfiguration()  { return this._fetchGwConfig(); }
+  readAllPorts()              { return this._fetchPorts(); }
 
-  async setPortMode(portNum, mode) {
-    const alias = `master1port${portNum}`;
-    const payload = { deviceAlias: alias, mode };
+  readMasterIdentification() {
+    if (this.cache.masterIdent) return Promise.resolve(this.cache.masterIdent);
+    var self = this;
+    return this.request('GET', '/iolink/v1/masters/1/identification').then(function(res) {
+      if (res && res.data) { self.cache.masterIdent = res.data; return res.data; }
+      return self.cache.masterIdent || {};
+    });
+  }
+
+  readPortStatus(portNum) {
+    return this.readAllPorts().then(function(ports) {
+      return ports.find(function(p) { return p.portNumber === portNum; }) || null;
+    });
+  }
+
+  setPortMode(portNum, mode) {
+    var alias = 'master1port' + portNum;
+    var payload = { deviceAlias: alias, mode: mode };
     if (mode === 'DIGITAL_INPUT')  payload.iqConfiguration = 'DIGITAL_INPUT';
     if (mode === 'DIGITAL_OUTPUT') payload.iqConfiguration = 'NOT_SUPPORTED';
-    let res = await this.request('POST', `/iolink/v1/masters/1/ports/${portNum}/configuration`, payload);
-    this.cache.portsStatus = null;
-    return res.data || {};
+    var self = this;
+    return this.request('POST', '/iolink/v1/masters/1/ports/' + portNum + '/configuration', payload).then(function(res) {
+      self.cache.portsStatus = null; // invalidate port cache
+      return res.data || {};
+    });
   }
 
-  async readISDU(portNum, index, subindex = 0) {
-    const alias = `master1port${portNum}`;
-    let res = await this.request('GET', `/iolink/v1/devices/${alias}/parameters/${index}/value?format=byteArray`);
-    return res.data || {};
+  readISDU(portNum, index, subindex) {
+    var alias = 'master1port' + portNum;
+    return this.request('GET', '/iolink/v1/devices/' + alias + '/parameters/' + index + '/value?format=byteArray').then(function(res) {
+      return res.data || {};
+    });
   }
 
-  async writeISDU(portNum, index, subindex, dataBuffer) {
-    const alias = `master1port${portNum}`;
-    let arrVal = Buffer.isBuffer(dataBuffer) ? Array.from(dataBuffer) : (Array.isArray(dataBuffer) ? dataBuffer : [dataBuffer]);
-    let res = await this.request('POST', `/iolink/v1/devices/${alias}/parameters/${index}/value`, { value: arrVal });
-    return res.data || {};
+  writeISDU(portNum, index, subindex, dataBuffer) {
+    var alias = 'master1port' + portNum;
+    var arrVal = Buffer.isBuffer(dataBuffer) ? Array.from(dataBuffer) : (Array.isArray(dataBuffer) ? dataBuffer : [dataBuffer]);
+    return this.request('POST', '/iolink/v1/devices/' + alias + '/parameters/' + index + '/value', { value: arrVal }).then(function(res) {
+      return res.data || {};
+    });
   }
 
-  async readPD(portNum)  { return this.readProcessData(portNum); }
+  readPD(portNum)  { return this.readProcessData(portNum); }
 
-  // [5] DI-aware PD reading
-  async readProcessData(portNum) {
-    let now = Date.now();
-    let lockUntil = this.cache.lastPdTime[portNum] || 0;
-    if (this.cache.pd[portNum] && now < lockUntil)       return this.cache.pd[portNum];
-    if (this.cache.pd[portNum] && now - lockUntil < 60)  return this.cache.pd[portNum];
+  // [1] Dynamic port type from cached portsStatus.statusInfo
+  readProcessData(portNum) {
+    var self = this;
+    var now = Date.now();
+    var lockUntil = self.cache.lastPdTime[portNum] || 0;
+    if (self.cache.pd[portNum] && now < lockUntil)      return Promise.resolve(self.cache.pd[portNum]);
+    if (self.cache.pd[portNum] && now - lockUntil < 60) return Promise.resolve(self.cache.pd[portNum]);
 
-    const alias    = `master1port${portNum}`;
-    const portType = PORT_TYPE[portNum] || 'IOLINK';
-    let url, timeout;
+    // Get port info from cached ports status to determine URL
+    var portInfo = self.cache.portsStatus
+      ? self.cache.portsStatus.find(function(p) { return p.portNumber === portNum; })
+      : null;
 
-    if (portType === 'DI') {
-      url     = `/iolink/v1/devices/${alias}/processdata/value`;
-      timeout = 300; // DI is slower due to master hardware poll cycle, not HTTP
-    } else if (portType === 'IOLINK') {
-      url     = `/iolink/v1/devices/${alias}/processdata/value?format=byteArray`;
-      timeout = 300;
-    } else {
-      url     = `/iolink/v1/devices/${alias}/processdata/value`;
-      timeout = 300;
-    }
+    var url = pdUrlForPort(portInfo || { portNumber: portNum, statusInfo: 'DEVICE_ONLINE' }, self.host);
 
-    let res = await this.request('GET', url, null, timeout);
-    if (res && res.data) {
-      this.cache.pd[portNum]       = res.data;
-      this.cache.lastPdTime[portNum] = now;
-      return res.data;
-    }
-    return this.cache.pd[portNum] || null;
+    return self.request('GET', url, null, 300).then(function(res) {
+      if (res && res.data) {
+        self.cache.pd[portNum] = res.data;
+        self.cache.lastPdTime[portNum] = Date.now();
+        return res.data;
+      }
+      return self.cache.pd[portNum] || null;
+    });
   }
 
-  async writePD(portNum, data) { return this.writeProcessData(portNum, data); }
+  writePD(portNum, data) { return this.writeProcessData(portNum, data); }
 
-  // [6] Correct DO payload
-  async writeProcessData(portNum, data) {
-    const alias = `master1port${portNum}`;
-    let payload = {};
+  writeProcessData(portNum, data) {
+    var self = this;
+    var alias = 'master1port' + portNum;
+    var payload;
     if (typeof data === 'boolean') {
       payload = { setData: { cqValue: data } };
-      this.cache.pd[portNum] = { setData: { cqValue: data }, getData: { cqValue: data } };
-      this.cache.lastPdTime[portNum] = Date.now() + 600;
+      self.cache.pd[portNum] = { setData: { cqValue: data }, getData: { cqValue: data } };
+      self.cache.lastPdTime[portNum] = Date.now() + 600;
     } else if (Array.isArray(data)) {
       payload = { ioLink: { valid: true, value: data } };
     } else {
       payload = data;
     }
-    let res = await this.request('POST', `/iolink/v1/devices/${alias}/processdata/value`, payload, 500);
-    if (typeof data === 'boolean') {
-      this.cache.pd[portNum] = { setData: { cqValue: data } };
-      this.cache.lastPdTime[portNum] = Date.now();
-    }
-    return res.data || {};
+    return self.request('POST', '/iolink/v1/devices/' + alias + '/processdata/value', payload, 500).then(function(res) {
+      if (typeof data === 'boolean') {
+        self.cache.pd[portNum] = { setData: { cqValue: data } };
+        self.cache.lastPdTime[portNum] = Date.now();
+      }
+      return res.data || {};
+    });
   }
 }
 
