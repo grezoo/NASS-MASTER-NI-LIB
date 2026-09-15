@@ -1,7 +1,7 @@
 {
   "name": "nassmaster-portable-nodered",
-  "version": "2.2.1-release",
-  "description": "Nassmaster IO-Link SCADA & Bench Tester Suite (Frozen Production & Demo Release)",
+  "version": "3.0.0-smi",
+  "description": "Nassmaster IO-Link SCADA Suite v3.0.0 (Pure SMI Edition)",
   "main": "settings.js",
   "scripts": {
     "start": "npx --yes node-red -u . -p 1880",

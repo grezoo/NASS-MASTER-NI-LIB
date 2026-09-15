@@ -1,5 +1,5 @@
 /**
- * NASSMASTER Industrial IO-Link SCADA - Portable Node-RED Settings
+ * NASSMASTER Industrial IO-Link SCADA - Portable Node-RED Settings (SMI EDITION)
  * Optimized for USB Flash Drive / Pendrive Execution
  */
 const path = require('path');
@@ -33,9 +33,9 @@ module.exports = {
             allowUpload: true
         }
     },
+    functionExternalModules: true,
 
-    // In-memory (RAM) default for high-speed IO-Link telemetry (IEC 61131-3)
-    // Retentive storage ('store') for persistent configurations & PLC rules
+    // Context storage
     contextStorage: {
         default: {
             module: 'memory'
@@ -60,9 +60,10 @@ module.exports = {
         }
     },
 
-    // Export variables
+    // Global Context: master IP, PLC state and SMI wrapper
     functionGlobalContext: {
         master_ip: "192.168.23.100",
-        plc_running: true
+        plc_running: true,
+        smi: require('./smi-wrapper.js')
     }
 };
