@@ -1,9 +1,9 @@
 // smi-wrapper.js  v3.2
-// Dynamic Multi-Master SMI Client – Nass Magnet 4p Eth Master
+// Dynamic Multi-Master SMI Client â€“ Nass Magnet 4p Eth Master
 // v3.2 changes:
 //   [1] Dynamic port type from statusInfo (no hardcoded PORT_TYPE map)
-//   [2] Hot-plug detection – PD cache invalidated on device change
-//   [3] Multi-master – full cache reset on setTarget(ip)
+//   [2] Hot-plug detection â€“ PD cache invalidated on device change
+//   [3] Multi-master â€“ full cache reset on setTarget(ip)
 //   [4] Disconnect / reconnect event handling
 
 const http = require('http');
@@ -99,7 +99,7 @@ class SmiEngine extends EventEmitter {
     return false;
   }
 
-  // ── Core serialized HTTP request ─────────────────────────────────────────
+  // â”€â”€ Core serialized HTTP request â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   request(method, urlPath, payloadData, timeoutMs) {
     if (timeoutMs === undefined) timeoutMs = 300;
     this.queue = this.queue.then(() => new Promise((resolve) => {
@@ -145,7 +145,7 @@ class SmiEngine extends EventEmitter {
     return this.queue;
   }
 
-  // Parallel-safe GET (bypasses queue – for syncAll group1)
+  // Parallel-safe GET (bypasses queue â€“ for syncAll group1)
   _httpGet(urlPath, timeoutMs) {
     if (!timeoutMs) timeoutMs = 500;
     var self = this;
@@ -168,7 +168,7 @@ class SmiEngine extends EventEmitter {
     });
   }
 
-  // ── GW Ident: permanent cache (hardware data never changes) ───────────────
+  // â”€â”€ GW Ident: permanent cache (hardware data never changes) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   _fetchGwIdent() {
     if (this.cache.gwIdentLoaded) return Promise.resolve(this.cache.gwIdent);
     var self = this;
@@ -222,7 +222,7 @@ class SmiEngine extends EventEmitter {
     });
   }
 
-  // ── syncAll: Group1 parallel, Group2 sequential ───────────────────────────
+  // â”€â”€ syncAll: Group1 parallel, Group2 sequential â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   syncAll() {
     var self = this;
     var t0 = Date.now();
@@ -286,9 +286,9 @@ class SmiEngine extends EventEmitter {
   }
 
   // Port power control via DEACTIVATED mode
-  // The master has no dedicated power endpoint – DEACTIVATED cuts L+ supply on the port pin
-  // on=false  → mode DEACTIVATED   (power off, saves previous mode)
-  // on=true   → restore saved mode (power on)
+  // The master has no dedicated power endpoint â€“ DEACTIVATED cuts L+ supply on the port pin
+  // on=false  â†’ mode DEACTIVATED   (power off, saves previous mode)
+  // on=true   â†’ restore saved mode (power on)
   setPortPower(portNum, on) {
     var self = this;
 
@@ -320,16 +320,24 @@ class SmiEngine extends EventEmitter {
 
   readISDU(portNum, index, subindex) {
     var alias = 'master1port' + portNum;
-    return this.request('GET', '/iolink/v1/devices/' + alias + '/parameters/' + index + '/value?format=byteArray').then(function(res) {
+    var subPart = (subindex !== undefined && subindex !== null && Number(subindex) > 0)
+      ? '/subindices/' + Number(subindex)
+      : '';
+    var url = '/iolink/v1/devices/' + alias + '/parameters/' + Number(index) + subPart + '/value?format=byteArray';
+    return this.request('GET', url, null, 1500).then(function(res) {
       return res.data || {};
     });
   }
 
   writeISDU(portNum, index, subindex, dataBuffer) {
     var alias = 'master1port' + portNum;
+    var subPart = (subindex !== undefined && subindex !== null && Number(subindex) > 0)
+      ? '/subindices/' + Number(subindex)
+      : '';
+    var url = '/iolink/v1/devices/' + alias + '/parameters/' + Number(index) + subPart + '/value';
     var arrVal = Buffer.isBuffer(dataBuffer) ? Array.from(dataBuffer) : (Array.isArray(dataBuffer) ? dataBuffer : [dataBuffer]);
-    return this.request('POST', '/iolink/v1/devices/' + alias + '/parameters/' + index + '/value', { value: arrVal }).then(function(res) {
-      return res.data || {};
+    return this.request('POST', url, { value: arrVal }, 1500).then(function(res) {
+      return { success: (res.statusCode >= 200 && res.statusCode < 300), statusCode: res.statusCode, data: res.data || {} };
     });
   }
 
