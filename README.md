@@ -101,6 +101,20 @@ Valós mérés: NASS Magnet 4P ETH Master (`192.168.23.100`), N=30 iteráció/te
 
 > ⚠️ Az SMI szekvenciális pipeline fallideje valamivel hosszabb, de **spike-mentes és determinisztikus** – ami ipari rendszerekben (flicker-mentes UI, azonnali disconnect detekció) az elsődleges követelmény.
 
+### 🥊 Gyári TEConcept IO-Link Control Tool vs. NassMaster SMI
+
+| Szempont | Gyári TEConcept Control Tool | NassMaster SMI (A mi szoftverünk) |
+| :--- | :--- | :--- |
+| **Felület és élmény (UX)** | 🪟 **Klasszikus 2010-es évekbeli Windows WPF ablak** (szürke fülek, rejtett almenük, nehézkes áttekinthetőség, apró betűk). | 🚀 **Modern Ipari Dark-Theme SCADA & Web UI** (egy képernyőn mind a 4 port élőben, trendgörbék, közvetlen potméter, azonnali láthatóság). |
+| **Elérhetőség & Hálózat** | 💻 **Csak a helyi PC-n futó .exe**, kizárólag arról a Windows gépről kezelhető, amire telepítve van. | 🌐 **Webes kliens-szerver architektúra**: tabletről, telefonról, csarnoki panel PC-ről, böngészőből bárhonnan elérhető a helyi hálózaton. |
+| **Automatizálás & PLC logika** | ❌ **NINCS**. Csak kézi tesztelő eszköz. Nem tud automatikus logikát futtatni (pl. ha a lézer < 100 mm, akkor kapcsold a szelepet). | ⚡ **Beépített Mini PLC szabályzó motor** (500 ms valós idejű ciklus, automatikus szabályok, P-arányos PWM skálázás). |
+| **Folyamatábra (SCADA Mimic)** | ❌ **NINCS**. Csak szöveges/táblázatos mérnöki diagnosztikai nézet. | 🏭 **Visual Process Mimic Canvas** (drag-and-drop ipari géprajzok, tartályok, szalagok, egyedi P&ID fotók). |
+| **Port Táp és Lekapcsolás** | ⚠️ **Kétlépcsős, kézi procedúra**: Inactive mód kiválasztása, majd külön "Power Off" kapcsoló, majd Apply nyugtázó gomb. | 🛡️ **100% Automatikus Fail-Safe**: a Mode menüben `Deactivated`-re váltasz -> automatikusan kiküldi a Stop keretet a motornak, és lekapcsolja a tápot! |
+| **Adatnaplózás (Logging)** | ⚠️ Csak belső STCS naplók, külön külső plugin kell a plotoláshoz. | 📊 **Zéró RAM terhelésű közvetlen CSV naplózás** + 60 pontos élő HTML5 Canvas trendgörbe automatikus skálázással. |
+| **Hordozhatóság (Portability)** | ❌ Telepítést igényel (MSI / Program Files, helyi STCS bridge, Windows regisztrációs függőségek). | 💼 **100% Zero-Install Hordozható**: pendrive-ról egy kattintással indul a `NassmasterSMI.exe`-vel, admin jogok nélkül. |
+| **Protokoll & Architektúra** | 🔌 **STCS_P_WIN.exe bridge + TCP 50000**: lokális segédfolyamatot indít a háttérben, azon keresztül forgalmaz. | ⚡ **Közvetlen Pure Node.js SMI / REST Engine**: nincs szükség külső STCS bridge-re, natívan és determinisztikusan kommunikál a Masterrel. |
+| **Nyelvkezelés** | 🇬🇧 Csak angol / német. | 🌍 **6-Nyelvű Vállalati Szótár** (HU, EN, DE, FR, ZH, HI) a gépkezelők és operátorok anyanyelvén. |
+
 ---
 
 ## 💻 Telepítésmentes Futtatás (Zero-Install & 0 Admin Rights)
