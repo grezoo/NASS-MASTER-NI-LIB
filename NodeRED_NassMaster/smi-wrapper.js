@@ -274,11 +274,48 @@ class SmiEngine extends EventEmitter {
     var payload = { deviceAlias: alias, mode: mode };
     if (mode === 'DIGITAL_INPUT')  payload.iqConfiguration = 'DIGITAL_INPUT';
     if (mode === 'DIGITAL_OUTPUT') payload.iqConfiguration = 'NOT_SUPPORTED';
+    if (mode === 'IOLINK_AUTOSTART') payload.iqConfiguration = 'NOT_SUPPORTED';
     var self = this;
-    return this.request('POST', '/iolink/v1/masters/1/ports/' + portNum + '/configuration', payload).then(function(res) {
-      self.cache.portsStatus = null; // invalidate port cache
+    return this.request('POST', '/iolink/v1/masters/1/ports/' + portNum + '/configuration', payload, 500).then(function(res) {
+      self.cache.portsStatus = null; // force refresh next poll
+      // clear PD cache for this port
+      delete self.cache.pd[portNum];
+      delete self.cache.lastPdTime[portNum];
       return res.data || {};
     });
+  }
+
+  // Port power control via DEACTIVATED mode
+  // The master has no dedicated power endpoint – DEACTIVATED cuts L+ supply on the port pin
+  // on=false  → mode DEACTIVATED   (power off, saves previous mode)
+  // on=true   → restore saved mode (power on)
+  setPortPower(portNum, on) {
+    var self = this;
+
+    if (!on) {
+      // Save current mode before cutting power
+      return self.readPortStatus(portNum).then(function(port) {
+        var currentMode = 'IOLINK_AUTOSTART'; // safe default
+        if (port) {
+          var si = port.statusInfo || '';
+          if (si.indexOf('DIGITAL_INPUT')  !== -1) currentMode = 'DIGITAL_INPUT';
+          else if (si.indexOf('DIGITAL_OUTPUT') !== -1) currentMode = 'DIGITAL_OUTPUT';
+          else if (si === 'DEVICE_ONLINE' || si === 'DEVICE_PREOPERATE') currentMode = 'IOLINK_AUTOSTART';
+        }
+        // Store previous mode for restore
+        if (!self.cache.portPrevMode) self.cache.portPrevMode = {};
+        self.cache.portPrevMode[portNum] = currentMode;
+        console.log('[SMI] Port ' + portNum + ' POWER OFF (saving mode: ' + currentMode + ')');
+        return self.setPortMode(portNum, 'DEACTIVATED');
+      });
+    } else {
+      // Restore saved mode, fall back to IOLINK_AUTOSTART if unknown
+      var restoreMode = (self.cache.portPrevMode && self.cache.portPrevMode[portNum])
+        ? self.cache.portPrevMode[portNum]
+        : 'IOLINK_AUTOSTART';
+      console.log('[SMI] Port ' + portNum + ' POWER ON (restoring mode: ' + restoreMode + ')');
+      return self.setPortMode(portNum, restoreMode);
+    }
   }
 
   readISDU(portNum, index, subindex) {
