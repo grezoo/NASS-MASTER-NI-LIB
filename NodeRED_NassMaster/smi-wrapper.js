@@ -223,7 +223,7 @@ class SmiEngine extends EventEmitter {
 
     if (portType === 'DI') {
       url     = `/iolink/v1/devices/${alias}/processdata/value`;
-      timeout = 500; // DI polling is inherently slower
+      timeout = 300; // DI is slower due to master hardware poll cycle, not HTTP
     } else if (portType === 'IOLINK') {
       url     = `/iolink/v1/devices/${alias}/processdata/value?format=byteArray`;
       timeout = 300;
