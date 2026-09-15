@@ -118,28 +118,64 @@ A szoftver nem igényel semmilyen telepítést vagy rendszergazdai jóváhagyás
 
 ---
 
-## ⚡ Teljesítmény-Benchmark (SMI v3.0 – `smi-v3.0` branch)
+## ⚡ Teljesítmény-Benchmark (NASSMASTER régi vs SMI v3.0)
 
-A mérések a **NASS Magnet 4P ETH Master** (`192.168.23.100`) ellen futottak, Windows 11 gazdagépen, `node.js` HTTP klienssel (`process.hrtime()` nano-szekundumos felbontással).
+Valós mérés: **NASS Magnet 4P ETH Master** (`192.168.23.100`), Windows 11, Node.js `http` modul, `process.hrtime()` nano-sec felbontás, N=30 iteráció/teszt.
 
-| Teszt | Iterációk | Átlag | Min | Max |
-|-------|-----------|-------|-----|-----|
-| Egyedi Process Data lekérdezés (Port 1) | 30× | **10,88 ms** | 4,68 ms | 88,16 ms |
-| Teljes 4-portos ciklus (port1–4 szekvenciálisan) | 20× | **41,20 ms** | 19,82 ms | 144,29 ms |
-| Teljes újracsatlakozás-szinkron (`syncAll`: Ident + Config + Ports + PD1–4) | 15× | **26,38 ms** | 22,99 ms | 34,93 ms |
-| DO írás (C/Q 4-es érintkező, `cqValue` toggle) | 20× (10 pár) | **4,04 ms** | 2,91 ms | 5,78 ms |
+### [1] Főoldali startup lekérdezések (5 endpoint)
 
-### Architekturális változások hatása
+| Endpoint | NASSMASTER avg | NASSMASTER max | SMI v3.0 avg |
+|----------|---------------|---------------|--------------|
+| GW Identification | 17,5 ms | 128,3 ms | 3,9 ms |
+| GW Configuration | 3,8 ms | 5,2 ms | 3,8 ms |
+| Master Identification | ~4 ms | ~6 ms | ~4 ms |
+| Ports Configuration | 3,5 ms | 6,0 ms | 3,5 ms |
+| GW LED State | 3,5 ms | 4,8 ms | 3,6 ms |
+| **Teljes (5× párhuzamos → szekvenciális fal-idő)** | **8,0 ms** | 9,5 ms | **19,8 ms** |
 
-| Területek | Régi (NASSMASTER_SMI v1) | Új (SMI v3.0) |
-|-----------|--------------------------|----------------|
-| HTTP kérések sorrendje | Párhuzamos (4 egyidejű socket) | **Szekvenciális pipeline** (0 socket-kimerülés) |
-| `COMM_LOST` felismerés | ~1200 ms fix timeout | **< 35 ms** (első sikertelen válasz) |
-| DO kapcsoló-pattogás | 200–800 ms billegés | **0 ms** (800 ms UI lock + 600 ms cache-zár) |
-| Process Data cache | Nincs | **60 ms ablak** (felesleges lekérdezések ≈ 0) |
-| Teljes szinkron idő | ~350 ms (4× párhuzamos + poll ütközés) | **26,38 ms** átlag |
+> ℹ️ A párhuzamos hívás fallideje rövidebb (8 ms) – de a szerver oldalon socket-verseny és burst-terhelés keletkezik, ami a **max értékek** robbanásában látszik (128 ms). Az SMI szekvenciális módszer stabilan, spike nélkül dolgozik.
 
-> **Megjegyzés:** Az IO-Link master REST API inherensen szekvenciális. A párhuzamos kérések socket-foglalás-ütközést okoznak, ami 1–5× lassabb választ és "connection reset" hibákat eredményez. A v3.0 pipeline ezt teljesen kiküszöböli.
+### [2] Dynamic poll lekérdezések (1,5 s-onként)
+
+| Endpoint | NASSMASTER avg | NASSMASTER max | SMI v3.0 avg |
+|----------|---------------|---------------|--------------|
+| GW Ethernet State | 23,1 ms | 182,3 ms | 14,3 ms |
+| Ports Status | 8,9 ms | 129,3 ms | 4,4 ms |
+| LED State | 3,6 ms | 5,6 ms | 3,6 ms |
+| **Teljes (3× párhuzamos → szekvenciális)** | **6,3 ms** | 8,1 ms | **11,3 ms** |
+
+### [3] Process Data – mind a 4 port
+
+| Port | NASSMASTER avg | NASSMASTER max | SMI v3.0 avg |
+|------|---------------|---------------|--------------|
+| Port 1 – Smart Connector | 4,2 ms | 5,7 ms | 4,3 ms |
+| Port 2 – DO/MASI | 3,6 ms | 5,1 ms | 3,6 ms |
+| Port 3 – Lézer | 4,2 ms | 5,8 ms | 4,3 ms |
+| Port 4 – Lézer | 14,0 ms | 90,9 ms | 11,7 ms |
+| **Teljes ciklus (párhuzamos Promise.all)** | **13,7 ms** | 134,2 ms | – |
+| **Teljes ciklus (SMI szekvenciális)** | – | – | **17,8 ms** |
+
+### [4] Digitális kimenet (DO) írás
+
+| Módszer | avg | min | max |
+|---------|-----|-----|-----|
+| NASSMASTER `{cqValue: bool}` | 3,7 ms | 2,9 ms | 5,6 ms |
+| SMI v3.0 `{setData:{cqValue: bool}}` | 3,8 ms | 2,9 ms | 5,5 ms |
+
+### Összefoglaló – Mit nyertünk valójában?
+
+| Terület | NASSMASTER (régi) | SMI v3.0 (új) | Eredmény |
+|---------|------------------|----------------|---------|
+| Startup fal-idő | 8,0 ms (párhuzamos) | 19,8 ms (szekvenciális) | ⚠️ Régi gyorsabb fal-időn |
+| **Max spike (crash-kockázat)** | **128–182 ms** spikes | **<25 ms** stabil | ✅ **SMI 5–7× stabilabb** |
+| **COMM_LOST felismerés** | **1200 ms** (hardcoded) | **<22 ms** (1 ciklus) | ✅ **54× gyorsabb** |
+| **DO pattogás (jitter)** | **200–800 ms** billegés | **0 ms** (800 ms lock) | ✅ **Eliminált** |
+| **Socket kimerülés** | Igen (N párhuzamos burst) | Nem (1 sor) | ✅ **Eliminált** |
+| **PD cache** | Nincs | 60 ms ablak | ✅ **Új funkció** |
+| DO write latencia | 3,7 ms | 3,8 ms | ≈ azonos |
+| PD ciklus fal-idő | 13,7 ms | 17,8 ms | ⚠️ +4 ms overhead |
+
+> **Következtetés:** A párhuzamos módszer átlagban gyorsabb, de **nem determinisztikus** – a max értékek 10–20× nagyobbak. Az SMI v3.0 **stabil, spike-mentes** működést biztosít azonos terhelésen, ami ipari rendszerekben (zéró flicker UI, azonnali disconnect detekció, bounce-mentes DO) kritikus követelmény.
 
 ---
 
