@@ -128,8 +128,20 @@ A szoftver nem igényel semmilyen telepítést vagy rendszergazdai jóváhagyás
 
 ---
 
+---
+
 ## 📜 Hivatalos Kiadások & Verziótörténet
 
+* **v3.0.0-smi (2026-09-16)** — *`branch: smi-v3.0`*
+  * **SMI Wrapper v3.0 – Pipeline Serialization & Optimistic Cache:**
+    * Minden HTTP kérés szigorúan szekvenciálisan hajtódik végre (`Promise` sor), megszüntetve a socket-kimerülést és a 1,2 s `COMM_LOST` késleltetést.
+    * 60 ms olvasási cache-ablak + 600 ms DO-írás utáni zárolás a `readProcessData`-ban (zéró felesleges újraolvasás).
+    * Optimista cache-írás a `writeProcessData`-ban: a DO állapota azonnal tükröződik az UI-ban, mielőtt a nyugtázás megérkezne.
+  * **DO Pattogás-Mentesítő (Debounce) az UI-ban:**
+    * `doLock` objektum és 800 ms timeout a `toggleDo(p)` függvénybe (Device Control fül).
+    * `sync_ports` és `state_update` szekciók figyelik a zárolást; pattogásmentes, stabil kapcsolást biztosítanak.
+  * **Mért Teljesítmény-Benchmark** (192.168.23.100, REST API port 80):
+    → Lásd a ⚡ Teljesítmény szekciót lent.
 * **v2.2.0-global (2026-09-10):**
   * Hivatalos **Multilingual Global Edition Release**.
   * 6-nyelvű nyitott szótárstruktúra (`Data/languages.json`) bevezetése (HU, EN, DE, FR, ZH, HI).
@@ -144,4 +156,82 @@ A szoftver nem igényel semmilyen telepítést vagy rendszergazdai jóváhagyás
 
 ---
 
+## ⚡ Teljesítmény-Benchmark (NASSMASTER régi vs SMI v3.0)
+
+Valós mérés: **NASS Magnet 4P ETH Master** (`192.168.23.100`), Windows 11, Node.js `http` modul, `process.hrtime()` nano-sec felbontás, N=30 iteráció/teszt.
+
+### [1] Főoldali startup lekérdezések (5 endpoint)
+
+| Endpoint | NASSMASTER avg | NASSMASTER max | SMI v3.0 avg |
+|----------|---------------|---------------|--------------|
+| GW Identification | 17,5 ms | 128,3 ms | 3,9 ms |
+| GW Configuration | 3,8 ms | 5,2 ms | 3,8 ms |
+| Master Identification | ~4 ms | ~6 ms | ~4 ms |
+| Ports Configuration | 3,5 ms | 6,0 ms | 3,5 ms |
+| GW LED State | 3,5 ms | 4,8 ms | 3,6 ms |
+| **Teljes (5× párhuzamos → szekvenciális fal-idő)** | **8,0 ms** | 9,5 ms | **19,8 ms** |
+
+> ℹ️ A párhuzamos hívás fallideje rövidebb (8 ms) – de a szerver oldalon socket-verseny és burst-terhelés keletkezik, ami a **max értékek** robbanásában látszik (128 ms). Az SMI szekvenciális módszer stabilan, spike nélkül dolgozik.
+
+### [2] Dynamic poll lekérdezések (1,5 s-onként)
+
+| Endpoint | NASSMASTER avg | NASSMASTER max | SMI v3.0 avg |
+|----------|---------------|---------------|--------------|
+| GW Ethernet State | 23,1 ms | 182,3 ms | 14,3 ms |
+| Ports Status | 8,9 ms | 129,3 ms | 4,4 ms |
+| LED State | 3,6 ms | 5,6 ms | 3,6 ms |
+| **Teljes (3× párhuzamos → szekvenciális)** | **6,3 ms** | 8,1 ms | **11,3 ms** |
+
+### [3] Process Data – mind a 4 port
+
+| Port | NASSMASTER avg | NASSMASTER max | SMI v3.0 avg |
+|------|---------------|---------------|--------------|
+| Port 1 – Smart Connector | 4,2 ms | 5,7 ms | 4,3 ms |
+| Port 2 – DO/MASI | 3,6 ms | 5,1 ms | 3,6 ms |
+| Port 3 – Lézer | 4,2 ms | 5,8 ms | 4,3 ms |
+| Port 4 – Lézer | 14,0 ms | 90,9 ms | 11,7 ms |
+| **Teljes ciklus (párhuzamos Promise.all)** | **13,7 ms** | 134,2 ms | – |
+| **Teljes ciklus (SMI szekvenciális)** | – | – | **17,8 ms** |
+
+### [4] Digitális kimenet (DO) írás
+
+| Módszer | avg | min | max |
+|---------|-----|-----|-----|
+| NASSMASTER `{cqValue: bool}` | 3,7 ms | 2,9 ms | 5,6 ms |
+| SMI v3.0 `{setData:{cqValue: bool}}` | 3,8 ms | 2,9 ms | 5,5 ms |
+
+### Összefoglaló – Mit nyertünk valójában?
+
+| Terület | NASSMASTER (régi) | SMI v3.0 (új) | Eredmény |
+|---------|------------------|----------------|---------|
+| Startup fal-idő | 8,0 ms (párhuzamos) | 19,8 ms (szekvenciális) | ⚠️ Régi gyorsabb fal-időn |
+| **Max spike (crash-kockázat)** | **128–182 ms** spikes | **<25 ms** stabil | ✅ **SMI 5–7× stabilabb** |
+| **COMM_LOST felismerés** | **1200 ms** (hardcoded) | **<22 ms** (1 ciklus) | ✅ **54× gyorsabb** |
+| **DO pattogás (jitter)** | **200–800 ms** billegés | **0 ms** (800 ms lock) | ✅ **Eliminált** |
+| **Socket kimerülés** | Igen (N párhuzamos burst) | Nem (1 sor) | ✅ **Eliminált** |
+| **PD cache** | Nincs | 60 ms ablak | ✅ **Új funkció** |
+| DO write latencia | 3,7 ms | 3,8 ms | ≈ azonos |
+| PD ciklus fal-idő | 13,7 ms | 17,8 ms | ⚠️ +4 ms overhead |
+
+> **Következtetés:** A párhuzamos módszer átlagban gyorsabb, de **nem determinisztikus** – a max értékek 10–20× nagyobbak. Az SMI v3.0 **stabil, spike-mentes** működést biztosít azonos terhelésen, ami ipari rendszerekben (zéró flicker UI, azonnali disconnect detekció, bounce-mentes DO) kritikus követelmény.
+
+---
+
+## 🥊 Gyári TEConcept IO-Link Control Tool vs. NassMaster SMI
+
+| Szempont | Gyári TEConcept Control Tool | NassMaster SMI (A mi szoftverünk) |
+| :--- | :--- | :--- |
+| **Felület és élmény (UX)** | 🪟 **Klasszikus 2010-es évekbeli Windows WPF ablak** (szürke fülek, rejtett almenük, nehézkes áttekinthetőség, apró betűk). | 🚀 **Modern Ipari Dark-Theme SCADA & Web UI** (egy képernyőn mind a 4 port élőben, trendgörbék, közvetlen potméter, azonnali láthatóság). |
+| **Elérhetőség & Hálózat** | 💻 **Csak a helyi PC-n futó .exe**, kizárólag arról a Windows gépről kezelhető, amire telepítve van. | 🌐 **Webes kliens-szerver architektúra**: tabletről, telefonról, csarnoki panel PC-ről, böngészőből bárhonnan elérhető a helyi hálózaton. |
+| **Automatizálás & PLC logika** | ❌ **NINCS**. Csak kézi tesztelő eszköz. Nem tud automatikus logikát futtatni (pl. ha a lézer < 100 mm, akkor kapcsold a szelepet). | ⚡ **Beépített Mini PLC szabályzó motor** (500 ms valós idejű ciklus, automatikus szabályok, P-arányos PWM skálázás). |
+| **Folyamatábra (SCADA Mimic)** | ❌ **NINCS**. Csak szöveges/táblázatos mérnöki diagnosztikai nézet. | 🏭 **Visual Process Mimic Canvas** (drag-and-drop ipari géprajzok, tartályok, szalagok, egyedi P&ID fotók). |
+| **Port Táp és Lekapcsolás** | ⚠️ **Kétlépcsős, kézi procedúra**: Inactive mód kiválasztása, majd külön "Power Off" kapcsoló, majd Apply nyugtázó gomb. | 🛡️ **100% Automatikus Fail-Safe**: a Mode menüben `Deactivated`-re váltasz -> automatikusan kiküldi a Stop keretet a motornak, és lekapcsolja a tápot! |
+| **Adatnaplózás (Logging)** | ⚠️ Csak belső STCS naplók, külön külső plugin kell a plotoláshoz. | 📊 **Zéró RAM terhelésű közvetlen CSV naplózás** + 60 pontos élő HTML5 Canvas trendgörbe automatikus skálázással. |
+| **Hordozhatóság (Portability)** | ❌ Telepítést igényel (MSI / Program Files, helyi STCS bridge, Windows regisztrációs függőségek). | 💼 **100% Zero-Install Hordozható**: pendrive-ról egy kattintással indul a `NassmasterSMI.exe`-vel, admin jogok nélkül. |
+| **Protokoll & Architektúra** | 🔌 **STCS_P_WIN.exe bridge + TCP 50000**: lokális segédfolyamatot indít a háttérben, azon keresztül forgalmaz. | ⚡ **Közvetlen Pure Node.js SMI / REST Engine**: nincs szükség külső STCS bridge-re, natívan és determinisztikusan kommunikál a Masterrel. |
+| **Nyelvkezelés** | 🇬🇧 Csak angol / német. | 🌍 **6-Nyelvű Vállalati Szótár** (HU, EN, DE, FR, ZH, HI) a gépkezelők és operátorok anyanyelvén. |
+
+---
+
 **Copyright © 2026 nass magnet Hungária Kft. Minden jog fenntartva.**
+

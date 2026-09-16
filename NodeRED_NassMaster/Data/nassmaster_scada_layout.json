@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "id": "v1",
+      "type": "VALVE",
+      "label": "X01 Hűtőszelep",
+      "x": 80,
+      "y": 120,
+      "w": 90,
+      "h": 80,
+      "binding": {
+        "portId": 1,
+        "sourceType": "PD",
+        "channelKey": "Valve set value"
+      },
+      "liveDisplayVal": "1 ",
+      "isLiveActive": true
+    },
+    {
+      "id": "c1",
+      "type": "CONVEYOR",
+      "label": "Adagoló Szalag",
+      "x": 230,
+      "y": 130,
+      "w": 160,
+      "h": 60,
+      "binding": {
+        "portId": 2,
+        "sourceType": "DO"
+      },
+      "isLiveActive": false,
+      "liveDisplayVal": "0V (LOW)"
+    },
+    {
+      "id": "t1",
+      "type": "THERMO",
+      "label": "ifm Hőmérséklet",
+      "x": 440,
+      "y": 110,
+      "w": 80,
+      "h": 100,
+      "binding": {
+        "portId": 3,
+        "sourceType": "PD",
+        "channelKey": "Process Data"
+      },
+      "liveDisplayVal": "53 cm",
+      "isLiveActive": true
+    },
+    {
+      "id": "p1",
+      "type": "PROXIMITY",
+      "label": "Paletta Érzékelő",
+      "x": 570,
+      "y": 140,
+      "w": 90,
+      "h": 50,
+      "binding": {
+        "portId": 4,
+        "sourceType": "DI"
+      },
+      "isLiveActive": false,
+      "liveDisplayVal": "0V (NYITOTT)"
+    },
+    {
+      "id": "tk1",
+      "type": "TANK",
+      "label": "Puffer Tartály",
+      "x": 700,
+      "y": 100,
+      "w": 80,
+      "h": 110,
+      "binding": {
+        "portId": 1,
+        "sourceType": "PD",
+        "channelKey": "PWM get value (%)"
+      },
+      "liveDisplayVal": "100 %",
+      "isLiveActive": true,
+      "liquidPercent": 100
+    },
+    {
+      "id": "item_1789297328017_ydva",
+      "type": "KNOB",
+      "label": "PWM Szabályzó",
+      "x": 438,
+      "y": 292,
+      "w": 90,
+      "h": 90,
+      "binding": {
+        "portId": 1,
+        "sourceType": "PD",
+        "channelKey": "PWM get value (%)"
+      },
+      "isLiveActive": true,
+      "liveDisplayVal": "100 %",
+      "pwmVal": 100
+    }
+  ]
+}
