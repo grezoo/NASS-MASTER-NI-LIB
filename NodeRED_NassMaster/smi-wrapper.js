@@ -263,11 +263,15 @@ class SmiEngine extends EventEmitter {
     });
   }
 
+  getPortStatus(portNum) { return this.readPortStatus(portNum); }
+
   readPortStatus(portNum) {
     return this.readAllPorts().then(function(ports) {
       return ports.find(function(p) { return p.portNumber === portNum; }) || null;
     });
   }
+
+  setPortConfig(portNum, cfg) { return Promise.resolve({}); }
 
   setPortMode(portNum, mode) {
     var alias = 'master1port' + portNum;
@@ -391,6 +395,7 @@ class SmiEngine extends EventEmitter {
   writePD(portNum, data) { return this.writeProcessData(portNum, data); }
 
   writeProcessData(portNum, data) {
+    if (Buffer.isBuffer(data)) { data = Array.from(data); }
     var self = this;
     var alias = 'master1port' + portNum;
     var payload;
