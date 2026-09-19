@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NassMaster FAT/SAT Validációs Varázsló (v2.2.0)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Header Navigation -->
+    <header class="top-nav">
+        <div class="brand">
+            <div class="logo-box">NM</div>
+            <div class="brand-text">
+                <span class="title">NASSMASTER VALIDATION</span>
+                <span class="subtitle">FAT/SAT 81-Pontos Teszt Varázsló</span>
+            </div>
+            <span class="badge-v">GLOBAL v2.2.0</span>
+        </div>
+
+        <div class="header-stats">
+            <div class="stat-pill">
+                <span class="lbl">ÖSSZES:</span>
+                <span class="val" id="stat-total">81</span>
+            </div>
+            <div class="stat-pill pass">
+                <span class="lbl">PASS:</span>
+                <span class="val" id="stat-pass">0</span>
+            </div>
+            <div class="stat-pill fail">
+                <span class="lbl">FAIL:</span>
+                <span class="val" id="stat-fail">0</span>
+            </div>
+            <div class="stat-pill pend">
+                <span class="lbl">FÜGGŐBEN:</span>
+                <span class="val" id="stat-pend">81</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+                <span class="progress-txt" id="progress-txt">0%</span>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn btn-bench" id="btn-measure-boot" title="NassMaster indulási idő mérése">⏱️ Indulási Idő (<span id="boot-time-display">-- s</span>)</button>
+            <button class="btn btn-report" id="btn-open-report">📄 Jegyzőkönyv</button>
+            <button class="btn btn-reset" id="btn-reset-session" title="Tesztelés újraindítása">🔄 Újraindítás</button>
+        </div>
+    </header>
+
+    <!-- App Main Container -->
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <input type="text" id="search-input" placeholder="🔍 Keresés tesztek között..." class="search-box">
+                <div class="filter-tabs">
+                    <button class="ftab active" data-filter="all">Mind (81)</button>
+                    <button class="ftab" data-filter="pending">Függő</button>
+                    <button class="ftab" data-filter="fail">FAIL</button>
+                    <button class="ftab" data-filter="pass">PASS</button>
+                </div>
+            </div>
+            <div class="test-list" id="test-list">
+                <!-- Dynamically Populated 81 items grouped by sections -->
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="workbench">
+            <div class="step-card" id="step-card">
+                <!-- Header Info -->
+                <div class="step-header">
+                    <div class="step-badge-group">
+                        <span class="sec-tag" id="cur-section">A. FŐLAP</span>
+                        <span class="id-tag" id="cur-id-tag">ID #1</span>
+                    </div>
+                    <div class="status-indicator" id="cur-status-indicator">FÜGGŐBEN</div>
+                </div>
+
+                <h1 class="step-title" id="cur-name">GUI design (magenta címek)</h1>
+
+                <!-- Criteria Box -->
+                <div class="info-box criteria-box">
+                    <div class="box-lbl">📋 ELFOGADÁSI KRITÉRIUM:</div>
+                    <div class="box-val" id="cur-criteria">Funkció hibamentesen működik</div>
+                </div>
+
+                <!-- Automated Test & Latency Engine Card -->
+                <div class="engine-card">
+                    <div class="engine-header">
+                        <div class="engine-title">
+                            <span class="icon">⚡</span>
+                            <span>AUTOMATA VIZSGÁLAT & VÁLASZIDŐ MÉRÉS</span>
+                        </div>
+                        <button class="btn btn-run-auto" id="btn-run-auto">🔄 Mérés Futtatása</button>
+                    </div>
+
+                    <div class="telemetry-grid">
+                        <div class="telemetry-item">
+                            <div class="t-lbl">VÁLASZIDŐ (LATENCY):</div>
+                            <div class="t-val" id="auto-latency">-- ms</div>
+                        </div>
+                        <div class="telemetry-item">
+                            <div class="t-lbl">MÉRT ÁLLAPOT / ÉRTÉK:</div>
+                            <div class="t-val highlight" id="auto-val">Mérésre vár...</div>
+                        </div>
+                        <div class="telemetry-item">
+                            <div class="t-lbl">HIBAKÓD:</div>
+                            <div class="t-val" id="auto-err">ERR_NONE</div>
+                        </div>
+                    </div>
+                    <div class="engine-details" id="auto-details">Kattints a mérés gombra az automatikus lekérdezéshez.</div>
+                </div>
+
+                <!-- Operator Instruction Card -->
+                <div class="info-box operator-box">
+                    <div class="box-lbl">👁️ TESZTELŐI FELADAT & ELLENŐRZÉS:</div>
+                    <div class="box-val operator-text" id="cur-instruction">
+                        Ellenőrizd a NassMaster fekete/magenta dizájnját, a címsorokat és az elrendezést a böngészőben.
+                    </div>
+                </div>
+
+                <!-- Decision & Evaluation Area -->
+                <div class="decision-area">
+                    <div class="decision-title">TESZTELŐI DÖNTÉS:</div>
+                    <div class="decision-buttons">
+                        <button class="btn-dec btn-pass" id="btn-dec-pass">
+                            <span class="icon">✓</span>
+                            <span>PASS (Elfogadva)</span>
+                            <span class="shortcut">[P]</span>
+                        </button>
+                        <button class="btn-dec btn-fail" id="btn-dec-fail">
+                            <span class="icon">✕</span>
+                            <span>FAIL (Hiba / Eltérés)</span>
+                            <span class="shortcut">[F]</span>
+                        </button>
+                    </div>
+
+                    <div class="comment-container">
+                        <label for="step-comment">📝 Megjegyzés / Észlelt eltérés (ha volt):</label>
+                        <textarea id="step-comment" rows="2" placeholder="Írd ide az észrevételt, ha az érték vagy a működés eltért az elvárttól..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Navigation Bar -->
+                <div class="step-nav-bar">
+                    <button class="btn btn-nav" id="btn-prev">⬅️ Előző lépés</button>
+                    <button class="btn btn-nav highlight" id="btn-next-pend">⏩ Következő Függőben lévő</button>
+                    <button class="btn btn-nav" id="btn-next">Következő lépés ➡️</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal-overlay" id="report-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>📄 Hivatalos FAT/SAT Tesztjegyzőkönyv Generálása</h2>
+                <button class="btn-close" id="btn-close-modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="meta-form-grid">
+                    <div class="form-group">
+                        <label>Szoftver Verzió:</label>
+                        <input type="text" id="rep-version" value="v2.2.0-global">
+                    </div>
+                    <div class="form-group">
+                        <label>Dátum:</label>
+                        <input type="date" id="rep-date">
+                    </div>
+                    <div class="form-group">
+                        <label>Tesztelő Mérnök Neve:</label>
+                        <input type="text" id="rep-tester" value="Minőségbiztosítási Mérnök">
+                    </div>
+                    <div class="form-group">
+                        <label>Master IP Cím:</label>
+                        <input type="text" id="rep-master-ip" value="192.168.23.100">
+                    </div>
+                    <div class="form-group full">
+                        <label>Kiadási Döntés:</label>
+                        <select id="rep-decision">
+                            <option value="KIADHATÓ">🟢 KIADHATÓ (Minden teszt PASS)</option>
+                            <option value="KIADHATO KORLATOZASSAL">🟡 KIADHATÓ KORLÁTOZÁSSAL (Kisebb megjegyzésekkel)</option>
+                            <option value="NEM KIADHATO">🔴 NEM KIADHATÓ (Kritikus hibák miatt)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="report-preview-box" id="report-preview">
+                    <!-- Live Report Preview Frame -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btn-cancel-report">Mégse</button>
+                <button class="btn btn-primary" id="btn-generate-print">🖨️ Nyomtatás / PDF Mentés</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

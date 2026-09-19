@@ -1,0 +1,674 @@
+[
+  {
+    "id": 1,
+    "section": "A. FŐLAP",
+    "name": "GUI design (magenta címek)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "gui_check",
+    "instruction": "Nézz rá a NassMaster képernyőjére: A háttér sötét (#141413), a fejléc magenta (#95084a), a címek és kártyák elrendezése tiszta és olvasható?"
+  },
+  {
+    "id": 2,
+    "section": "A. FŐLAP",
+    "name": "Master IP",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "ping_master",
+    "instruction": "Ellenőrizd a Master IP beviteli mezőt (pl. 192.168.23.100). A Master IP elérhető a helyi hálózaton?"
+  },
+  {
+    "id": 3,
+    "section": "A. FŐLAP",
+    "name": "Master ID",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "get_master_id",
+    "instruction": "A Master gyártója (Nass Magnet / ifm), termékneve, sorozatszáma és verziója megjelenik a felső információs kártyán?"
+  },
+  {
+    "id": 4,
+    "section": "A. FŐLAP",
+    "name": "Port ID",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "check_ports",
+    "instruction": "Mind a 4 port (Port 1..4 / X01..X04) külön-külön vezérlőkártyaként, egyértelmű portszámmal látható?"
+  },
+  {
+    "id": 5,
+    "section": "A. FŐLAP",
+    "name": "Raw HEX PD IODD nélkül",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "get_raw_pd",
+    "instruction": "Ha egy porthoz még nincs IODD rendelve, a beérkező nyers HEX folyamatadatok (pl. [0x00, 0x1A]) megjelennek?"
+  },
+  {
+    "id": 6,
+    "section": "A. FŐLAP",
+    "name": "LED status",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "get_led_state",
+    "instruction": "Hasonlítsd össze a képernyőn látható LED állapotjelzőket a fizikai Master hardveren lévő fizikai LED fényekkel: egyeznek?"
+  },
+  {
+    "id": 7,
+    "section": "A. FŐLAP",
+    "name": "IOLINK AutoStart",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "set_port_mode",
+    "instruction": "Állítsd a portot 'IO-Link Autostart' módra a lenyílóban: a Master automatikusan felépíti az IO-Link kommunikációt az eszközzel?"
+  },
+  {
+    "id": 8,
+    "section": "A. FŐLAP",
+    "name": "DI mód (Bemenet teszt)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "set_di_mode",
+    "instruction": "Állítsd a portot 'Digitális Bemenet (DI)' módba, majd NYOMD MEG a fizikai nyomógombot / kapcsold át a kapcsolót: a felületen zöldre vált a DI HIGH (24V) jelzés?"
+  },
+  {
+    "id": 9,
+    "section": "A. FŐLAP",
+    "name": "DO mód (Kimenet teszt)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "set_do_mode",
+    "instruction": "Állítsd a portot 'Digitális Kimenet (DO)' módba, és kattints a kimenet bekapcsolására: KATTANT a fizikai relé / világít a 24V kimeneti LED?"
+  },
+  {
+    "id": 10,
+    "section": "A. FŐLAP",
+    "name": "IP módosítás reboot nélkül",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "change_ip",
+    "instruction": "Írd át a Master IP címet (pl. 192.168.23.100 -> 192.168.23.101): a szoftver azonnal az új IP-t kérdezi le a Node-RED újraindítása nélkül?"
+  },
+  {
+    "id": 11,
+    "section": "B. PORT",
+    "name": "Vendor (Gyártó)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_vendor",
+    "instruction": "A csatlakoztatott eszköz fizikai gyártója (Vendor Name, pl. 'nass magnet GmbH' / 'ifm electronic') pontosan megjelenik a port kártyán?"
+  },
+  {
+    "id": 12,
+    "section": "B. PORT",
+    "name": "Device Name",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_dev_name",
+    "instruction": "Az eszköz hivatalos termékmegnevezése (pl. 'Smart Connector' / 'TN2405') hibátlanul kiolvasásra kerül?"
+  },
+  {
+    "id": 13,
+    "section": "B. PORT",
+    "name": "Device ID",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_dev_id",
+    "instruction": "A szabványos IO-Link Device ID és Vendor ID numerikus kód egyezik az eszköz adatlapjával?"
+  },
+  {
+    "id": 14,
+    "section": "B. PORT",
+    "name": "Serial Number",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_sn",
+    "instruction": "Nézd meg az eszközre nyomtatott fizikai sorozatszámot: a felületen pontosan ugyanez a Serial Number látható?"
+  },
+  {
+    "id": 15,
+    "section": "B. PORT",
+    "name": "Raw PD",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_raw_pd",
+    "instruction": "A beérkező folyamatadat (PD In) nyers bájtsorozata folyamatosan, élőben frissül másodpercenként?"
+  },
+  {
+    "id": 16,
+    "section": "B. PORT",
+    "name": "Skálázott PD (Hőmérő teszt)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_scaled_pd",
+    "instruction": "FOGD MEG A HŐMÉRŐ SZONDÁJÁT KÉZZEL: A kijelzett skálázott hőmérséklet elkezd emelkedni (pl. 24.2 °C -> 28.5 °C)?"
+  },
+  {
+    "id": 17,
+    "section": "B. PORT",
+    "name": "Mértékegység",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "check_unit",
+    "instruction": "A mért értékek mellett a helyes mérnöki mértékegység jelenik meg (pl. '°C', 'bar', '%', 'l/min', 'V')?"
+  },
+  {
+    "id": 18,
+    "section": "B. PORT",
+    "name": "PD frissülés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "check_pd_rate",
+    "instruction": "A folyamatadatok akadásmentesen, ugrálás és fagyás nélkül, folyamatosan frissülnek a képernyőn?"
+  },
+  {
+    "id": 19,
+    "section": "C. IODD",
+    "name": "IODD import",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "iodd_import",
+    "instruction": "Tölts be egy IODD .ZIP vagy .XML csomagot tallózással vagy húzással: a rendszer kicsomagolja és hibátlanul elemzi?"
+  },
+  {
+    "id": 20,
+    "section": "C. IODD",
+    "name": "IODD mentés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "iodd_save",
+    "instruction": "Rendeld hozzá az IODD-t egy porthoz: a profil mentésre kerül és a böngésző frissítése után is megmarad?"
+  },
+  {
+    "id": 21,
+    "section": "C. IODD",
+    "name": "IODD lista",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "iodd_list",
+    "instruction": "A betöltött IODD eszközök listája megjelenik a port hozzárendelési menüben?"
+  },
+  {
+    "id": 22,
+    "section": "C. IODD",
+    "name": "PD struktúra",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "iodd_pd_struct",
+    "instruction": "Az IODD ProcessDataIn/Out bitmezői (bitek, skálázás, adattípusok) pontosan épülnek fel?"
+  },
+  {
+    "id": 23,
+    "section": "C. IODD",
+    "name": "ISDU lista",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "iodd_isdu_list",
+    "instruction": "A diagnosztikai és paraméter ISDU változók (index, subindex, írási/olvasási jog) mind listázhatók?"
+  },
+  {
+    "id": 24,
+    "section": "C. IODD",
+    "name": "ENUM lista",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "iodd_enum_list",
+    "instruction": "A diszkrét állapotok szöveges megnevezései (pl. 'Üzemmód: Automata / Kézi / Időzített') megjelennek a választóban?"
+  },
+  {
+    "id": 25,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "IODD widget",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "widget_render",
+    "instruction": "Az adott eszköz típusához illeszkedő grafikus kezelőwidget (kapcsolók, csúszkák, kijelzők) megfelelően megjelenik?"
+  },
+  {
+    "id": 26,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "Aktuátor PD (Szelep kapcsolás)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "actuator_pd_cmd",
+    "instruction": "Kattints a szelep kapcsoló gombjára a felületen: KATTANT a fizikai mágnesszelep tekercse, és a visszajelző fény zöldre váltott?"
+  },
+  {
+    "id": 27,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "Analóg PD (Folyamatérték)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "analog_pd_read",
+    "instruction": "Változtasd a fizikai mért jellemzőt (hőmérséklet / nyomás): a widget analóg mutatója vagy számszerű értéke azonnal követi?"
+  },
+  {
+    "id": 28,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "Mértékegység",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "widget_unit_check",
+    "instruction": "A widget kijelzőjén a helyes mértékegység látható a számérték mellett?"
+  },
+  {
+    "id": 29,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "Integer ISDU",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_int_isdu",
+    "instruction": "Olvass ki egy egész szám típusú ISDU paramétert (pl. feszültség mV-ban): érvényes számérték érkezik vissza?"
+  },
+  {
+    "id": 30,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "Boolean ISDU",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_bool_isdu",
+    "instruction": "Kapcsolj át egy logikai (Boolean) ISDU paramétert: a fizikai eszközön és a felületen is átvált az állapot?"
+  },
+  {
+    "id": 31,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "Float ISDU",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_float_isdu",
+    "instruction": "Lebegőpontos ISDU paraméter kiolvasásakor tizedespontos, helyes érték jelenik meg?"
+  },
+  {
+    "id": 32,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "String ISDU",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_str_isdu",
+    "instruction": "Szöveges ISDU mező kiolvasásakor (pl. Application Specific Tag) a szöveg hibátlanul, karakterhelyesen látható?"
+  },
+  {
+    "id": 33,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "ENUM olvasás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_enum_isdu",
+    "instruction": "Állapotválasztó ENUM paraméter kiolvasása sikeres, a nyers kód megérkezik a masterből?"
+  },
+  {
+    "id": 34,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "ENUM szöveg",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "read_enum_text",
+    "instruction": "A numerikus ENUM kód helyett az ember által olvasható állapotfelirat (pl. 'Aktív üzemmód') jelenik meg a lenyílóban?"
+  },
+  {
+    "id": 35,
+    "section": "D. ESZKÖZVEZÉRLŐ",
+    "name": "ISDU írás (PWM Állítás)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "write_isdu_cmd",
+    "instruction": "Állítsd át a PWM kitöltési tényezőt (pl. 25% -> 75%) és küldd el: az eszköz nyugtázza az írást és megváltozik a működés?"
+  },
+  {
+    "id": 36,
+    "section": "E. DIAG",
+    "name": "Port választás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_port_select",
+    "instruction": "A Diagnosztika fülön válts át a Port 1-ről a Port 2-re vagy Port 3-ra: a nézet azonnal az új port adataira vált?"
+  },
+  {
+    "id": 37,
+    "section": "E. DIAG",
+    "name": "Mintavételi idő",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_interval_select",
+    "instruction": "Állítsd a mintavételi időt 1 másodpercre, majd 5 másodpercre: a grafikon pontgyűjtési sebessége igazodik hozzá?"
+  },
+  {
+    "id": 38,
+    "section": "E. DIAG",
+    "name": "PD grafikon",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_pd_chart",
+    "instruction": "A folyamatadat görbéje folyamatosan, törésmentesen rajzolódik a trend grafikonon?"
+  },
+  {
+    "id": 39,
+    "section": "E. DIAG",
+    "name": "ISDU grafikon",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_isdu_chart",
+    "instruction": "Válassz ki egy ISDU paramétert a lenyílóban: a görbéje megjelenik a grafikonon a folyamatadat mellett?"
+  },
+  {
+    "id": 40,
+    "section": "E. DIAG",
+    "name": "Valós idejű PD",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_live_pd",
+    "instruction": "A grafikon feletti kártyán a folyamatadat pillanatnyi értéke pontosan megegyezik a görbe legutolsó pontjával?"
+  },
+  {
+    "id": 41,
+    "section": "E. DIAG",
+    "name": "Valós idejű ISDU",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_live_isdu",
+    "instruction": "A kiolvasott ISDU élő numerikus értéke megjelenik nagy számmal és mértékegységgel a kártyán?"
+  },
+  {
+    "id": 42,
+    "section": "E. DIAG",
+    "name": "Naplósorok számláló",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_log_rows",
+    "instruction": "Az adatpont számláló (pl. '15 adatpont') másodpercenként növekszik a mérés futása közben?"
+  },
+  {
+    "id": 43,
+    "section": "E. DIAG",
+    "name": "ISDU lista",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_isdu_dropdown",
+    "instruction": "A lenyíló listában az összes mérhető IODD ISDU változó kiválasztható?"
+  },
+  {
+    "id": 44,
+    "section": "E. DIAG",
+    "name": "Subindex",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "diag_subindex_read",
+    "instruction": "Alindexszel rendelkező változó kiolvasásakor (pl. Subindex 1 vs Subindex 2) a helyes csatorna értéke jelenik meg?"
+  },
+  {
+    "id": 45,
+    "section": "F. CSV",
+    "name": "CSV létrejön",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "csv_create_check",
+    "instruction": "Kapcsold be a CSV mentés kapcsolót a felületen: létrejön a fizikai .csv fájl a lemezen a Data mappában?"
+  },
+  {
+    "id": 46,
+    "section": "F. CSV",
+    "name": "Azonnali lemezírás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "csv_flush_check",
+    "instruction": "Nyisd meg a CSV fájlt jegyzettömbben a mérés közben: a sorok azonnal beíródnak a lemezre pufferelés nélkül?"
+  },
+  {
+    "id": 47,
+    "section": "F. CSV",
+    "name": "Timestamp",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "csv_timestamp_check",
+    "instruction": "A CSV sorok elején pontos ISO 8601 dátum és időbélyeg szerepel másodperces/ezredmásodperces pontossággal?"
+  },
+  {
+    "id": 48,
+    "section": "F. CSV",
+    "name": "PD mentés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "csv_pd_data_check",
+    "instruction": "A folyamatadat csatornák mért értékei helyes oszlopokban, tiszta számként szerepelnek a fájlban?"
+  },
+  {
+    "id": 49,
+    "section": "F. CSV",
+    "name": "ISDU mentés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "csv_isdu_data_check",
+    "instruction": "A beállított ISDU paraméter értéke rögzítésre kerül az ISDU oszlopban?"
+  },
+  {
+    "id": 50,
+    "section": "F. CSV",
+    "name": "Port mentés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "csv_port_col_check",
+    "instruction": "A CSV sorok tartalmazzák a port számát (pl. 'Port 1') és az eszköz azonosítóját?"
+  },
+  {
+    "id": 51,
+    "section": "F. CSV",
+    "name": "Restart után folytatás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "csv_resume_check",
+    "instruction": "Kapcsold ki, majd be újra a CSV mentést: a fájl végéhez fűzi az új sorokat felesleges új fejlécek nélkül?"
+  },
+  {
+    "id": 52,
+    "section": "G. MINI PLC",
+    "name": "Start",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_start_check",
+    "instruction": "Indítsd el a Mini PLC motort: a státusz zöld 'MOTOR AKTÍV (RUN)' feliratra vált?"
+  },
+  {
+    "id": 53,
+    "section": "G. MINI PLC",
+    "name": "Stop",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_stop_check",
+    "instruction": "Állítsd le a Mini PLC motort: a státusz szürke 'MOTOR LEÁLLÍTVA (STOP)' állapotba lép és a beavatkozások szünetelnek?"
+  },
+  {
+    "id": 54,
+    "section": "G. MINI PLC",
+    "name": "Szabály hozzáadás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_add_rule",
+    "instruction": "Hozz létre egy új logikai szabályt az űrlapon (IF-THEN-ELSE) és mentsd el: bekerül az aktív szabályok listájába?"
+  },
+  {
+    "id": 55,
+    "section": "G. MINI PLC",
+    "name": "Szabály törlés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_del_rule",
+    "instruction": "Törölj ki egy meglévő szabályt a kuka ikonnal: megerősítés után a szabály azonnal eltűnik a listából?"
+  },
+  {
+    "id": 56,
+    "section": "G. MINI PLC",
+    "name": "JSON export",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_json_export",
+    "instruction": "Kattints az Export (.json) gombra: a rendszer letölti a szabályokat tartalmazó érvényes JSON fájlt a számítógépre?"
+  },
+  {
+    "id": 57,
+    "section": "G. MINI PLC",
+    "name": "JSON import",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_json_import",
+    "instruction": "Tölts be egy külső JSON szabályfájlt és importáld: a szabályok hibátlanul bekerülnek a Mini PLC-be?"
+  },
+  {
+    "id": 58,
+    "section": "G. MINI PLC",
+    "name": "JSON editor",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_json_editor",
+    "instruction": "Nyisd meg a kézi JSON szerkesztő ablakot, módosíts egy értéket és mentsd el: a módosítás érvénybe lép?"
+  },
+  {
+    "id": 59,
+    "section": "G. MINI PLC",
+    "name": "PLC napló",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_live_log",
+    "instruction": "Figyeld az élő PLC eseménynaplót: megjelennek a szabálykiértékelési és beavatkozási események valós időben?"
+  },
+  {
+    "id": 60,
+    "section": "G. MINI PLC",
+    "name": "PD forrás (Automatikus szelepvezérlés)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_pd_source_trigger",
+    "instruction": "Állíts be egy szabályt: 'HA Port 3 Temp > 26°C AKKOR Port 1 Szelep BE, ELSE Szelep KI'. Melegítsd a hőmérőt kézzel: 26°C felett KATTANT a szelep és bekapcsolt?"
+  },
+  {
+    "id": 61,
+    "section": "G. MINI PLC",
+    "name": "ISDU forrás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_isdu_source_trigger",
+    "instruction": "Állíts be egy ISDU feltételű szabályt: a határérték átlépésekor azonnal lefut a beavatkozás?"
+  },
+  {
+    "id": 62,
+    "section": "G. MINI PLC",
+    "name": "DI forrás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_di_source_trigger",
+    "instruction": "Állíts be szabályt: 'HA Port 2 DI == HIGH AKKOR Port 1 Szelep BE'. Nyomd meg a fizikai DI gombot: a szelep azonnal bekapcsol?"
+  },
+  {
+    "id": 63,
+    "section": "G. MINI PLC",
+    "name": "Több szabály",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "plc_multi_rules_eval",
+    "instruction": "Aktiválj 3-5 különböző szabályt egyszerre: mindegyik egymástól függetlenül, helyesen végrehajtódik?"
+  },
+  {
+    "id": 64,
+    "section": "H. PLUG & PLAY",
+    "name": "Eszköz felismerés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_device_detect",
+    "instruction": "Dugj be egy új IO-Link eszközt a szabad portba: a Master és a NassMaster azonnal észleli a csatlakozást?"
+  },
+  {
+    "id": 65,
+    "section": "H. PLUG & PLAY",
+    "name": "Vendor frissül",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_vendor_update",
+    "instruction": "Cserélj ki egy eszközt másik gyártójúra: a Gyártó neve azonnal átfrissül a képernyőn az újra?"
+  },
+  {
+    "id": 66,
+    "section": "H. PLUG & PLAY",
+    "name": "DeviceID frissül",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_devid_update",
+    "instruction": "Az új eszköz beolvasott Device ID-ja frissül a kártyán?"
+  },
+  {
+    "id": 67,
+    "section": "H. PLUG & PLAY",
+    "name": "SN frissül",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_sn_update",
+    "instruction": "A sorozatszám mező automatikusan átíródik az új fizikai hardver S/N kódjára?"
+  },
+  {
+    "id": 68,
+    "section": "H. PLUG & PLAY",
+    "name": "Kihúzás érzékelés (Hot-Unplug)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_disconnect_detect",
+    "instruction": "HÚZD KI AZ 1-ES PORT (X01) M12-ES CSATLAKOZÓJÁT: A képernyőn a port állapota azonnal átvált 'COMM_LOST' / 'INAKTÍV' jelzésre?"
+  },
+  {
+    "id": 69,
+    "section": "H. PLUG & PLAY",
+    "name": "Régi PD törlés (Zéró beragadás)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_stale_pd_wipe",
+    "instruction": "Nézz rá a kihúzott port folyamatadat és mértékegység mezőire: minden érték tiszta '---' állapotra váltott, nem ragadt be a régi szám?"
+  },
+  {
+    "id": 70,
+    "section": "H. PLUG & PLAY",
+    "name": "Másik eszköz felismerés (Hot-Swap)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_swap_detect",
+    "instruction": "DUGD VISSZA A CSATLAKOZÓT (vagy dugd át másik portba): 1 másodpercen belül automatikusan helyreáll az élő adatkapcsolat?"
+  },
+  {
+    "id": 71,
+    "section": "H. PLUG & PLAY",
+    "name": "IODD csere",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_iodd_swap",
+    "instruction": "Másik típusú eszköz bedugásakor a megfelelő IODD profil társítható a porthoz?"
+  },
+  {
+    "id": 72,
+    "section": "H. PLUG & PLAY",
+    "name": "Widget újraépül",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_widget_rebuild",
+    "instruction": "Eszközcsere esetén a felületi vezérlő widget automatikusan átépül az új eszköz gombjaira és csúszkáira?"
+  },
+  {
+    "id": 73,
+    "section": "H. PLUG & PLAY",
+    "name": "Cache törlés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "pnp_cache_clean",
+    "instruction": "Az előző eszköz belső ISDU és folyamatadat értékei kitisztulnak a memóriából?"
+  },
+  {
+    "id": 74,
+    "section": "J. ROBUSZTUSSÁG",
+    "name": "LAN kihúzás (Offline hálózat)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "rob_lan_disconnect",
+    "instruction": "HÚZD KI A ZÖLD ETHERNET KÁBELT A MASTERBŐL: A NassMaster elegánsan lekezeli az offline állapotot, nem fagy le a böngésző és a Node-RED?"
+  },
+  {
+    "id": 75,
+    "section": "J. ROBUSZTUSSÁG",
+    "name": "LAN visszadugás (Auto-reconnect)",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "rob_lan_reconnect",
+    "instruction": "DUGD VISSZA AZ ETHERNET KÁBELT A MASTERBE: 2 másodpercen belül magától, beavatkozás nélkül helyreáll az adatfolyam?"
+  },
+  {
+    "id": 76,
+    "section": "J. ROBUSZTUSSÁG",
+    "name": "Master reboot",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "rob_master_reboot",
+    "instruction": "KAPCSOLD LE A MASTER 24V TÁPJÁT 3 MÁSODPERCRE, MAJD KAPCSOLD VISSZA: A Master újraindulása után a szoftver automatikusan újracsatlakozik?"
+  },
+  {
+    "id": 77,
+    "section": "J. ROBUSZTUSSÁG",
+    "name": "Szenzor csere működés közben",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "rob_live_sensor_swap",
+    "instruction": "Élő mérés és naplózás közben cserélj eszközt: nem okoz memóriaszivárgást vagy összeomlást?"
+  },
+  {
+    "id": 78,
+    "section": "J. ROBUSZTUSSÁG",
+    "name": "24h futás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "rob_24h_stability",
+    "instruction": "Hosszú távú 24 órás folyamatos futás alatt a válaszidők stabilak maradnak, a memóriahasználat nem száll el?"
+  },
+  {
+    "id": 79,
+    "section": "J. ROBUSZTUSSÁG",
+    "name": "7 nap futás",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "rob_7d_stability",
+    "instruction": "Tartós 7 napos ipari futás során a Node-RED runtime és a kommunikációs szálak megbízhatóan üzemelnek?"
+  },
+  {
+    "id": 80,
+    "section": "J. ROBUSZTUSSÁG",
+    "name": "1GB CSV kezelés",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "rob_large_csv_stress",
+    "instruction": "Nagyméretű (1GB+) CSV naplófájl folyamatos lemezre írása mellett a kezelőfelület gyors és reszponzív marad?"
+  },
+  {
+    "id": 81,
+    "section": "J. ROBUSZTUSSÁG",
+    "name": "100 PLC szabály",
+    "criteria": "Funkció hibamentesen működik",
+    "auto_type": "rob_100_rules_stress",
+    "instruction": "100 aktív logikai szabály egyidejű futtatása esetén a kiértékelési ciklusidő <50ms marad?"
+  },
+  {
+    "id": 82,
+    "section": "K. BIZTONSÁG ÉS MEGFELELŐSÉG",
+    "name": "Fail-Safe Kábelszakadás Védelem (ISO 13849-1)",
+    "criteria": "Szenzorkiesés (COMM_LOST) esetén a kimenet azonnal leáll (OFF / 0)",
+    "auto_type": "failsafe_trip_test",
+    "instruction": "Ha egy aktív szabály forrás-szenzorának kapcsolata megszakad, a vezérlő azonnal lekapcsolja a kimenetet és leoldja a szabályt (enabled: false)."
+  },
+  {
+    "id": 83,
+    "section": "K. BIZTONSÁG ÉS MEGFELELŐSÉG",
+    "name": "Manual Reset Reteszelés (MSZ EN 60204-1)",
+    "criteria": "Szenzor visszadugásakor nincs automatikus újraindulás",
+    "auto_type": "failsafe_manual_reset_test",
+    "instruction": "A kapcsolat helyreállásakor a kimenet állva marad; a gép nem indul újra kézi operátori engedélyezés (Manual Reset) nélkül."
+  },
+  {
+    "id": 84,
+    "section": "K. BIZTONSÁG ÉS MEGFELELŐSÉG",
+    "name": "Szabványos Mértékegység & Skálázás (IEC 61987)",
+    "criteria": "O5D100 mértékegysége cm, Balluff analóg 14-bit ADC feszültsége V",
+    "auto_type": "iec61987_unit_scaling_test",
+    "instruction": "A folyamatadatok szabványos IEC 61987 kódok (1012=cm, 1240=V) és valós bitméret alapján, hibás 0.1 szorzó és korlátozás nélkül kerülnek kicsomagolásra."
+  }
+]

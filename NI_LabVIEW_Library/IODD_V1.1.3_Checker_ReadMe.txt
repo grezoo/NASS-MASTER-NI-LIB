@@ -1,0 +1,258 @@
+*******************************************************************************
+***                                                                         ***
+***                       IODD V1.1 Checker V1.1.9                          ***
+***                 Copyright (c) 2015-2022 IO-Link Community               ***
+***                    Karlsruhe, July 22nd, 2022							              ***
+***                                                                         ***
+*******************************************************************************
+
+To run this tool, please install:
+	Microsoft .NET Framework Version 4.6.1 Redistributable Package (x86)
+		Please use the newest updates
+		It is recommended to use Microsoft Update to get the newest fixes.
+		dotnetfx.exe	from http://www.microsoft.com
+
+The checker was intentionally developed as a command line tool so that it can also be called 
+from generation environments. However, only one instance can be running at a time.
+This must be taken into account when calling.
+
+The checker automatically checks whether a newer version is available.
+Therefore, it needs access to the internet from time to time. It remembers the status and
+remains functional for another 30 days even without internet access. It receives information
+from the Internet as to whether a newer version is available and how long the version used
+can still be used. A warning informs about this. Access is via the following URL:
+	http://www.io-link.com/IODD/Checker/IODD-Checker-Versions.xml
+If your firewall does not allow access, please allow the checker to access the specified URL.
+
+To get the full functionality of this tool, please install:
+	Xerces-C++ Version 2.8.0 or newer
+		http://xerces.apache.org/xerces-c/
+		Please do the following steps:
+			1. create in the folder where you have stored IODD_V1.1.3_Checker.exe the folder "Xerces"
+			2. create a binary distribution of xerces for Windows 10 (unfortunately the binaries are no longer available on the Xerces WEB page)
+			3. Copy DOMCount.exe from the bin folder of the binary distribution to the folder "Xerces"
+			4. Copy xerces-c_X_Y.dll (e.g. xerces-c_3_0.dll) from the bin folder of the binary distribution to the folder "Xerces"
+
+Please unpack archive to a folder of your choice.
+
+In the archive you'll find:
+	- ReadMe.txt
+		this file
+	- IODD_V1.1.3_Checker.exe
+		running Windows Windows 10
+	- Check.bat
+		sample batch file
+		please change the installation path of checker and Xerces
+			set CHKPATH="path\IODD_V1.1.3_Checker.exe"
+			set XERCES=".\Xerces"
+				For Xerces only DOMcount.exe and xerces-c_x_x.dll are needed or use the
+				official installation.
+	- Check_wo_Xerces.bat
+		sample batch file
+		please change the installation path of the checker
+			set CHKPATH="path\IODD_V1.1.3_Checker.exe"
+
+Handling the results:
+	Warnings
+		The checker always outputs warning messages when the developer has to check
+		the correctness of the IODD regarding the message and implement it accordingly.
+		However, warnings do not prevent the STAMP from being written.
+	Highly recommended warnings
+		Points that are marked as "highly recommended" in the specification must be implemented
+		except in understandable exceptional cases. Since this may limit the system behavior
+		within a system with IO-Link, this should be avoided if possible. Deviations from
+		"highly recommended" must be described in the user manual and in the manufacturer declaration.
+		However, highly recommended warnings do not prevent the STAMP from being written.	
+	Errors
+		Deviations from the specification are displayed as error messages.
+		The STAMP is overwritten with 0.
+	Completeness of test results
+		Even though the IODD Checker now has a fairly high test depth and uncovers a 
+		large number of errors, it still cannot check all special cases.
+		The developer remains responsible for ensuring that the IODD and the
+		device implementation comply with the valid IO-Link, Profiles and IODD specifications.
+
+Comments to V1.1.9
+	- IO-Link Wireless schema exchanged to the released IO-Link Wireless specification V1.1.3
+	- CR113: Naming auf BLOB and Firmware Update Profile Variables. The pre fixes V_BT_ and V_FU_ should be used
+	  Checker accepts the old IDs for compatibility but raises a warning to use the new ones
+	- IO-Link Safety: Auxiliary parameters are checked to be implemented
+	- IO-Link Safety: V_FSP_ParamDescCRC: defaultValue is checked and the correct one 
+	  is displayed if it is not correct
+	- CR105: Check for M-sequence type is added
+Comments to V1.1.8
+	- only hotfix for CR99, 103, 104, 108, 109
+	- CR99, 104, 108, 109	V_BLOB_ID was not accepted with BLOB transfer profile
+	- CR103 Error checking value range of Float32T
+Comments to V1.1.7
+	- Term limitation through information on www.io-link.com. 
+	- To do this, there must be an internet connection for the first time.
+	- The checker can be used until a new checker is available and the transition time
+	  defined for it has not been exceeded. 
+	- Thereafter, the function is possible for 30 days without an internet connection.
+	- A warning is generated during the transition period.
+	- After the transition period has expired or if there is no internet connection for more than 30 days, 
+	  an error message is generated.
+Comments to V1.1.6
+	- CR94: Exeption with Condition: If condition variable has datatype RecordT and condition does not reference 
+			the subindex the Checker will cause an exception
+	- CR102:Error with IO-Link Safety IODD from IO-Link Safety Specification Draft V1.1.3 fixed
+	- Term limit until October 31, 2021. Then a warning appears to use the updated Checker V1.1.7. 
+	  The new checker must be used from January 1, 2022. Unfortunately, the function for automatic 
+	  update detection is not yet available and will only be available with V1.7. Then updates are
+	  automatically checked on the WEB page of the IO-Link Community and requested to use the latest Checker. 
+	  The checker V1.1.7 will be available in good time.
+Comments to V1.1.5
+	- CR39: Check was not correct in all cases
+	- CR76: Check must exclude ProcessData
+	- Term limit until July 31, 2021. Then a warning appears to use the updated Checker V1.1.6. 
+	  The new checker must be used from September 1, 2021.
+	  From Checker V1.1.6 onwards, updates are automatically checked on the WEB page of the IO-Link Community
+	  and requested to use the latest Checker. The checker V1.1.6 will be available in good time.
+Comments to V1.1.5.5 (Beta Version)
+	- CR39: V_DirectParameters_1 subindex 16 shall not be referenced if ISDU is supported
+	- CR53: Check MSequenceCapability: Type_0
+			Highly recommended warning - It is highly recommended for Devices not to use TYPE_0 in Preoperate or Operate states
+			Also checked: Bit 0 from mSequenceCapability shall match the support from ISDU
+	- CR54,CR59: The attribute accessRightRestriction shall not be set to ‘wo’, both for recordItems and in menus
+	- CR55: For records and arrays the attribute accessRights=’wo’ is not permitted
+	- CR58: For VariableRef the attribute accessRightRestriction shall not be set to ‘wo’
+	- CR84: Addendum: V_FunctionTag and V_LocationTag renamed to V_CP_FunctionTag and V_CP_LocationTag
+	- CR91: Maximum number of menus in menu collection (quantity structure) from 255 to 1023
+Comments to V1.1.5.4 (Beta Version)
+	- CR85: Relaxing schema for wireless devices need additional check for non-wireless devices
+	- CR83: Check System Command definitions for button values according to template from specification V1.1.3 
+	- CR90: checker shows error on default values of arrays
+	- CR91: StdSingleValueRef for V_SystemCommand on DPP1.16 (single values were not found)
+	- CR88: Allow Index 27 as Profile specific variable
+	- new Standard Definitions, Unit Definitions and schema
+		schema check for C/Q in connection deleted and substituted with business rule check (CR85) 
+Comments to V1.1.5.3 (Beta Version)
+	- CR13:	System language dependency of checker result; concerns default values Float32T
+	- CR16: excludedFromDataStorage check improved
+				error, if standard variable with accessrights="rw" and excludedFromDataStorage="true"
+				warning, if variable with accessrights="rw" and excludedFromDataStorage="true"
+				attribute shall not be used with variables with accessrights="ro" or "wo"
+	- CR25:	With OtherConnectionT and CableConnectionT, wires with functions L+, L- and C/Q must be present
+			If N24 or P24 are present, N24 and P24 must be described
+	- CR27:	VariableRef to V_ProcessDataInput and V_ProcessDataOutput in menu
+			Displayformat attributes are not allowed with RecordT 
+	- CR28: Feature/@profileCharacteristic requires ISDU support
+	- CR30:	Conditions referencing record items having a named datatype is not accepted
+	- CR33:	Config2 is only required if variables with 16 bit index are implemented
+	- CR36:	Checker stalls on wrong reference to a Condition variable
+	- CR37:	Error on referencing a recorditem from variable with DatatypeRef in Condition
+	- CR45:	Check references between ProcessDataRefCollection and ProcessDataCollection
+	- CR42/51:	Cascading of ComplexTypes not detected as error
+	- CR46/61:	Button Value restriction 0.255 has been removed
+	- CR63:	defaultValue V_ProductID shall only be specified if only one DeviceVariant node is listed
+	- CR64:	defaultValue V_ProductID shall have the same content of DeviceVariant[@productId]
+	- CR65: Only those items of V_DeviceAccessLocks which are declared in Features element shall be referenced
+	- CR67:	Only the RecordItemRef corresponding with Features/SupportedAccessLocks value “true” shall be referenced.
+	- CR68:	Exception with Condition in ProcessData, when missing subindex attribute with referenced record
+	- CR69: If attribute DataStorage = “false”, Standard Variables with accessRights = “rw” shall not be implemented
+	- CR70: Data storage shall be implemented if variables with @accessRights='rw' are implemented and have to be restored after device exchange
+	- CR71:	V_DirectParameters_2 is highly recommended not to use
+	- CR72: V_DirectParameters_2 shall be described with DirectParameterOverlay if it is implemented
+	- CR73: V_DirectParameters_2 shall only be referenced in menu with DirectParameterOverlay
+	- CR74: V_DeviceAccessLocks shall not be referenced as VariableRef. 
+	- CR76: Alignment within records and arrays (see IODD specification 7.5.3.2.2 and 7.5.3.2.3)
+	- CR77: Limit of ProcessDataElements is increased to 16 
+	- CR78: Index 13, 14, 15 shall not be described
+	- CR79:	System Command Back-to-Box (131) shall be implemented, Application Reset (129) is highly recommended to be implemented
+	- CR80: Highly recommended points warnings can't be disabled and are shown separatly in the statistics.
+			Failure to follow highly recommendations must be documented in the manufacturer declaration and user manual. 
+	- CR83:	ButtonValue Check improved: Variable BooleanT, IntegerT, UIntegerT. Highly recommended to use UIntegerT with bitlength="8" 
+
+	- CR48: Common Profile (CP) checks added
+		- if CP referenced V_FunctionTag and V_LocationTag shall be implemented
+		- if CP not referenced in profileCharacteristic index 25,26 shall not be implemented
+		- V_FunctionTag and V_LocationTag shall be implemented on index 25,26
+		- V_FunctionTag and V_LocationTag: Excluded from data storage is not allowed
+		- nothing else on index 25,26
+		- CP is highly recommended to be implemented
+	- CR81 Checks for IO-Link Device Firmware Update
+		- Variables
+		- System Commands
+	- CR82 Checks for IO-Link Safety Extension
+		- Variables
+		- Events
+		- PD
+		- Conventions
+
+Comments to V1.1.5.2 (Beta Version)
+	- no installation. The content of the archive should be unpacked to the path from where you want to run the checker
+	- name of the checker program is changed from IODDChecker.exe to IODD_V1.1.3_Checker.exe
+	- IO-Link Wireless schema included and ranges for IO-Link Wireless specific variable index and event codes allowed with warning
+
+Comments to V1.1.5.1 (Beta Version)
+	- support of IO-Link V1.1.3
+	- no installation. The content of the archive should be unpacked to the path from where you want to run the checker
+	- name of the checker program is changed from IODDChecker.exe to IODD_V1.1.3_Checker.exe
+	- IO-Link Wireless schema included and ranges for IO-Link Wireless specific variable index and event codes allowed with warning
+	- CR19: new IODD-StandardDefinitions and IODD-StandardUnitDefinitions from 2020-03-15
+	- CR29:	Schema validation check should not ignore white space
+	- CR38:	Reference to Direct Parameter Page 2 shall be omitted
+	- CR43:	Allow Systemcommand 131 (Back-To-Box)
+	- CR47:	Handling of feature DeviceAccessLocks
+			Rule 1: If element 'Features' contains attribute 'dataStorage' with value 'true', the element 'SupportedAccessLocks'
+					may contain or not the attribute 'dataStorage' with value 'true' or 'false'. 
+			Rule 2: Issue a warning, if under element 'SupportedAccessLocks' the attribute 'parameter' is set to 'true'. 
+			Rule 3: Issue a warning, if under element 'SupportedAccessLocks' the attribute 'dataStorage' is set to 'true'.
+			Warning text: 'It is highly recommended not to implement this feature since it will be omitted in future releases.'
+
+Comments to V1.1.4
+	- CR35:		Index 25 and 26 are changed from standard variable to profile variable
+	- CR8/17:	DeviceAccessLocks only have to be referenced in the user interface, if local parametrization or local user interface bit are implemented
+	-           only the basic standard definition files (en) are included in the checker delivery
+
+Comments to V1.1.3
+	- CR19: new language files for IODD-StandardDefinitions
+	- CR11: Max. Length of URL = 1024, but warning if > 255 (will be changed in next version of the standard)
+	- CR12: Allow 1024 instead of 255 characters for strings referenced by DeviceVariant/Description/@textId
+	- CR17: Variables, whose accessRights are rw and not excludedFromDataStorage shall be referenced in specialist role.
+			Otherwise copying data from one device to a spare device by tool will not work.
+			Exspecially V_DeviceAccessLocks shall be referenced in specialist role. 
+	- CR24: warning: it's highly recommended not to exclude Standard Variables which are @accessRights="rw" from Data Storage
+	- Schema, Standard Definitions and Standard Unit Definitions are copied to program installation folder
+	- bugfix: CR10: V_SystemCommand shall be present if ISDU supported and Features/@blockParameter and/or Features/@dataStorage are true	
+	- bugfix: CR13: System language dependency of checker result: @defaultValue Float32T
+	- bugfix: CR14: Wrong warning text changed to "SystemCommand SingleValues 64-127 are reserved for profiles"
+	- bugfix: CR15: Overlapping RecordItems are not detected
+	- bugfix: CR16: excludedFromDataStorage="true" only selectively checked
+	- bugfix: CR18: If data storage is not supported, excludedFromDataStorage may be omitted
+			The implementation of the DS mechanism specified in this specification is highly recommended for Devices.
+			If this mechanism is not supported it is the responsibility of the Device vendor to describe
+			how parameterization of a Device after replacement can be ensured in a system conform manner without tools.
+			e.g. with Memory Card.
+			Conclusion: Data Storage is normally mandatory!!!
+	- bugfix: CR20: checking default values improved
+	- bugfix: CR23: dealing white spaces improved
+	- bugfix: maximum of RecordLength = 1856 instead of 1855
+	- bugfix: maximum length of Description = 255 instead of 1024
+
+Comments to V1.1.1
+	-	bugfix: wrong line number with condition errors
+	- bugfix: CR1: UInteger values are not accepted
+	- bugfix: CR2: Integer values are not accepted
+	- bugfix: CR3: Array of UInteger values are not accepted
+	- bugfix: CR4: ProcessData of type Array of String or OctetString length calculation wrong
+	- bugfix: CR5: SystemCommand is required for some features
+	- bugfix: CR6: Allowed values of standard variables are not fully checked
+	- bugfix: CR7: StdRecordItemRef/@defaultValue is not checked
+	- bugfix: CR8: SupportedAccessLocks versus V_DeviceAccessLocks
+	- bugfix: CR9: Special floating point values
+
+	- length of VendorUrl is checked to 255 characters instead of 1024. An CR to the specification will be discussed 
+	  in the working group
+	- the schema allowes white spaces at most of the element or attribute values. The checker doesn't consider this
+	  and gives error messages
+
+Comments to V1.1.0.8 Beta
+	- Schema included from August,2011
+	- bugfix: if filename of IODD was given without path graphic files were not found
+	- bugfix: fixLengthRestriction with ArrayT
+	- cancel usage of MSXML4
+	- bugfix: V_SytemCommand: if no StdSingleValueRefs or SingleValues defined, definition of StandardDefinitions is used
+	- bugfix: Conditions with RecordItems: detection of default value and line info
+

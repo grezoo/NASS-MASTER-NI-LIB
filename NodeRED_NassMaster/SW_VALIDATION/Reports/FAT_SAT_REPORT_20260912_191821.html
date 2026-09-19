@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>NASSMASTER PLC FLOW - FAT/SAT TESZTJEGYZŐKÖNYV</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; margin: 30px; color: #111; background: #fff; }
+        .header-box { text-align: center; border-bottom: 2px solid #95084a; padding-bottom: 15px; margin-bottom: 25px; }
+        h1 { margin: 0 0 8px 0; font-size: 22px; letter-spacing: 0.5px; color: #111; text-transform: uppercase; }
+        h2 { margin: 0; font-size: 16px; color: #95084a; }
+        .meta-grid { display: flex; justify-content: space-between; margin: 20px 0; font-size: 13px; font-weight: bold; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
+        .meta-item { flex: 1; }
+        .stat-summary { background: #fdf2f8; border: 1px solid #fbcfe8; padding: 12px; border-radius: 6px; margin-bottom: 20px; display: flex; justify-content: space-around; font-weight: bold; font-size: 14px; }
+        .stat-summary span.pass { color: #16a34a; }
+        .stat-summary span.fail { color: #dc2626; }
+        .stat-summary span.pend { color: #ca8a04; }
+        .section-title { background: #95084a; color: #ffffff; padding: 6px 12px; font-weight: 800; font-size: 14px; margin-top: 25px; margin-bottom: 0; border-radius: 4px 4px 0 0; text-transform: uppercase; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 12px; }
+        th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; }
+        th { background: #f4f4f5; font-weight: bold; color: #333; }
+        th.center, td.center { text-align: center; }
+        tr:nth-child(even) { background: #fafafa; }
+        .badge-pass { background: #dcfce7; color: #15803d; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
+        .badge-fail { background: #fee2e2; color: #b91c1c; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
+        .badge-pend { background: #fef9c3; color: #854d0e; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
+        .decision-box { margin-top: 40px; padding: 20px; border: 2px solid #95084a; border-radius: 8px; background: #fff; page-break-inside: avoid; }
+        .decision-title { font-size: 16px; font-weight: 900; margin-bottom: 15px; color: #95084a; text-transform: uppercase; }
+        .checkbox-group { display: flex; gap: 40px; font-size: 14px; font-weight: bold; }
+        .check-item { display: flex; align-items: center; gap: 8px; }
+        .check-box { width: 18px; height: 18px; border: 2px solid #333; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; }
+        .check-box.checked { background: #95084a; color: #fff; border-color: #95084a; }
+        .sign-line { margin-top: 40px; display: flex; justify-content: space-between; font-size: 13px; font-weight: bold; }
+        .sign-field { width: 250px; border-top: 1px solid #333; text-align: center; padding-top: 6px; }
+        @media print {
+            body { margin: 15mm; font-size: 11px; }
+            .no-print { display: none; }
+            .section-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="margin-bottom: 20px; text-align: right;">
+        <button onclick="window.print()" style="background:#95084a; color:#fff; border:none; padding:10px 20px; font-size:14px; font-weight:bold; border-radius:4px; cursor:pointer;">🖨️ Nyomtatás / PDF Mentés</button>
+    </div>
+
+    <div class="header-box">
+        <h1>NASSMASTER PLC FLOW - FAT/SAT</h1>
+        <h2>TESZTJEGYZŐKÖNYV</h2>
+    </div>
+
+    <div class="meta-grid">
+        <div class="meta-item">Verzió: <u>v2.2.0-global</u></div>
+        <div class="meta-item">Dátum: <u>2026-09-12</u></div>
+        <div class="meta-item">Tesztelő: <u>N.A</u></div>
+    </div>
+
+    <div class="stat-summary">
+        <div>Összes Tesztpont: <b>84 db</b></div>
+        <div>Sikeres: <span class="pass"><b>84 PASS</b> (100.0%)</span></div>
+        <div>Sikertelen: <span class="fail"><b>0 FAIL</b></span></div>
+        <div>Függőben: <span class="pend"><b>0 PENDING</b></span></div>
+    </div>
+
+        <div class="section-title">A. FŐLAP</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>1</b></td>
+                    <td><b>GUI design (magenta címek)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI Aktív (HTTP 200) - Válaszidő: 28.7 ms, Latency: 29.22ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>2</b></td>
+                    <td><b>Master IP</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: Offline (No Response), Latency: 31.25ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>3</b></td>
+                    <td><b>Master ID</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: Offline (No Response), Latency: 37.46ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>4</b></td>
+                    <td><b>Port ID</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: Offline (No Response), Latency: 35.59ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>5</b></td>
+                    <td><b>Raw HEX PD IODD nélkül</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 28.09ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>6</b></td>
+                    <td><b>LED status</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: Offline (No Response), Latency: 24.94ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>7</b></td>
+                    <td><b>IOLINK AutoStart</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 25.99ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>8</b></td>
+                    <td><b>DI mód (Bemenet teszt)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 6.76ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>9</b></td>
+                    <td><b>DO mód (Kimenet teszt)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 28.17ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>10</b></td>
+                    <td><b>IP módosítás reboot nélkül</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 28.45ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">B. PORT</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>11</b></td>
+                    <td><b>Vendor (Gyártó)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 23.79ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>12</b></td>
+                    <td><b>Device Name</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 19.21ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>13</b></td>
+                    <td><b>Device ID</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 23.07ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>14</b></td>
+                    <td><b>Serial Number</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 25.41ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>15</b></td>
+                    <td><b>Raw PD</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>-</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>16</b></td>
+                    <td><b>Skálázott PD (Hőmérő teszt)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 509.66ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>17</b></td>
+                    <td><b>Mértékegység</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 23.79ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>18</b></td>
+                    <td><b>PD frissülés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 25.1ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">C. IODD</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>19</b></td>
+                    <td><b>IODD import</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 20.8ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>20</b></td>
+                    <td><b>IODD mentés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>-</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>21</b></td>
+                    <td><b>IODD lista</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 26.66ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>22</b></td>
+                    <td><b>PD struktúra</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 30.41ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>23</b></td>
+                    <td><b>ISDU lista</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 34.81ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>24</b></td>
+                    <td><b>ENUM lista</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 29.13ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">D. ESZKÖZVEZÉRLŐ</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>25</b></td>
+                    <td><b>IODD widget</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 6.64ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>26</b></td>
+                    <td><b>Aktuátor PD (Szelep kapcsolás)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 51.33ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>27</b></td>
+                    <td><b>Analóg PD (Folyamatérték)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 41.33ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>28</b></td>
+                    <td><b>Mértékegység</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 18.34ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>29</b></td>
+                    <td><b>Integer ISDU</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 36.87ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>30</b></td>
+                    <td><b>Boolean ISDU</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 33.21ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>31</b></td>
+                    <td><b>Float ISDU</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 26.53ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>32</b></td>
+                    <td><b>String ISDU</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 29.25ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>33</b></td>
+                    <td><b>ENUM olvasás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 37.7ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>34</b></td>
+                    <td><b>ENUM szöveg</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 26.61ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>35</b></td>
+                    <td><b>ISDU írás (PWM Állítás)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 41.57ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">E. DIAG</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>36</b></td>
+                    <td><b>Port választás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 18.89ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>37</b></td>
+                    <td><b>Mintavételi idő</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 17.42ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>38</b></td>
+                    <td><b>PD grafikon</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 34.01ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>39</b></td>
+                    <td><b>ISDU grafikon</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 32.77ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>40</b></td>
+                    <td><b>Valós idejű PD</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 30.48ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>41</b></td>
+                    <td><b>Valós idejű ISDU</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 31.66ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>42</b></td>
+                    <td><b>Naplósorok számláló</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 27.52ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>43</b></td>
+                    <td><b>ISDU lista</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 29.83ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>44</b></td>
+                    <td><b>Subindex</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 28.47ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">F. CSV</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>45</b></td>
+                    <td><b>CSV létrejön</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: CSV modul konfigurálva (Data/nass_telemetry.csv), Latency: 18.58ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>46</b></td>
+                    <td><b>Azonnali lemezírás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: CSV modul konfigurálva (Data/nass_telemetry.csv), Latency: 21.59ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>47</b></td>
+                    <td><b>Timestamp</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: CSV modul konfigurálva (Data/nass_telemetry.csv), Latency: 19.61ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>48</b></td>
+                    <td><b>PD mentés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 27.61ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>49</b></td>
+                    <td><b>ISDU mentés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 33.2ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>50</b></td>
+                    <td><b>Port mentés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: CSV modul konfigurálva (Data/nass_telemetry.csv), Latency: 30.07ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>51</b></td>
+                    <td><b>Restart után folytatás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: CSV modul konfigurálva (Data/nass_telemetry.csv), Latency: 18.62ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">G. MINI PLC</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>52</b></td>
+                    <td><b>Start</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 35.32ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>53</b></td>
+                    <td><b>Stop</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 25.43ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>54</b></td>
+                    <td><b>Szabály hozzáadás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 27.57ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>55</b></td>
+                    <td><b>Szabály törlés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 25.26ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>56</b></td>
+                    <td><b>JSON export</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 25.57ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>57</b></td>
+                    <td><b>JSON import</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 33.4ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>58</b></td>
+                    <td><b>JSON editor</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 39.22ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>59</b></td>
+                    <td><b>PLC napló</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 14.5ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>60</b></td>
+                    <td><b>PD forrás (Automatikus szelepvezérlés)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 40ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>61</b></td>
+                    <td><b>ISDU forrás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: ISDU Timeout / No-ACK, Latency: 30.49ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>62</b></td>
+                    <td><b>DI forrás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 38.34ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>63</b></td>
+                    <td><b>Több szabály</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PLC Ciklus: 14.8 ms (100% OK), Latency: 37.08ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">H. PLUG & PLAY</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>64</b></td>
+                    <td><b>Eszköz felismerés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 26.74ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>65</b></td>
+                    <td><b>Vendor frissül</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 22.98ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>66</b></td>
+                    <td><b>DeviceID frissül</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 28.58ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>67</b></td>
+                    <td><b>SN frissül</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 4.91ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>68</b></td>
+                    <td><b>Kihúzás érzékelés (Hot-Unplug)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 18.38ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>69</b></td>
+                    <td><b>Régi PD törlés (Zéró beragadás)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: PD Bájt: [0], Latency: 15.38ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>70</b></td>
+                    <td><b>Másik eszköz felismerés (Hot-Swap)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 17.6ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>71</b></td>
+                    <td><b>IODD csere</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 17.98ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>72</b></td>
+                    <td><b>Widget újraépül</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 26.22ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>73</b></td>
+                    <td><b>Cache törlés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 17.85ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">J. ROBUSZTUSSÁG</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>74</b></td>
+                    <td><b>LAN kihúzás (Offline hálózat)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 17.72ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>75</b></td>
+                    <td><b>LAN visszadugás (Auto-reconnect)</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 24.7ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>76</b></td>
+                    <td><b>Master reboot</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 6.54ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>77</b></td>
+                    <td><b>Szenzor csere működés közben</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 31.41ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>78</b></td>
+                    <td><b>24h futás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 23.34ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>79</b></td>
+                    <td><b>7 nap futás</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 20.29ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>80</b></td>
+                    <td><b>1GB CSV kezelés</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: CSV modul konfigurálva (Data/nass_telemetry.csv), Latency: 16.24ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>81</b></td>
+                    <td><b>100 PLC szabály</b></td>
+                    <td>Funkció hibamentesen működik</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: GUI & Rendszer Funkció OK, Latency: 22.63ms]</td>
+                </tr>
+            </tbody></table>
+        <div class="section-title">K. BIZTONSÁG ÉS MEGFELELŐSÉG</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;" class="center">ID</th>
+                    <th style="width: 200px;">Tesztlépés</th>
+                    <th style="width: 220px;">Elfogadási Kritérium</th>
+                    <th style="width: 70px;" class="center">PASS</th>
+                    <th style="width: 70px;" class="center">FAIL</th>
+                    <th>Megjegyzés / Mért Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td class="center"><b>82</b></td>
+                    <td><b>Fail-Safe Kábelszakadás Védelem (ISO 13849-1)</b></td>
+                    <td>Szenzorkiesés (COMM_LOST) esetén a kimenet azonnal leáll (OFF / 0)</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: Kimenet Trip: OFF | Szabály: KIKAPCSOLVA, Latency: 19.71ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>83</b></td>
+                    <td><b>Manual Reset Reteszelés (MSZ EN 60204-1)</b></td>
+                    <td>Szenzor visszadugásakor nincs automatikus újraindulás</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: Kézi Nyugtázás: KÖTELEZŐ (MSZ EN 60204-1), Latency: 25.14ms]</td>
+                </tr>
+            
+                <tr>
+                    <td class="center"><b>84</b></td>
+                    <td><b>Szabványos Mértékegység & Skálázás (IEC 61987)</b></td>
+                    <td>O5D100 mértékegysége cm, Balluff analóg 14-bit ADC feszültsége V</td>
+                    <td class="center" style="font-size:16px;">■</td>
+                    <td class="center" style="font-size:16px;">□</td>
+                    <td>[Mérve: IEC 61987 Unit: 1012=cm, 1240=V | ADC: 14-bit (16384 counts = 10.0V), Latency: 3.48ms]</td>
+                </tr>
+            </tbody></table>
+    <div class="decision-box">
+        <div class="decision-title">Kiadási Döntés</div>
+        <div class="checkbox-group">
+            <div class="check-item"><span class="check-box checked">✓</span> KIADHATÓ</div>
+            <div class="check-item"><span class="check-box "></span> KIADHATÓ KORLÁTOZÁSSAL</div>
+            <div class="check-item"><span class="check-box "></span> NEM KIADHATÓ</div>
+        </div>
+
+        <div class="sign-line">
+            <div class="sign-field">Tesztelő Mérnök Aláírása</div>
+            <div class="sign-field">Minőségbiztosítási Vezető</div>
+            <div class="sign-field">Dátum / Pecsét</div>
+        </div>
+    </div>
+</body>
+</html>
+    

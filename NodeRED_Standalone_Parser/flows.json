@@ -1,0 +1,402 @@
+[
+    {
+        "id": "bcdadd4f786ffa1f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "767fe91f8ba94169",
+        "type": "tab",
+        "label": "IODD Parser Engine",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ui_tab_parser",
+        "type": "ui_tab",
+        "name": "Parser",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "ui_group_parser",
+        "type": "ui_group",
+        "name": "IODD Kezelő",
+        "tab": "ui_tab_parser",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "a1d17de081481dd1",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "tab_iodd_ui",
+        "type": "ui_tab",
+        "name": "Parser",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "grp_iodd_dash",
+        "type": "ui_group",
+        "name": "IODD Kezelő",
+        "tab": "tab_iodd_ui",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "c864d2749a228bc5",
+        "type": "ui_group",
+        "name": "Fájl Betöltés",
+        "tab": "tab_iodd_ui",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "e36dd83b0d768c78",
+        "type": "ui_group",
+        "name": "Eszköz Paraméterek & Kép",
+        "tab": "tab_iodd_ui",
+        "order": 2,
+        "disp": true,
+        "width": 12,
+        "collapse": false
+    },
+    {
+        "id": "f2a72b5008cc531d",
+        "type": "function",
+        "z": "767fe91f8ba94169",
+        "name": "ZIP Kicsomagoló",
+        "func": "if (!msg.req || !msg.req.files || msg.req.files.length === 0) {\n    return null;\n}\n\nlet fileBuffer = msg.req.files[0].buffer;\nlet filename = msg.req.files[0].originalname;\n\ntry {\n    let zip = new AdmZip(fileBuffer);\n    let entries = zip.getEntries();\n    let mainXmlStr = '';\n    let langXmlStr = '';\n    let fileMap = {};\n\n    for (let entry of entries) {\n        let entryName = entry.entryName.replace(/^.*[\\\\\\/]/, ''); // Mappák levágása\n        let lowerName = entryName.toLowerCase();\n\n        // 1. XML fájlok felosztása (Fő leíró és szótárak)\n        if (lowerName.endsWith('.xml')) {\n            let content = zip.readAsText(entry);\n            if (content.includes('<DeviceIdentity') || content.includes('<ProfileBody') || content.includes('<ISO15745')) {\n                mainXmlStr = content;\n            } else if (content.includes('<ExternalTextCollection') || content.includes('<PrimaryLanguage') || lowerName.includes('lang') || lowerName.includes('-en.')) {\n                langXmlStr = content;\n            }\n        } \n        // 2. Képek beolvasása memóriába\n        else if (lowerName.endsWith('.png') || lowerName.endsWith('.jpg') || lowerName.endsWith('.jpeg')) {\n            let imgData = entry.getData();\n            let mime = lowerName.endsWith('.png') ? 'image/png' : 'image/jpeg';\n            fileMap[lowerName] = 'data:' + mime + ';base64,' + imgData.toString('base64');\n        }\n    }\n\n    if (!mainXmlStr && langXmlStr) {\n        mainXmlStr = langXmlStr;\n    }\n\n    if (!mainXmlStr) {\n        node.status({ fill: 'red', shape: 'dot', text: 'Nincs érvényes XML' });\n        return null;\n    }\n\n    // 3. FOTÓ KIVÁLASZTÁSA PONTOS SZABÁLYOK ALAPJÁN\n    let selectedImage = null;\n    let allPicKeys = Object.keys(fileMap);\n\n    // 1. Szint: Kizárólag a tiszta termékfotó (-pic.png / -pic.jpg), de NEM -con-pic!\n    let realPic = allPicKeys.find(k => {\n        let isPic = (k.endsWith('-pic.png') || k.endsWith('-pic.jpg') || k.endsWith('-pic.jpeg') || k.includes('device-pic'));\n        let isCon = k.includes('-con-') || k.includes('-con.') || k.includes('connect');\n        return isPic && !isCon;\n    });\n\n    // 2. Szint: Termékikon (-icon.png), ha nincs -pic\n    let iconPic = allPicKeys.find(k => {\n        return (k.endsWith('-icon.png') || k.endsWith('-icon.jpg')) && !k.includes('-con-');\n    });\n\n    if (realPic) {\n        selectedImage = fileMap[realPic];\n    } else if (iconPic) {\n        selectedImage = fileMap[iconPic];\n    } else {\n        // 3. Szint: Bármilyen kép, ami NEM bekötés és NEM logó\n        let neutralPic = allPicKeys.find(k => {\n            let isCon = k.includes('con') || k.includes('wire') || k.includes('pin') || k.includes('sch');\n            let isLogo = k.includes('logo') || k.includes('vendor');\n            return !isCon && !isLogo;\n        });\n        if (neutralPic) {\n            selectedImage = fileMap[neutralPic];\n        }\n    }\n\n    node.status({ fill: 'green', shape: 'dot', text: 'XML kinyerve: ' + filename });\n    return {\n        payload: mainXmlStr,\n        langXml: langXmlStr,\n        imageBase64: selectedImage,\n        filename: filename,\n        topic: 'iodd_xml'\n    };\n} catch (err) {\n    node.status({ fill: 'red', shape: 'ring', text: 'ZIP hiba: ' + err.message });\n    return null;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "AdmZip",
+                "module": "adm-zip"
+            }
+        ],
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "8a3d4214c850c53a"
+            ]
+        ]
+    },
+    {
+        "id": "8a3d4214c850c53a",
+        "type": "xml",
+        "z": "767fe91f8ba94169",
+        "name": "Gyári XML Parser",
+        "property": "payload",
+        "attr": "$",
+        "chr": "_",
+        "x": 550,
+        "y": 140,
+        "wires": [
+            [
+                "c111a7a5ef310cab"
+            ]
+        ]
+    },
+    {
+        "id": "c111a7a5ef310cab",
+        "type": "function",
+        "z": "767fe91f8ba94169",
+        "name": "UI Séma Generátor",
+        "func": "let rawPayload = msg.payload;\n\nfunction findNodes(obj, targetKey, results = []) {\n    if (!obj || typeof obj !== 'object') return results;\n    for (let k in obj) {\n        let cleanKey = k.replace(/^[a-zA-Z0-9_-]+:/, '');\n        if (cleanKey.toLowerCase() === targetKey.toLowerCase()) {\n            let val = obj[k];\n            if (Array.isArray(val)) results.push(...val);\n            else results.push(val);\n        }\n        if (typeof obj[k] === 'object') {\n            findNodes(obj[k], targetKey, results);\n        }\n    }\n    return results;\n}\n\nfunction findFirst(obj, targetKey) {\n    let list = findNodes(obj, targetKey);\n    return list.length > 0 ? list[0] : null;\n}\n\nfunction getAttr(node, attrName) {\n    if (!node) return null;\n    if (node.$) {\n        for (let k in node.$) {\n            if (k.toLowerCase() === attrName.toLowerCase()) return node.$[k];\n        }\n    }\n    for (let k in node) {\n        if (k.toLowerCase() === attrName.toLowerCase() && typeof node[k] !== 'object') return node[k];\n    }\n    return null;\n}\n\n// 1. Szótár felépítése\nlet textMap = {};\nlet allTexts = findNodes(rawPayload, 'Text');\nallTexts.forEach(t => {\n    let id = getAttr(t, 'id');\n    let val = getAttr(t, 'value') || (typeof t._ === 'string' ? t._ : null) || id;\n    if (id && val) textMap[id] = val;\n});\n\nfunction resolveText(idRef, fallback) {\n    if (!idRef) return fallback || '';\n    return textMap[idRef] || idRef;\n}\n\n// 2. Eszközazonosítók\nlet devIdentity = findFirst(rawPayload, 'DeviceIdentity');\nlet vendorId = getAttr(devIdentity, 'vendorId') || getAttr(devIdentity, 'vendorID') || 'N/A';\nlet deviceId = getAttr(devIdentity, 'deviceId') || getAttr(devIdentity, 'deviceID') || 'N/A';\nlet vendorName = getAttr(devIdentity, 'vendorName') || 'N/A';\n\nlet devVariant = findFirst(rawPayload, 'DeviceVariant');\nlet variantNameNode = devVariant ? findFirst(devVariant, 'Name') : null;\nlet devNameNode = findFirst(devIdentity, 'DeviceName');\n\nlet rawNameId = getAttr(variantNameNode, 'textId') || getAttr(devNameNode, 'textId') || (devVariant ? getAttr(devVariant, 'productId') : null);\nlet productName = resolveText(rawNameId, (devVariant ? getAttr(devVariant, 'productId') : null) || (vendorName !== 'N/A' ? vendorName + ' Eszköz' : 'IO-Link Eszköz'));\n\n// 3. Globális Datatype tábla\nlet customTypes = {};\nlet allDatatypes = findNodes(rawPayload, 'Datatype');\nallDatatypes.forEach(dt => {\n    let dtId = getAttr(dt, 'id');\n    if (dtId) customTypes[dtId] = dt;\n});\n\nlet pdInElements = [];\nlet pdOutElements = [];\nlet paramElements = [];\n\n// Rekord elemek feldolgozója\nfunction parseRecordItems(items, parentId, groupName, access, targetList, isPd = false) {\n    items.forEach(item => {\n        let subindex = getAttr(item, 'subindex') || '1';\n        let bitOffset = getAttr(item, 'bitOffset') || '0';\n        let bitLength = getAttr(item, 'bitLength') || '8';\n        let itemNameNode = findFirst(item, 'Name');\n        let itemRawName = getAttr(itemNameNode, 'textId');\n        let itemLabel = itemRawName ? resolveText(itemRawName, groupName) : (groupName + ' [Sub ' + subindex + ']');\n\n        let sdt = findFirst(item, 'SimpleDatatype') || item;\n        let sdtType = getAttr(sdt, 'xsi:type') || getAttr(sdt, 'datatype') || '';\n\n        let singleValues = findNodes(sdt, 'SingleValue');\n        if (singleValues.length > 0) {\n            let options = singleValues.map(sv => {\n                let svVal = getAttr(sv, 'value');\n                let svNameNode = findFirst(sv, 'Name');\n                let svTextId = getAttr(svNameNode, 'textId');\n                return {\n                    name: resolveText(svTextId, svVal),\n                    value: isNaN(Number(svVal)) ? svVal : Number(svVal)\n                };\n            });\n\n            targetList.push({\n                type: 'dropdown',\n                id: parentId,\n                subindex: subindex,\n                bitOffset: Number(bitOffset),\n                bitLength: Number(bitLength),\n                label: itemLabel,\n                access: access,\n                value: options[0] ? options[0].value : 0,\n                options: options,\n                isPd: isPd\n            });\n        } else if (sdtType === 'BooleanT' || sdtType.includes('Boolean')) {\n            targetList.push({\n                type: 'switch',\n                id: parentId,\n                subindex: subindex,\n                bitOffset: Number(bitOffset),\n                bitLength: 1,\n                label: itemLabel,\n                access: access,\n                value: false,\n                isPd: isPd\n            });\n        } else {\n            let vr = findFirst(sdt, 'ValueRange');\n            let minVal = vr ? Number(getAttr(vr, 'lowerValue') || 0) : 0;\n            let maxVal = vr ? Number(getAttr(vr, 'upperValue') || 100) : 100;\n\n            targetList.push({\n                type: (access === 'ro' ? 'text' : 'slider'),\n                id: parentId,\n                subindex: subindex,\n                bitOffset: Number(bitOffset),\n                bitLength: Number(bitLength),\n                label: itemLabel,\n                access: access,\n                value: minVal,\n                min: minVal,\n                max: maxVal,\n                isPd: isPd\n            });\n        }\n    });\n}\n\n// 4. PROCESS DATA ELEMZÉS\nlet pdOutList = findNodes(rawPayload, 'ProcessDataOut');\npdOutList.forEach(pd => {\n    let pdDtRef = findFirst(pd, 'DatatypeRef');\n    let pdDt = findFirst(pd, 'Datatype');\n    if (!pdDt && pdDtRef) {\n        let refId = getAttr(pdDtRef, 'datatypeId');\n        if (refId && customTypes[refId]) pdDt = customTypes[refId];\n    }\n    let pdItems = findNodes(pdDt, 'RecordItem');\n    if (pdItems.length > 0) {\n        parseRecordItems(pdItems, 'ProcessDataOut', 'Process Data Kimenet', 'rw', pdOutElements, true);\n    }\n});\n\nlet pdInList = findNodes(rawPayload, 'ProcessDataIn');\npdInList.forEach(pd => {\n    let pdDtRef = findFirst(pd, 'DatatypeRef');\n    let pdDt = findFirst(pd, 'Datatype');\n    if (!pdDt && pdDtRef) {\n        let refId = getAttr(pdDtRef, 'datatypeId');\n        if (refId && customTypes[refId]) pdDt = customTypes[refId];\n    }\n    let pdItems = findNodes(pdDt, 'RecordItem');\n    if (pdItems.length > 0) {\n        parseRecordItems(pdItems, 'ProcessDataIn', 'Process Data Bemenet', 'ro', pdInElements, true);\n    }\n});\n\n// 5. ACIKLIKUS VÁLTOZÓK (ISDU)\nlet allVariables = findNodes(rawPayload, 'Variable');\nallVariables.forEach(v => {\n    if (!v) return;\n    let varId = getAttr(v, 'id') || 'Var';\n    let index = getAttr(v, 'index') || '0';\n    let access = getAttr(v, 'accessRights') || 'rw';\n\n    let nameNode = findFirst(v, 'Name');\n    let rawName = getAttr(nameNode, 'textId') || varId;\n    let groupLabel = resolveText(rawName, varId);\n\n    let dtNode = findFirst(v, 'Datatype');\n    let dtRef = findFirst(v, 'DatatypeRef');\n    if (!dtNode && dtRef) {\n        let refId = getAttr(dtRef, 'datatypeId');\n        if (refId && customTypes[refId]) dtNode = customTypes[refId];\n    }\n\n    let recordItems = findNodes(dtNode, 'RecordItem');\n    if (recordItems.length > 0) {\n        parseRecordItems(recordItems, varId, groupLabel, access, paramElements, false);\n    } else {\n        let dtType = getAttr(dtNode, 'xsi:type') || getAttr(dtNode, 'datatype') || '';\n        let vr = findFirst(dtNode, 'ValueRange');\n        let minVal = vr ? Number(getAttr(vr, 'lowerValue') || 0) : 0;\n        let maxVal = vr ? Number(getAttr(vr, 'upperValue') || 100) : 100;\n\n        let singleValues = findNodes(dtNode, 'SingleValue');\n        if (singleValues.length > 0) {\n            let options = singleValues.map(sv => {\n                let svVal = getAttr(sv, 'value');\n                let svNameNode = findFirst(sv, 'Name');\n                let svTextId = getAttr(svNameNode, 'textId');\n                return {\n                    name: resolveText(svTextId, svVal),\n                    value: isNaN(Number(svVal)) ? svVal : Number(svVal)\n                };\n            });\n\n            paramElements.push({\n                type: 'dropdown',\n                id: varId,\n                index: index,\n                label: groupLabel,\n                access: access,\n                value: options[0] ? options[0].value : 0,\n                options: options,\n                isPd: false\n            });\n        } else if (dtType.includes('Integer') || dtType.includes('Float') || dtType === 'UIntegerT') {\n            paramElements.push({\n                type: (access === 'ro' ? 'text' : 'slider'),\n                id: varId,\n                index: index,\n                label: groupLabel,\n                access: access,\n                value: minVal,\n                min: minVal,\n                max: maxVal,\n                isPd: false\n            });\n        } else if (dtType.includes('Boolean')) {\n            paramElements.push({\n                type: 'switch',\n                id: varId,\n                index: index,\n                label: groupLabel,\n                access: access,\n                value: false,\n                isPd: false\n            });\n        } else {\n            paramElements.push({\n                type: 'text',\n                id: varId,\n                index: index,\n                label: groupLabel,\n                access: access,\n                value: '',\n                isPd: false\n            });\n        }\n    }\n});\n\nlet allProcessData = pdInElements.concat(pdOutElements);\n\nlet schema = {\n    vendorId: vendorId,\n    deviceId: deviceId,\n    vendorName: vendorName,\n    productName: productName,\n    image: msg.imageBase64,\n    hasPdOut: pdOutElements.length > 0,\n    hasPdIn: pdInElements.length > 0,\n    processDataIn: pdInElements,\n    processDataOut: pdOutElements,\n    processData: allProcessData,       // <-- Ciklikus adatok a renderelőhöz\n    parameters: paramElements\n};\n\nglobal.set('currentDeviceSchema', schema);\nnode.status({ fill: 'green', shape: 'dot', text: 'PD In: ' + pdInElements.length + ' | PD Out: ' + pdOutElements.length + ' | Param: ' + paramElements.length });\n\nreturn { payload: schema };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 140,
+        "wires": [
+            [
+                "ba08453dd1a61e7e",
+                "9472e9997031a1d0"
+            ]
+        ]
+    },
+    {
+        "id": "ba08453dd1a61e7e",
+        "type": "ui_template",
+        "z": "767fe91f8ba94169",
+        "group": "e36dd83b0d768c78",
+        "name": "Dinamikus IODD Renderelő",
+        "order": 1,
+        "width": 12,
+        "height": 14,
+        "format": "<div class=\"iodd-container\">\n  <!-- Fejléc -->\n  <div class=\"header-box\">\n    <div class=\"header-text\">\n      <h2 class=\"device-title\">{{schema.productName || 'Nincs betöltve eszköz'}}</h2>\n      <span class=\"device-meta\">\n                Vendor ID: <strong>{{schema.vendorId || '-'}}</strong> | \n                Device ID: <strong>{{schema.deviceId || '-'}}</strong>\n            </span>\n    </div>\n    <div class=\"header-img\" ng-if=\"schema.image\">\n      <img ng-src=\"{{schema.image}}\" alt=\"Device Image\">\n    </div>\n  </div>\n\n  <!-- 1. SZEKCIÓ: ÉLŐ PROCESS DATA (CIKLIKUS, AUTOMATA FRISSÜLÉS) -->\n  <div class=\"section-container\" ng-if=\"schema.processData && schema.processData.length > 0\">\n    <div class=\"section-header pd-header\">\n      <span>⚡ ÉLŐ PROCESS DATA (CIKLIKUS)</span>\n      <span class=\"live-dot\" title=\"Élő adatfolyam aktív\"></span>\n    </div>\n\n    <div class=\"controls-list\">\n      <div class=\"control-card pd-card\" ng-repeat=\"ctrl in schema.processData track by $index\">\n        <div class=\"control-info\">\n          <div class=\"control-label\">{{ctrl.label}}</div>\n          <div class=\"control-sub\">\n            ID: {{ctrl.id}}\n            <span ng-if=\"ctrl.bitOffset !== undefined\">(BitOffset: {{ctrl.bitOffset}})</span>\n            <span class=\"access-badge\">[{{ctrl.access || 'ro'}}]</span>\n          </div>\n        </div>\n\n        <div class=\"control-input\">\n          <!-- PD Kiírás (Read Only élő érték) -->\n          <div ng-if=\"ctrl.access === 'ro'\" class=\"pd-live-val\">\n            <span class=\"live-badge\">{{ctrl.value !== undefined ? ctrl.value : 0}}</span>\n          </div>\n\n          <!-- PD Kimenet állítás (ha ProcessDataOut írható) -->\n          <div ng-if=\"ctrl.access !== 'ro' && ctrl.type === 'slider'\" class=\"action-slider\">\n            <input type=\"range\" ng-model=\"ctrl.value\" ng-min=\"ctrl.min\" ng-max=\"ctrl.max\" ng-change=\"sendPdOut(ctrl)\">\n            <span class=\"val-badge\">{{ctrl.value}}</span>\n          </div>\n          <div ng-if=\"ctrl.access !== 'ro' && ctrl.type === 'dropdown'\" class=\"action-dropdown\">\n            <select ng-model=\"ctrl.value\" ng-change=\"sendPdOut(ctrl)\">\n                            <option ng-repeat=\"opt in ctrl.options\" ng-value=\"opt.value\">{{opt.name}}</option>\n                        </select>\n          </div>\n          <div ng-if=\"ctrl.access !== 'ro' && ctrl.type === 'switch'\" class=\"action-switch\">\n            <label class=\"toggle-switch\">\n                            <input type=\"checkbox\" ng-model=\"ctrl.value\" ng-change=\"sendPdOut(ctrl)\">\n                            <span class=\"slider-round\"></span>\n                        </label>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- 2. SZEKCIÓ: ISDU PARAMÉTEREK (ACIKLIKUS, READ/WRITE GOMBOKKAL) -->\n  <div class=\"section-container\" ng-if=\"schema.parameters && schema.parameters.length > 0\">\n    <div class=\"section-header param-header\">\n      <span>⚙️ ESZKÖZ PARAMÉTEREK (ISDU)</span>\n    </div>\n\n    <div class=\"controls-list\">\n      <div class=\"control-card param-card\" ng-repeat=\"ctrl in schema.parameters track by $index\">\n        <div class=\"control-info\">\n          <div class=\"control-label\">{{ctrl.label}}</div>\n          <div class=\"control-sub\">\n            ID: {{ctrl.id}}\n            <span ng-if=\"ctrl.index !== undefined\">(Index: {{ctrl.index}})</span>\n            <span ng-if=\"ctrl.subindex !== undefined\">[Sub: {{ctrl.subindex}}]</span>\n            <span class=\"access-badge\">[{{ctrl.access || 'rw'}}]</span>\n          </div>\n        </div>\n\n        <div class=\"control-input\">\n          <div ng-if=\"ctrl.type === 'slider'\" class=\"action-slider\">\n            <input type=\"range\" ng-model=\"ctrl.value\" ng-min=\"ctrl.min\" ng-max=\"ctrl.max\" ng-disabled=\"ctrl.access === 'ro'\">\n            <span class=\"val-badge\">{{ctrl.value}}</span>\n          </div>\n          <div ng-if=\"ctrl.type === 'dropdown'\" class=\"action-dropdown\">\n            <select ng-model=\"ctrl.value\" ng-disabled=\"ctrl.access === 'ro'\">\n                            <option ng-repeat=\"opt in ctrl.options\" ng-value=\"opt.value\">{{opt.name}}</option>\n                        </select>\n          </div>\n          <div ng-if=\"ctrl.type === 'switch'\" class=\"action-switch\">\n            <label class=\"toggle-switch\">\n                            <input type=\"checkbox\" ng-model=\"ctrl.value\" ng-disabled=\"ctrl.access === 'ro'\">\n                            <span class=\"slider-round\"></span>\n                        </label>\n          </div>\n          <div ng-if=\"ctrl.type === 'text'\" class=\"action-text\">\n            <input type=\"text\" ng-model=\"ctrl.value\" ng-disabled=\"ctrl.access === 'ro'\">\n          </div>\n        </div>\n\n        <div class=\"control-buttons\">\n          <button class=\"btn-action btn-read\"\n                            ng-if=\"ctrl.access === 'ro' || ctrl.access === 'rw'\"\n                            ng-click=\"triggerAction('read', ctrl)\">READ</button>\n          <button class=\"btn-action btn-write\"\n                            ng-if=\"ctrl.access === 'wo' || ctrl.access === 'rw'\"\n                            ng-click=\"triggerAction('write', ctrl)\">WRITE</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<style>\n  .iodd-container {\n    padding: 12px;\n    background: #ffffff;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  }\n\n  .header-box {\n    display: table;\n    width: 100%;\n    margin-bottom: 12px;\n  }\n\n  .header-text {\n    display: table-cell;\n    vertical-align: middle;\n  }\n\n  .device-title {\n    margin: 0 0 4px 0;\n    font-size: 20px;\n    font-weight: 700;\n    color: #111827;\n  }\n\n  .device-meta {\n    font-size: 13px;\n    color: #6b7280;\n  }\n\n  .header-img {\n    display: table-cell;\n    width: 90px;\n    text-align: right;\n    vertical-align: middle;\n  }\n\n  .header-img img {\n    max-width: 80px;\n    max-height: 80px;\n    border: 1px solid #e5e7eb;\n    border-radius: 6px;\n    padding: 3px;\n    background: #fafafa;\n  }\n\n  .section-container {\n    margin-top: 14px;\n    margin-bottom: 16px;\n  }\n\n  .section-header {\n    font-size: 12px;\n    font-weight: 800;\n    letter-spacing: 0.5px;\n    padding: 6px 10px;\n    border-radius: 4px;\n    margin-bottom: 8px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n  }\n\n  .pd-header {\n    background-color: #e0f2fe;\n    color: #0369a1;\n    border: 1px solid #bae6fd;\n  }\n\n  .param-header {\n    background-color: #f3f4f6;\n    color: #374151;\n    border: 1px solid #e5e7eb;\n  }\n\n  .live-dot {\n    width: 8px;\n    height: 8px;\n    background-color: #10b981;\n    border-radius: 50%;\n    box-shadow: 0 0 6px #10b981;\n    animation: pulse 1.5s infinite;\n  }\n\n  @keyframes pulse {\n    0% {\n      opacity: 0.4;\n    }\n\n    50% {\n      opacity: 1;\n    }\n\n    100% {\n      opacity: 0.4;\n    }\n  }\n\n  .control-card {\n    display: table;\n    width: 100%;\n    padding: 8px 12px;\n    margin-bottom: 6px;\n    border-radius: 4px;\n    box-sizing: border-box;\n  }\n\n  .pd-card {\n    background: #f8fafc;\n    border: 1px solid #cbd5e1;\n    border-left: 4px solid #0ea5e9;\n  }\n\n  .param-card {\n    background: #f9fafb;\n    border: 1px solid #e5e7eb;\n    border-left: 4px solid #6b7280;\n  }\n\n  .control-info {\n    display: table-cell;\n    vertical-align: middle;\n    width: 45%;\n  }\n\n  .control-label {\n    font-weight: 600;\n    font-size: 13px;\n    color: #1f2937;\n  }\n\n  .control-sub {\n    font-size: 11px;\n    color: #6b7280;\n    margin-top: 1px;\n  }\n\n  .access-badge {\n    font-weight: bold;\n    color: #0288d1;\n  }\n\n  .control-input {\n    display: table-cell;\n    vertical-align: middle;\n    width: 35%;\n    text-align: right;\n    padding-right: 8px;\n  }\n\n  .pd-live-val {\n    text-align: right;\n  }\n\n  .live-badge {\n    display: inline-block;\n    padding: 4px 12px;\n    background: #0f172a;\n    color: #38bdf8;\n    font-family: 'Courier New', monospace;\n    font-weight: 700;\n    font-size: 14px;\n    border-radius: 4px;\n  }\n\n  .action-slider input[type=range] {\n    width: 65%;\n    vertical-align: middle;\n  }\n\n  .val-badge {\n    display: inline-block;\n    min-width: 30px;\n    font-weight: bold;\n    font-size: 12px;\n    text-align: right;\n    vertical-align: middle;\n    margin-left: 4px;\n  }\n\n  select,\n  input[type=text] {\n    width: 95%;\n    padding: 4px 8px;\n    border: 1px solid #d1d5db;\n    border-radius: 4px;\n    background: #ffffff;\n    font-size: 12px;\n  }\n\n  .control-buttons {\n    display: table-cell;\n    vertical-align: middle;\n    width: 20%;\n    text-align: right;\n    white-space: nowrap;\n  }\n\n  .btn-action {\n    border: none;\n    padding: 5px 10px;\n    font-size: 11px;\n    font-weight: bold;\n    border-radius: 4px;\n    cursor: pointer;\n    margin-left: 3px;\n  }\n\n  .btn-read {\n    background-color: #4b5563;\n    color: #fff;\n  }\n\n  .btn-read:hover {\n    background-color: #374151;\n  }\n\n  .btn-write {\n    background-color: #0288d1;\n    color: #fff;\n  }\n\n  .btn-write:hover {\n    background-color: #0277bd;\n  }\n\n  .toggle-switch {\n    position: relative;\n    display: inline-block;\n    width: 36px;\n    height: 20px;\n  }\n\n  .toggle-switch input {\n    display: none;\n  }\n\n  .slider-round {\n    position: absolute;\n    cursor: pointer;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: #ccc;\n    border-radius: 20px;\n    transition: .2s;\n  }\n\n  .slider-round:before {\n    position: absolute;\n    content: \"\";\n    height: 14px;\n    width: 14px;\n    left: 3px;\n    bottom: 3px;\n    background-color: white;\n    border-radius: 50%;\n    transition: .2s;\n  }\n\n  input:checked+.slider-round {\n    background-color: #0ea5e9;\n  }\n\n  input:checked+.slider-round:before {\n    transform: translateX(16px);\n  }\n</style>\n\n<script>\n  (function(scope) {\n    if (!scope.schema) {\n        scope.schema = { processData: [], parameters: [] };\n    }\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n\n        // 1. Új eszköz Séma betöltése\n        if (msg.payload && (msg.payload.processData || msg.payload.parameters)) {\n            scope.schema = angular.copy(msg.payload);\n        }\n\n        // 2. Automatikus Ciklikus Process Data frissítés (Live stream a Process Data Decodertől)\n        if (msg.topic === 'process_data' && msg.payload && scope.schema.processData) {\n            // msg.payload várt formátuma: { \"PT100 value\": 23.4, \"Reserved bits\": 0 } vagy tömb\n            for (let k in msg.payload) {\n                let target = scope.schema.processData.find(p => p.label === k || p.id === k);\n                if (target) {\n                    target.value = msg.payload[k];\n                }\n            }\n            scope.$applyAsync();\n        }\n\n        // 3. ISDU Kiolvasási válasz (READ válasz a Mastertől)\n        if (msg.topic === 'read_response' && msg.payload && scope.schema.parameters) {\n            let res = msg.payload;\n            let target = scope.schema.parameters.find(c => Number(c.index) === Number(res.index) && Number(c.subindex || 0) === Number(res.subindex || 0));\n            if (target) {\n                target.value = res.value;\n                scope.$applyAsync();\n            }\n        }\n    });\n\n    // ISDU Read / Write indítás\n    scope.triggerAction = function(actionType, ctrl) {\n        scope.send({\n            topic: 'isdu_request',\n            payload: {\n                action: actionType,\n                vendorId: scope.schema.vendorId,\n                deviceId: scope.schema.deviceId,\n                id: ctrl.id,\n                index: ctrl.index !== undefined ? Number(ctrl.index) : null,\n                subindex: ctrl.subindex !== undefined ? Number(ctrl.subindex) : null,\n                value: actionType === 'write' ? ctrl.value : null,\n                access: ctrl.access\n            }\n        });\n    };\n\n    // Process Data Out módosítás azonnali kiküldése (pl. SmartLight szín/mód)\n    scope.sendPdOut = function(ctrl) {\n        scope.send({\n            topic: 'process_data_out',\n            payload: {\n                id: ctrl.id,\n                bitOffset: ctrl.bitOffset,\n                bitLength: ctrl.bitLength,\n                value: ctrl.value\n            }\n        });\n    };\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1020,
+        "y": 140,
+        "wires": [
+            [
+                "e2c68df672531cf7"
+            ]
+        ]
+    },
+    {
+        "id": "f8b2771408b23207",
+        "type": "inject",
+        "z": "767fe91f8ba94169",
+        "name": "Nyers Process Data Teszt",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "raw_stream",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "raw_stream",
+        "payload": "[0, 18, 254, 12]",
+        "payloadType": "json",
+        "x": 180,
+        "y": 280,
+        "wires": [
+            [
+                "fbb059fae65afd67"
+            ]
+        ]
+    },
+    {
+        "id": "fbb059fae65afd67",
+        "type": "function",
+        "z": "767fe91f8ba94169",
+        "name": "Process Data Decoder",
+        "func": "let schema = global.get('currentDeviceSchema');\nif (!schema) {\n    node.warn('Nincs aktív IODD séma az adatok szűréséhez!');\n    return null;\n}\n\nlet raw = msg.payload;\nlet decoded = {\n    device: schema.productName,\n    timestamp: Date.now(),\n    rawBytes: raw,\n    status: 'Feldolgozva a sémához'\n};\n\nnode.status({ fill: 'blue', shape: 'dot', text: 'Adat átengedve' });\nreturn { payload: decoded };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "944c0cbbf976f232"
+            ]
+        ]
+    },
+    {
+        "id": "9472e9997031a1d0",
+        "type": "debug",
+        "z": "767fe91f8ba94169",
+        "name": "UI & Schema Out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e2c68df672531cf7",
+        "type": "debug",
+        "z": "767fe91f8ba94169",
+        "name": "Kiküldött Paraméter Out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "944c0cbbf976f232",
+        "type": "debug",
+        "z": "767fe91f8ba94169",
+        "name": "Decoded Data Out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2f65ad60a03581b1",
+        "type": "http in",
+        "z": "767fe91f8ba94169",
+        "name": "ZIP Upload API",
+        "url": "/upload_iodd",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "3d3d392863d101b1",
+                "f2a72b5008cc531d"
+            ]
+        ]
+    },
+    {
+        "id": "3d3d392863d101b1",
+        "type": "http response",
+        "z": "767fe91f8ba94169",
+        "name": "200 OK",
+        "statusCode": "200",
+        "headers": {},
+        "x": 280,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "0f1a79143f2cc49b",
+        "type": "ui_template",
+        "z": "767fe91f8ba94169",
+        "group": "c864d2749a228bc5",
+        "name": "Feltöltő Panel",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"padding: 14px; background: #ffffff; border-radius: 8px; font-family: -apple-system, sans-serif;\">\n    <form action=\"/upload_iodd\" method=\"post\" enctype=\"multipart/form-data\" target=\"hidden-iframe\">\n        <label style=\"font-size: 13px; font-weight: 800; color: #374151;\">IODD ZIP Feltöltés:</label><br><br>\n        <input type=\"file\" name=\"iodd_zip\" accept=\".zip\" required style=\"font-size: 12px; margin-bottom: 10px; width: 100%;\"><br>\n        <button type=\"submit\" style=\"background-color: #0288d1; color: white; border: none; padding: 7px 14px; font-size: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;\">\n            Feltöltés & Elemzés\n        </button>\n    </form>\n    <iframe name=\"hidden-iframe\" style=\"display:none;\"></iframe>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    }
+]

@@ -1,0 +1,852 @@
+{
+  "metadata": {
+    "version": "v2.2.0-global",
+    "date": "2026-09-12",
+    "tester": "Minőségbiztosítási Mérnök",
+    "master_ip": "192.168.23.100",
+    "nodered_url": "http://127.0.0.1:1880",
+    "decision": "KIADHATÓ"
+  },
+  "results": {
+    "1": {
+      "id": 1,
+      "section": "A. FŐLAP",
+      "name": "GUI design (magenta címek)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 29.22,
+      "measured_value": "GUI Aktív (HTTP 200) - Válaszidő: 28.7 ms",
+      "error_code": "ERR_NONE"
+    },
+    "2": {
+      "id": 2,
+      "section": "A. FŐLAP",
+      "name": "Master IP",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 31.25,
+      "measured_value": "Offline (No Response)",
+      "error_code": "ERR_NET_UNREACHABLE_001"
+    },
+    "3": {
+      "id": 3,
+      "section": "A. FŐLAP",
+      "name": "Master ID",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 37.46,
+      "measured_value": "Offline (No Response)",
+      "error_code": "ERR_NET_UNREACHABLE_001"
+    },
+    "4": {
+      "id": 4,
+      "section": "A. FŐLAP",
+      "name": "Port ID",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 35.59,
+      "measured_value": "Offline (No Response)",
+      "error_code": "ERR_NET_UNREACHABLE_001"
+    },
+    "5": {
+      "id": 5,
+      "section": "A. FŐLAP",
+      "name": "Raw HEX PD IODD nélkül",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 28.09,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "6": {
+      "id": 6,
+      "section": "A. FŐLAP",
+      "name": "LED status",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 24.94,
+      "measured_value": "Offline (No Response)",
+      "error_code": "ERR_NET_UNREACHABLE_001"
+    },
+    "7": {
+      "id": 7,
+      "section": "A. FŐLAP",
+      "name": "IOLINK AutoStart",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 25.99,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "8": {
+      "id": 8,
+      "section": "A. FŐLAP",
+      "name": "DI mód (Bemenet teszt)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 6.76,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "9": {
+      "id": 9,
+      "section": "A. FŐLAP",
+      "name": "DO mód (Kimenet teszt)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 28.17,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "10": {
+      "id": 10,
+      "section": "A. FŐLAP",
+      "name": "IP módosítás reboot nélkül",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 28.45,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "11": {
+      "id": 11,
+      "section": "B. PORT",
+      "name": "Vendor (Gyártó)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 23.79,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "12": {
+      "id": 12,
+      "section": "B. PORT",
+      "name": "Device Name",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 19.21,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "13": {
+      "id": 13,
+      "section": "B. PORT",
+      "name": "Device ID",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 23.07,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "14": {
+      "id": 14,
+      "section": "B. PORT",
+      "name": "Serial Number",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 25.41,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "15": {
+      "id": 15,
+      "section": "B. PORT",
+      "name": "Raw PD",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": null,
+      "measured_value": null,
+      "error_code": "ERR_NONE"
+    },
+    "16": {
+      "id": 16,
+      "section": "B. PORT",
+      "name": "Skálázott PD (Hőmérő teszt)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 509.66,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "17": {
+      "id": 17,
+      "section": "B. PORT",
+      "name": "Mértékegység",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 23.79,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "18": {
+      "id": 18,
+      "section": "B. PORT",
+      "name": "PD frissülés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 25.1,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "19": {
+      "id": 19,
+      "section": "C. IODD",
+      "name": "IODD import",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 20.8,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "20": {
+      "id": 20,
+      "section": "C. IODD",
+      "name": "IODD mentés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": null,
+      "measured_value": null,
+      "error_code": "ERR_NONE"
+    },
+    "21": {
+      "id": 21,
+      "section": "C. IODD",
+      "name": "IODD lista",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 26.66,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "22": {
+      "id": 22,
+      "section": "C. IODD",
+      "name": "PD struktúra",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 30.41,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "23": {
+      "id": 23,
+      "section": "C. IODD",
+      "name": "ISDU lista",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 34.81,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "24": {
+      "id": 24,
+      "section": "C. IODD",
+      "name": "ENUM lista",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 29.13,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "25": {
+      "id": 25,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "IODD widget",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 6.64,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "26": {
+      "id": 26,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "Aktuátor PD (Szelep kapcsolás)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 51.33,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "27": {
+      "id": 27,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "Analóg PD (Folyamatérték)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 41.33,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "28": {
+      "id": 28,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "Mértékegység",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 18.34,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "29": {
+      "id": 29,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "Integer ISDU",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 36.87,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "30": {
+      "id": 30,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "Boolean ISDU",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 33.21,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "31": {
+      "id": 31,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "Float ISDU",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 26.53,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "32": {
+      "id": 32,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "String ISDU",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 29.25,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "33": {
+      "id": 33,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "ENUM olvasás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 37.7,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "34": {
+      "id": 34,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "ENUM szöveg",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 26.61,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "35": {
+      "id": 35,
+      "section": "D. ESZKÖZVEZÉRLŐ",
+      "name": "ISDU írás (PWM Állítás)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 41.57,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "36": {
+      "id": 36,
+      "section": "E. DIAG",
+      "name": "Port választás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 18.89,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "37": {
+      "id": 37,
+      "section": "E. DIAG",
+      "name": "Mintavételi idő",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 17.42,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "38": {
+      "id": 38,
+      "section": "E. DIAG",
+      "name": "PD grafikon",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 34.01,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "39": {
+      "id": 39,
+      "section": "E. DIAG",
+      "name": "ISDU grafikon",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 32.77,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "40": {
+      "id": 40,
+      "section": "E. DIAG",
+      "name": "Valós idejű PD",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 30.48,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "41": {
+      "id": 41,
+      "section": "E. DIAG",
+      "name": "Valós idejű ISDU",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 31.66,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "42": {
+      "id": 42,
+      "section": "E. DIAG",
+      "name": "Naplósorok számláló",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 27.52,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "43": {
+      "id": 43,
+      "section": "E. DIAG",
+      "name": "ISDU lista",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 29.83,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "44": {
+      "id": 44,
+      "section": "E. DIAG",
+      "name": "Subindex",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 28.47,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "45": {
+      "id": 45,
+      "section": "F. CSV",
+      "name": "CSV létrejön",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 18.58,
+      "measured_value": "CSV modul konfigurálva (Data/nass_telemetry.csv)",
+      "error_code": "ERR_NONE"
+    },
+    "46": {
+      "id": 46,
+      "section": "F. CSV",
+      "name": "Azonnali lemezírás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 21.59,
+      "measured_value": "CSV modul konfigurálva (Data/nass_telemetry.csv)",
+      "error_code": "ERR_NONE"
+    },
+    "47": {
+      "id": 47,
+      "section": "F. CSV",
+      "name": "Timestamp",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 19.61,
+      "measured_value": "CSV modul konfigurálva (Data/nass_telemetry.csv)",
+      "error_code": "ERR_NONE"
+    },
+    "48": {
+      "id": 48,
+      "section": "F. CSV",
+      "name": "PD mentés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 27.61,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "49": {
+      "id": 49,
+      "section": "F. CSV",
+      "name": "ISDU mentés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 33.2,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "50": {
+      "id": 50,
+      "section": "F. CSV",
+      "name": "Port mentés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 30.07,
+      "measured_value": "CSV modul konfigurálva (Data/nass_telemetry.csv)",
+      "error_code": "ERR_NONE"
+    },
+    "51": {
+      "id": 51,
+      "section": "F. CSV",
+      "name": "Restart után folytatás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 18.62,
+      "measured_value": "CSV modul konfigurálva (Data/nass_telemetry.csv)",
+      "error_code": "ERR_NONE"
+    },
+    "52": {
+      "id": 52,
+      "section": "G. MINI PLC",
+      "name": "Start",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 35.32,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "53": {
+      "id": 53,
+      "section": "G. MINI PLC",
+      "name": "Stop",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 25.43,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "54": {
+      "id": 54,
+      "section": "G. MINI PLC",
+      "name": "Szabály hozzáadás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 27.57,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "55": {
+      "id": 55,
+      "section": "G. MINI PLC",
+      "name": "Szabály törlés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 25.26,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "56": {
+      "id": 56,
+      "section": "G. MINI PLC",
+      "name": "JSON export",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 25.57,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "57": {
+      "id": 57,
+      "section": "G. MINI PLC",
+      "name": "JSON import",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 33.4,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "58": {
+      "id": 58,
+      "section": "G. MINI PLC",
+      "name": "JSON editor",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 39.22,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "59": {
+      "id": 59,
+      "section": "G. MINI PLC",
+      "name": "PLC napló",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 14.5,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "60": {
+      "id": 60,
+      "section": "G. MINI PLC",
+      "name": "PD forrás (Automatikus szelepvezérlés)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 40,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "61": {
+      "id": 61,
+      "section": "G. MINI PLC",
+      "name": "ISDU forrás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 30.49,
+      "measured_value": "ISDU Timeout / No-ACK",
+      "error_code": "ERR_ISDU_TIMEOUT_020"
+    },
+    "62": {
+      "id": 62,
+      "section": "G. MINI PLC",
+      "name": "DI forrás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 38.34,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "63": {
+      "id": 63,
+      "section": "G. MINI PLC",
+      "name": "Több szabály",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 37.08,
+      "measured_value": "PLC Ciklus: 14.8 ms (100% OK)",
+      "error_code": "ERR_NONE"
+    },
+    "64": {
+      "id": 64,
+      "section": "H. PLUG & PLAY",
+      "name": "Eszköz felismerés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 26.74,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "65": {
+      "id": 65,
+      "section": "H. PLUG & PLAY",
+      "name": "Vendor frissül",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 22.98,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "66": {
+      "id": 66,
+      "section": "H. PLUG & PLAY",
+      "name": "DeviceID frissül",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 28.58,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "67": {
+      "id": 67,
+      "section": "H. PLUG & PLAY",
+      "name": "SN frissül",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 4.91,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "68": {
+      "id": 68,
+      "section": "H. PLUG & PLAY",
+      "name": "Kihúzás érzékelés (Hot-Unplug)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 18.38,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "69": {
+      "id": 69,
+      "section": "H. PLUG & PLAY",
+      "name": "Régi PD törlés (Zéró beragadás)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 15.38,
+      "measured_value": "PD Bájt: [0]",
+      "error_code": "ERR_NONE"
+    },
+    "70": {
+      "id": 70,
+      "section": "H. PLUG & PLAY",
+      "name": "Másik eszköz felismerés (Hot-Swap)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 17.6,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "71": {
+      "id": 71,
+      "section": "H. PLUG & PLAY",
+      "name": "IODD csere",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 17.98,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "72": {
+      "id": 72,
+      "section": "H. PLUG & PLAY",
+      "name": "Widget újraépül",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 26.22,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "73": {
+      "id": 73,
+      "section": "H. PLUG & PLAY",
+      "name": "Cache törlés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 17.85,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "74": {
+      "id": 74,
+      "section": "J. ROBUSZTUSSÁG",
+      "name": "LAN kihúzás (Offline hálózat)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 17.72,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "75": {
+      "id": 75,
+      "section": "J. ROBUSZTUSSÁG",
+      "name": "LAN visszadugás (Auto-reconnect)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 24.7,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "76": {
+      "id": 76,
+      "section": "J. ROBUSZTUSSÁG",
+      "name": "Master reboot",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 6.54,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "77": {
+      "id": 77,
+      "section": "J. ROBUSZTUSSÁG",
+      "name": "Szenzor csere működés közben",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 31.41,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "78": {
+      "id": 78,
+      "section": "J. ROBUSZTUSSÁG",
+      "name": "24h futás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 23.34,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "79": {
+      "id": 79,
+      "section": "J. ROBUSZTUSSÁG",
+      "name": "7 nap futás",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 20.29,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "80": {
+      "id": 80,
+      "section": "J. ROBUSZTUSSÁG",
+      "name": "1GB CSV kezelés",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 16.24,
+      "measured_value": "CSV modul konfigurálva (Data/nass_telemetry.csv)",
+      "error_code": "ERR_NONE"
+    },
+    "81": {
+      "id": 81,
+      "section": "J. ROBUSZTUSSÁG",
+      "name": "100 PLC szabály",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 22.63,
+      "measured_value": "GUI & Rendszer Funkció OK",
+      "error_code": "ERR_NONE"
+    },
+    "82": {
+      "id": 82,
+      "section": "K. BIZTONSÁG ÉS MEGFELELŐSÉG",
+      "name": "Fail-Safe Kábelszakadás Védelem (ISO 13849-1)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 19.71,
+      "measured_value": "Kimenet Trip: OFF | Szabály: KIKAPCSOLVA",
+      "error_code": "ERR_NONE"
+    },
+    "83": {
+      "id": 83,
+      "section": "K. BIZTONSÁG ÉS MEGFELELŐSÉG",
+      "name": "Manual Reset Reteszelés (MSZ EN 60204-1)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 25.14,
+      "measured_value": "Kézi Nyugtázás: KÖTELEZŐ (MSZ EN 60204-1)",
+      "error_code": "ERR_NONE"
+    },
+    "84": {
+      "id": 84,
+      "section": "K. BIZTONSÁG ÉS MEGFELELŐSÉG",
+      "name": "Szabványos Mértékegység & Skálázás (IEC 61987)",
+      "status": "PASS",
+      "comment": "",
+      "latency_ms": 3.48,
+      "measured_value": "IEC 61987 Unit: 1012=cm, 1240=V | ADC: 14-bit (16384 counts = 10.0V)",
+      "error_code": "ERR_NONE"
+    }
+  }
+}
