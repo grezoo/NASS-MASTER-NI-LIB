@@ -1,4 +1,4 @@
-# 🏭 NASS-MASTER-NI-LIB (Nass Magnet Industrial SCADA & IO-Link Suite)
+# 🏭 NASS-MASTER-NI-Node red LIB (Nass Magnet Industrial SCADA & IO-Link Suite)
 
 **Official Repository for Nass Magnet IO-Link Control, SCADA Mimic, Mini PLC, Multilingual Global Suite, and National Instruments LabVIEW Integration.**
 
