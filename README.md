@@ -1,14 +1,41 @@
-# 🏭 NASS-MASTER-NI-LIB (Nass Magnet Industrial SCADA & IO-Link Suite)
+# 🏭 NASS-MASTER-NI-LIB: Industrial SCADA, Mini PLC & IO-Link Suite (SMI v3.0)
 
-**Official Repository for Nass Magnet IO-Link Control, SCADA Mimic, Mini PLC, Multilingual Global Suite, and National Instruments LabVIEW Integration.**
+**Official Enterprise Repository for Nass Magnet IO-Link Master Control, Real-Time SCADA Mimic, Mini PLC Logic Engine, Multilingual Suite, and National Instruments LabVIEW Integration.**
 
 [![Release](https://img.shields.io/badge/Release-v2.2.0--global-gold.svg)](https://github.com/grezoo/NASS-MASTER-NI-LIB/releases/tag/v2.2.0-global)
 [![Stable Release](https://img.shields.io/badge/Release-v2.1.0--stable-magenta.svg)](https://github.com/grezoo/NASS-MASTER-NI-LIB/releases/tag/v2.1.0-stable)
-[![Architecture](https://img.shields.io/badge/Architecture-3--Tier%20Modular-blue.svg)](#modulok)
-[![Languages](https://img.shields.io/badge/Languages-HU%20%7C%20EN%20%7C%20DE%20%7C%20FR%20%7C%20ZH%20%7C%20HI-brightgreen.svg)](#nyelvi-szótár-global-edition)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Air--Gapped%20Offline-green.svg)](#telepítésmentes-futtatás)
-[![Standard](https://img.shields.io/badge/IO--Link-IEC%2061131--9%20V1.1.3-orange.svg)](#főbb-képességek--funkciók)
+[![Branch](https://img.shields.io/badge/Branch-smi--v3.0-blueviolet.svg)](#hivatalos-kiadások--verziótörténet)
+[![Standard](https://img.shields.io/badge/IO--Link-IEC%2061131--9%20V1.1.3-orange.svg)](#specifications--főbb-képességek)
+[![Protocol](https://img.shields.io/badge/Protocol-TEConcept%20SMI%20v3.0%20REST-blue.svg)](#performance-benchmark--teljesítmény-benchmark)
+[![SCADA Engine](https://img.shields.io/badge/SCADA-Portable%20Node--RED-red.svg)](https://nodered.org/)
+[![LabVIEW](https://img.shields.io/badge/LabVIEW-NI%20VIP%20VI%20Library-yellow.svg)](#a-projekt-moduljai--project-modules)
+[![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20HU%20%7C%20DE%20%7C%20FR%20%7C%20ZH%20%7C%20HI-brightgreen.svg)](#nyelvi-szótár-global-edition)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Air--Gapped%20Zero--Install-green.svg)](#telepítésmentes-futtatás)
 
+> **High-performance, deterministic open-source alternative to the proprietary TEConcept IO-Link Control Tool.**  
+> Built for air-gapped industrial manufacturing environments, featuring portable zero-install execution, dynamic IODD 1.1 parsing, 64-bit multi-channel bit-packing, sub-25 ms latency serialization, and seamless National Instruments LabVIEW system integration.
+
+---
+
+## 🌐 Quick Technical Matrix / Rendszer Áttekintés
+
+| Parameter / Feature | Implementation Details |
+| :--- | :--- |
+| **Fieldbus / Standard** | **IO-Link Interface & System Specification (IEC 61131-9 V1.1.3)** |
+| **Master Protocol** | **TEConcept SMI v3.0 REST/JSON API** (Direct Pure Node.js socket queue, zero external STCS bridge) |
+| **Deterministic Timing** | Sub-25 ms jitter-free execution cycle, eliminated DO bounce via 800 ms state locks |
+| **SCADA & Process Mimic** | Portable Node-RED runtime, SVG process mimic canvas, 60-point Canvas telemetry charts |
+| **Embedded Logic Engine** | 500 ms real-time Mini PLC logic engine with proportional P-scaling and rule export/import |
+| **LabVIEW Integration** | National Instruments VIP/VIPM library (`.vi`), direct query, PWM, switch & power management |
+| **Device Configuration** | Dynamic XML / ZIP IODD 1.1.3 parser (Nass Magnet Smart Hub/Connector, ifm, Balluff) |
+| **Deployment Mode** | 100% Zero-Install Portable `.exe` (Air-Gapped, No Administrator Rights Required) |
+| **Internationalization** | 6-Language Enterprise Dictionary (`languages.json`: EN, HU, DE, FR, ZH, HI) |
+
+---
+
+## 🏛️ A Projekt Moduljai / Project Modules
+
+A tároló 3 szigorúan elhatárolt, önálló ipari modulból épül fel:
 ---
 
 ## 🏛️ A Projekt Moduljai
